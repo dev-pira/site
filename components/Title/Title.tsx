@@ -1,11 +1,11 @@
 import { SxProps, Typography } from "@mui/material";
 import React, { ElementType } from "react";
-import { Heading } from "../../ts/Heading";
-import Text, { TextProps } from "../Text";
+import { TextHeading } from "../../ts";
+import Text, { TextProps } from "../Text/Text";
 
 export interface TitleProps {
   children: React.ReactNode;
-  heading?: Heading | undefined;
+  heading?: TextHeading | undefined;
 }
 
 const Title: React.FC<TitleProps & TextProps> = ({
@@ -14,7 +14,7 @@ const Title: React.FC<TitleProps & TextProps> = ({
   ...textProps
 }: TitleProps & TextProps) => {
   return (
-    <Text variant={heading} component={heading} {...textProps}>
+    <Text variant={heading} component={heading} block {...textProps}>
       {children}
     </Text>
   );

@@ -1,14 +1,18 @@
 import { SxProps, Typography } from "@mui/material";
 import React, { ElementType } from "react";
 
+import { TextVariant } from "../../ts";
+
 type FontSize = string | undefined;
 
 export interface TextProps {
   children: React.ReactNode;
   component?: ElementType | undefined;
-  variant?: string;
+  variant?: TextVariant;
   color?: string | undefined;
   block?: Boolean | undefined;
+  italic?: Boolean | undefined;
+  weight?: number | undefined;
   size?: FontSize;
 }
 
@@ -18,21 +22,25 @@ const getFontSize = (size: FontSize): FontSize => {
   if (size === "normal") return "16px";
   if (size === "big") return "25px";
 
-  return undefined;
+  return size;
 };
 
 const Text: React.FC<TextProps> = ({
   children,
-  component = "p",
+  component = "div",
   variant = "body1",
   color = undefined,
   block = undefined,
+  italic = undefined,
+  weight = undefined,
   size = undefined,
 }: TextProps) => {
   const sx: SxProps = {
-    display: block && "block",
+    display: block ? "block" : "inline",
     color,
     fontSize: getFontSize(size),
+    fontWeight: weight,
+    fontStyle: italic ? "italic" : "",
   };
 
   return (

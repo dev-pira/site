@@ -1,8 +1,7 @@
 import { Button } from "@mui/material";
 import type { NextPage } from "next";
 import Head from "next/head";
-import Image from "next/image";
-import { Text, Title } from "../components";
+import { Image, Text, Title } from "../components";
 import styles from "../styles/Home.module.css";
 
 const Home: NextPage = () => {
@@ -75,6 +74,10 @@ const Home: NextPage = () => {
         <Text italic>no meio</Text> dele, sempre utilizando{" "}
         <Text weight={600}>o mesmo</Text> component
       </Text>
+      <br />
+      <div>
+        <Image src="https://www.vkf-renzel.com/out/pictures/generated/product/1/650_650_75/r12044336-01/general-warning-sign-10836-1.jpg" alt="Warning" layout="intrinsic" height={100} width={100} />
+      </div>
     </div>
   );
 };

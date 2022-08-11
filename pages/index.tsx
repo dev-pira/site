@@ -1,7 +1,7 @@
 import { Button } from "@mui/material";
 import type { NextPage } from "next";
 import Head from "next/head";
-import { Image, Text, Title } from "../components";
+import { Box, Image, Text, Title } from "../components";
 import styles from "../styles/Home.module.css";
 
 const Home: NextPage = () => {
@@ -76,7 +76,18 @@ const Home: NextPage = () => {
       </Text>
       <br />
       <div>
-        <Image src="https://www.vkf-renzel.com/out/pictures/generated/product/1/650_650_75/r12044336-01/general-warning-sign-10836-1.jpg" alt="Warning" layout="intrinsic" height={100} width={100} />
+        <Image
+          src="https://www.vkf-renzel.com/out/pictures/generated/product/1/650_650_75/r12044336-01/general-warning-sign-10836-1.jpg"
+          alt="Warning"
+          layout="intrinsic"
+          height={100}
+          width={100}
+        />
+      </div>
+      <div>
+        <Box sx={{ backgroundColor: "red", padding: "2rem", margin: "2rem" }}>
+          Hello world
+        </Box>
       </div>
     </div>
   );

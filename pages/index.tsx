@@ -1,7 +1,8 @@
 import { Button } from "@mui/material";
 import type { NextPage } from "next";
 import Head from "next/head";
-import { Image, Text, Title } from "../components";
+import { Image, Select, Text, Title } from "../components";
+import { SelectItem } from "../components/Select";
 import styles from "../styles/Home.module.css";
 
 const Home: NextPage = () => {
@@ -77,6 +78,13 @@ const Home: NextPage = () => {
       <br />
       <div>
         <Image src="https://www.vkf-renzel.com/out/pictures/generated/product/1/650_650_75/r12044336-01/general-warning-sign-10836-1.jpg" alt="Warning" layout="intrinsic" height={100} width={100} />
+      </div>
+      <div>
+        <Select id='oioioi' value="1" onChange={() => { /* do nothing */ }}>
+          <SelectItem value="1" label="teste a" />
+          <SelectItem value="2" label="teste b" />
+          <SelectItem value="3" label="teste c" />
+        </Select>
       </div>
     </div>
   );

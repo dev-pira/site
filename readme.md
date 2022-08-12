@@ -47,4 +47,4 @@ As implantações acontecerão quando o código for integrado à `main`, depois 
 
 # Licença
 
-...
+O Site da comunidade DEVPIRA está licenciado pela [MIT License](https://github.com/dev-pira/site/blob/develop/LICENSE).

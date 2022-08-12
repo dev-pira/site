@@ -1,6 +1,7 @@
 import { Button } from "@mui/material";
 import type { NextPage } from "next";
 import Head from "next/head";
+import { Box, Image, Select, Text, Title } from "../components";
 import { SelectItem } from "../components/Select";
 import styles from "../styles/Home.module.css";
 

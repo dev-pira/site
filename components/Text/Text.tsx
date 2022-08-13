@@ -7,12 +7,12 @@ type FontSize = string | undefined;
 
 export interface TextProps {
   children: React.ReactNode;
-  component?: ElementType | undefined;
+  component?: ElementType;
   variant?: TextVariant;
-  color?: string | undefined;
-  block?: Boolean | undefined;
-  italic?: Boolean | undefined;
-  weight?: number | undefined;
+  color?: string;
+  block?: boolean;
+  italic?: boolean;
+  weight?: number;
   size?: FontSize;
 }
 

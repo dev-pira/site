@@ -6,14 +6,16 @@ export interface ButtonProps {
   disabled?: boolean,
   variant?: 'text' | 'outlined' | 'contained',
   color?: 'primary' | 'transparent' | 'feature' | 'contrast',
+  startIcon?: React.ReactNode,
   onClick?: () => void
 }
 
-const Button: React.FC<ButtonProps> = ({text, disabled, variant, onClick}: ButtonProps) => {
+const Button: React.FC<ButtonProps> = ({text, disabled, startIcon, variant, onClick}: ButtonProps) => {
   return (
     <MuiButton 
       disableElevation 
       variant={variant}
+      startIcon={startIcon}
       onClick={onClick}
       disabled={disabled}
     >{text}</MuiButton>

@@ -9,5 +9,3 @@ export default {
 const Template: ComponentStory<typeof Button> = (args) => <Button {...args} />
 
 export const Primary = {args: {text: 'Hello World'}}
-
-export const Secondary = {args:{text: 'Hello World'}}

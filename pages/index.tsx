@@ -1,7 +1,8 @@
 import { Button } from "@mui/material";
 import type { NextPage } from "next";
 import Head from "next/head";
-import { Box, Image, Text, Title } from "../components";
+import { Box, Image, Select, Text, Title } from "../components";
+import { SelectItem } from "../components/Select";
 import styles from "../styles/Home.module.css";
 
 const Home: NextPage = () => {
@@ -88,6 +89,13 @@ const Home: NextPage = () => {
         <Box sx={{ backgroundColor: "red", padding: "2rem", margin: "2rem" }}>
           Hello world
         </Box>
+      </div>
+      <div>
+        <Select id='oioioi' value="1" onChange={() => { /* do nothing */ }}>
+          <SelectItem value="1" label="teste a" />
+          <SelectItem value="2" label="teste b" />
+          <SelectItem value="3" label="teste c" />
+        </Select>
       </div>
     </div>
   );

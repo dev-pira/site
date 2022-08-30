@@ -1,5 +1,5 @@
 import { Facebook, Instagram, LinkedIn } from "@mui/icons-material";
-import { AppBar, Button, Toolbar } from "@mui/material";
+import { AppBar, Button, Toolbar, Typography } from "@mui/material";
 import { Box } from "@mui/system";
 import type { NextPage } from "next";
 import React from "react";
@@ -11,12 +11,16 @@ const Home: NextPage = () => {
 
   return (
     <div>
-      <AppBar position="static">
-        <Toolbar>
-          <Box sx={{display:'block'}}>
-            {items.map(item => (<Button key={item} sx={{color: '#fff'}}>{item}</Button>))}
-          </Box>
-        </Toolbar>
+      <AppBar position="static" sx={{display: 'flex', alignItems: 'center'}}>
+        <Box sx={{display: 'flex', flexDirection: 'row', alignItems: 'center', width: '1108px'}}>
+          <Typography>DEVPIRA</Typography>
+          <Toolbar sx={{flexGrow: 1, justifyContent: 'center'}}>
+            <Box >
+              {items.map(item => (<Button key={item} sx={{color: '#fff'}}>{item}</Button>))}
+            </Box>
+          </Toolbar>
+          <Button variant="contained">Call to Action</Button>
+        </Box>
       </AppBar>
       <div>banner</div>
       <div>sobre</div>

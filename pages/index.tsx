@@ -3,11 +3,11 @@ import { AppBar, Button, Toolbar, Typography } from "@mui/material";
 import { Box } from "@mui/system";
 import type { NextPage } from "next";
 import React from "react";
-import { Text } from "../components";
 
 const Home: NextPage = () => {
 
-  const items = ['Sobre', 'Iniciativas', 'Eventos'];
+  const items = ['Sobre', 'Iniciativas', 'Eventos']
+  const defaultWidth = '1345px'
 
   return (
     <div>
@@ -22,24 +22,122 @@ const Home: NextPage = () => {
           <Button variant="contained">Call to Action</Button>
         </Box>
       </AppBar>
-      <div>banner</div>
-      <div>sobre</div>
-      <div>iniciativas</div>
-      <div>eventos</div>
+      {/* INTRO */}
+      <Box sx={{display: 'flex', flexDirection: 'row', justifyContent: 'center'}}>
+        <Box sx={{display: 'flex', width: defaultWidth, alignItems: 'center', justifyContent: 'space-around', height: '700px'}}>
+          <Box sx={{display: 'flex', width: '546px', flexDirection: 'column', gap: '24px'}}>
+            <Typography variant="h2">Comunidade que conecta pessoas e tecnologia</Typography>
+            <Typography>Participe da comunidade que está transformando a vida das pessoas de Piracicaba e região.</Typography>
+            <Box sx={{display: 'flex', flexDirection: 'row', gap: '8px'}}>
+              <Button variant="contained">Saiba mais</Button>
+              <Button variant="contained">Eventos</Button>
+            </Box>
+          </Box>
+          <Box sx={{width: '633px', height: '520px', backgroundColor: '#900'}}>Imagem bacana</Box>
+        </Box>
+      </Box>
+      {/* /INTRO */}
+      {/* SOBRE */}
+      <Box sx={{display: 'flex', flexDirection: 'row', justifyContent: 'center'}}>
+        <Box sx={{display: 'flex', width: defaultWidth, alignItems: 'center', justifyContent: 'space-around', height: '453px'}}>
+          <Box sx={{backgroundColor: '#090', width: '451px', height: '277px'}}>Imagem Bacana</Box>
+          <Box sx={{display: 'flex', width: '546px', flexDirection: 'column', gap: '24px'}}>
+            <Typography variant="h3">Sobre o DEVPIRA</Typography>
+            <Typography>
+              Turpis fusce et, nisl, bibendum viverra pretium duis nulla euismod. 
+              Ac felis velit scelerisque consectetur in morbi odio. Egestas sit ultrices mi nulla consectetur egestas ac vivamus tortor. Enim nibh ut vitae tristique. 
+              Nam vulputate lectus massa consequat tristique et suspendisse lorem. Tempor accumsan pellentesque cursus at cum nunc dolor. 
+              Lacus mattis ultricies ut turpis lectus tortor elit tellus. Risus, in a dui platea sed a. Bibendum mauris vel, magna congue.
+            </Typography>
+          </Box>
+        </Box>
+      </Box>
+      {/* /SOBRE */}
+      {/* INICIATIVAS */}
+      <Box sx={{display: 'flex', flexDirection: 'row', justifyContent: 'center', backgroundColor: '#F2F9FF'}}>
+        <Box sx={{display: 'flex', width: defaultWidth, alignItems: 'center', justifyContent: 'space-around', height: '574px'}}>
+          <Box sx={{display: 'flex', width: '546px', flexDirection: 'column', gap: '24px'}}>
+            <Typography variant="h3">Iniciativas</Typography>
+            <Typography>
+              Turpis fusce et, nisl, bibendum viverra pretium duis nulla euismod. 
+              Ac felis velit scelerisque consectetur in morbi odio. Egestas sit ultrices mi nulla consectetur egestas ac vivamus tortor. Enim nibh ut vitae tristique. 
+              Nam vulputate lectus massa consequat tristique et suspendisse lorem. Tempor accumsan pellentesque cursus at cum nunc dolor. 
+              Lacus mattis ultricies ut turpis lectus tortor elit tellus. Risus, in a dui platea sed a. Bibendum mauris vel, magna congue.
+            </Typography>
+          </Box>
+          <Box sx={{backgroundColor: '#090', width: '451px', height: '277px'}}>Imagem Bacana</Box>
+        </Box>
+      </Box>
+      {/* /INICIATIVAS */}
+      {/* EVENTOS */}
+      <Box sx={{display: 'flex', flexDirection: 'column', justifyContent: 'center', backgroundColor: '#212236;'}}>
+        <Box sx={{display: 'flex', width: defaultWidth, alignItems: 'center', justifyContent: 'space-around', height: '957px'}}>
+          <Box sx={{backgroundColor: '#090', width: '451px', height: '277px'}}>Imagem Bacana</Box>
+          <Box sx={{display: 'flex', width: '546px', flexDirection: 'column', gap: '24px'}}>
+            <Typography variant="h3">Eventos</Typography>
+            <Typography>
+              Turpis fusce et, nisl, bibendum viverra pretium duis nulla euismod. 
+              Ac felis velit scelerisque consectetur in morbi odio. Egestas sit ultrices mi nulla consectetur egestas ac vivamus tortor. Enim nibh ut vitae tristique. 
+              Nam vulputate lectus massa consequat tristique et suspendisse lorem. Tempor accumsan pellentesque cursus at cum nunc dolor. 
+              Lacus mattis ultricies ut turpis lectus tortor elit tellus. Risus, in a dui platea sed a. Bibendum mauris vel, magna congue.
+            </Typography>
+            <Box>
+              <Button variant="contained">Conhecer eventos</Button>
+            </Box>
+          </Box>
+        </Box>
+        <Box sx={{display: 'flex'}}>
+          <Box>
+            <Box>Image do banner do evento</Box>
+            <Box>
+              <Typography variant="h4">Nome do evento</Typography>
+              <Typography>Turpis fusce et, nisl, bibendum viverra pretium duis nulla euismod.</Typography>
+              <Typography>10/12/2020 às 18h00</Typography>
+              <Box>
+                <Button variant="contained">Participar</Button>
+                <Button variant="contained">Mais</Button>
+              </Box>
+            </Box>
+          </Box>
+
+          <Box>
+            <Box>Image do banner do evento</Box>
+            <Box>
+              <Typography variant="h4">Nome do evento</Typography>
+              <Typography>Turpis fusce et, nisl, bibendum viverra pretium duis nulla euismod.</Typography>
+              <Typography>10/12/2020 às 18h00</Typography>
+              <Box>
+                <Button variant="contained">Participar</Button>
+                <Button variant="contained">Mais</Button>
+              </Box>
+            </Box>
+          </Box>
+        </Box>
+      </Box>
+      {/* /EVENTOS */}
       {/* <div>vagas</div> */}
       {/* <div>parceiros</div> */}
-      <Box>
-        <Text>Acompanhe nas redes sociais</Text>
-        <Button variant="contained" href="https://www.facebook.com/DEVPIRA/" disableElevation target="_blank">
-          <Facebook /> /DEVPIRA
-        </Button>
-        <Button variant="contained" href="https://www.instagram.com/devpira_/" disableElevation target="_blank">
-          <Instagram /> /devpira_
-        </Button>
-        <Button variant="contained" href="http://linkedin.com/company/devpira" disableElevation target="_blank">
-          <LinkedIn /> /company/devpira
-        </Button>
+      {/* SOCIAL */}
+      <Box sx={{display: 'flex', flexDirection: 'row', justifyContent: 'center', backgroundColor: '#00F4AB'}}>
+        <Box sx={{display: 'flex', width: defaultWidth, alignItems: 'center', justifyContent: 'space-around', height: '367px'}}>
+          <Box sx={{display: 'flex', width: '546px', flexDirection: 'column', gap: '24px'}}>
+            <Typography variant="h3">Acompanhe nas redes sociais</Typography>
+            <Box sx={{display: 'flex', flexDirection: 'row', gap: '8px'}}>
+              <Button variant="contained" href="https://www.facebook.com/DEVPIRA/" disableElevation target="_blank">
+                <Facebook /> /DEVPIRA
+              </Button>
+              <Button variant="contained" href="https://www.instagram.com/devpira_/" disableElevation target="_blank">
+                <Instagram /> /devpira_
+              </Button>
+              <Button variant="contained" href="http://linkedin.com/company/devpira" disableElevation target="_blank">
+                <LinkedIn /> /company/devpira
+              </Button>
+            </Box>
+          </Box>
+          <Box sx={{backgroundColor: '#090', width: '451px', height: '367px'}}>Imagem Bacana</Box>
+        </Box>
       </Box>
+      {/* /SOCIAL */}
       <div>rodapé</div>
     </div>
   );

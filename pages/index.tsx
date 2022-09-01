@@ -1,7 +1,7 @@
 import { Button } from "@mui/material";
 import type { NextPage } from "next";
 import Head from "next/head";
-import { Box, Image, Select, Text, Title } from "../components";
+import { Box, Image, Select, Text, Title, Grid } from "../components";
 import { SelectItem } from "../components/Select";
 import styles from "../styles/Home.module.css";
 
@@ -17,6 +17,50 @@ const Home: NextPage = () => {
       <br />
       <br />
       Baseado nos componentes genéricos da web e frameworks como o MUI:
+      <br />
+      <br />
+      <Grid container sx={{ backgroundColor: "red" }}>
+        <Grid item sx={{ backgroundColor: "blue" }}>
+          1
+        </Grid>
+        <Grid item sx={{ backgroundColor: "green" }}>
+          2
+        </Grid>
+        <Grid item sx={{ backgroundColor: "red" }}>
+          3
+        </Grid>
+      </Grid>
+      <br />
+      <Grid container>
+        <Grid item sx={{ backgroundColor: "blue" }}>
+          1
+        </Grid>
+        <Grid item xs={6} sx={{ backgroundColor: "green" }}>
+          2
+        </Grid>
+        <Grid item sx={{ backgroundColor: "red" }}>
+          3
+        </Grid>
+      </Grid>
+      <br />
+      <Grid container>
+        <Grid item sx={{ backgroundColor: "blue" }}>
+          1
+        </Grid>
+        <Grid
+          item
+          sm={10}
+          md={8}
+          lg={1}
+          xl={3}
+          sx={{ backgroundColor: "green" }}
+        >
+          2
+        </Grid>
+        <Grid item sx={{ backgroundColor: "red" }}>
+          3
+        </Grid>
+      </Grid>
       <br />
       <input type="text" />
       <br />
@@ -91,7 +135,13 @@ const Home: NextPage = () => {
         </Box>
       </div>
       <div>
-        <Select id='oioioi' value="1" onChange={() => { /* do nothing */ }}>
+        <Select
+          id="oioioi"
+          value="1"
+          onChange={() => {
+            /* do nothing */
+          }}
+        >
           <SelectItem value="1" label="teste a" />
           <SelectItem value="2" label="teste b" />
           <SelectItem value="3" label="teste c" />

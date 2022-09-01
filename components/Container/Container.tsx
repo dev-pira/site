@@ -1,4 +1,4 @@
-import { Container as MuiContainer, SxProps, Theme } from "@mui/material";
+import { Container as MuiContainer } from "@mui/material";
 import React from "react";
 
 interface BoxProps {

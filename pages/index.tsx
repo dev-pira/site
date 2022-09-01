@@ -1,7 +1,7 @@
 import { Button } from "@mui/material";
 import type { NextPage } from "next";
 import Head from "next/head";
-import { Box, Image, Select, Text, Title } from "../components";
+import { Box, Image, Select, Text, Title, Container } from "../components";
 import { SelectItem } from "../components/Select";
 import styles from "../styles/Home.module.css";
 
@@ -17,6 +17,8 @@ const Home: NextPage = () => {
       <br />
       <br />
       Baseado nos componentes genéricos da web e frameworks como o MUI:
+      <br />
+      <Container>Teste de um container</Container>
       <br />
       <input type="text" />
       <br />
@@ -91,7 +93,13 @@ const Home: NextPage = () => {
         </Box>
       </div>
       <div>
-        <Select id='oioioi' value="1" onChange={() => { /* do nothing */ }}>
+        <Select
+          id="oioioi"
+          value="1"
+          onChange={() => {
+            /* do nothing */
+          }}
+        >
           <SelectItem value="1" label="teste a" />
           <SelectItem value="2" label="teste b" />
           <SelectItem value="3" label="teste c" />

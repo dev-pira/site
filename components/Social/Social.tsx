@@ -14,7 +14,7 @@ const Social: React.FC = () => {
             <Button variant="contained" href="https://www.instagram.com/devpira_/" disableElevation target="_blank">
                 <Instagram /> /devpira_
             </Button>
-            <Button variant="contained" href="http://linkedin.com/company/devpira" disableElevation target="_blank">
+            <Button variant="contained" href="https://linkedin.com/company/devpira" disableElevation target="_blank">
                 <LinkedIn /> /company/devpira
             </Button>
             </Box>

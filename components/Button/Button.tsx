@@ -1,23 +1,25 @@
-import { SxProps, Typography } from "@mui/material";
-import React, { ElementType } from "react";
-import { TextHeading } from "../../ts/TextHeading";
-import Text, { TextProps } from "../Text/Text";
+import { Button as MuiButton } from "@mui/material";
+import React from "react";
 
-export interface TitleProps {
-  children: React.ReactNode;
-  heading?: TextHeading | undefined;
+export interface ButtonProps {
+  text: string,
+  disabled?: boolean,
+  variant?: 'text' | 'outlined' | 'contained',
+  color?: 'primary' | 'transparent' | 'feature' | 'contrast',
+  startIcon?: React.ReactNode,
+  onClick?: () => void
 }
 
-const Title: React.FC<TitleProps & TextProps> = ({
-  children,
-  heading = "h6",
-  ...textProps
-}: TitleProps & TextProps) => {
+const Button: React.FC<ButtonProps> = ({text, disabled, startIcon, variant, onClick}: ButtonProps) => {
   return (
-    <Text variant={heading} component={heading} {...textProps}>
-      {children}
-    </Text>
+    <MuiButton 
+      disableElevation 
+      variant={variant}
+      startIcon={startIcon}
+      onClick={onClick}
+      disabled={disabled}
+    >{text}</MuiButton>
   );
 };
 
-export default Title;
+export default Button;

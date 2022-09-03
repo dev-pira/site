@@ -13,12 +13,12 @@ const Home: NextPage = () => {
 
   return (
     <div>
-      <AppBar position="static" sx={{display: 'flex', alignItems: 'center'}}>
+      <AppBar position="static" color="transparent" sx={{display: 'flex', alignItems: 'center', boxShadow: 'none'}}>
         <Box sx={{display: 'flex', flexDirection: 'row', alignItems: 'center', width: '1108px'}}>
           <Typography>DEVPIRA</Typography>
           <Toolbar sx={{flexGrow: 1, justifyContent: 'center'}}>
             <Box >
-              {items.map(item => (<Button key={item} sx={{color: '#fff'}}>{item}</Button>))}
+              {items.map(item => (<Button key={item}>{item}</Button>))}
             </Box>
           </Toolbar>
           <Button variant="contained">Call to Action</Button>
@@ -96,7 +96,7 @@ const Home: NextPage = () => {
 
             {cards.map((key) => {
               return <Box key={key} sx={{width: '255px', borderRadius: '10px', background: '#2B2C3E'}}>
-                      <Box sx={{height: '159px', background: 'linear-gradient(180deg, #00BE85 0%, #1E90FF 100%)'}}>Image do banner do evento</Box>
+                      <Box sx={{height: '159px', background: 'linear-gradient(180deg, #00BE85 0%, #1E90FF 100%)', borderTopLeftRadius: '10px', borderTopRightRadius: '10px'}}>Image do banner do evento</Box>
                       <Box sx={{display: 'flex', padding: '24px', flexDirection: 'column', gap: '8px', color: 'white'}}>
                         <Typography variant="h4">Nome do evento</Typography>
                         <Typography>Turpis fusce et, nisl, bibendum viverra pretium duis nulla euismod.</Typography>
@@ -114,8 +114,6 @@ const Home: NextPage = () => {
         </Box>
       </Box>
       {/* /EVENTOS */}
-      {/* <div>vagas</div> */}
-      {/* <div>parceiros</div> */}
       {/* SOCIAL */}
       <Box sx={{display: 'flex', flexDirection: 'row', justifyContent: 'center', backgroundColor: '#00F4AB'}}>
         <Box sx={{display: 'flex', width: defaultWidth, alignItems: 'center', justifyContent: 'space-around', height: '367px'}}>
@@ -137,7 +135,16 @@ const Home: NextPage = () => {
         </Box>
       </Box>
       {/* /SOCIAL */}
-      <div>rodapé</div>
+      <AppBar position="static" color="transparent" sx={{display: 'flex', alignItems: 'center'}}>
+        <Box sx={{display: 'flex', flexDirection: 'row', alignItems: 'center', width: '1108px'}}>
+          <Typography>DEVPIRA</Typography>
+          <Toolbar sx={{flexGrow: 1, justifyContent: 'end'}}>
+            <Box >
+              {items.map(item => (<Button key={item}>{item}</Button>))}
+            </Box>
+          </Toolbar>
+        </Box>
+      </AppBar>
     </div>
   );
 };

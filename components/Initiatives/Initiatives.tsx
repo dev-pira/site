@@ -1,4 +1,5 @@
 import { Box, Typography } from "@mui/material"
+import Image from "next/image"
 
 const Initiatives: React.FC = () => {
     const defaultWidth = '1345px'
@@ -13,7 +14,7 @@ const Initiatives: React.FC = () => {
                 Lacus mattis ultricies ut turpis lectus tortor elit tellus. Risus, in a dui platea sed a. Bibendum mauris vel, magna congue.
                 </Typography>
             </Box>
-            <Box sx={{backgroundColor: '#090', width: '451px', height: '277px'}}>Imagem Bacana</Box>
+            <Image alt="" src="/images/Initiatives.png" width="451px" height="397px" />
         </Box>
     </Box>
 }

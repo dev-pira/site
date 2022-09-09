@@ -27,7 +27,7 @@ const SocialButton: React.FC<SocialButtonProps> = ({children, midia, href}: Soci
         <Button
             variant="contained"
             startIcon={startIcon}
-            sx={{backgroundColor: 'white', color: '#212236'}}
+            sx={{backgroundColor: 'white', color: '#212236', textTransform: 'lowercase'}}
             href={href}
             target='_blank'>/{children}</Button>
     )

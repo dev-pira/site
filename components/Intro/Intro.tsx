@@ -1,5 +1,6 @@
-import { Box, Button, Typography } from "@mui/material"
+import { Box, Typography } from "@mui/material"
 import Image from "next/image"
+import { Button } from "../Button"
 
 const Intro: React.FC = () => {
     const defaultWidth = '1345px'
@@ -9,8 +10,8 @@ const Intro: React.FC = () => {
                 <Typography variant="h2">Comunidade que conecta pessoas e tecnologia</Typography>
                 <Typography>Participe da comunidade que está transformando a vida das pessoas de Piracicaba e região.</Typography>
                 <Box sx={{display: 'flex', flexDirection: 'row', gap: '8px'}}>
-                <Button variant="contained">Saiba mais</Button>
-                <Button variant="contained">Eventos</Button>
+                <Button>Saiba mais</Button>
+                <Button color="contrast">Eventos</Button>
                 </Box>
             </Box>
             <Image alt="" src="/images/Intro.svg" width="633px" height="520px" />

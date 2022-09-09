@@ -1,16 +1,16 @@
-import { Button } from "@mui/material"
 import FacebookIcon from '@mui/icons-material/Facebook'
 import InstagramIcon from '@mui/icons-material/Instagram'
 import LinkedInIcon from '@mui/icons-material/LinkedIn'
+import { Button } from '@mui/material'
 
 export interface SocialButtonProps {
-    text: string,
+    children: React.ReactNode,
     disabled?: boolean,
     midia: 'facebook' | 'linkedin' | 'instagram',
-    onClick?: () => void
+    href: string
 }
 
-const SocialButton: React.FC<SocialButtonProps> = ({midia, text, onClick}: SocialButtonProps) => {
+const SocialButton: React.FC<SocialButtonProps> = ({children, midia, href}: SocialButtonProps) => {
     let startIcon: React.ReactNode
     switch (midia) {
         case 'facebook':
@@ -27,7 +27,9 @@ const SocialButton: React.FC<SocialButtonProps> = ({midia, text, onClick}: Socia
         <Button
             variant="contained"
             startIcon={startIcon}
-            onClick={onClick}>/{text}</Button>
+            sx={{backgroundColor: 'white', color: '#212236'}}
+            href={href}
+            target='_blank'>/{children}</Button>
     )
 }
 

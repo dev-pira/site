@@ -55,9 +55,9 @@ Enim nibh ut vitae tristique. Nam vulputate lectus massa consequat tristique et 
                 </Box>
             </Box>
             <div>Trilhas/Speakers</div>
-            <Box>
-                <Box>
-                    <Box>
+            <Box sx={{height: '442px', display:'flex',flexDirection: 'row', justifyContent: 'center', alignItems: 'center'}}>
+                <Box sx={{width: defaultWidth, display: 'flex', gap: '110px'}}>
+                    <Box sx={{flex: 1, display: 'flex'}}>
                         <Grid container>
                             {apoiadores.map((key) => {
                                 return (
@@ -66,10 +66,12 @@ Enim nibh ut vitae tristique. Nam vulputate lectus massa consequat tristique et 
                             })}
                         </Grid>
                     </Box>
-                    <Box>
-                        <Typography>Apoio</Typography>
+                    <Box sx={{flex: 1, display: 'flex', flexDirection: 'column', gap: '24px'}}>
+                        <Typography variant="h3">Apoio</Typography>
                         <Typography>Turpis fusce et, nisl, bibendum viverra pretium duis nulla euismod. Ac felis velit scelerisque consectetur in morbi odio. Egestas sit ultrices mi nulla consectetur egestas ac vivamus tortor. Enim nibh ut vitae tristique.</Typography>
-                        <Button variant="contained" text="Apoiar o evento" />
+                        <Box>
+                            <Button variant="contained" text="Apoiar o evento" />
+                        </Box>
                     </Box>
                 </Box>
             </Box>

@@ -2,9 +2,13 @@ import { Facebook, Instagram, LinkedIn } from "@mui/icons-material"
 import { Box, Button, Typography } from "@mui/material"
 import Image from "next/image"
 
-const Social: React.FC = () => {
+export interface SocialProps {
+    color?: 'green' | 'blue'
+}
+
+const Social: React.FC<SocialProps> = ({color = 'green'}:SocialProps) => {
     const defaultWidth = '1345px'
-    return <Box sx={{display: 'flex', flexDirection: 'row', justifyContent: 'center', backgroundColor: '#00F4AB'}}>
+    return <Box sx={{display: 'flex', flexDirection: 'row', justifyContent: 'center', backgroundColor: color === 'blue'? '#46A4FF':'#00F4AB'}}>
         <Box sx={{display: 'flex', width: defaultWidth, alignItems: 'center', justifyContent: 'space-around', height: '367px'}}>
             <Box sx={{display: 'flex', width: '546px', flexDirection: 'column', gap: '24px'}}>
                 <Typography variant="h3">Acompanhe nas redes sociais</Typography>

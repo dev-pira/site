@@ -1,4 +1,3 @@
-import { Box, Typography } from "@mui/material";
 import { NextPage } from "next";
 import { EventDetailContent } from "../components/EventDetailContent";
 import { EventDetailInfo } from "../components/EventDetailInfo";

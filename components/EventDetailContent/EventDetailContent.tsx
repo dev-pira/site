@@ -19,14 +19,14 @@ const EventDetailContent: React.FC<EventDetailContentProps> = ({tracks}:EventDet
             <Box sx={{height: '688px', display:'flex',flexDirection: 'row', justifyContent: 'center', alignItems: 'center', background: '#212236'}}>
                 <Box sx={{width: defaultWidth, display: 'flex', flexDirection: 'column', alignItems: 'flex-start', gap: '24px'}}>
                     <Typography variant="h3" sx={{color: 'white'}}>Conteúdo</Typography>
-                    {tracks.map((track) => {
+                    {tracks.map((track, index) => {
                         let talksBlock
                         if (track.talks) {
                             talksBlock = <Box sx={{display: 'flex', gap: '36px'}}>
                                 {track.talks.map((talk) => {
                                     const talkTime = `${talk.time.getHours().toString().padStart(2, '0')}h${talk.time.getMinutes().toString().padStart(2, '0')}`
                                     return (
-                                        <Box key={talk.title} sx={{background: 'white', borderRadius: '10px'}}>
+                                        <Box key={index} sx={{background: 'white', borderRadius: '10px'}}>
                                             <Box sx={{background: 'linear-gradient(180.06deg, rgba(33, 34, 54, 0.15) 0.05%, #212236 74.97%)', color: 'white', display: 'flex', flexDirection: 'column', justifyContent: 'space-between', height: '362px', width: '254px'}}>
                                                 <Box sx={{display: 'flex', flexDirection: 'row', justifyContent: 'flex-end', padding: '16px'}}>
                                                     <Box>{talkTime}</Box>

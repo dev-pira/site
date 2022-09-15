@@ -8,4 +8,4 @@ export default {
 
 const Template: ComponentStory<typeof SocialButton> = (args) => <SocialButton {...args} />
 
-export const Primary = {args: {text: 'Hello World'}}
+export const Primary = {args: {children: 'Hello World'}}

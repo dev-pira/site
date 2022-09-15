@@ -10,10 +10,10 @@ const EventPartners: React.FC<EventPartnersProps> = ({partners}:EventPartnersPro
     let partnersBlock
     if (partners) {
         partnersBlock = <Grid container sx={{display: 'flex', gap: '16px'}}>
-            {partners.map((key) => {
+            {partners.map((partner, index) => {
                 return (
-                    <Box key={key} sx={{background: '#f1f3f5', border: '1px solid #c0c0c0', width: '171px', height: '78px', display: 'flex', justifyContent: 'center', alignItems: 'center', color: 'rgba(179,180,211,.2)'}}>
-                        {`Apoiador ${key}`}
+                    <Box key={index} sx={{background: '#f1f3f5', border: '1px solid #c0c0c0', width: '171px', height: '78px', display: 'flex', justifyContent: 'center', alignItems: 'center', color: 'rgba(179,180,211,.2)'}}>
+                        {`Apoiador ${partner}`}
                     </Box>
                 )
             })}

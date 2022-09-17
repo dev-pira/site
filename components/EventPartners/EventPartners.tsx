@@ -32,7 +32,7 @@ const EventPartners: React.FC<EventPartnersProps> = ({partners}:EventPartnersPro
                     <Typography variant="h3">Apoio</Typography>
                     <Typography>Turpis fusce et, nisl, bibendum viverra pretium duis nulla euismod. Ac felis velit scelerisque consectetur in morbi odio. Egestas sit ultrices mi nulla consectetur egestas ac vivamus tortor. Enim nibh ut vitae tristique.</Typography>
                     <Box>
-                        <Button variant="contained" text="Apoiar o evento" />
+                        <Button>Apoiar o evento</Button>
                     </Box>
                 </Box>
             </Box>

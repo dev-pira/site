@@ -18,8 +18,8 @@ const EventDetailIntro: React.FC<EventDetailIntroProps> = ({shortDescription, ti
                     </Box>
                     <Typography>{shortDescription}</Typography>
                     <Box sx={{display: 'flex', gap: '8px'}}>
-                        <Button variant="contained" text="Inscriva-se" />
-                        <Button variant="contained" text="Detalhes" />
+                        <Button color="feature">Inscriva-se</Button>
+                        <Button color="transparent">Detalhes</Button>
                     </Box>
                 </Box>
             </Box>

@@ -1,6 +1,6 @@
-import { Facebook, Instagram, LinkedIn } from "@mui/icons-material"
-import { Box, Button, Typography } from "@mui/material"
+import { Box, Typography } from "@mui/material"
 import Image from "next/image"
+import { SocialButton } from "../SocialButton"
 
 export interface SocialProps {
     color?: 'green' | 'blue'
@@ -13,15 +13,9 @@ const Social: React.FC<SocialProps> = ({color = 'green'}:SocialProps) => {
             <Box sx={{display: 'flex', width: '546px', flexDirection: 'column', gap: '24px'}}>
                 <Typography variant="h3">Acompanhe nas redes sociais</Typography>
                 <Box sx={{display: 'flex', flexDirection: 'row', gap: '8px'}}>
-                <Button variant="contained" href="https://www.facebook.com/DEVPIRA/" disableElevation target="_blank">
-                    <Facebook /> /DEVPIRA
-                </Button>
-                <Button variant="contained" href="https://www.instagram.com/devpira_/" disableElevation target="_blank">
-                    <Instagram /> /devpira_
-                </Button>
-                <Button variant="contained" href="https://linkedin.com/company/devpira" disableElevation target="_blank">
-                    <LinkedIn /> /company/devpira
-                </Button>
+                    <SocialButton midia="facebook" href="https://www.facebook.com/DEVPIRA/">DEVPIRA</SocialButton>
+                    <SocialButton midia="instagram" href="https://www.instagram.com/devpira_/">devpira</SocialButton>
+                    <SocialButton midia="linkedin" href="https://linkedin.com/company/devpira">company/devpira</SocialButton>
                 </Box>
             </Box>
             <Box sx={{width: '359px', height: '367px', display: 'flex', alignItems: 'flex-end'}}>

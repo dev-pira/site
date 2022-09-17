@@ -1,5 +1,6 @@
-import { Box, Button, Typography } from "@mui/material"
+import { Box, Typography } from "@mui/material"
 import Image from "next/image"
+import { Button } from "../Button"
 
 const Events: React.FC = () => {
     const defaultWidth = '1345px'
@@ -18,7 +19,7 @@ const Events: React.FC = () => {
                     Lacus mattis ultricies ut turpis lectus tortor elit tellus. Risus, in a dui platea sed a. Bibendum mauris vel, magna congue.
                 </Typography>
                 <Box>
-                    <Button variant="contained">Conhecer eventos</Button>
+                    <Button color="contrast">Conhecer eventos</Button>
                 </Box>
                 </Box>
             </Box>
@@ -34,8 +35,8 @@ const Events: React.FC = () => {
                             <Typography>Turpis fusce et, nisl, bibendum viverra pretium duis nulla euismod.</Typography>
                             <Typography>10/12/2020 às 18h00</Typography>
                             <Box sx={{display: 'flex', flexDirection: 'row', gap: '8px'}}>
-                            <Button variant="contained">Participar</Button>
-                            <Button variant="contained">Mais</Button>
+                            <Button color="contrast">Participar</Button>
+                            <Button color="transparent">Mais</Button>
                             </Box>
                         </Box>
                         </Box>

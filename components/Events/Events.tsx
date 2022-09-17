@@ -1,10 +1,29 @@
 import { Box, Typography } from "@mui/material"
 import Image from "next/image"
+import { EventCard } from "../EventCard"
 import { Button } from "../Button"
+
 
 const Events: React.FC = () => {
     const defaultWidth = '1345px'
-    const cards = [1,2,3,4]
+    const events = [{
+        description: 'Turpis fusce et, nisl, bibendum viverra pretium duis nulla euismod.',
+        detailsLink: 'https://www.google.com',
+        participateLink: 'https://www.google.com',
+        title: 'Nome do evento'
+    },{
+        description: 'Turpis fusce et, nisl, bibendum viverra pretium duis nulla euismod.',
+        detailsLink: 'https://www.google.com',
+        title: 'Nome do evento'
+    },{
+        description: 'Turpis fusce et, nisl, bibendum viverra pretium duis nulla euismod.',
+        detailsLink: 'https://www.google.com',
+        title: 'Nome do evento'
+    },{
+        description: 'Turpis fusce et, nisl, bibendum viverra pretium duis nulla euismod.',
+        detailsLink: 'https://www.google.com',
+        title: 'Nome do evento'
+    }]
     return <Box sx={{display: 'flex', flexDirection: 'row', justifyContent: 'center', backgroundColor: '#212236;'}}>
         <Box sx={{display: 'flex', flexDirection: 'column', height: '957px', justifyContent: 'space-around'}}>
             {/* DESCRIPTION */}
@@ -26,22 +45,15 @@ const Events: React.FC = () => {
             {/* /DESCRIPTION */}
             {/* CARDS */}
             <Box sx={{display: 'flex', width: defaultWidth, flexDirection: 'row', justifyContent: 'center', alignItems: 'center', gap: '30px'}}>
-
-                {cards.map((key) => {
-                return <Box key={key} sx={{width: '255px', borderRadius: '10px', background: '#2B2C3E'}}>
-                        <Box sx={{height: '159px', background: 'linear-gradient(180deg, #00BE85 0%, #1E90FF 100%)', borderTopLeftRadius: '10px', borderTopRightRadius: '10px'}}>Image do banner do evento</Box>
-                        <Box sx={{display: 'flex', padding: '24px', flexDirection: 'column', gap: '8px', color: 'white'}}>
-                            <Typography variant="h4">Nome do evento</Typography>
-                            <Typography>Turpis fusce et, nisl, bibendum viverra pretium duis nulla euismod.</Typography>
-                            <Typography>10/12/2020 às 18h00</Typography>
-                            <Box sx={{display: 'flex', flexDirection: 'row', gap: '8px'}}>
-                            <Button color="contrast">Participar</Button>
-                            <Button color="transparent">Mais</Button>
-                            </Box>
-                        </Box>
-                        </Box>
+                {events.map((eventData) => {
+                    return <EventCard key={eventData.title} 
+                        title={eventData.title}
+                        description={eventData.description}
+                        detailsLink={eventData.detailsLink}
+                        participateLink={eventData.participateLink}
+                        color='primary'
+                        dateTime={new Date()} />
                 })}
-                
             </Box>
             {/* /CARDS */}
         </Box>

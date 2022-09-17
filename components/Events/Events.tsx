@@ -1,6 +1,8 @@
-import { Box, Button, Typography } from "@mui/material"
+import { Box, Typography } from "@mui/material"
 import Image from "next/image"
 import { EventCard } from "../EventCard"
+import { Button } from "../Button"
+
 
 const Events: React.FC = () => {
     const defaultWidth = '1345px'
@@ -36,14 +38,13 @@ const Events: React.FC = () => {
                     Lacus mattis ultricies ut turpis lectus tortor elit tellus. Risus, in a dui platea sed a. Bibendum mauris vel, magna congue.
                 </Typography>
                 <Box>
-                    <Button variant="contained">Conhecer eventos</Button>
+                    <Button color="contrast">Conhecer eventos</Button>
                 </Box>
                 </Box>
             </Box>
             {/* /DESCRIPTION */}
             {/* CARDS */}
             <Box sx={{display: 'flex', width: defaultWidth, flexDirection: 'row', justifyContent: 'center', alignItems: 'center', gap: '30px'}}>
-
                 {events.map((eventData) => {
                     return <EventCard key={eventData.title} 
                         title={eventData.title}
@@ -53,7 +54,6 @@ const Events: React.FC = () => {
                         color='primary'
                         dateTime={new Date()} />
                 })}
-                
             </Box>
             {/* /CARDS */}
         </Box>

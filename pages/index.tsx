@@ -1,5 +1,4 @@
 import type { NextPage } from "next";
-import React from "react";
 import { About } from "../components/About";
 import { Events } from "../components/Events";
 import { Footer } from "../components/Footer";

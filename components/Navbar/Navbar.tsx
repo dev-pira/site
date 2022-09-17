@@ -1,4 +1,5 @@
-import { AppBar, Box, Button, Toolbar, Typography } from "@mui/material"
+import { AppBar, Box, Toolbar, Typography } from "@mui/material"
+import { Button } from "../Button"
 
 const Navbar: React.FC = () => {
     const defaultWidth = '1345px'
@@ -8,7 +9,7 @@ const Navbar: React.FC = () => {
         <Typography>DEVPIRA</Typography>
         <Toolbar sx={{flexGrow: 1, justifyContent: 'center'}}>
             <Box >
-            {items.map(item => (<Button key={item}>{item}</Button>))}
+            {items.map(item => (<Button variant="text" key={item}>{item}</Button>))}
             </Box>
         </Toolbar>
         <Button variant="contained">Call to Action</Button>

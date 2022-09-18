@@ -1,5 +1,6 @@
-import { Box, Button, Typography } from "@mui/material"
+import { Box, SxProps, Typography } from "@mui/material"
 import { Key } from "react"
+import { Button } from "../Button"
 
 export interface EventCardProps {
     color: 'primary' | 'contrast'
@@ -9,7 +10,8 @@ export interface EventCardProps {
     description?: string,
     dateTime: Date,
     detailsLink: string,
-    participateLink?: string
+    participateLink?: string,
+    shadowed?: boolean
 }
 
 const EventCard: React.FC<EventCardProps> = ({
@@ -20,11 +22,12 @@ const EventCard: React.FC<EventCardProps> = ({
     image, 
     key, 
     participateLink, 
-    title
+    title,
+    shadowed
 }: EventCardProps) => {
     let participateNode
     if (participateLink) {
-        participateNode = <Button variant="contained" href={participateLink}>Participar</Button>
+        participateNode = <Button href={participateLink}>Participar</Button>
     }
     let formatedDateTime = `${dateTime.getDate()}/${dateTime.getMonth()+1}/${dateTime.getFullYear()}`
     if (dateTime.getHours() || dateTime.getMinutes()) {
@@ -42,20 +45,26 @@ const EventCard: React.FC<EventCardProps> = ({
         cardImageBackgroundColor = '#F1F3F5'
     }
 
-    return (<Box key={key} sx={{width: '255px', borderRadius: '10px', background: cardBackgroundColor}}>
-        <Box sx={{height: '159px', background: cardImageBackgroundColor, borderTopLeftRadius: '10px', borderTopRightRadius: '10px', display: 'flex', justifyContent: 'center', alignItems: 'center', padding: '12px'}}>
-            <Typography sx={{color: 'rgba(33,34,54,.2)', fontSize: '24px', textAlign: 'center'}}>Imagem do banner do evento</Typography>
-        </Box>
-        <Box sx={{display: 'flex', padding: '24px', flexDirection: 'column', gap: '8px'}}>
-            <Typography variant="h4" sx={{color: cardTitleColor}}>{title}</Typography>
-            <Typography sx={{color: cardDescriptionColor}}>{description}</Typography>
-            <Typography sx={{color: cardDateColor}}>{formatedDateTime}</Typography>
-            <Box sx={{display: 'flex', flexDirection: 'row', gap: '8px'}}>
-                {participateNode}
-                <Button variant="contained" href={detailsLink} sx={{flex: 1}}>Mais</Button>
+    const cardsx: SxProps = {width: '255px', borderRadius: '10px', background: cardBackgroundColor}
+    if (shadowed) {
+        cardsx.boxShadow = '0px 4px 24px rgba(30, 144, 255, .14)'
+    }
+
+    return (
+        <Box key={key} sx={cardsx}>
+            <Box sx={{height: '159px', background: cardImageBackgroundColor, borderTopLeftRadius: '10px', borderTopRightRadius: '10px', display: 'flex', justifyContent: 'center', alignItems: 'center', padding: '12px'}}>
+                <Typography sx={{color: 'rgba(33,34,54,.2)', fontSize: '24px', textAlign: 'center'}}>Imagem do banner do evento</Typography>
             </Box>
-        </Box>
-    </Box>)
+            <Box sx={{display: 'flex', padding: '24px', flexDirection: 'column', gap: '8px'}}>
+                <Typography variant="h4" sx={{color: cardTitleColor}}>{title}</Typography>
+                <Typography sx={{color: cardDescriptionColor}}>{description}</Typography>
+                <Typography sx={{color: cardDateColor}}>{formatedDateTime}</Typography>
+                <Box sx={{display: 'flex', flexDirection: 'row', gap: '8px'}}>
+                    {participateNode}
+                    <Button color="contrast" href={detailsLink} expanded>Mais</Button>
+                </Box>
+            </Box>
+        </Box>)
 }
 
 export default EventCard

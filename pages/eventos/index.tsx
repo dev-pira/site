@@ -3,6 +3,7 @@ import React from "react";
 import { Footer } from "../../components/Footer";
 import { Initiatives } from "../../components/Initiatives";
 import { Navbar } from "../../components/Navbar";
+<<<<<<< HEAD
 import { Box } from "../../components/Box";
 import { EventCard } from "../../components/EventCard";
 
@@ -97,6 +98,39 @@ const Event: NextPage = () => {
           </Box>
         </Box>
       </Box>
+=======
+import { EventsIntro } from "../../components/EventsIntro";
+import { EventsContent } from "../../components/EventsContent";
+
+const Event: NextPage = () => {
+  const events = [{
+      description: 'Turpis fusce et, nisl, bibendum viverra pretium duis nulla euismod.',
+      detailsLink: 'https://www.google.com',
+      participateLink: 'https://www.google.com',
+      title: 'Nome do evento',
+      type: 'Meetup'
+  },{
+      description: 'Turpis fusce et, nisl, bibendum viverra pretium duis nulla euismod.',
+      detailsLink: 'https://www.google.com',
+      title: 'Nome do evento',
+      type: 'Meetup'
+  },{
+      description: 'Turpis fusce et, nisl, bibendum viverra pretium duis nulla euismod.',
+      detailsLink: 'https://www.google.com',
+      title: 'Nome do evento',
+      type: 'Meetup'
+  },{
+      description: 'Turpis fusce et, nisl, bibendum viverra pretium duis nulla euismod.',
+      detailsLink: 'https://www.google.com',
+      title: 'Nome do evento',
+      type: 'Meetup'
+  }]
+  return (
+    <div>
+      <Navbar />
+      <EventsIntro />
+      <EventsContent events={events} />
+>>>>>>> b20937c6dcf98822fcd1e0c8c4e2bfa4e90104ea
       <Initiatives />
       <Footer />
     </div>

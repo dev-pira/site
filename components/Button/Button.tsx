@@ -1,16 +1,18 @@
-import { Button as MuiButton } from "@mui/material";
+import { Button as MuiButton, SxProps } from "@mui/material";
 import React from "react";
 
 export interface ButtonProps {
   children: React.ReactNode,
   disabled?: boolean,
+  expanded?: boolean,
   variant?: 'text' | 'contained',
   color?: 'primary' | 'transparent' | 'feature' | 'contrast',
   startIcon?: React.ReactNode,
-  onClick?: () => void
+  onClick?: () => void,
+  href?: string,
 }
 
-const Button: React.FC<ButtonProps> = ({children, color = 'primary', disabled, startIcon, variant = 'contained', onClick}: ButtonProps) => {
+const Button: React.FC<ButtonProps> = ({children, color = 'primary', disabled, expanded, href, startIcon, variant = 'contained', onClick}: ButtonProps) => {
   let backgroundColor = '#212236'
   let foregroundColor = 'white'
   let border = '1px solid rgba(33,34,54,.3)'
@@ -35,6 +37,11 @@ const Button: React.FC<ButtonProps> = ({children, color = 'primary', disabled, s
     foregroundColor = '#212236'
   }
 
+  let sx: SxProps = {textTransform: 'none', backgroundColor: backgroundColor, color: foregroundColor, border: border}
+  if (expanded) {
+    sx.flex = 1
+  }
+
   return (
     <MuiButton 
       disableElevation 
@@ -42,7 +49,8 @@ const Button: React.FC<ButtonProps> = ({children, color = 'primary', disabled, s
       startIcon={startIcon}
       onClick={onClick}
       disabled={disabled}
-      sx={{textTransform: 'none', backgroundColor: backgroundColor, color: foregroundColor, border: border}}
+      href={href}
+      sx={sx}
     >{children}</MuiButton>
   );
 };

@@ -45,7 +45,7 @@ const EventCard: React.FC<EventCardProps> = ({
         cardImageBackgroundColor = '#F1F3F5'
     }
 
-    const cardsx: SxProps = {width: '255px', borderRadius: '10px', background: cardBackgroundColor}
+    const cardsx: SxProps = {width: '255px', borderRadius: '10px', background: cardBackgroundColor, flex: 1}
     if (shadowed) {
         cardsx.boxShadow = '0px 4px 24px rgba(30, 144, 255, .14)'
     }

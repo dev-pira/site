@@ -37,6 +37,13 @@ const Event: NextPage = () => {
       title: "Nome do evento",
       type: "Meetup",
     },
+    {
+      description:
+        "Turpis fusce et, nisl, bibendum viverra pretium duis nulla euismod.",
+      detailsLink: "https://www.google.com",
+      title: "Nome do evento",
+      type: 'Live',
+    },
   ];
   return (
     <div>

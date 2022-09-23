@@ -3,7 +3,7 @@ import Image from "next/image"
 
 const Initiatives: React.FC = () => {
     const defaultWidth = '1345px'
-    return <Box sx={{display: 'flex', flexDirection: 'row', justifyContent: 'center', backgroundColor: '#F2F9FF'}}>
+    return <Box id="iniciativas" sx={{display: 'flex', flexDirection: 'row', justifyContent: 'center', backgroundColor: '#F2F9FF'}}>
         <Box sx={{display: 'flex', width: defaultWidth, alignItems: 'center', justifyContent: 'space-around', height: '574px'}}>
             <Box sx={{display: 'flex', width: '546px', flexDirection: 'column', gap: '24px'}}>
                 <Typography variant="h3">Iniciativas</Typography>

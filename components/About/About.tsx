@@ -3,7 +3,7 @@ import Image from "next/image"
 
 const About: React.FC = () => {
     const defaultWidth = '1345px'
-    return <Box sx={{display: 'flex', flexDirection: 'row', justifyContent: 'center'}}>
+    return <Box id="sobre" sx={{display: 'flex', flexDirection: 'row', justifyContent: 'center'}}>
         <Box sx={{display: 'flex', width: defaultWidth, alignItems: 'center', justifyContent: 'space-around', height: '453px'}}>
             <Image alt="" src="/images/About.svg" width="451px" height="277px" />
             <Box sx={{display: 'flex', width: '546px', flexDirection: 'column', gap: '24px'}}>

@@ -10,8 +10,8 @@ const Intro: React.FC = () => {
                 <Typography variant="h2">Comunidade que conecta pessoas e tecnologia</Typography>
                 <Typography>Participe da comunidade que está transformando a vida das pessoas de Piracicaba e região.</Typography>
                 <Box sx={{display: 'flex', flexDirection: 'row', gap: '8px'}}>
-                <Button>Saiba mais</Button>
-                <Button color="contrast">Eventos</Button>
+                <Button href="#sobre">Saiba mais</Button>
+                <Button color="contrast" href="/eventos">Eventos</Button>
                 </Box>
             </Box>
             <Image alt="" src="/images/Intro.svg" width="633px" height="520px" />

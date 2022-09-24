@@ -8,20 +8,20 @@ const Events: React.FC = () => {
     const defaultWidth = '1345px'
     const events = [{
         description: 'Turpis fusce et, nisl, bibendum viverra pretium duis nulla euismod.',
-        detailsLink: 'https://www.google.com',
-        participateLink: 'https://www.google.com',
+        detailsLink: '/eventos/nome-do-evento',
+        participateLink: 'https://www.meetup.com/pt-BR/devpira/',
         title: 'Nome do evento'
     },{
         description: 'Turpis fusce et, nisl, bibendum viverra pretium duis nulla euismod.',
-        detailsLink: 'https://www.google.com',
+        detailsLink: '/eventos/nome-do-evento',
         title: 'Nome do evento'
     },{
         description: 'Turpis fusce et, nisl, bibendum viverra pretium duis nulla euismod.',
-        detailsLink: 'https://www.google.com',
+        detailsLink: '/eventos/nome-do-evento',
         title: 'Nome do evento'
     },{
         description: 'Turpis fusce et, nisl, bibendum viverra pretium duis nulla euismod.',
-        detailsLink: 'https://www.google.com',
+        detailsLink: '/eventos/nome-do-evento',
         title: 'Nome do evento'
     }]
     return <Box sx={{display: 'flex', flexDirection: 'row', justifyContent: 'center', backgroundColor: '#212236;'}}>
@@ -38,7 +38,7 @@ const Events: React.FC = () => {
                     Lacus mattis ultricies ut turpis lectus tortor elit tellus. Risus, in a dui platea sed a. Bibendum mauris vel, magna congue.
                 </Typography>
                 <Box>
-                    <Button color="contrast">Conhecer eventos</Button>
+                    <Button color="contrast" href="/eventos">Conhecer eventos</Button>
                 </Box>
                 </Box>
             </Box>

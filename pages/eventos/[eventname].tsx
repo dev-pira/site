@@ -1,11 +1,11 @@
 import { NextPage } from "next";
-import { EventDetailContent } from "../components/EventDetailContent";
-import { EventDetailInfo } from "../components/EventDetailInfo";
-import { EventDetailIntro } from "../components/EventDetailIntro";
-import { EventPartners } from "../components/EventPartners";
-import { Footer } from "../components/Footer";
-import { Navbar } from "../components/Navbar";
-import { Social } from "../components/Social";
+import { EventDetailContent } from "../../components/EventDetailContent";
+import { EventDetailInfo } from "../../components/EventDetailInfo";
+import { EventDetailIntro } from "../../components/EventDetailIntro";
+import { EventPartners } from "../../components/EventPartners";
+import { Footer } from "../../components/Footer";
+import { Navbar } from "../../components/Navbar";
+import { Social } from "../../components/Social";
 
 const EventDetail: NextPage = () => {
     const now = new Date()

@@ -8,7 +8,7 @@ const EventsIntro: React.FC = () => {
             <Box sx={{width: defaultWidth, display: 'flex', height: '560px', alignItems: 'center'}}>
             <Typography variant="h2" color="contrast">
                 Eventos da
-                <Typography variant="body2" color="gradient_red"> comunidade</Typography>
+                <Typography variant="span" color="gradient_red"> comunidade</Typography>
             </Typography>
             </Box>
         </Box>

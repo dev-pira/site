@@ -2,14 +2,15 @@ import { SxProps, Typography as MuiTypography } from "@mui/material"
 import { Theme } from "@mui/system"
 
 export interface TypographyProps {
-    variant?: 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6' | 'body1' | 'body2'
+    variant?: 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6' | 'body1' | 'span'
     children?: React.ReactNode
     color?: 'primary' | 'contrast' | 'transparent' | 'feature' | 'green' | 'gradient_green' | 'gradient_red'
     bigger?: boolean
     smaller?: boolean
+    centered?: boolean
 }
 
-const Typography: React.FC<TypographyProps> = ({bigger, color = 'primary', children, smaller, variant = 'body1'}:TypographyProps) => {
+const Typography: React.FC<TypographyProps> = ({bigger, color = 'primary', centered, children, smaller, variant = 'body1'}:TypographyProps) => {
     
 
     const getHeaderColor = (color: 'primary' | 'contrast' | 'transparent' | 'feature' | 'green'| 'gradient_green' | 'gradient_red'): SxProps<Theme> => {
@@ -27,8 +28,7 @@ const Typography: React.FC<TypographyProps> = ({bigger, color = 'primary', child
             color: 'transparent'
         }
         else if (color === 'transparent') return {
-            color: 'rgba(33,34,54,.2)',
-            textAlign: 'center'
+            color: 'rgba(33,34,54,.2)'
         }
         return { color: '#212236' }
     }
@@ -39,7 +39,7 @@ const Typography: React.FC<TypographyProps> = ({bigger, color = 'primary', child
         return size
     }
 
-    const getFontFormat = (variant: 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6' | 'body1' | 'body2', bigger?: boolean, smaller?: boolean): SxProps<Theme> => {
+    const getFontFormat = (variant: 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6' | 'body1' | 'span', bigger?: boolean, smaller?: boolean): SxProps<Theme> => {
         if (variant === 'h1' || variant === 'h2') return {
             fontFamily: "'Inter', sans-serif;",
             fontWeight: '800',
@@ -80,7 +80,8 @@ const Typography: React.FC<TypographyProps> = ({bigger, color = 'primary', child
 
     const sx:SxProps<Theme> = Object.assign({}, getHeaderColor(color), getFontFormat(variant, bigger, smaller))
 
-    return <MuiTypography variantMapping={{body2: 'span'}} variant={variant} sx={sx}>{children}</MuiTypography>
+    const adaptedVarian = variant === 'span' ? 'body2' : variant
+    return <MuiTypography align={centered ? 'center' : 'inherit'} variantMapping={{body2: 'span'}} variant={adaptedVarian} sx={sx}>{children}</MuiTypography>
 }
 
 export default Typography

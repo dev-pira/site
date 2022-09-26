@@ -53,7 +53,7 @@ const EventCard: React.FC<EventCardProps> = ({
     return (
         <Box key={key} sx={cardsx}>
             <Box sx={{height: '159px', background: cardImageBackgroundColor, borderTopLeftRadius: '10px', borderTopRightRadius: '10px', display: 'flex', justifyContent: 'center', alignItems: 'center', padding: '12px'}}>
-                <Typography color="transparent">Imagem do banner do evento</Typography>
+                <Typography variant="h4" color="transparent">Imagem do banner do evento</Typography>
             </Box>
             <Box sx={{display: 'flex', padding: '24px', flexDirection: 'column', gap: '8px'}}>
                 <Typography variant="h4" color={textColor}>{title}</Typography>

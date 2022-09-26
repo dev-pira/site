@@ -1,5 +1,6 @@
-import { Box, Typography } from "@mui/material"
+import { Box } from "@mui/material"
 import Image from "next/image"
+import { Typography } from "../Typography"
 
 const Initiatives: React.FC = () => {
     const defaultWidth = '1345px'

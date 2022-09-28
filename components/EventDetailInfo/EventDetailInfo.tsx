@@ -1,4 +1,5 @@
-import { Box, Typography } from "@mui/material"
+import { Box } from "@mui/material"
+import { Typography } from "../Typography"
 
 export interface EventDetailInfoProps {
     description: string
@@ -16,7 +17,7 @@ const EventDetailInfo: React.FC<EventDetailInfoProps> = ({dateTime, description,
     let otherInfoBlock
     if (otherInfo) {
         otherInfoBlock = <Box sx={{display: 'flex', flexDirection: 'column', gap: '8px'}}>
-            <Typography variant="h4" sx={{color: '#E63462'}}>Outras informações</Typography>
+            <Typography variant="h4" color="feature">Outras informações</Typography>
             <Typography>{otherInfo}</Typography>
         </Box>
     }
@@ -33,11 +34,11 @@ const EventDetailInfo: React.FC<EventDetailInfoProps> = ({dateTime, description,
                 <Box sx={{flex: .85, display: 'flex', flexDirection: 'column', gap: '32px'}}>
                     <Typography variant="h3">Participe</Typography>
                     <Box sx={{display: 'flex', flexDirection: 'column', gap: '8px'}}>
-                        <Typography variant="h4" sx={{color: '#E63462'}}>Data e horário</Typography>
+                        <Typography variant="h4" color="feature">Data e horário</Typography>
                         <Typography>{formatedDateTime}</Typography>
                     </Box>
                     <Box sx={{display: 'flex', flexDirection: 'column', gap: '8px'}}>
-                        <Typography variant="h4" sx={{color: '#E63462'}}>Local</Typography>
+                        <Typography variant="h4" color="feature">Local</Typography>
                         <Typography>{place}</Typography>
                     </Box>
                     {otherInfoBlock}

@@ -1,6 +1,7 @@
-import { Box, Typography } from "@mui/material"
+import { Box } from "@mui/material"
 import Image from "next/image"
 import { SocialButton } from "../SocialButton"
+import { Typography } from "../Typography"
 
 export interface SocialProps {
     color?: 'green' | 'blue'

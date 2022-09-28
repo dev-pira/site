@@ -1,7 +1,8 @@
-import { Box, Typography } from "@mui/material"
+import { Box } from "@mui/material"
 import Image from "next/image"
 import { EventCard } from "../EventCard"
 import { Button } from "../Button"
+import { Typography } from "../Typography"
 
 
 const Events: React.FC = () => {
@@ -30,8 +31,8 @@ const Events: React.FC = () => {
             <Box sx={{display: 'flex', width: defaultWidth, alignItems: 'center', justifyContent: 'space-around', color: 'white'}}>
                 <Image alt="" src="/images/Events.png" width="451px" height="277px" />
                 <Box sx={{display: 'flex', width: '546px', flexDirection: 'column', gap: '24px'}}>
-                <Typography variant="h3">Eventos</Typography>
-                <Typography>
+                <Typography variant="h3" color="contrast">Eventos</Typography>
+                <Typography color="contrast">
                     Turpis fusce et, nisl, bibendum viverra pretium duis nulla euismod. 
                     Ac felis velit scelerisque consectetur in morbi odio. Egestas sit ultrices mi nulla consectetur egestas ac vivamus tortor. Enim nibh ut vitae tristique. 
                     Nam vulputate lectus massa consequat tristique et suspendisse lorem. Tempor accumsan pellentesque cursus at cum nunc dolor. 

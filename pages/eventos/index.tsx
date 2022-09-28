@@ -7,7 +7,13 @@ import { EventsIntro } from "../../components/EventsIntro";
 import { EventsContent } from "../../components/EventsContent";
 
 const Event: NextPage = () => {
-  const events = [
+  const events: {
+    description?: string,
+    detailsLink: string,
+    participateLink?: string,
+    title: string,
+    type: 'Meetup' | 'Live' | 'Worshop'
+  }[] = [
     {
       description:
         "Turpis fusce et, nisl, bibendum viverra pretium duis nulla euismod.",

@@ -1,5 +1,6 @@
-import { Box, Typography } from "@mui/material"
+import { Box } from "@mui/material"
 import { Button } from "../Button"
+import { Typography } from "../Typography"
 
 export interface EventDetailIntroProps {
     title: string

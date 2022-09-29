@@ -1,5 +1,6 @@
-import { Box, Typography } from "@mui/material"
+import { Box } from "@mui/material"
 import { EventCard } from "../EventCard"
+import { Typography } from "../Typography"
 
 export interface EventsContentProps {
     events: {

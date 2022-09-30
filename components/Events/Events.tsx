@@ -33,10 +33,8 @@ const Events: React.FC = () => {
                 <Box sx={{display: 'flex', width: '546px', flexDirection: 'column', gap: '24px'}}>
                 <Typography variant="h3" color="contrast">Eventos</Typography>
                 <Typography color="contrast">
-                    Turpis fusce et, nisl, bibendum viverra pretium duis nulla euismod. 
-                    Ac felis velit scelerisque consectetur in morbi odio. Egestas sit ultrices mi nulla consectetur egestas ac vivamus tortor. Enim nibh ut vitae tristique. 
-                    Nam vulputate lectus massa consequat tristique et suspendisse lorem. Tempor accumsan pellentesque cursus at cum nunc dolor. 
-                    Lacus mattis ultricies ut turpis lectus tortor elit tellus. Risus, in a dui platea sed a. Bibendum mauris vel, magna congue.
+                  Os eventos sempre são organizados pelos voluntários. Contamos com a ajuda de parceiros locais que oferecem espaços e recursos para a realização.
+                  Nos ajudam nos eventos instituções de ensino, empresas e entidades que têm a mesma vontade que o DEVPIRA de compartilhar conhecimento.
                 </Typography>
                 <Box>
                     <Button color="contrast" href="/eventos">Conhecer eventos</Button>

@@ -9,10 +9,8 @@ const Initiatives: React.FC = () => {
             <Box sx={{display: 'flex', width: '546px', flexDirection: 'column', gap: '24px'}}>
                 <Typography variant="h3">Iniciativas</Typography>
                 <Typography>
-                Turpis fusce et, nisl, bibendum viverra pretium duis nulla euismod. 
-                Ac felis velit scelerisque consectetur in morbi odio. Egestas sit ultrices mi nulla consectetur egestas ac vivamus tortor. Enim nibh ut vitae tristique. 
-                Nam vulputate lectus massa consequat tristique et suspendisse lorem. Tempor accumsan pellentesque cursus at cum nunc dolor. 
-                Lacus mattis ultricies ut turpis lectus tortor elit tellus. Risus, in a dui platea sed a. Bibendum mauris vel, magna congue.
+                Mas o que fazemos para contribuir para o desenvolvimento das pessoas através da tecnologia?
+                Realizamos eventos, encontros, lives, podcasts e muitos outros conteúdos gratuitamente com o único objetivo de disseminar o conhecimento sobre diversas áreas da tecnologia e pessoas.
                 </Typography>
             </Box>
             <Image alt="" src="/images/Initiatives.png" width="451px" height="397px" />

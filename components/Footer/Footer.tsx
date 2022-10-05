@@ -1,5 +1,6 @@
-import { AppBar, Box, Toolbar, Typography } from "@mui/material"
+import { AppBar, Box, Toolbar } from "@mui/material"
 import { Button } from "../Button"
+import { Image } from "../Image"
 
 const Footer: React.FC = () => {
     const items = [
@@ -7,14 +8,18 @@ const Footer: React.FC = () => {
         {label:'Iniciativas', link: '#iniciativas'}, 
         {label:'Eventos', link: '/eventos'}
     ]
+    const logoSize = {width: '185px', height: '77px'}
     return <AppBar position="static" color="transparent" sx={{display: 'flex', alignItems: 'center'}}>
-        <Box sx={{display: 'flex', flexDirection: 'row', alignItems: 'center', width: '1108px'}}>
-        <Typography>DEVPIRA</Typography>
-        <Toolbar sx={{flexGrow: 1, justifyContent: 'end'}}>
-            <Box >
-            {items.map(item => (<Button variant="text" key={item.label} href={item.link}>{item.label}</Button>))}
+        <Box sx={{display: 'flex', flexDirection: 'row', alignItems: 'center', width: '1108px', height: '243px'}}>
+            {/* <Typography>DEVPIRA</Typography> */}
+            <Box sx={{width: logoSize.width, height: logoSize.height}}>
+                <Image src="/images/Logo.svg" alt="DEVPIRA" layout="responsive" width={logoSize.width} height={logoSize.height} />
             </Box>
-        </Toolbar>
+            <Toolbar sx={{flexGrow: 1, justifyContent: 'end'}}>
+                <Box >
+                {items.map(item => (<Button variant="text" key={item.label} href={item.link}>{item.label}</Button>))}
+                </Box>
+            </Toolbar>
         </Box>
     </AppBar>
 }

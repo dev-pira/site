@@ -10,8 +10,8 @@ const About: React.FC = () => {
             <Box sx={{display: 'flex', width: '546px', flexDirection: 'column', gap: '24px'}}>
                 <Typography variant="h3">Sobre o DEVPIRA</Typography>
                 <Typography>
-                Somos uma comunidade feita de "pessoal do TI" para "pessoal do TI", desde programadores, POs, QAs, PMs, designers e até quem não trabalha na área, mas ama pessoas e tecnologia!
-                Não temos fins lucrativos, nosso intuito é disseminar o conhecimento sobre tecnologia em Piracicaba, "aonde o peixe pára" mas a tecnologia avança!
+                Somos uma comunidade feita de &quot;pessoal do TI&quot; para &quot;pessoal do TI&quot;, desde programadores, POs, QAs, PMs, designers e até quem não trabalha na área, mas ama pessoas e tecnologia!
+                Não temos fins lucrativos, nosso intuito é disseminar o conhecimento sobre tecnologia em Piracicaba, &quot;aonde o peixe pára&quot; mas a tecnologia avança!
                 Mantenha-se atualizado com as práticas modernas de mercado e desperte nas pessoas o interesse sobre a área.
                 </Typography>
             </Box>

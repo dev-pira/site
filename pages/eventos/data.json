@@ -1,0 +1,69 @@
+[
+  {
+    "key": "devpira-festival-2022",
+    "title": "DEVPIRA Festival 2022",
+    "shortDescription": "Some short",
+    "description": "Some long description for who is a little bit more curious",
+    "dateTime": "2022-12-03T09:00-03:00",
+    "place": "Pq. Jequitibá, Piracicaba, SP",
+    "partners": [
+      "Pecege",
+      "Pq Tecnológico de Piracicaba",
+      "AgTech Garage",
+      "PulseHub",
+      "FR Consultoria",
+      "Data System"
+    ],
+    "tracks": [
+      {
+        "talks": [
+          {
+            "title": "Muito além de paga boletos: PHP pra quem gosta do que faz",
+            "speaker": "Andrei Mosman"
+          },
+          {
+            "title": "Como não ser invadido e pagar multa pro Governo Federal",
+            "speaker": "Aurélio Oliveira"
+          },
+          {
+            "title": "Event Storming: Uma abordagem sociotécnica para mapeamento de Domínios",
+            "speaker": "Erik Aceiro Antonio"
+          },
+          {
+            "title": "String, o devorador de performance",
+            "speaker": "André Baltieri"
+          },
+          {
+            "title": "Agilidade em 1887!? Sherlock Holmes foi o primeiro agilista!?",
+            "speaker": "Jéssica Ferrari"
+          },
+          {
+            "title": "Pra que serve Clean Architecture",
+            "speaker": "Gabriel Limoni"
+          },
+          {
+            "title": "Criatividade para pessoas desenvolvedoras",
+            "speaker": "Guto Xavier"
+          },
+          {
+            "title": "PWA. O que conseguimos fazer hoje?",
+            "speaker": "Décio Stenico"
+          },
+          {
+            "title": "React 18: modo concorrente",
+            "speaker": "Vinícius Casarin"
+          },
+          {
+            "title": "CDK e TypeScript: aplicação e infraestrutura pela mesma linguagem de programação",
+            "speaker": "Murilo Beltrame",
+            "speakerJob": "Arquiteto @ AmbevTech"
+          },
+          {
+            "title": "Mimimi, qual a diferença entre abuso e desafio?",
+            "speaker": ""
+          }
+        ]
+      }
+    ]
+  }
+]

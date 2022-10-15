@@ -3,12 +3,12 @@ import { Typography } from "../Typography"
 
 export interface EventDetailContentProps {
     tracks?: {
-        name: string, 
+        name?: string, 
         talks?: {
             title: string, 
             speaker: string, 
             speakerJob?: string, 
-            time: Date
+            time?: Date
         }[]
     }[]
 }
@@ -25,12 +25,14 @@ const EventDetailContent: React.FC<EventDetailContentProps> = ({tracks}:EventDet
                         if (track.talks) {
                             talksBlock = <Box sx={{display: 'flex', gap: '36px'}}>
                                 {track.talks.map((talk) => {
-                                    const talkTime = `${talk.time.getHours().toString().padStart(2, '0')}h${talk.time.getMinutes().toString().padStart(2, '0')}`
+                                    const talkTimeElement = talk.time ?
+                                        <Box>{`${talk.time.getHours().toString().padStart(2, '0')}h${talk.time.getMinutes().toString().padStart(2, '0')}`}</Box> : 
+                                        <Box>&nbsp;</Box>
                                     return (
                                         <Box key={index} sx={{background: 'white', borderRadius: '10px'}}>
                                             <Box sx={{background: 'linear-gradient(180.06deg, rgba(33, 34, 54, 0.15) 0.05%, #212236 74.97%)', color: 'white', display: 'flex', flexDirection: 'column', justifyContent: 'space-between', height: '362px', width: '254px'}}>
                                                 <Box sx={{display: 'flex', flexDirection: 'row', justifyContent: 'flex-end', padding: '16px'}}>
-                                                    <Box>{talkTime}</Box>
+                                                    {talkTimeElement}
                                                 </Box>
                                                 <Box sx={{display: 'flex', flexDirection: 'column', gap: '8px', padding: '16px'}}>
                                                     <Typography variant="h4" color='gradient_green'>

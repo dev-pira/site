@@ -17,13 +17,13 @@ const EventDetailContent: React.FC<EventDetailContentProps> = ({tracks}:EventDet
     const defaultWidth = '1345px'
     if (tracks) {
         return (
-            <Box sx={{height: '688px', display:'flex',flexDirection: 'row', justifyContent: 'center', alignItems: 'center', background: '#212236'}}>
+            <Box sx={{padding: '88px 0px', display:'flex',flexDirection: 'row', justifyContent: 'center', alignItems: 'center', background: '#212236'}}>
                 <Box sx={{width: defaultWidth, display: 'flex', flexDirection: 'column', alignItems: 'flex-start', gap: '24px'}}>
                     <Typography variant="h3" color="contrast">Conteúdo</Typography>
                     {tracks.map((track, index) => {
                         let talksBlock
                         if (track.talks) {
-                            talksBlock = <Box sx={{display: 'flex', gap: '36px'}}>
+                            talksBlock = <Box sx={{display: 'flex', gap: '36px', flexWrap: 'wrap'}}>
                                 {track.talks.map((talk) => {
                                     const talkTimeElement = talk.time ?
                                         <Box>{`${talk.time.getHours().toString().padStart(2, '0')}h${talk.time.getMinutes().toString().padStart(2, '0')}`}</Box> : 

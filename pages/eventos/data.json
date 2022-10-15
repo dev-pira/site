@@ -19,7 +19,8 @@
         "talks": [
           {
             "title": "Muito além de paga boletos: PHP pra quem gosta do que faz",
-            "speaker": "Andrei Mosman"
+            "speaker": "Andrei Mosman",
+            "speakerJob": "Software Engineer @ intive"
           },
           {
             "title": "Como não ser invadido e pagar multa pro Governo Federal",
@@ -27,11 +28,13 @@
           },
           {
             "title": "Event Storming: Uma abordagem sociotécnica para mapeamento de Domínios",
-            "speaker": "Erik Aceiro Antonio"
+            "speaker": "Erik Aceiro Antonio",
+            "speakerJob": "Solutions Architect @ Shell Box"
           },
           {
             "title": "String, o devorador de performance",
-            "speaker": "André Baltieri"
+            "speaker": "André Baltieri",
+            "speakerJob": "CEO @ balta.io"
           },
           {
             "title": "Agilidade em 1887!? Sherlock Holmes foi o primeiro agilista!?",
@@ -39,19 +42,23 @@
           },
           {
             "title": "Pra que serve Clean Architecture",
-            "speaker": "Gabriel Limoni"
+            "speaker": "Gabriel Limoni",
+            "speakerJob": "Tech Lead @ Liven"
           },
           {
             "title": "Criatividade para pessoas desenvolvedoras",
-            "speaker": "Guto Xavier"
+            "speaker": "Guto Xavier",
+            "speakerJob": "Docente @ Senac"
           },
           {
             "title": "PWA. O que conseguimos fazer hoje?",
-            "speaker": "Décio Stenico"
+            "speaker": "Décio Stenico",
+            "speakerJob": "Frontend Developer @ Docway"
           },
           {
             "title": "React 18: modo concorrente",
-            "speaker": "Vinícius Casarin"
+            "speaker": "Vinícius Casarin",
+            "speakerJob": "Developer @ KaBuM!"
           },
           {
             "title": "CDK e TypeScript: aplicação e infraestrutura pela mesma linguagem de programação",

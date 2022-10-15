@@ -14,7 +14,7 @@ const EventPartners: React.FC<EventPartnersProps> = ({partners}:EventPartnersPro
             {partners.map((partner, index) => {
                 return (
                     <Box key={index} sx={{background: '#f1f3f5', border: '1px solid #c0c0c0', width: '171px', height: '78px', display: 'flex', justifyContent: 'center', alignItems: 'center', color: 'rgba(179,180,211,.2)'}}>
-                        {`Apoiador ${partner}`}
+                        {partner}
                     </Box>
                 )
             })}

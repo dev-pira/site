@@ -8,7 +8,8 @@ export interface EventsContentProps {
         detailsLink: string,
         participateLink?: string,
         title: string,
-        type: 'Meetup' | 'Live' | 'Worshop'
+        type: 'Meetup' | 'Live' | 'Worshop',
+        dateTime: Date
     }[]
 }
 
@@ -26,16 +27,12 @@ const EventsContent: React.FC<EventsContentProps> = ({events}: EventsContentProp
                     return (
                         <Box key={index} sx={{width: defaultWidth, display: 'flex', flexDirection: 'column' , padding: '56px 0', gap: '24px'}}>
                             <Typography variant="h3">{type}</Typography>
-                            <Box sx={{width: defaultWidth, display: 'flex', flexDirection: 'row', justifyContent: 'space-evenly', gap: '16px'}}>
+                            <Box sx={{width: defaultWidth, display: 'flex', flexDirection: 'row', justifyContent: 'center', alignItems: 'center', gap: '16px'}}>
                                 {eventsOfType.map((eventData, index) => {
                                     return <EventCard key={index} 
-                                        title={eventData.title}
-                                        description={eventData.description}
-                                        detailsLink={eventData.detailsLink}
-                                        participateLink={eventData.participateLink}
+                                        {... eventData}
                                         color='contrast'
-                                        shadowed
-                                        dateTime={new Date()} />
+                                        shadowed />
                                 })}
                                 {missingBoxes.map((index) => {
                                     console.log('rendering missing box')

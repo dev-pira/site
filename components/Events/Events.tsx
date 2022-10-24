@@ -10,12 +10,15 @@ export interface EventsProps {
         detailsLink: string,
         participateLink?: string,
         title: string,
-        type: 'Meetup' | 'Live' | 'Worshop'
+        type: 'Meetup' | 'Live' | 'Worshop',
+        dateTime: Date
     }[]
 }
 
 const Events: React.FC<EventsProps> = ({events}: EventsProps) => {
     const defaultWidth = '1345px'
+    const missingBoxes = []
+    for (let i = 0; i < 4 - events.length; i++) { missingBoxes.push(i) }
     return <Box sx={{display: 'flex', flexDirection: 'row', justifyContent: 'center', backgroundColor: '#212236;'}}>
         <Box sx={{display: 'flex', flexDirection: 'column', height: '957px', justifyContent: 'space-around'}}>
             {/* DESCRIPTION */}
@@ -35,14 +38,14 @@ const Events: React.FC<EventsProps> = ({events}: EventsProps) => {
             {/* /DESCRIPTION */}
             {/* CARDS */}
             <Box sx={{display: 'flex', width: defaultWidth, flexDirection: 'row', justifyContent: 'center', alignItems: 'center', gap: '30px'}}>
-                {events.map((eventData) => {
-                    return <EventCard key={eventData.title} 
-                        title={eventData.title}
-                        description={eventData.description}
-                        detailsLink={eventData.detailsLink}
-                        participateLink={eventData.participateLink}
-                        color='primary'
-                        dateTime={new Date()} />
+                {events.map((eventData, index) => {
+                    return <EventCard key={index} 
+                        {... eventData}
+                        color='primary' />
+                })}
+                {missingBoxes.map((index) => {
+                    console.log('rendering missing box')
+                    return <Box key={index} sx={{flex: 1}}>&nbsp;</Box>
                 })}
             </Box>
             {/* /CARDS */}

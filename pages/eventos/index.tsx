@@ -5,6 +5,7 @@ import { Initiatives } from "../../components/Initiatives";
 import { Navbar } from "../../components/Navbar";
 import { EventsIntro } from "../../components/EventsIntro";
 import { EventsContent } from "../../components/EventsContent";
+import { Event } from "../../models/model";
 import { readFile } from "fs/promises"
 import { join } from "path"
 

@@ -22,7 +22,7 @@ const EventDetailInfo: React.FC<EventDetailInfoProps> = ({dateTime, longDescript
         </Box>
     }
     return (
-        <Box sx={{height: '637px', display:'flex',flexDirection: 'row', justifyContent: 'center', alignItems: 'center'}}>
+        <Box id="sobre" sx={{height: '637px', display:'flex',flexDirection: 'row', justifyContent: 'center', alignItems: 'center'}}>
             <Box sx={{width: defaultWidth, display: 'flex', gap: '110px'}}>
                 {/* SOBRE */}
                 <Box sx={{flex: 1, display: 'flex', flexDirection: 'column', gap: '24px'}}>

@@ -5,10 +5,15 @@ import { Typography } from "../Typography"
 export interface EventDetailIntroProps {
     title: string
     description: string
+    subscribeLink?: string
 }
 
-const EventDetailIntro: React.FC<EventDetailIntroProps> = ({description, title}:EventDetailIntroProps) => {
+const EventDetailIntro: React.FC<EventDetailIntroProps> = ({description, subscribeLink, title}:EventDetailIntroProps) => {
     const defaultWidth = '1345px'
+    let subscribeButton
+    if (subscribeLink) {
+        subscribeButton = <Button color="feature" href={subscribeLink}>Inscriva-se</Button>
+    }
     return (
         <Box sx={{background:'linear-gradient(85.31deg, #C3DEFA 0%, #04FFB4 75.32%)', height: '560px', display:'flex',flexDirection: 'row', justifyContent: 'center'}}>
             <Box sx={{width: defaultWidth, display: 'flex'}}>
@@ -19,8 +24,8 @@ const EventDetailIntro: React.FC<EventDetailIntroProps> = ({description, title}:
                     </Box>
                     <Typography>{description}</Typography>
                     <Box sx={{display: 'flex', gap: '8px'}}>
-                        <Button color="feature">Inscriva-se</Button>
-                        <Button color="transparent">Detalhes</Button>
+                        {subscribeButton}
+                        <Button color="transparent" href="#sobre">Detalhes</Button>
                     </Box>
                 </Box>
             </Box>

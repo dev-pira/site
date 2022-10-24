@@ -4,27 +4,18 @@ import { EventCard } from "../EventCard"
 import { Button } from "../Button"
 import { Typography } from "../Typography"
 
+export interface EventsProps {
+    events: {
+        description?: string,
+        detailsLink: string,
+        participateLink?: string,
+        title: string,
+        type: 'Meetup' | 'Live' | 'Worshop'
+    }[]
+}
 
-const Events: React.FC = () => {
+const Events: React.FC<EventsProps> = ({events}: EventsProps) => {
     const defaultWidth = '1345px'
-    const events = [{
-        description: 'Turpis fusce et, nisl, bibendum viverra pretium duis nulla euismod.',
-        detailsLink: '/eventos/nome-do-evento',
-        participateLink: 'https://www.meetup.com/pt-BR/devpira/',
-        title: 'Nome do evento'
-    },{
-        description: 'Turpis fusce et, nisl, bibendum viverra pretium duis nulla euismod.',
-        detailsLink: '/eventos/nome-do-evento',
-        title: 'Nome do evento'
-    },{
-        description: 'Turpis fusce et, nisl, bibendum viverra pretium duis nulla euismod.',
-        detailsLink: '/eventos/nome-do-evento',
-        title: 'Nome do evento'
-    },{
-        description: 'Turpis fusce et, nisl, bibendum viverra pretium duis nulla euismod.',
-        detailsLink: '/eventos/nome-do-evento',
-        title: 'Nome do evento'
-    }]
     return <Box sx={{display: 'flex', flexDirection: 'row', justifyContent: 'center', backgroundColor: '#212236;'}}>
         <Box sx={{display: 'flex', flexDirection: 'column', height: '957px', justifyContent: 'space-around'}}>
             {/* DESCRIPTION */}

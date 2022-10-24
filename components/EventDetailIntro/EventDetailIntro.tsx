@@ -4,10 +4,10 @@ import { Typography } from "../Typography"
 
 export interface EventDetailIntroProps {
     title: string
-    shortDescription: string
+    description: string
 }
 
-const EventDetailIntro: React.FC<EventDetailIntroProps> = ({shortDescription, title}:EventDetailIntroProps) => {
+const EventDetailIntro: React.FC<EventDetailIntroProps> = ({description, title}:EventDetailIntroProps) => {
     const defaultWidth = '1345px'
     return (
         <Box sx={{background:'linear-gradient(85.31deg, #C3DEFA 0%, #04FFB4 75.32%)', height: '560px', display:'flex',flexDirection: 'row', justifyContent: 'center'}}>
@@ -17,7 +17,7 @@ const EventDetailIntro: React.FC<EventDetailIntroProps> = ({shortDescription, ti
                         <Typography>Eventos/Meetups</Typography>
                         <Typography variant="h2">{title}</Typography>
                     </Box>
-                    <Typography>{shortDescription}</Typography>
+                    <Typography>{description}</Typography>
                     <Box sx={{display: 'flex', gap: '8px'}}>
                         <Button color="feature">Inscriva-se</Button>
                         <Button color="transparent">Detalhes</Button>

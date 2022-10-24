@@ -28,7 +28,7 @@ const EventDetail: NextPage = ({eventData}: InferGetServerSidePropsType<typeof g
     }
     return (
         <div>
-            <p>Not Found</p>
+            <p>Não tem dados aqui xP</p>
         </div>
     )
 }

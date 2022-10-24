@@ -2,13 +2,13 @@ import { Box } from "@mui/material"
 import { Typography } from "../Typography"
 
 export interface EventDetailInfoProps {
-    description: string
+    longDescription: string
     dateTime: Date
     place: string
     otherInfo?: string
 }
 
-const EventDetailInfo: React.FC<EventDetailInfoProps> = ({dateTime, description, place, otherInfo}: EventDetailInfoProps) => {
+const EventDetailInfo: React.FC<EventDetailInfoProps> = ({dateTime, longDescription, place, otherInfo}: EventDetailInfoProps) => {
     const defaultWidth = '1345px'
     let formatedDateTime = `${dateTime.getDate()}/${dateTime.getMonth()+1}/${dateTime.getFullYear()}`
     if (dateTime.getHours() || dateTime.getMinutes()) {
@@ -27,7 +27,7 @@ const EventDetailInfo: React.FC<EventDetailInfoProps> = ({dateTime, description,
                 {/* SOBRE */}
                 <Box sx={{flex: 1, display: 'flex', flexDirection: 'column', gap: '24px'}}>
                     <Typography variant="h3">Sobre o evento</Typography>
-                    <Typography>{description}</Typography>
+                    <Typography>{longDescription}</Typography>
                 </Box>
                 {/* /SOBRE */}
                 {/* PARTICIPE */}

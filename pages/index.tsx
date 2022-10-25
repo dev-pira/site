@@ -10,7 +10,7 @@ import { Event } from "../models/model";
 import { readFile } from "fs/promises"
 import { join } from "path"
 
-const Home: NextPage = ({eventsData}: InferGetServerSidePropsType<typeof getServerSideProps>) => {
+const HomePage: NextPage = ({eventsData}: InferGetServerSidePropsType<typeof getServerSideProps>) => {
   return (
     <div>
       <Navbar />
@@ -37,4 +37,4 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
   return {notFound:true}
 }
 
-export default Home;
+export default HomePage;

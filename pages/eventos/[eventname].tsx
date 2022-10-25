@@ -10,7 +10,7 @@ import { Event } from "../../models/model";
 import { readFile } from "fs/promises"
 import { join } from "path"
 
-const EventDetail: NextPage = ({eventData}: InferGetServerSidePropsType<typeof getServerSideProps>) => {
+const EventDetailPage: NextPage = ({eventData}: InferGetServerSidePropsType<typeof getServerSideProps>) => {
 
     if (eventData) {
         eventData.dateTime = new Date(eventData.dateTime)
@@ -51,4 +51,4 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
     return {notFound: true}
 }
 
-export default EventDetail
+export default EventDetailPage

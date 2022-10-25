@@ -17,8 +17,15 @@ export interface EventsProps {
 
 const Events: React.FC<EventsProps> = ({events}: EventsProps) => {
     const defaultWidth = '1345px'
+    const limitedEvents = events
+        .sort((a, b) => {
+            if (a.dateTime < b.dateTime) return 1
+            if (a.dateTime > b.dateTime) return -1
+            return 0
+        })
+        .slice(0, 4)
     const missingBoxes = []
-    for (let i = 0; i < 4 - events.length; i++) { missingBoxes.push(i) }
+    for (let i = 0; i < 4 - limitedEvents.length; i++) { missingBoxes.push(i) }
     return <Box sx={{display: 'flex', flexDirection: 'row', justifyContent: 'center', backgroundColor: '#212236;'}}>
         <Box sx={{display: 'flex', flexDirection: 'column', height: '957px', justifyContent: 'space-around'}}>
             {/* DESCRIPTION */}
@@ -38,7 +45,7 @@ const Events: React.FC<EventsProps> = ({events}: EventsProps) => {
             {/* /DESCRIPTION */}
             {/* CARDS */}
             <Box sx={{display: 'flex', width: defaultWidth, flexDirection: 'row', justifyContent: 'center', alignItems: 'center', gap: '30px'}}>
-                {events.map((eventData, index) => {
+                {limitedEvents.map((eventData, index) => {
                     return <EventCard key={index} 
                         {... eventData}
                         color='primary' />

@@ -21,7 +21,14 @@ const EventsContent: React.FC<EventsContentProps> = ({events}: EventsContentProp
     return (
         <Box sx={{display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center'}}>
                 {types.map((type, index) => {
-                    const eventsOfType = events.filter((e) => e.type === type)
+                    const eventsOfType = events
+                        .filter((e) => e.type === type)
+                        .sort((a, b) => {
+                            if (a.dateTime < b.dateTime) return 1
+                            if (a.dateTime > b.dateTime) return -1
+                            return 0
+                        })
+                        .slice(0, 4)
                     const missingBoxes = []
                     for (let i = 0; i < 4 - eventsOfType.length; i++) { missingBoxes.push(i) }
                     return (

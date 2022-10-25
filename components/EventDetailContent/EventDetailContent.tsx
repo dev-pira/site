@@ -39,7 +39,7 @@ const EventDetailContent: React.FC<EventDetailContentProps> = ({tracks}:EventDet
                                                         {talk.title}
                                                     </Typography>
                                                     <Typography variant="h5" color='contrast'>{talk.speaker}</Typography>
-                                                    <Typography color="contrast">{talk.speakerJob || '&nbsp;'}</Typography>
+                                                    <Typography color="contrast">{talk.speakerJob}</Typography>
                                                 </Box>
                                             </Box>
                                         </Box>

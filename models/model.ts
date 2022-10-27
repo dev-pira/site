@@ -11,13 +11,14 @@ export interface Event {
 }
 
 export interface Track {
-    name?: string,
+    name?: string
     talks: Talk[]
 }
 
 export interface Talk {
-    title: string, 
-    speaker: string, 
-    speakerJob?: string, 
+    title: string
+    speaker: string
+    speakerPortraitUrl: string
+    speakerJob?: string
     time?: Date
 }

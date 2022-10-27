@@ -26,6 +26,9 @@ const EventCard: React.FC<EventCardProps> = ({
     title,
     shadowed
 }: EventCardProps) => {
+    if (!(dateTime instanceof Date)) {
+        dateTime = new Date(dateTime)
+    }
     let participateNode
     if (participateLink) {
         participateNode = <Button href={participateLink} color={color === 'primary' ? 'contrast': 'primary'}>Participar</Button>

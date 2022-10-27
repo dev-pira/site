@@ -4,27 +4,28 @@ import { EventCard } from "../EventCard"
 import { Button } from "../Button"
 import { Typography } from "../Typography"
 
+export interface EventsProps {
+    events: {
+        description?: string,
+        detailsLink: string,
+        participateLink?: string,
+        title: string,
+        type: 'Meetup' | 'Live' | 'Worshop',
+        dateTime: Date
+    }[]
+}
 
-const Events: React.FC = () => {
+const Events: React.FC<EventsProps> = ({events}: EventsProps) => {
     const defaultWidth = '1345px'
-    const events = [{
-        description: 'Turpis fusce et, nisl, bibendum viverra pretium duis nulla euismod.',
-        detailsLink: '/eventos/nome-do-evento',
-        participateLink: 'https://www.meetup.com/pt-BR/devpira/',
-        title: 'Nome do evento'
-    },{
-        description: 'Turpis fusce et, nisl, bibendum viverra pretium duis nulla euismod.',
-        detailsLink: '/eventos/nome-do-evento',
-        title: 'Nome do evento'
-    },{
-        description: 'Turpis fusce et, nisl, bibendum viverra pretium duis nulla euismod.',
-        detailsLink: '/eventos/nome-do-evento',
-        title: 'Nome do evento'
-    },{
-        description: 'Turpis fusce et, nisl, bibendum viverra pretium duis nulla euismod.',
-        detailsLink: '/eventos/nome-do-evento',
-        title: 'Nome do evento'
-    }]
+    let limitedEvents = events
+    limitedEvents.sort((a, b) => {
+        if (a.dateTime < b.dateTime) return 1
+        if (a.dateTime > b.dateTime) return -1
+        return 0
+    })
+    limitedEvents = limitedEvents.slice(0, 4)
+    const missingBoxes = []
+    for (let i = 0; i < 4 - limitedEvents.length; i++) { missingBoxes.push(i) }
     return <Box sx={{display: 'flex', flexDirection: 'row', justifyContent: 'center', backgroundColor: '#212236;'}}>
         <Box sx={{display: 'flex', flexDirection: 'column', height: '957px', justifyContent: 'space-around'}}>
             {/* DESCRIPTION */}
@@ -44,14 +45,14 @@ const Events: React.FC = () => {
             {/* /DESCRIPTION */}
             {/* CARDS */}
             <Box sx={{display: 'flex', width: defaultWidth, flexDirection: 'row', justifyContent: 'center', alignItems: 'center', gap: '30px'}}>
-                {events.map((eventData) => {
-                    return <EventCard key={eventData.title} 
-                        title={eventData.title}
-                        description={eventData.description}
-                        detailsLink={eventData.detailsLink}
-                        participateLink={eventData.participateLink}
-                        color='primary'
-                        dateTime={new Date()} />
+                {limitedEvents.map((eventData, index) => {
+                    return <EventCard key={index} 
+                        {... eventData}
+                        color='primary' />
+                })}
+                {missingBoxes.map((index) => {
+                    console.log('rendering missing box')
+                    return <Box key={index} sx={{flex: 1}}>&nbsp;</Box>
                 })}
             </Box>
             {/* /CARDS */}

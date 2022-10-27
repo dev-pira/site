@@ -14,7 +14,7 @@ const EventPartners: React.FC<EventPartnersProps> = ({partners}:EventPartnersPro
             {partners.map((partner, index) => {
                 return (
                     <Box key={index} sx={{background: '#f1f3f5', border: '1px solid #c0c0c0', width: '171px', height: '78px', display: 'flex', justifyContent: 'center', alignItems: 'center', color: 'rgba(179,180,211,.2)'}}>
-                        {`Apoiador ${partner}`}
+                        {partner}
                     </Box>
                 )
             })}
@@ -31,9 +31,9 @@ const EventPartners: React.FC<EventPartnersProps> = ({partners}:EventPartnersPro
                 </Box>
                 <Box sx={{flex: 1, display: 'flex', flexDirection: 'column', gap: '24px'}}>
                     <Typography variant="h3">Apoio</Typography>
-                    <Typography>Turpis fusce et, nisl, bibendum viverra pretium duis nulla euismod. Ac felis velit scelerisque consectetur in morbi odio. Egestas sit ultrices mi nulla consectetur egestas ac vivamus tortor. Enim nibh ut vitae tristique.</Typography>
+                    <Typography>A comunidade não tem fins lucrativos e conta com a energia das pessoas e a parceria de orgãos e instituições para realizar encontros como esse. Seja também um agente ativo desse ecossistema sendo um apoiador. Entre em contato!</Typography>
                     <Box>
-                        <Button>Apoiar o evento</Button>
+                        <Button href="mailto:contato@devpira.com.br">Apoiar o evento</Button>
                     </Box>
                 </Box>
             </Box>

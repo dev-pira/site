@@ -23,7 +23,7 @@ const Typography: React.FC<TypographyProps> = ({bigger, color = 'primary', cente
             color: 'transparent'
         }
         else if (color === 'gradient_red') return {
-            background: 'linear-gradient(233.62deg, #C4C4C4 27.61%, #E63462 27.62%, #1E90FF 100%)', 
+            background: 'linear-gradient(233.62deg, #E63462 17.62%, #1E90FF 100%)', 
             backgroundClip: 'text', 
             color: 'transparent'
         }

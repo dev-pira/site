@@ -20,7 +20,7 @@ const Navbar: React.FC = () => {
                 {items.map(item => (<Button variant="text" key={item.label} href={item.link}>{item.label}</Button>))}
                 </Box>
             </Toolbar>
-            <Button variant="contained">Call to Action</Button>
+            {/* <Button variant="contained">Call to Action</Button> */}
         </Box>
     </AppBar>
 }

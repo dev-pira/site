@@ -6,10 +6,15 @@ export interface Event {
     dateTime: Date
     place: string
     otherInfo?: string
-    partners?: string[]
+    partners?: Partner[]
     tracks?: Track[]
 }
 
+export interface Partner {
+    name: string
+    logoUrl?: string
+    category?: string
+}
 export interface Track {
     name?: string
     talks: Talk[]
@@ -17,8 +22,12 @@ export interface Track {
 
 export interface Talk {
     title: string
-    speaker: string
-    speakerPortraitUrl: string
-    speakerJob?: string
+    speaker: Speaker
     time?: Date
+}
+
+export interface Speaker {
+    name: string
+    portraitUrl: string
+    job?: string
 }

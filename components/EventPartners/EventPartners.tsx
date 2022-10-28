@@ -3,26 +3,44 @@ import { Button } from "../Button"
 import { Typography } from "../Typography"
 
 export interface EventPartnersProps {
-    partners?: string[]
+    partners?: {
+        name: string
+        logoUrl?: string
+        category?: string
+    }[]
 }
 
 const EventPartners: React.FC<EventPartnersProps> = ({partners}:EventPartnersProps) => {
     const defaultWidth = '1345px'
     let partnersBlock
     if (partners) {
-        partnersBlock = <Grid container sx={{display: 'flex', gap: '16px'}}>
-            {partners.map((partner, index) => {
+        const categories = partners
+            .map(p => p.category)
+            .filter((value, index, self) => self.indexOf(value) === index)
+        partnersBlock = <Box>
+            {categories.map((category, index) => {
+                const partnersInCategory = partners.filter(p => p.category === category)
                 return (
-                    <Box key={index} sx={{background: '#f1f3f5', border: '1px solid #c0c0c0', width: '171px', height: '78px', display: 'flex', justifyContent: 'center', alignItems: 'center', color: 'rgba(179,180,211,.2)'}}>
-                        {partner}
+                    <Box key={index}>
+                        <Box sx={{padding: '8px'}}>
+                            <Typography variant="h4">{category}</Typography>
+                        </Box>
+                        <Grid container sx={{display: 'flex', gap: '16px'}}>
+                        {partnersInCategory.map((partner, index) => {
+                            return (
+                                <Box key={index} sx={{background: `url("${partner.logoUrl}") no-repeat center center`, backgroundSize: 'contain', width: '171px', height: '78px'}}>
+                                </Box>
+                            )
+                        })}
+                        </Grid> 
                     </Box>
                 )
             })}
-        </Grid>
+        </Box>
     }
     return (
 
-        <Box sx={{height: '442px', display:'flex',flexDirection: 'row', justifyContent: 'center', alignItems: 'center'}}>
+        <Box sx={{padding: '88px 0px', display:'flex',flexDirection: 'row', justifyContent: 'center', alignItems: 'center'}}>
             <Box sx={{width: defaultWidth, display: 'flex', gap: '110px'}}>
                 <Box sx={{flex: 1, display: 'flex'}}>
                     <Grid container sx={{display: 'flex', gap: '16px'}}>

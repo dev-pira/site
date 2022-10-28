@@ -5,90 +5,133 @@
     "bannerUrl": "/images/Events/DEVPIRAFestival22/Banner.png",
     "description": "O já tradicional evento de final de ano da comunidade, reconectando pessoas com muito networking e conteúdo de qualidade.",
     "longDescription": "Para quem estava com saudades de 2018 e 2019, para quem sentiu o gostinho do Festival em 2020 e 2021 e quer sentir de perto a energia ou ainda, para quem quer se conectar com a comunidade pela primeira vez: Nosso Festival está vontando para a rua! Dia 3/12, no Parque Jequitibá, em Piracicaba, com o AgTech Garage, Parque Tecnológico de Piracicaba e PulseHub, vamos recever a comunidade para muito networking e conteúdo para as mais diversas tribos. Vamos falar de núvem, de cultura, de carreira, de metodologia e claro muito código! Vem com a gente movimentar o ecossistema de tecnologia da nossa região!",
-    "dateTime": "2022-12-03T09:00-03:00",
-    "place": "Parque Jequitibá, Piracicaba, SP",
+    "dateTime": "2022-12-03T08:30-03:00",
+    "place": "Rua Cezira Giovanoni Moretti, Parque Jequitibá, Piracicaba, SP",
     "detailsLink": "eventos/devpira-festival-2022",
     "partners": [
-      "Pecege",
-      "Pq Tecnológico de Piracicaba",
-      "AgTech Garage",
-      "PulseHub",
-      "FR Consultoria",
-      "Data System",
-      "AmbevTech"
+      {
+        "name": "Data System",
+        "logoUrl": "/images/Events/DEVPIRAFestival22/Partners/DataSystem.jpeg",
+        "category": "Gold"
+      },
+
+      {
+        "name": "AgTech Garage",
+        "logoUrl": "/images/Events/DEVPIRAFestival22/Partners/AgTechGarage.png",
+        "category": "Apoio"
+      },
+      {
+        "name": "Parque Tecnológico de Piracicaba",
+        "logoUrl": "/images/Events/DEVPIRAFestival22/Partners/ParqueTecnologico.webp",
+        "category": "Apoio"
+      },
+      {
+        "name": "Pulse Hub de Inovação",
+        "logoUrl": "/images/Events/DEVPIRAFestival22/Partners/PulseHub.jpg",
+        "category": "Apoio"
+      },
+      {
+        "name": "Quati Tecnologia",
+        "logoUrl": "/images/Events/DEVPIRAFestival22/Partners/Quati.jpeg",
+        "category": "Apoio"
+      }
     ],
     "tracks": [
       {
         "talks": [
           {
             "title": "Como não ser invadido e pagar multa pro Governo Federal",
-            "speaker": "Aurélio Oliveira",
-            "speakerPortraitUrl": "/images/Events/DEVPIRAFestival22/Aurelio.jpeg"
+            "speaker": {
+              "name": "Aurélio Oliveira",
+              "portraitUrl": "/images/Events/DEVPIRAFestival22/Aurelio.jpeg"
+            }
           },
           {
             "title": "Muito além de pagar boletos: PHP pra quem gosta do que faz",
-            "speaker": "Andrei Mosman",
-            "speakerJob": "Software Engineer @ intive",
-            "speakerPortraitUrl": "/images/Events/DEVPIRAFestival22/Andrei.jpeg"
+            "speaker": {
+              "name": "Andrei Mosman",
+              "job": "Software Engineer @ intive",
+              "portraitUrl": "/images/Events/DEVPIRAFestival22/Andrei.jpeg"
+            }
           },
           {
             "title": "Event Storming: Uma abordagem sociotécnica para mapeamento de Domínios",
-            "speaker": "Erik Aceiro Antonio",
-            "speakerJob": "Solutions Architect @ Shell Box",
-            "speakerPortraitUrl": "/images/Events/DEVPIRAFestival22/Erik.jpeg"
+            "speaker": {
+              "name": "Erik Aceiro Antonio",
+              "job": "Solutions Architect @ Shell Box",
+              "portraitUrl": "/images/Events/DEVPIRAFestival22/Erik.jpeg"
+            }
           },
           {
             "title": "Tracing Distribuído em aplicações com OpenTelemetry + Jaeger",
-            "speaker": "Renato Groffe",
-            "speakerJob": "Software Engineer @ AON",
-            "speakerPortraitUrl": "/images/Events/DEVPIRAFestival22/Renato.jpeg"
+            "speaker": {
+              "name": "Renato Groffe",
+              "job": "Software Engineer @ AON",
+              "portraitUrl": "/images/Events/DEVPIRAFestival22/Renato.jpeg"
+            }
           },
           {
             "title": "Agilidade em 1887!? Sherlock Holmes foi o primeiro agilista!?",
-            "speaker": "Jéssica Ferrari",
-            "speakerPortraitUrl": "/images/Events/DEVPIRAFestival22/Jessica.jpeg"
+            "speaker": {
+              "name": "Jéssica Ferrari",
+              "portraitUrl": "/images/Events/DEVPIRAFestival22/Jessica.jpeg"
+            }
           },
           {
             "title": "Pra que serve Clean Architecture",
-            "speaker": "Gabriel Limoni",
-            "speakerJob": "Tech Lead @ Liven",
-            "speakerPortraitUrl": "/images/Events/DEVPIRAFestival22/Gabriel.jpeg"
+            "speaker": {
+              "name": "Gabriel Limoni",
+              "job": "Tech Lead @ Liven",
+              "portraitUrl": "/images/Events/DEVPIRAFestival22/Gabriel.jpeg"
+            }
           },
           {
             "title": "PWA. O que conseguimos fazer hoje?",
-            "speaker": "Décio Stenico",
-            "speakerJob": "Frontend Developer @ Docway",
-            "speakerPortraitUrl": "/images/Events/DEVPIRAFestival22/Decio.jpeg"
+            "speaker": {
+              "name": "Décio Stenico",
+              "job": "Frontend Developer @ Docway",
+              "portraitUrl": "/images/Events/DEVPIRAFestival22/Decio.jpeg"
+            }
           },
           {
             "title": "String, o devorador de performance",
-            "speaker": "André Baltieri",
-            "speakerJob": "CEO @ balta.io",
-            "speakerPortraitUrl": "/images/Events/DEVPIRAFestival22/Andre.jpeg"
+            "speaker": {
+              "name": "André Baltieri",
+              "job": "CEO @ balta.io",
+              "portraitUrl": "/images/Events/DEVPIRAFestival22/Andre.jpeg"
+            }
           },
           {
             "title": "React 18: modo concorrente",
-            "speaker": "Vinícius Casarin",
-            "speakerJob": "Developer @ KaBuM!",
-            "speakerPortraitUrl": "/images/Events/DEVPIRAFestival22/Vinicius.jpeg"
+            "speaker": {
+              "name": "Vinícius Casarin",
+              "job": "Developer @ KaBuM!",
+              "portraitUrl": "/images/Events/DEVPIRAFestival22/Vinicius.jpeg"
+            }
           },
           {
             "title": "Criatividade para pessoas desenvolvedoras",
-            "speaker": "Guto Xavier",
-            "speakerJob": "Docente @ Senac",
-            "speakerPortraitUrl": "/images/Events/DEVPIRAFestival22/Guto.jpeg"
+            "speaker": {
+              "name": "Guto Xavier",
+              "job": "Docente @ Senac",
+              "portraitUrl": "/images/Events/DEVPIRAFestival22/Guto.jpeg"
+            }
           },
           {
             "title": "Fazendo acontecer - Organização pessoal e profissional com GTD",
-            "speaker": "Ana Paula Lima",
-            "speakerJob": "Business Agile @ Take Blip",
-            "speakerPortraitUrl": "/images/Events/DEVPIRAFestival22/Ana.jpeg"
+            "speaker": {
+              "name": "Ana Paula Lima",
+              "job": "Business Agile @ Take Blip",
+              "portraitUrl": "/images/Events/DEVPIRAFestival22/Ana.jpeg"
+            }
           },
           {
             "title": "CDK e TypeScript: aplicação e infraestrutura pela mesma linguagem de programação",
-            "speaker": "Murilo Beltrame",
-            "speakerJob": "Arquiteto @ AmbevTech",
-            "speakerPortraitUrl": "/images/Events/DEVPIRAFestival22/Murilo.jpeg"
+            "speaker": {
+              "name": "Murilo Beltrame",
+              "job": "Arquiteto @ AmbevTech",
+              "portraitUrl": "/images/Events/DEVPIRAFestival22/Murilo.jpeg"
+            }
           }
         ]
       }

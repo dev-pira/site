@@ -5,7 +5,7 @@ import { Typography } from "../Typography"
 
 export interface EventCardProps {
     color: 'primary' | 'contrast'
-    image?: React.ReactNode
+    bannerUrl?: string
     key?: Key,
     title: string,
     description?: string,
@@ -20,7 +20,7 @@ const EventCard: React.FC<EventCardProps> = ({
     dateTime, 
     description, 
     detailsLink, 
-    image, 
+    bannerUrl, 
     key, 
     participateLink, 
     title,
@@ -39,12 +39,14 @@ const EventCard: React.FC<EventCardProps> = ({
     }
 
     let cardBackgroundColor = '#2B2C3E'
-    let cardImageBackgroundColor = 'linear-gradient(180deg, #00BE85 0%, #1E90FF 100%)'
+    let cardImageBackground = 'linear-gradient(180deg, #00BE85 0%, #1E90FF 100%)'
 
     if (color === 'contrast') {
         cardBackgroundColor = 'white'
-        cardImageBackgroundColor = '#F1F3F5'
+        cardImageBackground = '#F1F3F5'
     }
+
+    if (bannerUrl) cardImageBackground = `url("${bannerUrl}")`
 
     const cardsx: SxProps = {width: '255px', borderRadius: '10px', background: cardBackgroundColor, flex: 1}
     if (shadowed) {
@@ -53,10 +55,15 @@ const EventCard: React.FC<EventCardProps> = ({
 
     const textColor = color === 'primary' ? 'contrast': 'primary'
 
+    let bannerPlaceHolder
+    if (!bannerUrl) {
+        bannerPlaceHolder = <Typography variant="h4" color="transparent" centered>Imagem do banner do evento</Typography>
+    }
+
     return (
         <Box key={key} sx={cardsx}>
-            <Box sx={{height: '159px', background: cardImageBackgroundColor, borderTopLeftRadius: '10px', borderTopRightRadius: '10px', display: 'flex', justifyContent: 'center', alignItems: 'center', padding: '12px'}}>
-                <Typography variant="h4" color="transparent" centered>Imagem do banner do evento</Typography>
+            <Box sx={{height: '159px', background: `${cardImageBackground} no-repeat center center`, borderTopLeftRadius: '10px', borderTopRightRadius: '10px', display: 'flex', justifyContent: 'center', alignItems: 'center', padding: '12px'}}>
+                {bannerPlaceHolder}
             </Box>
             <Box sx={{display: 'flex', padding: '24px', flexDirection: 'column', gap: '8px'}}>
                 <Typography variant="h4" color={textColor}>{title}</Typography>

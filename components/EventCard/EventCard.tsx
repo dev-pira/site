@@ -11,7 +11,7 @@ export interface EventCardProps {
     description?: string,
     dateTime: Date,
     detailsLink: string,
-    participateLink?: string,
+    subscribeLink?: string,
     shadowed?: boolean
 }
 
@@ -22,7 +22,7 @@ const EventCard: React.FC<EventCardProps> = ({
     detailsLink, 
     bannerUrl, 
     key, 
-    participateLink, 
+    subscribeLink, 
     title,
     shadowed
 }: EventCardProps) => {
@@ -30,8 +30,8 @@ const EventCard: React.FC<EventCardProps> = ({
         dateTime = new Date(dateTime)
     }
     let participateNode
-    if (participateLink) {
-        participateNode = <Button href={participateLink} color={color === 'primary' ? 'contrast': 'primary'}>Participar</Button>
+    if (subscribeLink) {
+        participateNode = <Button href={subscribeLink} color={color === 'primary' ? 'contrast': 'primary'}>Participar</Button>
     }
     let formatedDateTime = `${dateTime.getDate()}/${dateTime.getMonth()+1}/${dateTime.getFullYear()}`
     if (dateTime.getHours() || dateTime.getMinutes()) {

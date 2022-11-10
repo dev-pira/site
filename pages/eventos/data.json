@@ -4,10 +4,12 @@
     "title": "DEVPIRA Festival 2022",
     "bannerUrl": "/images/Events/DEVPIRAFestival22/Banner.png",
     "description": "O já tradicional evento de final de ano da comunidade, reconectando pessoas com muito networking e conteúdo de qualidade.",
-    "longDescription": "Para quem estava com saudades de 2018 e 2019, para quem sentiu o gostinho do Festival em 2020 e 2021 e quer sentir de perto a energia ou ainda, para quem quer se conectar com a comunidade pela primeira vez: Nosso Festival está vontando para a rua! Dia 3/12, no Parque Jequitibá, em Piracicaba, com o AgTech Garage, Parque Tecnológico de Piracicaba e PulseHub, vamos recever a comunidade para muito networking e conteúdo para as mais diversas tribos. Vamos falar de núvem, de cultura, de carreira, de metodologia e claro muito código! Vem com a gente movimentar o ecossistema de tecnologia da nossa região!",
+    "longDescription": "Para quem estava com saudades de 2018 e 2019, para quem sentiu o gostinho do Festival em 2020 e 2021 e quer sentir de perto a energia ou ainda, para quem quer se conectar com a comunidade pela primeira vez: Nosso Festival está vontando para a rua! Dia 3/12, no Parque Jequitibá, em Piracicaba, com o AgTech Garage, Parque Tecnológico de Piracicaba e PulseHub, vamos receber a comunidade para muito networking e conteúdo para as mais diversas tribos. Vamos falar de nuvem, de cultura, de carreira, de metodologia e claro muito código! Vem com a gente movimentar o ecossistema de tecnologia da nossa região!",
     "dateTime": "2022-12-03T08:30-03:00",
     "place": "Rua Cezira Giovanoni Moretti, Parque Jequitibá, Piracicaba, SP",
     "detailsLink": "eventos/devpira-festival-2022",
+    "subscribeLink": "https://www.sympla.com.br/evento/devpira-festival-2022/1772605",
+    "otherInfo": "Doação de 1Kg de alimento não perecível no credenciamento do evento. Arrecadação para montagem de cestas básicas distribuídas pela Pia União de Santo Antonio.",
     "partners": [
       {
         "name": "Data System",

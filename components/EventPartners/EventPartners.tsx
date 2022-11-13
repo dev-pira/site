@@ -1,4 +1,4 @@
-import { Box, Grid } from "@mui/material"
+import { Box, Grid, Link } from "@mui/material"
 import { Button } from "../Button"
 import { Typography } from "../Typography"
 
@@ -6,6 +6,7 @@ export interface EventPartnersProps {
     partners?: {
         name: string
         logoUrl?: string
+        link?: string
         category?: string
     }[]
 }
@@ -28,8 +29,10 @@ const EventPartners: React.FC<EventPartnersProps> = ({partners}:EventPartnersPro
                         <Grid container sx={{display: 'flex', gap: '16px'}}>
                         {partnersInCategory.map((partner, index) => {
                             return (
-                                <Box key={index} sx={{background: `url("${partner.logoUrl}") no-repeat center center`, backgroundSize: 'contain', width: '171px', height: '78px'}}>
-                                </Box>
+                                <Link key={index} href={partner.link} target='_blank'>
+                                    <Box sx={{background: `url("${partner.logoUrl}") no-repeat center center`, backgroundSize: 'contain', width: '171px', height: '78px'}}>
+                                    </Box>
+                                </Link>
                             )
                         })}
                         </Grid> 

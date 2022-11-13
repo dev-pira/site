@@ -12,24 +12,40 @@
     "otherInfo": "Doação de 1Kg de alimento não perecível no credenciamento do evento. Arrecadação para montagem de cestas básicas distribuídas pela Pia União de Santo Antonio.",
     "partners": [
       {
+        "name": "AmbevTech",
+        "logoUrl": "/images/Events/DEVPIRAFestival22/Partners/AmbevTech.png",
+        "link": "https://www.ambevtech.com.br",
+        "category": "Gold"
+      },
+      {
         "name": "Data System",
-        "logoUrl": "/images/Events/DEVPIRAFestival22/Partners/DataSystem.jpeg",
+        "logoUrl": "/images/Events/DEVPIRAFestival22/Partners/DataSystem.png",
+        "link": "https://www.datasystem.com.br",
+        "category": "Gold"
+      },
+      {
+        "name": "Pecege",
+        "logoUrl": "/images/Events/DEVPIRAFestival22/Partners/Pecege.png",
+        "link": "https://pecege.com",
         "category": "Gold"
       },
 
       {
         "name": "AgTech Garage",
         "logoUrl": "/images/Events/DEVPIRAFestival22/Partners/AgTechGarage.png",
+        "link": "https://www.agtechgarage.com",
         "category": "Apoio"
       },
       {
         "name": "Parque Tecnológico de Piracicaba",
         "logoUrl": "/images/Events/DEVPIRAFestival22/Partners/ParqueTecnologico.webp",
+        "link": "https://parquetecnologico.piracicaba.sp.gov.br",
         "category": "Apoio"
       },
       {
         "name": "Pulse Hub de Inovação",
-        "logoUrl": "/images/Events/DEVPIRAFestival22/Partners/PulseHub.jpg",
+        "logoUrl": "/images/Events/DEVPIRAFestival22/Partners/PulseHub.png",
+        "link": "https://pulsehub.com.br",
         "category": "Apoio"
       },
       {

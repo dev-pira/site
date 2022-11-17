@@ -51,12 +51,26 @@
       {
         "name": "Quati Tecnologia",
         "logoUrl": "/images/Events/DEVPIRAFestival22/Partners/Quati.jpeg",
+        "link": "http://quatitecnologia.com.br",
+        "category": "Apoio"
+      },
+      {
+        "name": "Universo Ágil",
+        "logoUrl": "/images/Events/DEVPIRAFestival22/Partners/UniversoAgil.png",
+        "link": "https://www.universoagilhub.com",
         "category": "Apoio"
       }
     ],
     "tracks": [
       {
         "talks": [
+          {
+            "title": "Agilidade na carreira: dos bits e bytes ao topo corporativo, qual o segredo?",
+            "speaker": {
+              "name": "André Sanches",
+              "portraitUrl": "/images/Events/DEVPIRAFestival22/Sanches.png"
+            }
+          },
           {
             "title": "Como não ser invadido e pagar multa pro Governo Federal",
             "speaker": {
@@ -141,14 +155,6 @@
               "name": "Ana Paula Lima",
               "job": "Business Agile @ Take Blip",
               "portraitUrl": "/images/Events/DEVPIRAFestival22/Ana.jpeg"
-            }
-          },
-          {
-            "title": "CDK e TypeScript: aplicação e infraestrutura pela mesma linguagem de programação",
-            "speaker": {
-              "name": "Murilo Beltrame",
-              "job": "Arquiteto @ AmbevTech",
-              "portraitUrl": "/images/Events/DEVPIRAFestival22/Murilo.jpeg"
             }
           }
         ]

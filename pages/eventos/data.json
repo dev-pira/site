@@ -63,6 +63,33 @@
     ],
     "tracks": [
       {
+        "name": "Keynotes",
+        "talks": [
+          {
+            "title": "Hot Migration: Uma breve apresentação sobre o processo de migração de tecnologia e redesign de arquitetura",
+            "speaker": {
+              "name": "Matheus Crivellari",
+              "portraitUrl": "/images/Events/DEVPIRAFestival22/Matheus.png"
+            }
+          },
+          {
+            "title": "Raio-X Kubernetes: entendendo e incrementando a API do orquestrador",
+            "speaker": {
+              "name": "Carlos Eduardo Millani",
+              "portraitUrl": "/images/Events/DEVPIRAFestival22/Carlos.png"
+            }
+          },
+          {
+            "title": "Agilidade - Uma Jornada Constante",
+            "speaker": {
+              "name": "Walter Gima",
+              "portraitUrl": "/images/Events/DEVPIRAFestival22/Walter.png"
+            }
+          }
+        ]
+      },
+
+      {
         "talks": [
           {
             "title": "Agilidade na carreira: dos bits e bytes ao topo corporativo, qual o segredo?",

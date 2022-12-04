@@ -14,30 +14,46 @@ const Social: React.FC<SocialProps> = ({ color = "green" }: SocialProps) => {
       sx={{
         display: "flex",
         flexDirection: "row",
+        maxWidth: "100vw",
         justifyContent: "center",
         backgroundColor: color === "blue" ? "#46A4FF" : "#00F4AB",
+        px: "1.8rem",
       }}
     >
       <Box
         sx={{
           display: "flex",
           flexWrap: "wrap",
-          maxWidth: defaultWidth,
+          width: defaultWidth,
+          maxWidth: "100%",
           alignItems: "center",
-          justifyContent: "space-around",
+          justifyContent: {
+            xs: "center",
+            sm: "center",
+            md: "space-around",
+            lg: "space-around",
+          },
           height: "367px",
         }}
       >
         <Box
           sx={{
             display: "flex",
-            width: "546px",
+            maxWidth: "546px",
+            px: "10px",
             flexDirection: "column",
             gap: "24px",
           }}
         >
           <Typography variant="h3">Acompanhe nas redes sociais</Typography>
-          <Box sx={{ display: "flex", flexDirection: "row", gap: "8px" }}>
+          <Box
+            sx={{
+              display: "flex",
+              flexWrap: "wrap",
+              flexDirection: "row",
+              gap: "8px",
+            }}
+          >
             <SocialButton
               midia="facebook"
               href="https://www.facebook.com/DEVPIRA/"

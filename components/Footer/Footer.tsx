@@ -13,26 +13,22 @@ const Footer: React.FC = () => {
     <AppBar
       position="static"
       color="transparent"
-      sx={{ display: "flex", alignItems: "center", maxWidth: "100%" }}
+      sx={{ display: "flex", alignItems: "center" }}
     >
       <Box
         sx={{
           display: "flex",
+          flexWrap: "wrap",
           flexDirection: "row",
           alignItems: "center",
-          maxWidth: "1108px",
-          flexWrap: "wrap",
-          height: "243px",
+          width: "1108px",
+          maxWidth: "100vw",
+          minHeight: "243px",
+          px: "1.8rem",
         }}
       >
         {/* <Typography>DEVPIRA</Typography> */}
-        <Box
-          sx={{
-            width: logoSize.width,
-            height: logoSize.height,
-            display: "none",
-          }}
-        >
+        <Box sx={{ width: logoSize.width, height: logoSize.height }}>
           <Image
             src="/images/Logo.svg"
             alt="DEVPIRA"

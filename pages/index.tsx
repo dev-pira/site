@@ -9,6 +9,7 @@ import { Social } from "../components/Social";
 import { Event } from "../models/model";
 import { readFile } from "fs/promises"
 import { join } from "path"
+import Partners from "../components/Partners/Partners";
 
 const HomePage: NextPage = ({eventsData}: InferGetServerSidePropsType<typeof getServerSideProps>) => {
   return (
@@ -18,6 +19,7 @@ const HomePage: NextPage = ({eventsData}: InferGetServerSidePropsType<typeof get
       <About />
       <Initiatives />
       <Events events={eventsData} />
+      <Partners />
       <Social />
       <Footer />
     </div>

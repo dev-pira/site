@@ -64,5 +64,3 @@ const Partners: React.FC<PartnersProps> = ({description, partners}:PartnersProps
 }
 
 export default Partners
-
-// A comunidade não tem fins lucrativos e conta com a energia das pessoas e a parceria de orgãos e instituições para levar formação, conhecimento e networking para todos. Seja também um agente ativo desse ecossistema sendo um apoiador. Entre em contato!

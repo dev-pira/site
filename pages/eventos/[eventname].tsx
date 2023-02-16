@@ -9,6 +9,7 @@ import { Social } from "../../components/Social";
 import { Event } from "../../models/model";
 import { readFile } from "fs/promises"
 import { join } from "path"
+import { EventDetailGallery } from "../../components/EventDetailGallery";
 
 const EventDetailPage: NextPage = ({eventData}: InferGetServerSidePropsType<typeof getServerSideProps>) => {
 
@@ -20,6 +21,7 @@ const EventDetailPage: NextPage = ({eventData}: InferGetServerSidePropsType<type
                 <EventDetailIntro {...eventData} />
                 <EventDetailInfo {...eventData} />
                 <EventDetailContent {...eventData} />
+                <EventDetailGallery {...eventData} />
                 <EventPartners {...eventData} />
                 <Social color="blue" />
                 <Footer />

@@ -1,0 +1,34 @@
+name: Release
+on:
+  push:
+    branches:
+      - develop
+jobs:
+  startrelease:
+    name: CreateRelease
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
+      - name: Git Version
+        id: version
+        uses: codacy/git-version@2.7.1
+      - name: Use Version
+        run: echo ${{steps.version.outputs.version}}
+  #     - run: echo "Get all Tags"
+  #     - run: echo "define new branch"
+  #     - run: install gitflow
+  #     - run: create release branch
+  #     - run: publish release branch
+  # approve:
+  #   name: ApproveRelease
+  #   runs-on: ubuntu-latest
+  #   steps:
+  #     - run: asks approval
+  #     - run: notify
+  # finishrelease:
+  #   name: FinishRelease
+  #   runs-on: ubuntu-latest
+  #   steps:
+  #     - run: finish release branch

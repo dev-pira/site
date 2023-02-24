@@ -17,7 +17,9 @@ jobs:
       # - name: Use Version
       #   run: echo ${{steps.version.outputs.version}} | cut -d'-' -f 1  # NEW RELEASE VERSION
       - name: Create Release
-        run: git branch "release/$(echo ${{steps.version.outputs.version}} | cut -d'-' -f 1)"
+        run: git checkout -b "release/$(echo ${{steps.version.outputs.version}} | cut -d'-' -f 1)"
+      - name: Get Status
+        run: git status
   #     - run: create release branch
   #     - run: publish release branch
   # approve:

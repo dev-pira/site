@@ -19,7 +19,7 @@ jobs:
       - name: Create Release
         run: git checkout -b "release/$(echo ${{steps.version.outputs.version}} | cut -d'-' -f 1)"
       - name: Publish Release
-        run: git push
+        run: git push --set-upstream origin "release/$(echo ${{steps.version.outputs.version}} | cut -d'-' -f 1)"
   #     - run: create release branch
   #     - run: publish release branch
   # approve:

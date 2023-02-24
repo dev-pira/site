@@ -18,8 +18,8 @@ jobs:
       #   run: echo ${{steps.version.outputs.version}} | cut -d'-' -f 1  # NEW RELEASE VERSION
       - name: Create Release
         run: git checkout -b "release/$(echo ${{steps.version.outputs.version}} | cut -d'-' -f 1)"
-      - name: Get Status
-        run: git status
+      - name: Publish Release
+        run: git push
   #     - run: create release branch
   #     - run: publish release branch
   # approve:

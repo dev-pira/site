@@ -17,7 +17,7 @@ jobs:
       - name: Use Version
         run: echo ${{steps.version.outputs.version}} | cut -d'-' -f 1  # NEW RELEASE VERSION
       - name: Create Release
-        run: git flow release start ${${{steps.version.outputs.version}} | cut -d'-' -f 1}
+        run: git flow release start $(echo ${{steps.version.outputs.version}} | cut -d'-' -f 1)
   #     - run: create release branch
   #     - run: publish release branch
   # approve:

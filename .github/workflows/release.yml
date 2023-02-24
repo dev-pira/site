@@ -14,8 +14,10 @@ jobs:
       - name: Git Version
         id: version
         uses: codacy/git-version@2.7.1
-      - name: Use Version
-        run: echo ${{steps.version.outputs.version}} | cut -d'-' -f 1  # NEW RELEASE VERSION
+      # - name: Use Version
+      #   run: echo ${{steps.version.outputs.version}} | cut -d'-' -f 1  # NEW RELEASE VERSION
+      - name: Install Git Flow
+        run: apt install git-flow -y
       - name: Create Release
         run: git flow release start $(echo ${{steps.version.outputs.version}} | cut -d'-' -f 1)
   #     - run: create release branch

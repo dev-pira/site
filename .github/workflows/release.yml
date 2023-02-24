@@ -15,10 +15,9 @@ jobs:
         id: version
         uses: codacy/git-version@2.7.1
       - name: Use Version
-        run: echo ${{steps.version.outputs.version}} | cut -d'-' -f 1 
-  #     - run: echo "Get all Tags"
-  #     - run: echo "define new branch"
-  #     - run: install gitflow
+        run: echo ${{steps.version.outputs.version}} | cut -d'-' -f 1  # NEW RELEASE VERSION
+      - name: Create Release
+        run: git flow release start ${${{steps.version.outputs.version}} | cut -d'-' -f 1}
   #     - run: create release branch
   #     - run: publish release branch
   # approve:

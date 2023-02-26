@@ -19,7 +19,9 @@ jobs:
       - name: Publish Release
         run: git push --set-upstream origin "release/$(echo ${{steps.version.outputs.version}} | cut -d'-' -f 1)"
       - name: Create PR
-        run: gh pr create --base main --fill
+        uses: peter-evans/create-pull-request@v4.2.3
+        with:
+          base: main
   # TODO: Abrir PR para main
 
   # Aprovando PR da main:

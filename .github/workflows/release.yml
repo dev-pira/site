@@ -14,22 +14,14 @@ jobs:
       - name: Git Version
         id: version
         uses: codacy/git-version@2.7.1
-      # - name: Use Version
-      #   run: echo ${{steps.version.outputs.version}} | cut -d'-' -f 1  # NEW RELEASE VERSION
       - name: Create Release
         run: git checkout -b "release/$(echo ${{steps.version.outputs.version}} | cut -d'-' -f 1)"
       - name: Publish Release
         run: git push --set-upstream origin "release/$(echo ${{steps.version.outputs.version}} | cut -d'-' -f 1)"
-  #     - run: create release branch
-  #     - run: publish release branch
-  # approve:
-  #   name: ApproveRelease
-  #   runs-on: ubuntu-latest
-  #   steps:
-  #     - run: asks approval
-  #     - run: notify
-  # finishrelease:
-  #   name: FinishRelease
-  #   runs-on: ubuntu-latest
-  #   steps:
-  #     - run: finish release branch
+      - name: Create PR
+        run: gh pr create --base main --fill
+  # TODO: Abrir PR para main
+
+  # Aprovando PR da main:
+  #  - Gerar tag a partir da release de origem
+  #  - Mergear na develop

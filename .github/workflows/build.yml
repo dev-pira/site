@@ -1,8 +1,10 @@
 name: Build
 on:
-  # push:
-  #   branches:
-  #     - master
+  push:
+    branches:
+      - release/*
+      - bugfix/*
+      - hotfix/*
   pull_request:
     types: [opened, synchronize, reopened]
 jobs:

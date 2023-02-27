@@ -2,7 +2,8 @@ import { Box, Grid, Link } from "@mui/material"
 import { Button } from "../Button"
 import { Typography } from "../Typography"
 
-export interface EventPartnersProps {
+export interface PartnersProps {
+    description: string
     partners?: {
         name: string
         logoUrl?: string
@@ -11,10 +12,10 @@ export interface EventPartnersProps {
     }[]
 }
 
-const EventPartners: React.FC<EventPartnersProps> = ({partners}:EventPartnersProps) => {
+const Partners: React.FC<PartnersProps> = ({description, partners}:PartnersProps) => {
     const defaultWidth = '1345px'
     let partnersBlock
-    if (partners) {
+     if (partners) {
         const categories = partners
             .map(p => p.category)
             .filter((value, index, self) => self.indexOf(value) === index)
@@ -52,7 +53,7 @@ const EventPartners: React.FC<EventPartnersProps> = ({partners}:EventPartnersPro
                 </Box>
                 <Box sx={{flex: 1, display: 'flex', flexDirection: 'column', gap: '24px'}}>
                     <Typography variant="h3">Apoio</Typography>
-                    <Typography>A comunidade não tem fins lucrativos e conta com a energia das pessoas e a parceria de orgãos e instituições para realizar encontros como esse. Seja também um agente ativo desse ecossistema sendo um apoiador. Entre em contato!</Typography>
+                    <Typography>{description}</Typography>
                     <Box>
                         <Button href="mailto:contato@devpira.com.br">Apoiar o evento</Button>
                     </Box>
@@ -62,4 +63,4 @@ const EventPartners: React.FC<EventPartnersProps> = ({partners}:EventPartnersPro
     )
 }
 
-export default EventPartners
+export default Partners

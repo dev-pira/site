@@ -1,0 +1,13 @@
+name: Auto PR
+on:
+  push:
+    branches:
+      - feature/*
+      - bugfix/*
+      - hotfix/*
+jobs:
+  createpullrequest:
+    name: Create Pull Request
+    runs-on: ubuntu-latest
+    steps: 
+      - uses: peter-evans/create-pull-request@v4.2.3

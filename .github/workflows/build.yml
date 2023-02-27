@@ -2,10 +2,42 @@ name: Build
 on:
   push:
     branches:
-      - master
+      - release/*
+      - bugfix/*
+      - hotfix/*
   pull_request:
     types: [opened, synchronize, reopened]
 jobs:
+  yarnaudit:
+    name: YarnAudit
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          fetch-depth: 0  # Shallow clones should be disabled for a better relevancy of analysis
+      - uses: actions/setup-node@v3
+        name: Setup Node 18
+        with:
+          node-version: 18
+      - run: yarn
+        name: Yarn Install 
+      - run: yarn audit --groups dependencies
+        name: Yarn Audit
+  eslint:
+    name: ESLint
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          fetch-depth: 0  # Shallow clones should be disabled for a better relevancy of analysis
+      - uses: actions/setup-node@v3
+        name: Setup Node 18
+        with:
+          node-version: 18
+      - run: yarn
+        name: Yarn Install 
+      - run: npm run lint
+        name: React Lint
   sonarcloud:
     name: SonarCloud
     runs-on: ubuntu-latest

@@ -1,0 +1,29 @@
+name: Release
+on:
+  push:
+    branches:
+      - develop
+jobs:
+  startrelease:
+    name: CreateRelease
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
+      - name: Git Version
+        id: version
+        uses: codacy/git-version@2.7.1
+      - name: Create Release
+        run: git checkout -b "release/$(echo ${{steps.version.outputs.version}} | cut -d'-' -f 1)"
+      - name: Publish Release
+        run: git push --set-upstream origin "release/$(echo ${{steps.version.outputs.version}} | cut -d'-' -f 1)"
+      - name: Create PR
+        uses: peter-evans/create-pull-request@v4.2.3
+        with:
+          base: main
+  # TODO: Abrir PR para main
+
+  # Aprovando PR da main:
+  #  - Gerar tag a partir da release de origem
+  #  - Mergear na develop

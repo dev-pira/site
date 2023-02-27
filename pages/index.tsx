@@ -9,6 +9,7 @@ import { Social } from "../components/Social";
 import { Event } from "../models/model";
 import { readFile } from "fs/promises"
 import { join } from "path"
+import Partners from "../components/Partners/Partners";
 
 const HomePage: NextPage = ({eventsData}: InferGetServerSidePropsType<typeof getServerSideProps>) => {
   return (
@@ -18,6 +19,7 @@ const HomePage: NextPage = ({eventsData}: InferGetServerSidePropsType<typeof get
       <About />
       <Initiatives />
       <Events events={eventsData} />
+      <Partners description="A comunidade não tem fins lucrativos e conta com a energia das pessoas e a parceria de orgãos e instituições para levar formação, conhecimento e networking para todos. Seja também um agente ativo desse ecossistema sendo um apoiador. Entre em contato!" />
       <Social />
       <Footer />
     </div>

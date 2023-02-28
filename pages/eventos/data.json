@@ -551,5 +551,39 @@
       "https://sadevpira.blob.core.windows.net/devpirafestival2022gallery/Devpira_ Festival_2022-98.jpg",
       "https://sadevpira.blob.core.windows.net/devpirafestival2022gallery/Devpira_ Festival_2022-99.jpg"
     ]
+  },
+  {
+    "key": "1-devpira-huboffice",
+    "title": "1º DEVPIRA HubOffice",
+    "bannerUrl": "/images/Events/1DEVPIRAHubOffice/Banner.jpeg",
+    "description": "DEVPIRA HubOffice é um evento em parceria com o Pulse Hub de Inovação da Raizen. Nosso objetivo é promover um dia de trabalho em espaço compartilhado onde será possível que os participantes executem suas tarefas do dia a dia de trabalho ao lado de outros profissionais. O objetivo é de networking e troca de conhecimento! Ao final do evento teremos uma talk e um Happy Hour.",
+    "longDescription": "Atenção pras  as boas práticas para uso de um co-working:<ul><li><b>Não utilize as salas de reuniões se não tiver uma reserva.</b> Use a sala reservada para você e seu time apenas durante o tempo combinado;</li><li>Lembre-se de que o Pulse é um <b>espaço compartilhado</b> e mais pessoas estarão usando além dos participantes do evento, então atente-se ao volume de conversas e reuniões para <b>não atrapalhar os colegas</b>;</li><li>Ao usar uma lousa, flip chart ou postits nas paredes, <b>apague as informações e recolha os post-its</b> ao final para <b>não vazar informações confidenciais e deixar o espaço pronto para a próxima pessoa</b>;</li><li>Se precisar realizar reuniões on-line e ligações telefônicas, utilize os aquários ou sacadas, que são à prova de som, para <b>manter a sua privacidade durante a conversa</b>;</li><li>Temos copa para fazer refeições. Nos armários da copa temos utensílios como talheres, pratos, bowls, copos e canecas. Eles são de uso liberado. <b>Lave os utensílios que usar e volte-os no lugar</b>. Certifique-se de deixar o espaço limpo: jogue copos vazios, papéis, e demais descartáveis usados no lixo, se derrubar comida no chão, recolha e jogue no lixo e avise ao time Pulse caso sobre comida e precise ser guardada;</li><li> Então você pode levar seu <b>almoço</b>, pode almoçar no restaurante ou na lanchonete que tem no Mall ou pode ir almoçar no Shopping Piracicaba que é pertinho. Mas não se esqueça de se alimentar bem e de forma saudável. <b>Cuide da sua nutrição e beba muita água</b>;</li><li>Lembre-se da <b>Regra do Fone</b>: Se o seu colega está de fone assuma que ele <b>está concentrado e procure não incomodar</b>. Provavelmente ele está super focado e transformando café em codigo naquele momento;</li><li>Você pode chegar no evento de transporte publico se preferir, olha só <a href='https://www.tupitransporte.com.br/506-pq-tecnológico' target='_blank' style='text-decoration:underline'>linha do busão</a>;</li><li>O estacionamento no parque é na rua mesmo, e costuma ficar bem cheio! De preferência para ir de aplicativo ou tente formar um grupo de amigos para <b>ir de carona</b>;</li><li><b>Leve o seu equipamento</b>. Apenas o espaço e o acesso a internet são compartilhados. Pode levar seu notebook, seu celular, seu desktop e seu monitor, até sua calculadora e bloco de anotações. Lembrando que <b>a responsabilidade pelo cuidado do seu equipamento é sua</b>. Cuidado no transporte e na operação.</li></ul>",
+    "dateTime": "2023-03-17T08:00-03:00",
+    "place": "Rua Cezira Giovanoni Moretti, 955, Parque Jequitibá, Piracicaba, SP",
+    "detailsLink": "eventos/1-devpira-huboffice",
+    "subscribeLink": "https://www.sympla.com.br/evento/devpira-huboffice/1893127",
+    "otherInfo": "Leve seu computador e fones de ouvido.<br /> Prefira ir de carona ;)",
+    "partners": [
+      {
+        "name": "Pulse Hub de Inovação",
+        "logoUrl": "/images/Events/DEVPIRAFestival22/Partners/PulseHub.png",
+        "link": "https://pulsehub.com.br",
+        "category": "Apoio"
+      }
+    ],
+    "tracks": [
+      {
+        "talks": [
+          {
+            "title": "Agilidade para desenvolvedores",
+            "speaker": {
+              "name": "Luis Henrique De Rossi",
+              "job": "Coordenador LACE na Raízen",
+              "portraitUrl": "/images/Events/1DEVPIRAHubOffice/Rossi.jpeg"
+            }
+          }
+        ]
+      }
+    ]
   }
 ]

@@ -17,7 +17,7 @@ describe('EventCard deve ', () => {
     })
 
     it ('deve renderizar botão Participar quando o link de inscrição for informado e a data do evento estiver no futuro', () =>{
-        var date = new Date()
+        const date = new Date()
         date.setDate(date.getDate()+1)
         const props: EventCardProps = {
             color: 'primary',
@@ -32,7 +32,7 @@ describe('EventCard deve ', () => {
     })
 
     it ('não deve renderizar botão Participar quando o link de inscrição for informado e a data do evento estiver no passado', () =>{
-        var date = new Date()
+        const date = new Date()
         date.setDate(date.getDate()-1)
         const props: EventCardProps = {
             color: 'primary',

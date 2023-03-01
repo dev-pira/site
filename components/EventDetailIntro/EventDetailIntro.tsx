@@ -5,13 +5,18 @@ import { Typography } from "../Typography"
 export interface EventDetailIntroProps {
     title: string
     description: string
-    subscribeLink?: string
+    subscribeLink?: string,
+    dateTime: Date
 }
 
-const EventDetailIntro: React.FC<EventDetailIntroProps> = ({description, subscribeLink, title}:EventDetailIntroProps) => {
+const EventDetailIntro: React.FC<EventDetailIntroProps> = ({dateTime, description, subscribeLink, title}:EventDetailIntroProps) => {
     const defaultWidth = '1345px'
     let subscribeButton
-    if (subscribeLink) {
+    if (!(dateTime instanceof Date)) {
+        dateTime = new Date(dateTime)
+    }
+
+    if (subscribeLink && dateTime > new Date()) {
         subscribeButton = <Button color="feature" href={subscribeLink}>Inscreva-se</Button>
     }
     return (

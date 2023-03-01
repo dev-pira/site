@@ -30,7 +30,7 @@ const EventCard: React.FC<EventCardProps> = ({
         dateTime = new Date(dateTime)
     }
     let participateNode
-    if (subscribeLink) {
+    if (subscribeLink && dateTime > new Date()) {
         participateNode = <Button href={subscribeLink} color={color === 'primary' ? 'contrast': 'primary'}>Participar</Button>
     }
     let formatedDateTime = `${dateTime.getDate()}/${dateTime.getMonth()+1}/${dateTime.getFullYear()}`

@@ -36,15 +36,23 @@ jobs:
           node-version: 18
       - run: yarn
         name: Yarn Install 
-      - run: npm run lint
+      - run: yarn lint
         name: React Lint
-  sonarcloud:
-    name: SonarCloud
+  testandcheck:
+    name: Test and Check
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
         with:
           fetch-depth: 0  # Shallow clones should be disabled for a better relevancy of analysis
+      - uses: actions/setup-node@v3
+        name: Setup Node 18
+        with:
+          node-version: 18
+      - run: yarn
+        name: Yarn Install 
+      - run: yarn test-ci
+        name: Jest Tests
       - name: SonarCloud Scan
         uses: SonarSource/sonarcloud-github-action@master
         env:

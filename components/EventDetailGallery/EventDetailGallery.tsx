@@ -1,5 +1,4 @@
 import { Box, ImageList, ImageListItem } from "@mui/material"
-import Image from "next/image"
 import { Typography } from "../Typography"
 
 export interface EventDetailGalleryProps {
@@ -25,10 +24,8 @@ const EventDetailGallery: React.FC<EventDetailGalleryProps> = ({gallery}:EventDe
                 ))}
             </ImageList>
             </Box>
-            
         </Box>
-    }
-    return <Box></Box>
+    } else return <Box></Box>
 }
 
 export default EventDetailGallery

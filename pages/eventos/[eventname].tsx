@@ -10,6 +10,7 @@ import { readFile } from "fs/promises"
 import { join } from "path"
 import { EventDetailGallery } from "../../components/EventDetailGallery";
 import Partners from "../../components/Partners/Partners";
+import { EventDetailVideo } from "../../components/EventDetailVideo";
 
 
 const EventDetailPage: NextPage = ({eventData}: InferGetServerSidePropsType<typeof getServerSideProps>) => {
@@ -22,6 +23,7 @@ const EventDetailPage: NextPage = ({eventData}: InferGetServerSidePropsType<type
                 <EventDetailIntro {...eventData} />
                 <EventDetailInfo {...eventData} />
                 <EventDetailContent {...eventData} />
+                <EventDetailVideo {...eventData} />
                 <EventDetailGallery {...eventData} />
                 <Partners {...eventData} description="A comunidade não tem fins lucrativos e conta com a energia das pessoas e a parceria de orgãos e instituições para realizar encontros como esse. Seja também um agente ativo desse ecossistema sendo um apoiador. Entre em contato!" />
                 <Social color="blue" />

@@ -13,4 +13,5 @@ jobs:
 #       - uses: peter-evans/create-pull-request@v4.2.3
       - uses: devops-infra/action-pull-request@v0.5.5
         with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
           draft: true

@@ -10,8 +10,11 @@ jobs:
     name: Create Pull Request
     runs-on: ubuntu-latest
     steps: 
-#       - uses: peter-evans/create-pull-request@v4.2.3
-      - uses: devops-infra/action-pull-request@v0.5.5
+      - name: Checkout repository
+        uses: actions/checkout@v2
+      - name: Open Pull Request as Draft
+        uses: devops-infra/action-pull-request@v0.5.5
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
+          target: develop
           draft: true

@@ -5,7 +5,7 @@ import { Typography } from "../Typography"
 
 export interface EventCardProps {
     color: 'primary' | 'contrast'
-    bannerUrl?: string
+    banner?: {url?:string}
     key?: Key,
     title: string,
     description?: string,
@@ -20,7 +20,7 @@ const EventCard: React.FC<EventCardProps> = ({
     dateTime, 
     description, 
     detailsLink, 
-    bannerUrl, 
+    banner, 
     key, 
     subscribeLink, 
     title,
@@ -46,7 +46,7 @@ const EventCard: React.FC<EventCardProps> = ({
         cardImageBackground = '#F1F3F5'
     }
 
-    if (bannerUrl) cardImageBackground = `url("${bannerUrl}")`
+    if (banner?.url) cardImageBackground = `url("${banner.url}")`
 
     const cardsx: SxProps = {width: '255px', borderRadius: '10px', background: cardBackgroundColor, flex: 1}
     if (shadowed) {
@@ -56,7 +56,7 @@ const EventCard: React.FC<EventCardProps> = ({
     const textColor = color === 'primary' ? 'contrast': 'primary'
 
     let bannerPlaceHolder
-    if (!bannerUrl) {
+    if (!banner?.url) {
         bannerPlaceHolder = <Typography variant="h4" color="transparent" centered>Imagem do banner do evento</Typography>
     }
 

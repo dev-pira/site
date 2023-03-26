@@ -1,12 +1,17 @@
 async function fetchGraphQl(query: any) {
-    return fetch(`asdasd`, {
+
+    const spaceId = process.env.CONTENTFUL_SPACE_ID
+    const apiKey = process.env.CONTENTFUL_API_KEY
+    const result = await fetch(`https://graphql.contentful.com/content/v1/spaces/${spaceId}`, {
         method: 'POST',
         headers : {
             'Content-Type': 'application/json',
-            'API-KEY': ''
+            'Authorization': `Bearer ${apiKey}`
         },
-        body: JSON.stringify(query)
-    }).then((response) => response.json())
+        body: JSON.stringify({query})
+    })
+    const data = await result.json()
+    return data
 }
 
 function eventsFrom(response:any) {

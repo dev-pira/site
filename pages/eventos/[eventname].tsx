@@ -5,12 +5,10 @@ import { EventDetailIntro } from "../../components/EventDetailIntro";
 import { Footer } from "../../components/Footer";
 import { Navbar } from "../../components/Navbar";
 import { Social } from "../../components/Social";
-import { Event } from "../../models/model";
-import { readFile } from "fs/promises"
-import { join } from "path"
 import { EventDetailGallery } from "../../components/EventDetailGallery";
 import Partners from "../../components/Partners/Partners";
 import { EventDetailVideo } from "../../components/EventDetailVideo";
+import { getEventData } from "../../apis/cms";
 
 
 const EventDetailPage: NextPage = ({eventData}: InferGetServerSidePropsType<typeof getServerSideProps>) => {
@@ -41,13 +39,11 @@ const EventDetailPage: NextPage = ({eventData}: InferGetServerSidePropsType<type
 export const getServerSideProps: GetServerSideProps = async (context) => {
     try {
         const {eventname} = context.query
-        const filePath = join(process.cwd(),'pages', 'eventos', 'data.json')
-        const dataString = (await readFile(filePath)).toString()
-        let data: Event[] = JSON.parse(dataString)
-        const filteredData = data.filter(e => e.key === eventname)
-        if (filteredData.length) {
+        const eventData = await getEventData(eventname as string)
+        console.log(eventData)
+        if (eventData) {
             context.res.setHeader('Cache-Control', 'public, s-maxage=120, stale-while-revalidate=239')
-            return {props:{eventData: filteredData[0]}}
+            return {props:{eventData}}
         }
     }
     catch(error) {

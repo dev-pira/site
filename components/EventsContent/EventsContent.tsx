@@ -4,11 +4,12 @@ import { Typography } from "../Typography"
 
 export interface EventsContentProps {
     events: {
-        description?: string,
-        detailsLink: string,
-        participateLink?: string,
-        title: string,
-        type: 'Meetup' | 'Live' | 'Worshop',
+        slug: string
+        description?: string
+        detailsLink: string
+        participateLink?: string
+        title: string
+        type: 'Meetup' | 'Live' | 'Worshop'
         dateTime: Date
     }[]
 }
@@ -36,6 +37,7 @@ const EventsContent: React.FC<EventsContentProps> = ({events}: EventsContentProp
                             <Typography variant="h3">{type}</Typography>
                             <Box sx={{width: defaultWidth, display: 'flex', flexDirection: 'row', justifyContent: 'center', alignItems: 'center', gap: '16px'}}>
                                 {eventsOfType.map((eventData, index) => {
+                                    console.log(eventData)
                                     return <EventCard key={index} 
                                         {... eventData}
                                         color='contrast'

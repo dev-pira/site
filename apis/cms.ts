@@ -21,7 +21,7 @@ export async function fetchEventsData() {
     const query = `query {
         eventCollection {
             items {
-                key
+                slug
                 banner {
                     url
                 }
@@ -41,7 +41,7 @@ function eventFrom(response: any) {
 }
 export async function getEventData(key:string) {
     const query = `query {
-        eventCollection(where:{key:"${key}"}, limit: 1){
+        eventCollection(where:{slug:"${key}"}, limit: 1){
             items{
                 banner {
                     url
@@ -63,7 +63,12 @@ export async function getEventData(key:string) {
                 }
                 tracksCollection {
                     items {
-                        name
+                        name,
+                        talksCollection {
+                            items {
+                                title
+                            }
+                        }
                     }
                 }
             }

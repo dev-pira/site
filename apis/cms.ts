@@ -37,7 +37,35 @@ export async function fetchEventsData() {
 }
 
 function eventFrom(response: any) {
-    return response?.data?.eventCollection?.items[0]
+    let event = response?.data?.eventCollection?.items[0]
+    event = {
+        title: event.title,
+        bannerUrl: event.banner?.url,
+        description: event.description,
+        longDescription: event.longDescription,
+        place: event.location,
+        dateTime: event.dateTime,
+        subscriptionUrl: event.subscriptionUrl,
+        otherInfo: event.otherInfo,
+        partners: event.partnersCollection?.items?.map((partner:any) => {
+            return {
+                category: partner.category,
+                name: partner.name,
+                link: partner.websiteUrl,
+                logoUrl: partner.logo?.url
+            }
+        }),
+        tracks: event.tracksCollection?.items?.map((track:any) => {
+            let talks = track.talksCollection?.items?.map((talk:any) => {
+                return {title: talk.title}
+            })
+            return {
+                name: track.name,
+                talks
+            }
+        })
+    }
+    return event
 }
 export async function getEventData(key:string) {
     const query = `query {

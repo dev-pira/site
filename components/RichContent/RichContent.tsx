@@ -1,4 +1,4 @@
-import { Box, Link } from "@mui/material"
+import { Link } from "@mui/material"
 import { Typography } from "../Typography"
 
 export interface RichContentProps {

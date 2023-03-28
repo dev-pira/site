@@ -7,12 +7,13 @@ export interface ButtonProps {
   expanded?: boolean,
   variant?: 'text' | 'contained',
   color?: 'primary' | 'transparent' | 'feature' | 'contrast',
+  type?: 'normal' | 'rounded',
   startIcon?: React.ReactNode,
   onClick?: () => void,
   href?: string,
 }
 
-const Button: React.FC<ButtonProps> = ({children, color = 'primary', disabled, expanded, href, startIcon, variant = 'contained', onClick}: ButtonProps) => {
+const Button: React.FC<ButtonProps> = ({ children, color = 'primary', type = 'normal', disabled, expanded, href, startIcon, variant = 'contained', onClick }: ButtonProps) => {
   let backgroundColor = '#212236'
   let foregroundColor = 'white'
   let border = '1px solid rgba(33,34,54,.3)'
@@ -37,14 +38,14 @@ const Button: React.FC<ButtonProps> = ({children, color = 'primary', disabled, e
     foregroundColor = '#212236'
   }
 
-  let sx: SxProps = {textTransform: 'none', backgroundColor: backgroundColor, color: foregroundColor, border: border}
+  let sx: SxProps = { textTransform: 'none', backgroundColor: backgroundColor, color: foregroundColor, border: border, borderRadius: type === 'rounded' ? 30 : 1 }
   if (expanded) {
     sx.flex = 1
   }
 
   return (
-    <MuiButton 
-      disableElevation 
+    <MuiButton
+      disableElevation
       variant={variant}
       startIcon={startIcon}
       onClick={onClick}

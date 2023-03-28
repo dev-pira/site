@@ -3,7 +3,6 @@ import { Button } from "../Button";
 import { Image } from "../Image";
 
 const Navbar: React.FC = () => {
-  const defaultWidth = "1345px";
   const logoSize = { width: "145px", height: "60px" };
   const items = [
     { label: "Sobre", link: "/" },
@@ -15,8 +14,6 @@ const Navbar: React.FC = () => {
       position="static"
       color="transparent"
       sx={{
-        display: "flex",
-        alignItems: "center",
         boxShadow: "none",
         px: "1.8rem",
       }}
@@ -27,7 +24,6 @@ const Navbar: React.FC = () => {
           flexWrap: "wrap",
           flexDirection: "row",
           alignItems: "center",
-          width: defaultWidth,
           maxWidth: "100vw",
           height: "100px",
         }}

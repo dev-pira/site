@@ -6,13 +6,14 @@ import { Typography } from "../Typography";
 
 export interface EventsProps {
   events: {
-    description?: string;
-    detailsLink: string;
-    participateLink?: string;
-    title: string;
-    type: "Meetup" | "Live" | "Worshop";
-    dateTime: Date;
-  }[];
+    slug: string
+    description?: string
+    detailsLink: string
+    participateLink?: string
+    title: string
+    type: "Meetup" | "Live" | "Worshop"
+    dateTime: Date
+  }[]
 }
 
 const Events: React.FC<EventsProps> = ({ events }: EventsProps) => {

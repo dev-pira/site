@@ -4,17 +4,22 @@ async function fetchGraphQl(query: any) {
     const apiKey = process.env.CONTENTFUL_API_KEY
     const result = await fetch(`https://graphql.contentful.com/content/v1/spaces/${spaceId}`, {
         method: 'POST',
-        headers : {
+        headers: {
             'Content-Type': 'application/json',
             'Authorization': `Bearer ${apiKey}`
         },
-        body: JSON.stringify({query})
+        body: JSON.stringify({ query })
     })
     const data = await result.json()
+    console.log(data)
     return data
 }
 
-function eventsFrom(response:any) {
+export async function fetchIndexData() {
+    return await fetchEventsData();
+}
+
+function eventsFrom(response: any) {
     return response?.data?.eventCollection?.items
 }
 export async function fetchEventsData() {
@@ -37,7 +42,7 @@ export async function fetchEventsData() {
 }
 
 function eventFrom(response: any) {
-    let event = response?.data?.eventCollection?.items[0]
+    let event = response
     event = {
         title: event.title,
         bannerUrl: event.banner?.url,
@@ -47,7 +52,7 @@ function eventFrom(response: any) {
         dateTime: event.dateTime,
         subscriptionUrl: event.subscriptionUrl,
         otherInfo: event.otherInfo,
-        partners: event.partnersCollection?.items?.map((partner:any) => {
+        partners: event.partnersCollection?.items?.map((partner: any) => {
             return {
                 category: partner.category,
                 name: partner.name,
@@ -55,19 +60,11 @@ function eventFrom(response: any) {
                 logoUrl: partner.logo?.url
             }
         }),
-        tracks: event.tracksCollection?.items?.map((track:any) => {
-            let talks = track.talksCollection?.items?.map((talk:any) => {
-                return {title: talk.title}
-            })
-            return {
-                name: track.name,
-                talks
-            }
-        })
+        tracks: event.tracks
     }
     return event
 }
-export async function getEventData(key:string) {
+export async function getEventData(key: string) {
     const query = `query {
         eventCollection(where:{slug:"${key}"}, limit: 1){
             items{
@@ -91,21 +88,54 @@ export async function getEventData(key:string) {
                 }
                 tracksCollection {
                     items {
-                        name,
-                        talksCollection {
-                            items {
-                                title
-                            }
+                        sys {
+                            id
                         }
                     }
                 }
             }
         }
     }`
-    const data = await fetchGraphQl(query)
-    return eventFrom(data)
+    const response = await fetchGraphQl(query)
+    const event = response?.data?.eventCollection?.items[0]
+    if (event) {
+        if (event.tracksCollection?.items) {
+            event.tracks = []
+            for (const track of event.tracksCollection?.items) {
+                event.tracks.push(await getTrack(track.sys.id))
+            }
+        }
+    }
+    return eventFrom(event)
 }
 
-export async function fetchIndexData() {
-    return await fetchEventsData();
+function trackFrom(response: any) {
+    let track = response?.data?.eventTrack
+    track = {
+        name: track.name,
+        talks: track.talksCollection?.items?.map((talk:any) => talk)
+    }
+    return track
+}
+async function getTrack(id: string) {
+    const query  = `query {
+        eventTrack (id: "${id}") {
+            name
+            talksCollection {
+                items {
+                    title
+                    speaker {
+                        name
+                        job
+                        company
+                        portrait {
+                            url
+                        }
+                    }
+                }
+            }
+        }
+    }`
+    const response = await fetchGraphQl(query)
+    return trackFrom(response)
 }

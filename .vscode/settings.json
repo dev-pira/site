@@ -10,4 +10,7 @@
     "typescriptreact",
   ],
   "FSharp.suggestGitignore": false,
+  "conventionalCommits.scopes": [
+    "Navbar"
+  ],
 }

@@ -30,7 +30,7 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
     context.res.setHeader('Cache-Control', 'public, s-maxage=120, stale-while-revalidate=239')
     return {props:{eventsData}}
   } catch (error) {
-    console.log(error)
+    console.error(error)
   }
   return {notFound:true}
 }

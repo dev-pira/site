@@ -11,7 +11,6 @@ async function fetchGraphQl(query: any) {
         body: JSON.stringify({ query })
     })
     const data = await result.json()
-    console.log(data)
     return data
 }
 

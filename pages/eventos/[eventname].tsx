@@ -40,14 +40,13 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
     try {
         const {eventname} = context.query
         const eventData = await getEventData(eventname as string)
-        console.log(eventData)
         if (eventData) {
             context.res.setHeader('Cache-Control', 'public, s-maxage=120, stale-while-revalidate=239')
             return {props:{eventData}}
         }
     }
     catch(error) {
-        console.log(error)
+        console.error(error)
     }
     return {notFound: true}
 }

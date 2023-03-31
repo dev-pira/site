@@ -111,7 +111,6 @@ const Events: React.FC<EventsProps> = ({ events }: EventsProps) => {
             return <EventCard key={index} {...eventData} color="primary" />;
           })}
           {missingBoxes.map((index) => {
-            console.log("rendering missing box");
             return (
               <Box key={index} sx={{ flex: 1 }}>
                 &nbsp;

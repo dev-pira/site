@@ -37,14 +37,12 @@ const EventsContent: React.FC<EventsContentProps> = ({events}: EventsContentProp
                             <Typography variant="h3">{type}</Typography>
                             <Box sx={{width: defaultWidth, display: 'flex', flexDirection: 'row', justifyContent: 'center', alignItems: 'center', gap: '16px'}}>
                                 {eventsOfType.map((eventData, index) => {
-                                    console.log(eventData)
                                     return <EventCard key={index} 
                                         {... eventData}
                                         color='contrast'
                                         shadowed />
                                 })}
                                 {missingBoxes.map((index) => {
-                                    console.log('rendering missing box')
                                     return <Box key={index} sx={{flex: 1}}>&nbsp;</Box>
                                 })}
                             </Box>

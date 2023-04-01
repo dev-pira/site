@@ -5,9 +5,7 @@ import { Initiatives } from "../../components/Initiatives";
 import { Navbar } from "../../components/Navbar";
 import { EventsIntro } from "../../components/EventsIntro";
 import { EventsContent } from "../../components/EventsContent";
-import { Event } from "../../models/model";
-import { readFile } from "fs/promises"
-import { join } from "path"
+import { fetchEventsData } from "../../apis/cms";
 
 const EventsPage: NextPage = ({eventsData}: InferGetServerSidePropsType<typeof getServerSideProps>) => {
   if (eventsData) {
@@ -30,13 +28,11 @@ const EventsPage: NextPage = ({eventsData}: InferGetServerSidePropsType<typeof g
 
 export const getServerSideProps: GetServerSideProps = async (context) => {
   try {
-    const filePath = join(process.cwd(),'pages', 'eventos', 'data.json')
-    const dataString = (await readFile(filePath)).toString()
-    const eventsData: Event[] = JSON.parse(dataString)
+    const eventsData = await fetchEventsData()
     context.res.setHeader('Cache-Control', 'public, s-maxage=120, stale-while-revalidate=239')
     return {props:{eventsData}}
   } catch (error) {
-    console.log(error)
+    console.error(error)
   }
   return {notFound:true}
 }

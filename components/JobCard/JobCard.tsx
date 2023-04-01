@@ -48,24 +48,19 @@ const JobCard: React.FC<JobCardProps> = ({
 
     if (bannerUrl) cardImageBackground = `url("${bannerUrl}")`
 
-    const cardsx: SxProps = { width: '255px', borderRadius: '10px', background: cardBackgroundColor, flex: 1 }
+    const cardsx: SxProps = { width: '255px', height: '243px', borderRadius: '10px', background: cardBackgroundColor, flex: 1 }
     if (shadowed) {
         cardsx.boxShadow = '0px 4px 24px rgba(30, 144, 255, .14)'
     }
 
-    const textColor = color === 'primary' ? 'contrast' : 'primary'
-
-    let bannerPlaceHolder
-    if (!bannerUrl) {
-        bannerPlaceHolder = <Typography variant="h4" color="transparent" centered>Imagem do banner do evento</Typography>
-    }
+    const textColor = color === 'primary' ? 'contrast' : 'primary';
 
     return (
         <Box key={key} sx={cardsx}>
             <Box sx={{ display: 'flex', padding: '24px', flexDirection: 'column', gap: '8px' }}>
                 <Typography variant="h4" color={textColor}>{title}</Typography>
                 <Typography color={textColor} smaller>{description}</Typography>
-                <Typography variant='h6' color="gradient_red" >Empresa Ciclano</Typography>
+                <Typography variant='h6' color="gradient_blue" >Empresa Ciclano</Typography>
                 <Box sx={{ display: 'flex', flexDirection: 'row', gap: '8px' }}>
                     {participateNode}
                     <Button href={detailsLink} expanded color={color}>Detalhes da vaga</Button>

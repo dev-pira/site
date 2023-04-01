@@ -5,13 +5,14 @@ export interface TypographyProps {
   variant?: "h1" | "h2" | "h3" | "h4" | "h5" | "h6" | "body1" | "span";
   children?: React.ReactNode;
   color?:
-    | "primary"
-    | "contrast"
-    | "transparent"
-    | "feature"
-    | "green"
-    | "gradient_green"
-    | "gradient_red";
+  | "primary"
+  | "contrast"
+  | "transparent"
+  | "feature"
+  | "green"
+  | "gradient_green"
+  | "gradient_red"
+  | "gradient_blue";
   bigger?: boolean;
   smaller?: boolean;
   centered?: boolean;
@@ -34,6 +35,7 @@ const Typography: React.FC<TypographyProps> = ({
       | "green"
       | "gradient_green"
       | "gradient_red"
+      | "gradient_blue"
   ): SxProps<Theme> => {
     if (color === "contrast") return { color: "white" };
     else if (color === "feature") return { color: "#e63462" };
@@ -47,6 +49,12 @@ const Typography: React.FC<TypographyProps> = ({
     else if (color === "gradient_red")
       return {
         background: "linear-gradient(233.62deg, #E63462 17.62%, #1E90FF 100%)",
+        backgroundClip: "text",
+        color: "transparent",
+      };
+    else if (color === "gradient_blue")
+      return {
+        background: "linear-gradient(233.62deg, #1E90FF 17.62%, #E63462 100%)",
         backgroundClip: "text",
         color: "transparent",
       };

@@ -100,7 +100,7 @@ export async function getEventData(key: string) {
     if (event) {
         if (event.tracksCollection?.items) {
             event.tracks = []
-            for (const track of event.tracksCollection?.items) {
+            for (const track of event.tracksCollection.items) {
                 event.tracks.push(await getTrack(track.sys.id))
             }
         }

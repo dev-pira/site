@@ -5,13 +5,12 @@ import { Typography } from "../Typography"
 
 export interface JobCardProps {
     color: 'primary' | 'contrast'
-    bannerUrl?: string
-    key?: Key,
-    title: string,
-    description?: string,
     dateTime: Date,
+    description?: string,
     detailsLink: string,
+    key?: Key,
     subscribeLink?: string,
+    title: string,
     shadowed?: boolean
 }
 
@@ -20,7 +19,6 @@ const JobCard: React.FC<JobCardProps> = ({
     dateTime,
     description,
     detailsLink,
-    bannerUrl,
     key,
     subscribeLink,
     title,
@@ -45,8 +43,6 @@ const JobCard: React.FC<JobCardProps> = ({
         cardBackgroundColor = 'white'
         cardImageBackground = '#F1F3F5'
     }
-
-    if (bannerUrl) cardImageBackground = `url("${bannerUrl}")`
 
     const cardsx: SxProps = { width: '255px', height: '243px', borderRadius: '10px', background: cardBackgroundColor, flex: 1 }
     if (shadowed) {

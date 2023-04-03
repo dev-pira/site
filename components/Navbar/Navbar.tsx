@@ -8,9 +8,8 @@ import MenuIcon from '@mui/icons-material/Menu';
 import Container from '@mui/material/Container';
 import { Image } from "../Image";
 import NavbarLink from '../NavbarLink';
-import { Button as DpButton } from '../Button';
-import Button from '@mui/material/Button';
-import { Grid } from '@mui/material';
+import { Button } from '../Button';
+import { Grid, MenuItem } from '@mui/material';
 
 
 const pages = [
@@ -83,66 +82,65 @@ function Navbar() {
               </IconButton>
 
               <Menu
-                id="menu-appbar"
                 anchorEl={anchorElNav}
                 anchorOrigin={{
                   vertical: 'bottom',
-                  horizontal: 'left',
+                  horizontal: 'right',
                 }}
                 keepMounted
                 transformOrigin={{
                   vertical: 'top',
-                  horizontal: 'left',
+                  horizontal: 'right',
                 }}
                 open={Boolean(anchorElNav)}
                 onClose={handleCloseNavMenu}
                 sx={{
-                  display: { xs: 'block', md: 'none' },
+                  display: { xs: 'flex', md: 'none' },
+                  flexDirection: 'column'
                 }}
               >
                 {pages.map((page, index) => (
-                  <Button
-                    variant='text'
-                    key={index}
-                    onClick={handleCloseNavMenu}
-                    href={page.link}
-                    sx={{ my: 2, color: 'white', display: 'block' }}
-                  >
-                    {page.label}
-                  </Button>
+                  <MenuItem  key={index} onClick={handleCloseNavMenu}>
+                    <NavbarLink page={page} />
+                  </MenuItem>
                 ))}
               </Menu>
             </Grid>
           {/* END MOBILE */}
 
           {/* DESKTOP */}
-          <Box sx={{
-            display: { xs: 'none', md: 'block' },
-            width: logoSize.width,
-            height: logoSize.height
-          }}>
-            <Image
-              src="/images/Logo.svg"
-              alt="DEVPIRA"
-              layout="responsive"
-              width={logoSize.width}
-              height={logoSize.height}
-            />
-          </Box>
-          <Toolbar sx={{
-            flexGrow: 1,
-            justifyContent: "flex-end",
-            display: { xs: 'none', md: 'flex' },
-          }}>
-            <Box>
-              {pages.map((page) => (
-                <NavbarLink key={page.label} page={page} onClick={handleCloseNavMenu} />
-              ))}
+
+          <Grid item md={3}>
+            <Box sx={{
+              display: { xs: 'none', md: 'block' },
+              width: logoSize.width,
+              height: logoSize.height
+            }}>
+              <Image
+                src="/images/Logo.svg"
+                alt="DEVPIRA"
+                layout="responsive"
+                width={logoSize.width}
+                height={logoSize.height}
+              />
             </Box>
-          </Toolbar>
+          </Grid>
+          <Grid item md>
+            <Toolbar disableGutters sx={{
+              flexGrow: 1,
+              justifyContent: "flex-end",
+              display: { xs: 'none', md: 'flex' },
+            }}>
+              <Box sx={{display: 'flex', flexWrap: 'wrap'}}>
+                {pages.map((page) => (
+                  <NavbarLink key={page.label} page={page} onClick={handleCloseNavMenu} />
+                ))}
+              </Box>
+            </Toolbar>
+          </Grid>          
           {/* END DESKTOP */}
 
-          <Grid
+          {/* <Grid
             item
             xs={12}
             md={2}
@@ -158,8 +156,8 @@ function Navbar() {
               }
             }}
           >
-            <DpButton href='#'>Call to Action</DpButton>
-          </Grid>
+            <Button href='#'>Call to Action</Button>
+          </Grid> */}
             
           </Grid>
         </Toolbar>

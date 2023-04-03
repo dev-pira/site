@@ -72,53 +72,67 @@ const Typography: React.FC<TypographyProps> = ({
     bigger?: boolean,
     smaller?: boolean
   ): SxProps<Theme> => {
-    if (variant === "h1" || variant === "h2")
-      return {
-        fontFamily: "'Inter', sans-serif;",
-        fontWeight: "800",
-        fontStyle: "normal",
-        fontSize: `${fontModifier(40, bigger, smaller)}px`,
-        lineHeight: "100%",
-      };
-    else if (variant === "h3")
-      return {
-        fontFamily: "'Inter', sans-serif;",
-        fontWeight: "700",
-        fontStyle: "normal",
-        fontSize: `${fontModifier(48, bigger, smaller)}px`,
-        lineHeight: "100%",
-      };
-    else if (variant === "h4")
-      return {
-        fontFamily: "'Inter', sans-serif;",
-        fontWeight: "700",
-        fontStyle: "normal",
-        fontSize: `${fontModifier(20, bigger, smaller)}px`,
-        lineHeight: "100%",
-      };
-    else if (variant === "h5" || variant === "h6")
-      return {
-        fontFamily: "'Inter', sans-serif;",
-        fontWeight: "700",
-        fontStyle: "normal",
-        fontSize: `${fontModifier(16, bigger, smaller)}px`,
-        lineHeight: "100%",
-      };
-    else if (variant === "body1")
-      return {
-        fontFamily: "'Roboto', sans-serif;",
-        fontStyle: "normal",
-        fontWeight: "400",
-        fontSize: `${fontModifier(16, bigger, smaller)}px`,
-        lineHeight: "160%",
-      };
-    return {
-      fontFamily: "inherit",
-      fontSize: "inherit",
-      fontWeight: "inherit",
-      lineHeight: "inherit",
-      letterSpacing: "inherit",
-    };
+
+    switch (variant) {
+      case 'h1':
+        return {
+          fontFamily: "'Inter', sans-serif;",
+          fontWeight: "800",
+          fontStyle: "normal",
+          fontSize: `${fontModifier(68, bigger, smaller)}px`,
+          lineHeight: "100%",
+          letterSpacing: '-0.045em;'
+        };
+      case 'h2':
+        return {
+          fontFamily: "'Inter', sans-serif;",
+          fontWeight: "800",
+          fontStyle: "normal",
+          fontSize: `${fontModifier(40, bigger, smaller)}px`,
+          lineHeight: "100%",
+        };
+      case 'h3':
+        return {
+          fontFamily: "'Inter', sans-serif;",
+          fontWeight: "700",
+          fontStyle: "normal",
+          fontSize: `${fontModifier(48, bigger, smaller)}px`,
+          lineHeight: "100%",
+        };
+      case 'h4':
+        return {
+          fontFamily: "'Inter', sans-serif;",
+          fontWeight: "700",
+          fontStyle: "normal",
+          fontSize: `${fontModifier(20, bigger, smaller)}px`,
+          lineHeight: "100%",
+        };
+      case 'h5':
+      case 'h6':
+        return {
+          fontFamily: "'Inter', sans-serif;",
+          fontWeight: "700",
+          fontStyle: "normal",
+          fontSize: `${fontModifier(16, bigger, smaller)}px`,
+          lineHeight: "100%",
+        };
+      case 'body1':
+        return {
+          fontFamily: "'Roboto', sans-serif;",
+          fontStyle: "normal",
+          fontWeight: "400",
+          fontSize: `${fontModifier(16, bigger, smaller)}px`,
+          lineHeight: "160%",
+        };
+      default:
+        return {
+          fontFamily: "inherit",
+          fontSize: "inherit",
+          fontWeight: "inherit",
+          lineHeight: "inherit",
+          letterSpacing: "inherit",
+        };
+    }    
   };
 
   const sx: SxProps<Theme> = Object.assign(

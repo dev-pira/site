@@ -7,17 +7,27 @@ const Intro: React.FC = () => {
   return (
     <Container>
       <Grid container>
-        <Grid item md={6}>
+        <Grid item md={8}>
           <Box
             sx={{
               display: "flex",
-              maxWidth: "100vw",
               width: { xs: "100vw", sm: "100vw", md: "50%", lg: "50%" },
               flexDirection: "column",
               gap: "24px",
+              marginTop: {
+                md: '168px'
+              },
+              marginBottom: {
+                md: '148px'
+              },
+              marginLeft: {
+                md: '118px'
+              },
+              position: 'relative',
+              zIndex: 0
             }}
           >
-            <Typography variant={"h2"}>
+            <Typography variant={"h1"} >
               Comunidade que
               <Typography variant="span" color="gradient_green">
                 {" "}
@@ -37,17 +47,25 @@ const Intro: React.FC = () => {
             </Box>
           </Box>
         </Grid>
-        <Grid item xs={12} md={6} sx={{
+        <Grid item xs={12} md={4} sx={{
             display: 'flex',
             justifyContent: {
               xs: 'center',
               md: 'end'
-            }
+            },
+            minHeight: {
+              xs: '156px',
+              md: 'initial'
+            },
+            alignItems: 'center',
+            position: 'relative'
           }}
         >
           <Box
             sx={{
-              maxWidth: { xs: "90vw", sm: "90vw", md: "633px", lg: "633px" },
+              width: { xs: "90vw", sm: "90vw", md: "633px", lg: "633px" },
+              position: 'absolute',
+              zIndex: -1
             }}
           >
             <Image alt="Ilustração de uma pessoa usando óculos e fones de ouvido, sentada perante um computador" src="/images/Intro.svg" width={623} height={510} />

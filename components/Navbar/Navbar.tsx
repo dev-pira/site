@@ -10,6 +10,7 @@ import { Image } from "../Image";
 import NavbarLink from '../NavbarLink';
 import { Button as DpButton } from '../Button';
 import Button from '@mui/material/Button';
+import { Grid } from '@mui/material';
 
 
 const pages = [
@@ -44,64 +45,74 @@ function Navbar() {
     >
       <Container maxWidth="xl">
         <Toolbar disableGutters>
-          {/* MOBILE */}
-          <Box sx={{
-            display: { xs: 'block', md: 'none' },
-            width: logoSize.width,
-            height: logoSize.height
-          }}>
-            <Image
-              src="/images/Logo.svg"
-              alt="DEVPIRA"
-              layout="responsive"
-              width={logoSize.width}
-              height={logoSize.height}
-            />
-          </Box>
-          
-          <Box sx={{display: { xs: 'flex', md: 'none' } }}>
-            <IconButton
-              size="large"
-              aria-label="account of current user"
-              aria-controls="menu-appbar"
-              aria-haspopup="true"
-              onClick={handleOpenNavMenu}
-              color="inherit"
+          <Grid container>
+            
+            {/* MOBILE */}
+            <Grid item xs={10} sm={9} sx={{
+              display: { xs: 'flex', md: 'none' },
+              flex: 1,
+              justifyContent: 'start'
+            }}>
+              <Box sx={{
+                width: logoSize.width,
+                height: logoSize.height
+              }}>
+                <Image
+                  src="/images/Logo.svg"
+                  alt="DEVPIRA"
+                  layout="responsive"
+                  width={logoSize.width}
+                  height={logoSize.height}
+                />
+              </Box>
+            </Grid>
+            <Grid item xs={2} sm={3} sx={{
+                display: { xs: 'flex', md: 'none' },
+                justifyContent: 'end'
+              }}
             >
-              <MenuIcon />
-            </IconButton>
+              <IconButton
+                size="large"
+                aria-label="account of current user"
+                aria-controls="menu-appbar"
+                aria-haspopup="true"
+                onClick={handleOpenNavMenu}
+                color="inherit"
+              >
+                <MenuIcon />
+              </IconButton>
 
-            <Menu
-              id="menu-appbar"
-              anchorEl={anchorElNav}
-              anchorOrigin={{
-                vertical: 'bottom',
-                horizontal: 'left',
-              }}
-              keepMounted
-              transformOrigin={{
-                vertical: 'top',
-                horizontal: 'left',
-              }}
-              open={Boolean(anchorElNav)}
-              onClose={handleCloseNavMenu}
-              sx={{
-                display: { xs: 'block', md: 'none' },
-              }}
-            >
-              {pages.map((page, index) => (
-                <Button
-                  variant='text'
-                  key={index}
-                  onClick={handleCloseNavMenu}
-                  href={page.link}
-                  sx={{ my: 2, color: 'white', display: 'block' }}
-                >
-                  {page.label}
-                </Button>
-              ))}
-            </Menu>
-          </Box>
+              <Menu
+                id="menu-appbar"
+                anchorEl={anchorElNav}
+                anchorOrigin={{
+                  vertical: 'bottom',
+                  horizontal: 'left',
+                }}
+                keepMounted
+                transformOrigin={{
+                  vertical: 'top',
+                  horizontal: 'left',
+                }}
+                open={Boolean(anchorElNav)}
+                onClose={handleCloseNavMenu}
+                sx={{
+                  display: { xs: 'block', md: 'none' },
+                }}
+              >
+                {pages.map((page, index) => (
+                  <Button
+                    variant='text'
+                    key={index}
+                    onClick={handleCloseNavMenu}
+                    href={page.link}
+                    sx={{ my: 2, color: 'white', display: 'block' }}
+                  >
+                    {page.label}
+                  </Button>
+                ))}
+              </Menu>
+            </Grid>
           {/* END MOBILE */}
 
           {/* DESKTOP */}
@@ -131,7 +142,26 @@ function Navbar() {
           </Toolbar>
           {/* END DESKTOP */}
 
-          <DpButton href='#'>Call to Action</DpButton>
+          <Grid
+            item
+            xs={12}
+            md={2}
+            sx={{
+              display: 'flex',
+              justifyContent: {
+                xs: 'center',
+                md: 'end'
+              },
+              marginY: {
+                xs: 2,
+                md: 0
+              }
+            }}
+          >
+            <DpButton href='#'>Call to Action</DpButton>
+          </Grid>
+            
+          </Grid>
         </Toolbar>
       </Container>
     </AppBar>

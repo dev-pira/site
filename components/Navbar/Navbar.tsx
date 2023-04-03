@@ -42,7 +42,7 @@ function Navbar() {
         }
       }}
     >
-      <Container maxWidth="xl">
+      <Container>
         <Toolbar disableGutters>
           <Grid container>
             

@@ -6,9 +6,11 @@ import IconButton from '@mui/material/IconButton';
 import Menu from '@mui/material/Menu';
 import MenuIcon from '@mui/icons-material/Menu';
 import Container from '@mui/material/Container';
-import Button from '@mui/material/Button';
 import { Image } from "../Image";
 import NavbarLink from '../NavbarLink';
+import { Button as DpButton } from '../Button';
+import Button from '@mui/material/Button';
+
 
 const pages = [
   { label: "Sobre", link: "/" },
@@ -129,7 +131,7 @@ function Navbar() {
           </Toolbar>
           {/* END DESKTOP */}
 
-          <Button variant="contained">Call to Action</Button>
+          <DpButton href='#'>Call to Action</DpButton>
         </Toolbar>
       </Container>
     </AppBar>

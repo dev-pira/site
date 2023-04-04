@@ -1,4 +1,4 @@
-import { Box, SxProps } from "@mui/material"
+import { Box, SxProps, Grid } from "@mui/material"
 import { Key } from "react"
 import { Button } from "../Button"
 import { Typography } from "../Typography"
@@ -6,7 +6,7 @@ import { Typography } from "../Typography"
 export interface JobCardProps {
     color: 'primary' | 'contrast'
     dateTime: Date,
-    description?: string,
+    description: string,
     detailsLink: string,
     key?: Key,
     subscribeLink?: string,
@@ -52,7 +52,7 @@ const JobCard: React.FC<JobCardProps> = ({
     const textColor = color === 'primary' ? 'contrast' : 'primary';
 
     return (
-        <Box key={key} sx={cardsx}>
+        <Grid key={key} sx={cardsx} item xs={12} md={3}>
             <Box sx={{ display: 'flex', padding: '24px', flexDirection: 'column', gap: '8px' }}>
                 <Typography variant="h4" color={textColor}>{title}</Typography>
                 <Typography color={textColor} smaller>{description.substring(0, 144)}</Typography>
@@ -62,7 +62,7 @@ const JobCard: React.FC<JobCardProps> = ({
                     <Button href={detailsLink} expanded color={color}>Detalhes da vaga</Button>
                 </Box>
             </Box>
-        </Box>)
+        </Grid>)
 }
 
 export default JobCard

@@ -1,10 +1,11 @@
-import { Box } from "@mui/material"
+import { Box, Grid } from "@mui/material"
 import { JobCard } from "../JobCard"
 import { Typography } from "../Typography"
+import { trace } from "console"
 
 export interface JobsContentProps {
     jobs: {
-        description?: string,
+        description: string,
         detailsLink: string,
         participateLink?: string,
         title: string,
@@ -19,7 +20,7 @@ const JobsContent: React.FC<JobsContentProps> = ({ jobs }: JobsContentProps) => 
         .map((e) => e.type)
         .filter((value, index, self) => self.indexOf(value) === index)
     return (
-        <Box sx={{ display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center' }}>
+        <Grid sx={{ display: 'flex', flexWrap: 'wrap', flexDirection: 'column', justifyContent: 'center', alignItems: 'center' }} container>
 
             {types.map((type, index) => {
                 const eventsOfType = jobs
@@ -29,13 +30,13 @@ const JobsContent: React.FC<JobsContentProps> = ({ jobs }: JobsContentProps) => 
                         if (a.dateTime > b.dateTime) return -1
                         return 0
                     })
-                    .slice(0, 4)
+                //.slice(0, 4)
                 const missingBoxes = []
                 for (let i = 0; i < 4 - eventsOfType.length; i++) { missingBoxes.push(i) }
                 return (
                     <Box key={index} sx={{ width: defaultWidth, display: 'flex', flexDirection: 'column', padding: '56px 0', gap: '24px' }}>
                         <Typography variant="h3">{type}</Typography>
-                        <Box sx={{ width: defaultWidth, display: 'flex', flexDirection: 'row', justifyContent: 'space-evenly', alignItems: 'center', gap: '16px' }}>
+                        <Grid sx={{ width: defaultWidth, display: 'flex', flexDirection: 'row', justifyContent: 'space-evenly', alignItems: 'center' }} container>
                             {eventsOfType.map((eventData, index) => {
                                 return <JobCard key={index}
                                     {...eventData}
@@ -46,21 +47,12 @@ const JobsContent: React.FC<JobsContentProps> = ({ jobs }: JobsContentProps) => 
                                 console.log('rendering missing box')
                                 return <Box key={index} sx={{ flex: 1 }}>&nbsp;</Box>
                             })}
-                        </Box>
+                        </Grid>
                     </Box>
                 )
             })}
 
-            <Box sx={{ display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center' }}>
-                <Box sx={{ width: defaultWidth, display: 'flex', flexDirection: 'row', justifyContent: 'space-evenly', alignItems: 'center', gap: '16px' }}>
-
-                    <Typography variant="h3">oi</Typography>
-
-                </Box>
-
-            </Box>
-
-        </Box>
+        </Grid>
 
     )
 }

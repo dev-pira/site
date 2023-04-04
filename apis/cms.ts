@@ -59,7 +59,9 @@ function eventFrom(response: any) {
                 logoUrl: partner.logo?.url
             }
         }),
-        tracks: event.tracks
+        tracks: event.tracks,
+        videoUrl: event.videoUrl,
+        gallery: event.galleryCollection?.items?.map((picture:any) => picture.url)
     }
     return event
 }
@@ -90,6 +92,12 @@ export async function getEventData(key: string) {
                         sys {
                             id
                         }
+                    }
+                }
+                videoUrl
+                galleryCollection {
+                    items {
+                        url
                     }
                 }
             }

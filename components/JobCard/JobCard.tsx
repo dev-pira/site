@@ -55,7 +55,7 @@ const JobCard: React.FC<JobCardProps> = ({
         <Box key={key} sx={cardsx}>
             <Box sx={{ display: 'flex', padding: '24px', flexDirection: 'column', gap: '8px' }}>
                 <Typography variant="h4" color={textColor}>{title}</Typography>
-                <Typography color={textColor} smaller>{description}</Typography>
+                <Typography color={textColor} smaller>{description.substring(0, 144)}</Typography>
                 <Typography variant='h6' color="gradient_blue" >Empresa Ciclano</Typography>
                 <Box sx={{ display: 'flex', flexDirection: 'row', gap: '8px' }}>
                     {participateNode}

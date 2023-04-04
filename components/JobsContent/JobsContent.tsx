@@ -20,6 +20,7 @@ const JobsContent: React.FC<JobsContentProps> = ({ jobs }: JobsContentProps) => 
         .filter((value, index, self) => self.indexOf(value) === index)
     return (
         <Box sx={{ display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center' }}>
+
             {types.map((type, index) => {
                 const eventsOfType = jobs
                     .filter((e) => e.type === type)
@@ -49,6 +50,16 @@ const JobsContent: React.FC<JobsContentProps> = ({ jobs }: JobsContentProps) => 
                     </Box>
                 )
             })}
+
+            <Box sx={{ display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center' }}>
+                <Box sx={{ width: defaultWidth, display: 'flex', flexDirection: 'row', justifyContent: 'space-evenly', alignItems: 'center', gap: '16px' }}>
+
+                    <Typography variant="h3">oi</Typography>
+
+                </Box>
+
+            </Box>
+
         </Box>
 
     )

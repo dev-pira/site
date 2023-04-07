@@ -9,7 +9,7 @@ export interface JobsContentProps {
         detailsLink: string,
         participateLink?: string,
         title: string,
-        type: 'Piracicaba/SP' | 'Trabalho remoto' | 'Outros Locais',
+        city: string,
         dateTime: Date
     }[]
 }
@@ -17,14 +17,14 @@ export interface JobsContentProps {
 const JobsContent: React.FC<JobsContentProps> = ({ jobs }: JobsContentProps) => {
     const defaultWidth = '1345px'
     const types = jobs
-        .map((e) => e.type)
+        .map((e) => e.city)
         .filter((value, index, self) => self.indexOf(value) === index)
     return (
         <Grid sx={{ display: 'flex', flexWrap: 'wrap', flexDirection: 'column', justifyContent: 'center', alignItems: 'center' }} container>
 
-            {types.map((type, index) => {
+            {types.map((city, index) => {
                 const eventsOfType = jobs
-                    .filter((e) => e.type === type)
+                    .filter((e) => e.city === city)
                     .sort((a, b) => {
                         if (a.dateTime < b.dateTime) return 1
                         if (a.dateTime > b.dateTime) return -1
@@ -35,7 +35,7 @@ const JobsContent: React.FC<JobsContentProps> = ({ jobs }: JobsContentProps) => 
                 for (let i = 0; i < 4 - eventsOfType.length; i++) { missingBoxes.push(i) }
                 return (
                     <Box key={index} sx={{ width: defaultWidth, display: 'flex', flexDirection: 'column', padding: '56px 0', gap: '24px' }}>
-                        <Typography variant="h3">{type}</Typography>
+                        <Typography variant="h3">{city}</Typography>
                         <Grid sx={{ width: defaultWidth, display: 'flex', flexDirection: 'row', justifyContent: 'space-evenly', alignItems: 'center' }} container>
                             {eventsOfType.map((eventData, index) => {
                                 return <JobCard key={index}

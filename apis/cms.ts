@@ -146,3 +146,68 @@ async function getTrack(id: string) {
     const response = await fetchGraphQl(query)
     return trackFrom(response)
 }
+
+interface CreateVacancyRequest {
+    ["Titulo da vaga"]: string
+    ["Descrição"]?: string
+    ["Empresa"]?: string
+    ["Detalhes"]?: string
+    ["Link para inscrição"]?: string
+    ["Habilidades desejadas"]?: string
+}
+export async function createVacancy(data: CreateVacancyRequest) {
+    const spaceId = process.env.CONTENTFUL_SPACE_ID
+    const environment = process.env.CONTENTFUL_ENVIRONMENT
+    const cma_token = process.env.CONTENTFUL_CMA_TOKEN
+    const contentType = 'application/vnd.contentful.management.v1+json'
+    const entryType = 'vacancy'
+    const url = `https://api.contentful.com/spaces/${spaceId}/environments/${environment}/entries`
+    const headers = {
+        'Content-Type': contentType,
+        'X-Contentful-Content-Type': entryType,
+        'Authorization': `Bearer ${cma_token}`
+    }
+    const bodyObj = {
+        "fields": {
+            "title": {
+                "en-US": data["Titulo da vaga"]
+            },
+            "description": {
+                "en-US": data.Descrição
+            },
+            "company": {
+                "en-US": data.Empresa
+            },
+            "details": {
+                "en-US": {
+                    "nodeType": "document",
+                    "data":{},
+                    "content": [
+                        {
+                            "nodeType": "paragraph",
+                            "data":{},
+                            "content": [
+                                {
+                                    "nodeType":"text",
+                                    "data":{},
+                                    "marks":[],
+                                    "value": data.Detalhes
+                                }
+                            ]
+                        }
+                    ]
+                }
+            },
+            "enrollmentUrl": {
+                "en-US": data["Link para inscrição"]
+            },
+            "desirableSkills": {
+                "en-US": data["Habilidades desejadas"]? data["Habilidades desejadas"].split("<BR/>") : []
+            }
+        }
+    }
+    const body = JSON.stringify(bodyObj)
+    const result = await fetch(url, {method: 'POST', headers, body})
+    const response = await result.json()
+    return response
+}

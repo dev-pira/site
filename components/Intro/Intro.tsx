@@ -12,15 +12,19 @@ const Intro: React.FC = () => {
             sx={{
               display: "flex",
               width: { xs: "100vw", sm: "100vw", md: "50%", lg: "50%" },
-              flexDirection: "column",
-              gap: "24px",
-              marginTop: {
-                md: '168px'
+              flexDirection: {
+                xs: 'column',
               },
-              marginBottom: {
+              gap: "24px",
+              mt: {
+                xs: 1,
+                md: 10
+              },
+              mb: {
+                xs: '48px',
                 md: '148px'
               },
-              marginLeft: {
+              ml: {
                 md: '118px'
               },
               position: 'relative',

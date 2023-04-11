@@ -208,6 +208,5 @@ export async function createVacancy(data: CreateVacancyRequest) {
     }
     const body = JSON.stringify(bodyObj)
     const result = await fetch(url, {method: 'POST', headers, body})
-    const response = await result.json()
-    return response
+    return result
 }

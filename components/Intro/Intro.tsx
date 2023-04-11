@@ -7,7 +7,7 @@ const Intro: React.FC = () => {
   return (
     <Container>
       <Grid container>
-        <Grid item md={8}>
+        <Grid item xs={12} md={8}>
           <Box
             sx={{
               display: "flex",
@@ -31,19 +31,25 @@ const Intro: React.FC = () => {
               zIndex: 0
             }}
           >
-            <Typography variant={"h1"} >
-              Comunidade que
-              <Typography variant="span" color="gradient_green">
-                {" "}
-                conecta pessoas{" "}
+            <Box>
+              <Typography variant={"h1"} >
+                Comunidade que
+                <Typography variant="introSpan" color="gradient_green">
+                  {" "}
+                  conecta pessoas{" "}
+                </Typography>
+                e tecnologia
               </Typography>
-              e tecnologia
-            </Typography>
-            <Typography bigger>
-              Participe da comunidade que está transformando a vida das pessoas de
-              Piracicaba e região.
-            </Typography>
-            <Box sx={{ display: "flex", flexDirection: "row", gap: "8px" }}>
+              <Typography sx={{pt: 2}}>
+                Participe da comunidade que está transformando a vida das pessoas de
+                Piracicaba e região.
+              </Typography>
+            </Box>
+            <Box sx={{
+              display: "flex",
+              flexDirection: "row",
+              gap: "8px"
+            }}>
               <Button href="#sobre">Saiba mais</Button>
               <Button color="contrast" href="/eventos">
                 Eventos

@@ -20,6 +20,6 @@ export default async function handler(request: NextApiRequest, response: NextApi
     await middleware(request, response, cors);
 
     let data = request.body
-    await createVacancy(data)
-    response.status(202).json(data)
+    var result = await createVacancy(data)
+    response.status(result.status).json(result.json)
 }

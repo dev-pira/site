@@ -152,6 +152,7 @@ interface CreateVacancyRequest {
     ["Descrição"]?: string
     ["Empresa"]?: string
     ["Detalhes"]?: string
+    ["Cidade"]?: string
     ["Link para inscrição"]?: string
     ["Habilidades desejadas"]?: string
 }
@@ -202,7 +203,7 @@ export async function createVacancy(data: CreateVacancyRequest) {
                 "en-US": data["Link para inscrição"]
             },
             "desirableSkills": {
-                "en-US": data["Habilidades desejadas"]? data["Habilidades desejadas"].split("<BR/>") : []
+                "en-US": data["Habilidades desejadas"]? data["Habilidades desejadas"].split(",") : []
             }
         }
     }

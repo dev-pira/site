@@ -1,3 +1,5 @@
+import { Vacancy } from "../models/model"
+
 async function fetchGraphQl(query: any) {
 
     const spaceId = process.env.CONTENTFUL_SPACE_ID
@@ -210,4 +212,33 @@ export async function createVacancy(data: CreateVacancyRequest) {
     const body = JSON.stringify(bodyObj)
     const result = await fetch(url, {method: 'POST', headers, body})
     return result
+}
+
+function vacanciesFrom(response: any): Vacancy[] {
+    return response?.data?.vacancyCollection?.items.map((vancacy: any) => {
+        return {
+            id: vancacy.sys.id,
+            title: vancacy.title,
+            company: vancacy.company,
+            description: vancacy.description,
+            location: vancacy.location
+        }
+    })
+}
+export async function fetchVancanciesData(): Promise<Vacancy[]> {
+    const query = `query {
+        vacancyCollection {
+            items {
+                description
+                company
+                title
+                location
+                sys {
+                    id
+                }
+            }
+        }
+    }`
+    const data = await fetchGraphQl(query)
+    return vacanciesFrom(data)
 }

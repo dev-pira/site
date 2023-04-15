@@ -2,7 +2,7 @@ import { ComponentMeta, ComponentStory } from "@storybook/react";
 import JobCard from "./JobCard";
 
 export default {
-    title: 'Components/EventCard',
+    title: 'Components/JobCard',
     component: JobCard
 } as ComponentMeta<typeof JobCard>
 

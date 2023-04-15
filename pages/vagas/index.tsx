@@ -5,9 +5,7 @@ import { Navbar } from "../../components/Navbar";
 import { JobsIntro } from "../../components/JobsIntro";
 import { JobsFilter } from "../../components/JobsFilter";
 import { JobsContent } from "../../components/JobsContent";
-import { readFile } from "fs/promises"
-import { join } from "path"
-
+import { fetchVancanciesData } from "../../apis/cms";
 
 const EventsPage: NextPage = ({ jobsData }: InferGetServerSidePropsType<typeof getServerSideProps>) => {
   if (jobsData) {
@@ -30,9 +28,7 @@ const EventsPage: NextPage = ({ jobsData }: InferGetServerSidePropsType<typeof g
 
 export const getServerSideProps: GetServerSideProps = async (context) => {
   try {
-    const filePath = join(process.cwd(), 'pages', 'vagas', 'data.json')
-    const dataString = (await readFile(filePath)).toString()
-    const jobsData: Event[] = JSON.parse(dataString)
+    const jobsData = await fetchVancanciesData()
     context.res.setHeader('Cache-Control', 'public, s-maxage=120, stale-while-revalidate=239')
     return { props: { jobsData } }
   } catch (error) {

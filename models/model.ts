@@ -31,3 +31,11 @@ export interface Speaker {
     portraitUrl: string
     job?: string
 }
+
+export interface Vacancy {
+    id: string
+    title: string
+    company?: string
+    description: string
+    location: string
+} 

@@ -1,11 +1,12 @@
 import { Box, Link } from "@mui/material"
+import { RichContent } from "../RichContent"
 import { Typography } from "../Typography"
 
 export interface EventDetailInfoProps {
-    longDescription: string
+    longDescription: any
     dateTime: Date
     place: string
-    otherInfo?: string
+    otherInfo?: any
 }
 
 const EventDetailInfo: React.FC<EventDetailInfoProps> = ({dateTime, longDescription, place, otherInfo}: EventDetailInfoProps) => {
@@ -18,9 +19,7 @@ const EventDetailInfo: React.FC<EventDetailInfoProps> = ({dateTime, longDescript
     if (otherInfo) {
         otherInfoBlock = <Box sx={{display: 'flex', flexDirection: 'column', gap: '8px'}}>
             <Typography variant="h4" color="feature">Outras informações</Typography>
-            <Typography>
-                <div dangerouslySetInnerHTML={{__html:otherInfo}}></div>
-            </Typography>
+            <RichContent content={otherInfo} />
         </Box>
     }
     return (
@@ -29,9 +28,7 @@ const EventDetailInfo: React.FC<EventDetailInfoProps> = ({dateTime, longDescript
                 {/* SOBRE */}
                 <Box sx={{flex: 1, display: 'flex', flexDirection: 'column', gap: '24px'}}>
                     <Typography variant="h3">Sobre o evento</Typography>
-                    <Typography>
-                        <div dangerouslySetInnerHTML={{__html:longDescription}}></div>
-                    </Typography>
+                    <RichContent content={longDescription} />
                 </Box>
                 {/* /SOBRE */}
                 {/* PARTICIPE */}

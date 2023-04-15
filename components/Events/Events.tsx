@@ -6,13 +6,14 @@ import { Typography } from "../Typography";
 
 export interface EventsProps {
   events: {
-    description?: string;
-    detailsLink: string;
-    participateLink?: string;
-    title: string;
-    type: "Meetup" | "Live" | "Worshop";
-    dateTime: Date;
-  }[];
+    slug: string
+    description?: string
+    detailsLink: string
+    participateLink?: string
+    title: string
+    type: "Meetup" | "Live" | "Worshop"
+    dateTime: Date
+  }[]
 }
 
 const Events: React.FC<EventsProps> = ({ events }: EventsProps) => {
@@ -110,7 +111,6 @@ const Events: React.FC<EventsProps> = ({ events }: EventsProps) => {
             return <EventCard key={index} {...eventData} color="primary" />;
           })}
           {missingBoxes.map((index) => {
-            console.log("rendering missing box");
             return (
               <Box key={index} sx={{ flex: 1 }}>
                 &nbsp;

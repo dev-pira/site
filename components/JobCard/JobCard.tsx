@@ -1,9 +1,9 @@
 import { Box, SxProps, Grid } from "@mui/material"
 import { Button } from "../Button"
 import { Typography } from "../Typography"
-import { Vacancy } from "../../models/model"
+import { Job } from "../../models/model"
 
-export interface JobCardProps extends Vacancy{}
+export interface JobCardProps extends Job{}
 
 const JobCard: React.FC<JobCardProps> = ({
     id,

@@ -1,11 +1,11 @@
 import { Box, Grid } from "@mui/material"
-import { Vacancy } from "../../models/model"
+import { Job } from "../../models/model"
 import { Typography } from "../Typography"
 import { JobCard } from "../JobCard"
 
 interface JobsContentSectionProps {
     location: string
-    jobs: Vacancy[]
+    jobs: Job[]
 }
 
 const JobsContentSection: React.FC<JobsContentSectionProps> = ({location, jobs}: JobsContentSectionProps) => {

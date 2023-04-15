@@ -32,7 +32,7 @@ export interface Speaker {
     job?: string
 }
 
-export interface Vacancy {
+export interface Job {
     id: string
     title: string
     company?: string

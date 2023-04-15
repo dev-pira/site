@@ -1,4 +1,4 @@
-import { Vacancy } from "../models/model"
+import { Job } from "../models/model"
 
 async function fetchGraphQl(query: any) {
 
@@ -214,18 +214,18 @@ export async function createVacancy(data: CreateVacancyRequest) {
     return result
 }
 
-function vacanciesFrom(response: any): Vacancy[] {
-    return response?.data?.vacancyCollection?.items.map((vancacy: any) => {
+function jobsFrom(response: any): Job[] {
+    return response?.data?.vacancyCollection?.items.map((job: any) => {
         return {
-            id: vancacy.sys.id,
-            title: vancacy.title,
-            company: vancacy.company,
-            description: vancacy.description,
-            location: vancacy.location
+            id: job.sys.id,
+            title: job.title,
+            company: job.company,
+            description: job.description,
+            location: job.location
         }
     })
 }
-export async function fetchVancanciesData(): Promise<Vacancy[]> {
+export async function fetchVancanciesData(): Promise<Job[]> {
     const query = `query {
         vacancyCollection {
             items {
@@ -240,5 +240,5 @@ export async function fetchVancanciesData(): Promise<Vacancy[]> {
         }
     }`
     const data = await fetchGraphQl(query)
-    return vacanciesFrom(data)
+    return jobsFrom(data)
 }

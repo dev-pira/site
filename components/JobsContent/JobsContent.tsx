@@ -1,9 +1,9 @@
 import { Grid } from "@mui/material"
-import { Vacancy } from "../../models/model"
+import { Job } from "../../models/model"
 import { JobsContentSection } from "../JobsContentSection"
 
 export interface JobsContentProps {
-    jobs: Vacancy[]
+    jobs: Job[]
 }
 
 const JobsContent: React.FC<JobsContentProps> = ({ jobs }: JobsContentProps) => {

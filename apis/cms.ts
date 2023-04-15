@@ -216,12 +216,25 @@ export async function createVacancy(data: CreateVacancyRequest) {
 
 function jobsFrom(response: any): Job[] {
     return response?.data?.vacancyCollection?.items.map((job: any) => {
+        let jobLocation = 'Outros';
+        if (job.jobLocation) {
+            switch (job.location.toLower()) {
+                case 'piracicaba':
+                    jobLocation = 'Piracicaba'
+                    break;
+                case 'remoto':
+                    jobLocation = 'Remoto'
+                    break;
+                default:
+                    break;
+            }
+        }
         return {
             id: job.sys.id,
             title: job.title,
             company: job.company,
             description: job.description,
-            location: job.location
+            location: jobLocation
         }
     })
 }

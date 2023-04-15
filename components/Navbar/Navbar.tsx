@@ -4,11 +4,12 @@ import { Image } from "../Image";
 
 const Navbar: React.FC = () => {
   const defaultWidth = "1345px";
-  const logoSize = { width: "145px", height: "60px" };
+  const logoSize = { width: "185px", height: "77px" };
   const items = [
     { label: "Sobre", link: "/" },
     { label: "Iniciativas", link: "#iniciativas" },
     { label: "Eventos", link: "/eventos" },
+    { label: "Vagas", link: "/vagas" }
   ];
   return (
     <AppBar
@@ -32,7 +33,7 @@ const Navbar: React.FC = () => {
           height: "100px",
         }}
       >
-        <Box sx={{ width: logoSize.width, height: logoSize.height }}>
+        <Box sx={{ marginLeft: '20px', width: logoSize.width, height: logoSize.height }}>
           <Image
             src="/images/Logo.svg"
             alt="DEVPIRA"

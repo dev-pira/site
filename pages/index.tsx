@@ -9,7 +9,7 @@ import { Social } from "../components/Social";
 import Partners from "../components/Partners/Partners";
 import { fetchIndexData } from "../apis/cms";
 
-const HomePage: NextPage = ({eventsData}: InferGetServerSidePropsType<typeof getServerSideProps>) => {
+const HomePage: NextPage = ({ eventsData }: InferGetServerSidePropsType<typeof getServerSideProps>) => {
   return (
     <div>
       <Navbar />
@@ -28,11 +28,11 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
   try {
     const eventsData = await fetchIndexData()
     context.res.setHeader('Cache-Control', 'public, s-maxage=120, stale-while-revalidate=239')
-    return {props:{eventsData}}
+    return { props: { eventsData } }
   } catch (error) {
     console.error(error)
   }
-  return {notFound:true}
+  return { notFound: true }
 }
 
 export default HomePage;

@@ -31,3 +31,11 @@ export interface Speaker {
     portraitUrl: string
     job?: string
 }
+
+export interface Job {
+    id: string
+    title: string
+    company?: string
+    description: string
+    location: 'Piracicaba' | 'Remoto' | 'Outro'
+}

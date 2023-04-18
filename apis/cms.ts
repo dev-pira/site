@@ -1,3 +1,5 @@
+import { Job } from "../models/model"
+
 async function fetchGraphQl(query: any) {
 
     const spaceId = process.env.CONTENTFUL_SPACE_ID
@@ -210,4 +212,46 @@ export async function createVacancy(data: CreateVacancyRequest) {
     const body = JSON.stringify(bodyObj)
     const result = await fetch(url, {method: 'POST', headers, body})
     return result
+}
+
+function jobsFrom(response: any): Job[] {
+    return response?.data?.vacancyCollection?.items.map((job: any) => {
+        let jobLocation = 'Outros';
+        if (job.jobLocation) {
+            switch (job.location.toLower()) {
+                case 'piracicaba':
+                    jobLocation = 'Piracicaba'
+                    break;
+                case 'remoto':
+                    jobLocation = 'Remoto'
+                    break;
+                default:
+                    break;
+            }
+        }
+        return {
+            id: job.sys.id,
+            title: job.title,
+            company: job.company,
+            description: job.description,
+            location: jobLocation
+        }
+    })
+}
+export async function fetchVancanciesData(): Promise<Job[]> {
+    const query = `query {
+        vacancyCollection {
+            items {
+                description
+                company
+                title
+                location
+                sys {
+                    id
+                }
+            }
+        }
+    }`
+    const data = await fetchGraphQl(query)
+    return jobsFrom(data)
 }

@@ -4,45 +4,29 @@ import '@testing-library/jest-dom'
 
 
 describe('JobCard deve ', () => {
-    it('não renderizar botão Participar quando o link de inscrição for omitido', () => {
+    it('renderizar companhia quando informado', () => {
+        const companyName = "Company"
         const props: JobCardProps = {
-            color: 'primary',
-            title: 'job',
-            dateTime: new Date(2020, 1, 1),
-            detailsLink: ''
+            id: "1",
+            title: "Title",
+            description: "Short Description",
+            company: companyName,
+            location: "Some"
         }
         render(<JobCard {...props} />)
-        const button = screen.queryByRole('link', { name: /Participar/ })
-        expect(button).not.toBeInTheDocument()
+        const companyLabel = screen.queryByText(companyName)
+        expect(companyLabel).toBeInTheDocument()
     })
 
-    it('deve renderizar botão Participar quando o link de inscrição for informado e a data do evento estiver no futuro', () => {
-        const date = new Date()
-        date.setDate(date.getDate() + 1)
+    it('não renderizar companhia quando não informado', () => {
         const props: JobCardProps = {
-            color: 'primary',
-            title: 'job',
-            dateTime: date,
-            detailsLink: '',
-            subscribeLink: 'subscribelink'
+            id: "1",
+            title: "Title",
+            description: "Short Description",
+            location: "Some"
         }
         render(<JobCard {...props} />)
-        const button = screen.getByRole('link', { name: /Participar/ })
-        expect(button).toBeInTheDocument()
-    })
-
-    it('não deve renderizar botão Participar quando o link de inscrição for informado e a data do evento estiver no passado', () => {
-        const date = new Date()
-        date.setDate(date.getDate() - 1)
-        const props: JobCardProps = {
-            color: 'primary',
-            title: 'job',
-            dateTime: date,
-            detailsLink: '',
-            subscribeLink: 'subscribelink'
-        }
-        render(<JobCard {...props} />)
-        const button = screen.queryByRole('link', { name: /Participar/ })
-        expect(button).not.toBeInTheDocument()
+        const companyLabel = screen.queryByText("Company")
+        expect(companyLabel).not.toBeInTheDocument()
     })
 })

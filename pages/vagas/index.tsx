@@ -13,7 +13,7 @@ const EventsPage: NextPage = ({ jobsData }: InferGetServerSidePropsType<typeof g
       <div>
         <Navbar />
         <JobsIntro />
-        <JobsFilter />
+        {/* <JobsFilter /> */}
         <JobsContent jobs={jobsData} />
         <Footer />
       </div>

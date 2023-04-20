@@ -17,7 +17,7 @@ function middleware(
     }
 
 export default async function handler(request: NextApiRequest, response: NextApiResponse) {
-    await middleware(request, response, cors);
+    await middleware(request, response, cors)
 
     let data = request.body
     const result = await createVacancy(data)

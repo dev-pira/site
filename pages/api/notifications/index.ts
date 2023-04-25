@@ -6,6 +6,8 @@ const cors = Cors({methods:['POST']})
 const TELEGRAM_BOT_TOKEN = process.env.TELEGRAM_BOT_TOKEN
 const TELEGRAM_GROUP_CHAT_ID = process.env.TELEGRAM_GROUP_CHAT_ID
 const SLACK_WEBHOOK_URL = process.env.SLACK_WEBHOOK_URL
+const DISCORD_CHANNEL_ID = process.env.DISCORD_CHANNEL_ID
+const DISCORD_API_TOKEN = process.env.DISCORD_API_TOKEN
 
 
 export default async function handler(request: NextApiRequest, response: NextApiResponse) {
@@ -19,6 +21,7 @@ export default async function handler(request: NextApiRequest, response: NextApi
     // send to slack
     await sendSlack(message)
     // send to discord
+    await sendDiscord(message)
     // Facebook, LinkedIn, Instagram
 
     response.status(202).json({})
@@ -48,6 +51,18 @@ async function sendSlack(message: string) {
         text: message
     })
     const response = await fetch(SLACK_WEBHOOK_URL!, {method: 'POST', headers, body})
-    console.info(response)
+    console.info(`Sent to Slack and received ${response.status}`)
 }
 
+async function sendDiscord(message: string) {
+    const url = `https://discord.com/api/channels/${DISCORD_CHANNEL_ID}/messages`
+    const headers = { 
+        'Authorization': `Bot ${DISCORD_API_TOKEN}`,
+        'Content-Type': 'application/json' 
+    }
+    const body = JSON.stringify({
+        content: message
+    })
+    const response = await fetch(url, {method: 'POST', headers, body})
+    console.info(`Sent to Discord and received ${response.status}`)
+}

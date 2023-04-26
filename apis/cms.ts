@@ -170,6 +170,8 @@ export async function createVacancy(data: CreateVacancyRequest) {
         'X-Contentful-Content-Type': entryType,
         'Authorization': `Bearer ${cma_token}`
     }
+    let enrollmentUrl = data["Link para inscrição"]
+    if (!enrollmentUrl?.startsWith('http://') || !enrollmentUrl?.startsWith('https://')) enrollmentUrl = `http://${enrollmentUrl}`
     const bodyObj = {
         "fields": {
             "title": {
@@ -202,7 +204,7 @@ export async function createVacancy(data: CreateVacancyRequest) {
                 }
             },
             "enrollmentUrl": {
-                "en-US": data["Link para inscrição"]
+                "en-US": enrollmentUrl
             },
             "desirableSkills": {
                 "en-US": data["Habilidades desejadas"] ? data["Habilidades desejadas"].split(",") : []

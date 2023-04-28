@@ -6,8 +6,7 @@ const cors = Cors({methods:['POST']})
 const TELEGRAM_BOT_TOKEN = process.env.TELEGRAM_BOT_TOKEN
 const TELEGRAM_GROUP_CHAT_ID = process.env.TELEGRAM_GROUP_CHAT_ID
 const SLACK_WEBHOOK_URL = process.env.SLACK_WEBHOOK_URL
-const DISCORD_CHANNEL_ID = process.env.DISCORD_CHANNEL_ID
-const DISCORD_API_TOKEN = process.env.DISCORD_API_TOKEN
+const DISCORD_WEBHOOK_URL = process.env.DISCORD_WEBHOOK_URL
 
 
 export default async function handler(request: NextApiRequest, response: NextApiResponse) {
@@ -55,11 +54,8 @@ async function sendSlack(message: string) {
 }
 
 async function sendDiscord(message: string) {
-    const url = `https://discord.com/api/channels/${DISCORD_CHANNEL_ID}/messages`
-    const headers = { 
-        'Authorization': `Bot ${DISCORD_API_TOKEN}`,
-        'Content-Type': 'application/json' 
-    }
+    const url = DISCORD_WEBHOOK_URL!
+    const headers = {'Content-Type': 'application/json' }
     const body = JSON.stringify({
         content: message
     })

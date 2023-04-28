@@ -13,7 +13,7 @@ export default async function handler(request: NextApiRequest, response: NextApi
     await middleware(request, response, cors)
 
     // create notification message
-    const message = 'Nova vaga de trabalho no site!'
+    const message = parseMessage(request)
     // send to whatsapp
     // send to telegram
     sendTelegram(message)
@@ -61,4 +61,13 @@ async function sendDiscord(message: string) {
     })
     const response = await fetch(url, {method: 'POST', headers, body})
     console.info(`Sent to Discord and received ${response.status}`)
+}
+
+function parseMessage(request: NextApiRequest): string {
+   const payload = request.body
+   if (payload.sys.contentType.sys.id === 'vacancy') {
+        const title = payload.fields.title['en-US']
+        return `Nova vaga para ${title} no site! Acesse devpira.com.br/vagas`
+   }
+   throw new Error("No mapped payload to generate notifications");
 }

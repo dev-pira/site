@@ -9,7 +9,7 @@ const Navbar: React.FC = () => {
     { label: "Sobre", link: "/" },
     { label: "Iniciativas", link: "#iniciativas" },
     { label: "Eventos", link: "/eventos" },
-    //{ label: "Vagas", link: "/vagas" }
+    { label: "Vagas", link: "/vagas" }
   ];
   return (
     <AppBar

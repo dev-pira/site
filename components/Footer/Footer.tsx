@@ -7,7 +7,7 @@ const Footer: React.FC = () => {
     { label: "Sobre", link: "/" },
     { label: "Iniciativas", link: "#iniciativas" },
     { label: "Eventos", link: "/eventos" },
-    // { label: "Vagas", link: "/vagas" }
+    { label: "Vagas", link: "/vagas" }
   ];
   const logoSize = { width: "185px", height: "77px" };
   return (
@@ -28,7 +28,6 @@ const Footer: React.FC = () => {
           px: "1.8rem",
         }}
       >
-        {/* <Typography>DEVPIRA</Typography> */}
         <Box sx={{ width: logoSize.width, height: logoSize.height }}>
           <Image
             src="/images/Logo.svg"

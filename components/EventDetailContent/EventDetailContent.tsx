@@ -8,7 +8,9 @@ export interface EventDetailContentProps {
             title: string
             speaker: {
                 name: string
-                portraitUrl: string
+                portrait?: {
+                    url: string
+                }
                 job?: string
             }
             time?: Date
@@ -32,7 +34,7 @@ const EventDetailContent: React.FC<EventDetailContentProps> = ({tracks}:EventDet
                                         <Box>{`${talk.time.getHours().toString().padStart(2, '0')}h${talk.time.getMinutes().toString().padStart(2, '0')}`}</Box> : 
                                         <Box>&nbsp;</Box>
                                     return (
-                                        <Box key={index} sx={{background: `white url("${talk.speaker.portraitUrl}") no-repeat center center`, backgroundSize: 'cover', borderRadius: '10px'}}>
+                                        <Box key={talk.title} sx={{background: `white url("${talk.speaker?.portrait?.url}") no-repeat center center`, backgroundSize: 'cover', borderRadius: '10px'}}>
                                             <Box sx={{background: 'linear-gradient(180.06deg, rgba(33, 34, 54, 0.15) 0.05%, #212236 74.97%)', color: 'white', display: 'flex', flexDirection: 'column', justifyContent: 'space-between', height: '362px', width: '254px'}}>
                                                 <Box sx={{display: 'flex', flexDirection: 'row', justifyContent: 'flex-end', padding: '16px'}}>
                                                     {talkTimeElement}
@@ -41,8 +43,8 @@ const EventDetailContent: React.FC<EventDetailContentProps> = ({tracks}:EventDet
                                                     <Typography variant="h4" color='gradient_green'>
                                                         {talk.title}
                                                     </Typography>
-                                                    <Typography variant="h5" color='contrast'>{talk.speaker.name}</Typography>
-                                                    <Typography color="contrast">{talk.speaker.job}</Typography>
+                                                    <Typography variant="h5" color='contrast'>{talk.speaker?.name}</Typography>
+                                                    <Typography color="contrast">{talk.speaker?.job}</Typography>
                                                 </Box>
                                             </Box>
                                         </Box>

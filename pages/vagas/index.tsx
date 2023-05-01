@@ -1,20 +1,18 @@
 import type { GetServerSideProps, InferGetServerSidePropsType, NextPage } from "next";
 import React from "react";
 import { Footer } from "../../components/Footer";
-import { Initiatives } from "../../components/Initiatives";
 import { Navbar } from "../../components/Navbar";
-import { EventsIntro } from "../../components/EventsIntro";
-import { EventsContent } from "../../components/EventsContent";
-import { fetchEventsData } from "../../apis/cms";
+import { JobsIntro } from "../../components/JobsIntro";
+import { JobsContent } from "../../components/JobsContent";
+import { fetchVancanciesData } from "../../apis/cms";
 
-const EventsPage: NextPage = ({eventsData}: InferGetServerSidePropsType<typeof getServerSideProps>) => {
-  if (eventsData) {
+const EventsPage: NextPage = ({ jobsData }: InferGetServerSidePropsType<typeof getServerSideProps>) => {
+  if (jobsData) {
     return (
       <div>
         <Navbar />
-        <EventsIntro />
-        <EventsContent events={eventsData} />
-        <Initiatives />
+        <JobsIntro />
+        <JobsContent jobs={jobsData} />
         <Footer />
       </div>
     );
@@ -28,13 +26,13 @@ const EventsPage: NextPage = ({eventsData}: InferGetServerSidePropsType<typeof g
 
 export const getServerSideProps: GetServerSideProps = async (context) => {
   try {
-    const eventsData = await fetchEventsData()
+    const jobsData = await fetchVancanciesData()
     context.res.setHeader('Cache-Control', 'public, s-maxage=120, stale-while-revalidate=239')
-    return {props:{eventsData}}
+    return { props: { jobsData } }
   } catch (error) {
-    console.error(error)
+    console.log(error)
   }
-  return {notFound:true}
+  return { notFound: true }
 }
 
 export default EventsPage;

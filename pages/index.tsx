@@ -6,12 +6,10 @@ import { Initiatives } from "../components/Initiatives";
 import { Intro } from "../components/Intro";
 import { Navbar } from "../components/Navbar";
 import { Social } from "../components/Social";
-import { Event } from "../models/model";
-import { readFile } from "fs/promises"
-import { join } from "path"
 import Partners from "../components/Partners/Partners";
+import { fetchIndexData } from "../apis/cms";
 
-const HomePage: NextPage = ({eventsData}: InferGetServerSidePropsType<typeof getServerSideProps>) => {
+const HomePage: NextPage = ({ eventsData }: InferGetServerSidePropsType<typeof getServerSideProps>) => {
   return (
     <div>
       <Navbar />
@@ -28,15 +26,13 @@ const HomePage: NextPage = ({eventsData}: InferGetServerSidePropsType<typeof get
 
 export const getServerSideProps: GetServerSideProps = async (context) => {
   try {
-    const filePath = join(process.cwd(),'pages', 'eventos', 'data.json')
-    const dataString = (await readFile(filePath)).toString()
-    const eventsData: Event[] = JSON.parse(dataString)
+    const eventsData = await fetchIndexData()
     context.res.setHeader('Cache-Control', 'public, s-maxage=120, stale-while-revalidate=239')
-    return {props:{eventsData}}
+    return { props: { eventsData } }
   } catch (error) {
-    console.log(error)
+    console.error(error)
   }
-  return {notFound:true}
+  return { notFound: true }
 }
 
 export default HomePage;

@@ -1,16 +1,14 @@
 import { Box, SxProps } from "@mui/material"
-import { Key } from "react"
 import { Button } from "../Button"
 import { Typography } from "../Typography"
 
 export interface EventCardProps {
     color: 'primary' | 'contrast'
-    bannerUrl?: string
-    key?: Key,
+    banner?: {url?:string}
+    slug: string,
     title: string,
     description?: string,
     dateTime: Date,
-    detailsLink: string,
     subscribeLink?: string,
     shadowed?: boolean
 }
@@ -18,10 +16,9 @@ export interface EventCardProps {
 const EventCard: React.FC<EventCardProps> = ({
     color = 'primary',
     dateTime, 
-    description, 
-    detailsLink, 
-    bannerUrl, 
-    key, 
+    description,
+    banner, 
+    slug, 
     subscribeLink, 
     title,
     shadowed
@@ -46,7 +43,7 @@ const EventCard: React.FC<EventCardProps> = ({
         cardImageBackground = '#F1F3F5'
     }
 
-    if (bannerUrl) cardImageBackground = `url("${bannerUrl}")`
+    if (banner?.url) cardImageBackground = `url("${banner.url}")`
 
     const cardsx: SxProps = {width: '255px', borderRadius: '10px', background: cardBackgroundColor, flex: 1}
     if (shadowed) {
@@ -56,12 +53,12 @@ const EventCard: React.FC<EventCardProps> = ({
     const textColor = color === 'primary' ? 'contrast': 'primary'
 
     let bannerPlaceHolder
-    if (!bannerUrl) {
+    if (!banner?.url) {
         bannerPlaceHolder = <Typography variant="h4" color="transparent" centered>Imagem do banner do evento</Typography>
     }
 
     return (
-        <Box key={key} sx={cardsx}>
+        <Box key={slug} sx={cardsx}>
             <Box sx={{height: '159px', background: `${cardImageBackground} no-repeat center center`, borderTopLeftRadius: '10px', borderTopRightRadius: '10px', display: 'flex', justifyContent: 'center', alignItems: 'center', padding: '12px'}}>
                 {bannerPlaceHolder}
             </Box>
@@ -71,7 +68,7 @@ const EventCard: React.FC<EventCardProps> = ({
                 <Typography color={textColor} smaller>{formatedDateTime}</Typography>
                 <Box sx={{display: 'flex', flexDirection: 'row', gap: '8px'}}>
                     {participateNode}
-                    <Button href={detailsLink} expanded color={color}>Mais</Button>
+                    <Button href={`eventos/${slug}`} expanded color={color}>Mais</Button>
                 </Box>
             </Box>
         </Box>)

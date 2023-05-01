@@ -1,6 +1,5 @@
 import { Box, ImageList, ImageListItem } from "@mui/material"
 import { Typography } from "../Typography"
-import Image from "next/image"
 
 export interface EventDetailGalleryProps {
     gallery?: string[]

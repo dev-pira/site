@@ -3,7 +3,6 @@ import React from "react";
 import { Footer } from "../../components/Footer";
 import { Navbar } from "../../components/Navbar";
 import { JobsIntro } from "../../components/JobsIntro";
-// import { JobsFilter } from "../../components/JobsFilter";
 import { JobsContent } from "../../components/JobsContent";
 import { fetchVancanciesData } from "../../apis/cms";
 
@@ -13,7 +12,6 @@ const EventsPage: NextPage = ({ jobsData }: InferGetServerSidePropsType<typeof g
       <div>
         <Navbar />
         <JobsIntro />
-        {/* <JobsFilter /> */}
         <JobsContent jobs={jobsData} />
         <Footer />
       </div>

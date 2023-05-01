@@ -63,7 +63,7 @@ function eventFrom(response: any) {
         }),
         tracks: event.tracks,
         videoUrl: event.videoUrl,
-        gallery: event.galleryCollection?.items?.map((picture:any) => picture.url)
+        gallery: event.galleryCollection?.items?.map((picture: any) => picture.url)
     }
     return event
 }
@@ -122,12 +122,12 @@ function trackFrom(response: any) {
     let track = response?.data?.eventTrack
     track = {
         name: track.name,
-        talks: track.talksCollection?.items?.map((talk:any) => talk)
+        talks: track.talksCollection?.items?.map((talk: any) => talk)
     }
     return track
 }
 async function getTrack(id: string) {
-    const query  = `query {
+    const query = `query {
         eventTrack (id: "${id}") {
             name
             talksCollection {
@@ -186,16 +186,16 @@ export async function createVacancy(data: CreateVacancyRequest) {
             "details": {
                 "en-US": {
                     "nodeType": "document",
-                    "data":{},
+                    "data": {},
                     "content": [
                         {
                             "nodeType": "paragraph",
-                            "data":{},
+                            "data": {},
                             "content": [
                                 {
-                                    "nodeType":"text",
-                                    "data":{},
-                                    "marks":[],
+                                    "nodeType": "text",
+                                    "data": {},
+                                    "marks": [],
                                     "value": data.Detalhes
                                 }
                             ]
@@ -207,12 +207,12 @@ export async function createVacancy(data: CreateVacancyRequest) {
                 "en-US": enrollmentUrl
             },
             "desirableSkills": {
-                "en-US": data["Habilidades desejadas"]? data["Habilidades desejadas"].split(",") : []
+                "en-US": data["Habilidades desejadas"] ? data["Habilidades desejadas"].split(",") : []
             }
         }
     }
     const body = JSON.stringify(bodyObj)
-    const result = await fetch(url, {method: 'POST', headers, body})
+    const result = await fetch(url, { method: 'POST', headers, body })
     return result
 }
 
@@ -236,7 +236,8 @@ function jobsFrom(response: any): Job[] {
             title: job.title,
             company: job.company,
             description: job.description,
-            location: jobLocation
+            location: jobLocation,
+            enrollmentUrl: job.enrollmentUrl
         }
     })
 }
@@ -248,6 +249,7 @@ export async function fetchVancanciesData(): Promise<Job[]> {
                 company
                 title
                 location
+                enrollmentUrl
                 sys {
                     id
                 }

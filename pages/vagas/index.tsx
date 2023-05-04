@@ -5,6 +5,7 @@ import { Navbar } from "../../components/Navbar";
 import { JobsIntro } from "../../components/JobsIntro";
 import { JobsContent } from "../../components/JobsContent";
 import { fetchVancanciesData } from "../../apis/cms";
+import SearchBar from "../../components/SearchBar/SearchBar";
 
 const EventsPage: NextPage = ({ jobsData }: InferGetServerSidePropsType<typeof getServerSideProps>) => {
   if (jobsData) {
@@ -12,10 +13,7 @@ const EventsPage: NextPage = ({ jobsData }: InferGetServerSidePropsType<typeof g
       <div>
         <Navbar />
         <JobsIntro />
-        <form method="get">
-          <input type="query" name="pesquisa" id="pesquisa" placeholder="Procure por empresas, perfis, tecnologias, localidades ... " />
-          <button type="submit">Buscar</button>
-        </form>
+        <SearchBar placeholder="Procure por empresas, perfis, tecnologias, localidades ..." />
         <JobsContent jobs={jobsData} />
         <Footer />
       </div>

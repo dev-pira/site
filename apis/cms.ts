@@ -241,9 +241,17 @@ function jobsFrom(response: any): Job[] {
         }
     })
 }
-export async function fetchVancanciesData(): Promise<Job[]> {
+export async function fetchVancanciesData(queryExpression?:string): Promise<Job[]> {
+    queryExpression = queryExpression ? `(where: { 
+        OR: [
+            {title_contains : "${queryExpression}"}, 
+            {description_contains: "${queryExpression}"},
+            {company_contains: "${queryExpression}"},
+            {location_contains: "${queryExpression}"},
+        ]
+    })` : ''
     const query = `query {
-        vacancyCollection {
+        vacancyCollection ${queryExpression} {
             items {
                 description
                 company

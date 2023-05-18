@@ -6,7 +6,7 @@ import { JobsIntro } from "../../components/JobsIntro";
 import { JobsContent } from "../../components/JobsContent";
 import { fetchVancanciesData } from "../../apis/cms";
 
-const EventsPage: NextPage = ({ jobsData }: InferGetServerSidePropsType<typeof getServerSideProps>) => {
+const JobsPage: NextPage = ({ jobsData }: InferGetServerSidePropsType<typeof getServerSideProps>) => {
   if (jobsData) {
     return (
       <div>
@@ -35,4 +35,4 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
   return { notFound: true }
 }
 
-export default EventsPage;
+export default JobsPage;

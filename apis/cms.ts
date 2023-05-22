@@ -1,4 +1,4 @@
-import { Job } from "../models/model"
+import { CreateJobRequest, Job } from "../models/model"
 
 async function fetchGraphQl(query: any) {
 
@@ -149,16 +149,7 @@ async function getTrack(id: string) {
     return trackFrom(response)
 }
 
-interface CreateVacancyRequest {
-    ["Titulo da vaga"]: string
-    ["Descrição"]?: string
-    ["Empresa"]?: string
-    ["Detalhes"]?: string
-    ["Cidade"]?: string
-    ["Link para inscrição"]?: string
-    ["Habilidades desejadas"]?: string
-}
-export async function createVacancy(data: CreateVacancyRequest) {
+export async function createJob(data: CreateJobRequest) {
     const spaceId = process.env.CONTENTFUL_SPACE_ID
     const environment = process.env.CONTENTFUL_ENVIRONMENT
     const cma_token = process.env.CONTENTFUL_CMA_TOKEN
@@ -170,18 +161,19 @@ export async function createVacancy(data: CreateVacancyRequest) {
         'X-Contentful-Content-Type': entryType,
         'Authorization': `Bearer ${cma_token}`
     }
-    let enrollmentUrl = data["Link para inscrição"]
-    if (!enrollmentUrl?.startsWith('http://') || !enrollmentUrl?.startsWith('https://')) enrollmentUrl = `http://${enrollmentUrl}`
+    let enrollmentUrl = data.enrollmentUrl
+    if (enrollmentUrl?.includes('@')) enrollmentUrl = `mailto:${enrollmentUrl}`
+    else if (!enrollmentUrl?.startsWith('http://') || !enrollmentUrl?.startsWith('https://')) enrollmentUrl = `http://${enrollmentUrl}`
     const bodyObj = {
         "fields": {
             "title": {
-                "en-US": data["Titulo da vaga"]
+                "en-US": data.title
             },
             "description": {
-                "en-US": data.Descrição
+                "en-US": data.description
             },
             "company": {
-                "en-US": data.Empresa
+                "en-US": data.company
             },
             "details": {
                 "en-US": {
@@ -196,7 +188,7 @@ export async function createVacancy(data: CreateVacancyRequest) {
                                     "nodeType": "text",
                                     "data": {},
                                     "marks": [],
-                                    "value": data.Detalhes
+                                    "value": data.details
                                 }
                             ]
                         }
@@ -207,7 +199,7 @@ export async function createVacancy(data: CreateVacancyRequest) {
                 "en-US": enrollmentUrl
             },
             "desirableSkills": {
-                "en-US": data["Habilidades desejadas"] ? data["Habilidades desejadas"].split(",") : []
+                "en-US": data.desirableSkills ?? []
             }
         }
     }
@@ -241,7 +233,7 @@ function jobsFrom(response: any): Job[] {
         }
     })
 }
-export async function fetchVancanciesData(queryExpression?:string): Promise<Job[]> {
+export async function fetchJobssData(queryExpression?:string): Promise<Job[]> {
     queryExpression = queryExpression ? `(where: { 
         OR: [
             {title_contains : "${queryExpression}"}, 

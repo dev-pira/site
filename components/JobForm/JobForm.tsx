@@ -1,8 +1,13 @@
 import { Box, Button, Container, FormControlLabel, FormHelperText, FormLabel, Radio, RadioGroup, TextField } from "@mui/material"
-import { ErrorMessage, Field, Form, Formik } from "formik"
+import { Field, Form, Formik } from "formik"
 import * as Yup from 'yup'
+import { CreateJobRequest } from "../../models/model"
 
-const JobForm: React.FC = () => {
+export interface JobFormProps {
+    action: (data: CreateJobRequest)=>void 
+}
+
+const JobForm: React.FC<JobFormProps> = ({action}:JobFormProps) => {
 
     const validationSchema = Yup.object().shape({
         title: Yup.string()
@@ -12,18 +17,37 @@ const JobForm: React.FC = () => {
             .max(250, 'Descrição deve ter até 250 caracteres'),
         company: Yup.string()
             .max(25, 'Empresa deve ter até 25 caracteres'),
-        subscriptionLink: Yup.string()
+        location: Yup.string()
+            .oneOf(['Piracicaba', 'Remoto', 'Outro'])
+            .required('Localidade é obrigatória'),
+        enrollmentUrl: Yup.string()
             .required('Link da inscrição é obrigatório')
             .max(250, 'Link da inscrição deve ter até 250 caracteres')
     })
 
     return (
-        <Box>
+        <Box sx={{padding:'25px'}}>
             <Container>
-                <Formik initialValues={{title:'', description:'', company:'', location: '', subscriptionLink: ''}}
+                <Formik initialValues={{title:'', description:'', company:'', location: '', enrollmentUrl: ''}}
                     validationSchema={validationSchema}
                     onSubmit={(values, {setSubmitting}) => {
                         console.log(values)
+                        let location: 'Piracicaba' | 'Remoto' | 'Outro' = 'Outro'
+                        switch (values.location) {
+                            case 'Piracicaba':
+                                location = 'Piracicaba'
+                                break;
+                            case 'Remoto':
+                                location = 'Remoto'
+                                break;
+                        }
+                        action({
+                            title: values.title,
+                            company: values.company,
+                            description: values.description,
+                            enrollmentUrl: values.enrollmentUrl,
+                            location
+                        })
                         setSubmitting(false)
                     }}>
                         {({touched, errors}) => (
@@ -67,40 +91,39 @@ const JobForm: React.FC = () => {
                                     helperText={touched.company && errors.company}
                                 />
 
-                                <FormLabel error={touched.location && (errors.location != undefined || errors.location !== '')}>Localidade</FormLabel>
                                 <Field name="location">
                                     {({field, form}:any) => (
                                        <div>
+                                            <FormLabel>Localidade</FormLabel>
                                             <RadioGroup 
                                                 {...field} 
                                                 name="location" 
                                                 onBlur={field.onBlur}
                                                 onChange={(e) => form.setFieldValue(field.name, e.target.value)}
-                                                error
+                                                row
                                             >
                                                 <FormControlLabel value="Piracicaba" control={<Radio />} label="Piracicaba" />
                                                 <FormControlLabel value="Remoto" control={<Radio />} label="Remoto" />
                                                 <FormControlLabel value="Outro" control={<Radio />} label="Outro" />
                                             </RadioGroup>
+                                            <FormHelperText error={true}>{errors.location}</FormHelperText>
                                        </div>
                                     )}
                                 </Field>
-                                <FormHelperText>{errors.location}</FormHelperText>
 
                                 <Field 
                                     as={TextField} 
                                     type="text"
-                                    name="subscriptionLink" 
+                                    name="enrollmentUrl" 
                                     label="Link para inscrição" 
                                     placeholder="Link para inscrição ou e-mail para contato."
                                     variant="outlined"  
                                     margin="normal" 
                                     fullWidth
-                                    error={touched.subscriptionLink && errors.subscriptionLink}
-                                    helperText={touched.subscriptionLink && errors.subscriptionLink}
+                                    error={touched.enrollmentUrl && errors.enrollmentUrl}
+                                    helperText={touched.enrollmentUrl && errors.enrollmentUrl}
                                 />
-
-                                <Button type="submit">Enviar</Button>
+                                <Button type="submit" size="large" fullWidth>Enviar</Button>
                             </Form>
                         )}
                 </Formik>

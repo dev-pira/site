@@ -233,7 +233,7 @@ function jobsFrom(response: any): Job[] {
         }
     })
 }
-export async function fetchJobssData(queryExpression?:string): Promise<Job[]> {
+export async function fetchJobsData(queryExpression?:string): Promise<Job[]> {
     queryExpression = queryExpression ? `(where: { 
         OR: [
             {title_contains : "${queryExpression}"}, 

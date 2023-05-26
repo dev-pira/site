@@ -13,12 +13,14 @@ const NewJobPage: NextPage = () => {
         const body = JSON.stringify(data)
         const result = await fetch(url, {method: 'POST', headers, body})
         console.log(result)
+        // TODO: Handle success
+        // TODO: Handle failure
     }
 
     return (
         <div>
             <Navbar />
-            <JobsIntro />
+            <JobsIntro />{/*  TODO: Needs a specific Intro */}
             <JobForm action={action} />
             <Footer />
         </div>

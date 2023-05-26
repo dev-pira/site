@@ -1,5 +1,6 @@
 import { Box } from "@mui/material"
 import { Typography } from "../Typography"
+import { Button } from "../Button"
 
 const JobsIntro: React.FC = () => {
     const defaultWidth = '1345px'
@@ -13,8 +14,9 @@ const JobsIntro: React.FC = () => {
                         <Typography variant="h3" color="contrast">Vagas de</Typography>
                         <Typography variant="h3" color="contrast">emprego</Typography>
                     </Box>
-                    <Box>
-                        <Typography variant="body1" color="contrast">Aqui você encontra as vagas de empregos que a comunidade oferece e compartilha gratuitamente.</Typography>
+                    <Typography variant="body1" color="contrast">Aqui você encontra as vagas de empregos de emprego compartilhadas com todos da comunidade.</Typography>
+                    <Box sx={{display: 'flex', gap: '8px'}}>
+                        <Button color="transparent" href="/vagas/nova">Enviar uma vaga</Button>
                     </Box>
                 </Box>
                 <Box sx={{ display: 'flex', width: '740px' }}>

@@ -149,6 +149,38 @@ async function getTrack(id: string) {
     return trackFrom(response)
 }
 
+function formatEnrollmentUrl(enrollmentUrl:string) {
+    let result = enrollmentUrl
+    if (result?.includes('@')) result = `mailto:${result}`
+    else if (!result?.startsWith('http://') || !result?.startsWith('https://')) result = `http://${result}`
+    return result
+}
+function formatDetails(detail?:string) {
+    let result = {}
+    if (detail) {
+        result = {
+            "en-US": {
+                "nodeType": "document",
+                "data": {},
+                "content": [
+                    {
+                        "nodeType": "paragraph",
+                        "data": {},
+                        "content": [
+                            {
+                                "nodeType": "text",
+                                "data": {},
+                                "marks": [],
+                                "value": detail
+                            }
+                        ]
+                    }
+                ]
+            }
+        }
+    }
+    return result
+}
 export async function createJob(data: CreateJobRequest) {
     const spaceId = process.env.CONTENTFUL_SPACE_ID
     const environment = process.env.CONTENTFUL_ENVIRONMENT
@@ -161,9 +193,6 @@ export async function createJob(data: CreateJobRequest) {
         'X-Contentful-Content-Type': entryType,
         'Authorization': `Bearer ${cma_token}`
     }
-    let enrollmentUrl = data.enrollmentUrl
-    if (enrollmentUrl?.includes('@')) enrollmentUrl = `mailto:${enrollmentUrl}`
-    else if (!enrollmentUrl?.startsWith('http://') || !enrollmentUrl?.startsWith('https://')) enrollmentUrl = `http://${enrollmentUrl}`
     const bodyObj = {
         "fields": {
             "title": {
@@ -175,31 +204,15 @@ export async function createJob(data: CreateJobRequest) {
             "company": {
                 "en-US": data.company
             },
-            "details": {
-                "en-US": {
-                    "nodeType": "document",
-                    "data": {},
-                    "content": [
-                        {
-                            "nodeType": "paragraph",
-                            "data": {},
-                            "content": [
-                                {
-                                    "nodeType": "text",
-                                    "data": {},
-                                    "marks": [],
-                                    "value": data.details
-                                }
-                            ]
-                        }
-                    ]
-                }
-            },
+            "details": formatDetails(data.details),
             "enrollmentUrl": {
-                "en-US": enrollmentUrl
+                "en-US": formatEnrollmentUrl(data.enrollmentUrl)
             },
             "desirableSkills": {
                 "en-US": data.desirableSkills ?? []
+            },
+            "location": {
+                "en-US": data.location
             }
         }
     }
@@ -211,8 +224,8 @@ export async function createJob(data: CreateJobRequest) {
 function jobsFrom(response: any): Job[] {
     return response?.data?.vacancyCollection?.items.map((job: any) => {
         let jobLocation = 'Outros';
-        if (job.jobLocation) {
-            switch (job.location.toLower()) {
+        if (job.location) {
+            switch (job.location.toLowerCase()) {
                 case 'piracicaba':
                     jobLocation = 'Piracicaba'
                     break;

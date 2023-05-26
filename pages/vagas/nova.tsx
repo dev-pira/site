@@ -3,16 +3,23 @@ import { Navbar } from "../../components/Navbar";
 import { Footer } from "../../components/Footer";
 import { JobsIntro } from "../../components/JobsIntro";
 import { JobForm } from "../../components/JobForm";
-import { createJob } from "../../apis/cms";
+import { CreateJobRequest } from "../../models/model";
 
 const NewJobPage: NextPage = () => {
+
+    const action= async (data: CreateJobRequest) => {
+        const url = '/api/jobs'
+        const headers = {'Content-Type': 'application/json'}
+        const body = JSON.stringify(data)
+        const result = await fetch(url, {method: 'POST', headers, body})
+        console.log(result)
+    }
+
     return (
         <div>
             <Navbar />
             <JobsIntro />
-            <JobForm action={async(data) => {
-                const result = await createJob(data)
-            }} />
+            <JobForm action={action} />
             <Footer />
         </div>
     )

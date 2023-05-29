@@ -4,7 +4,7 @@ import * as Yup from 'yup'
 import { CreateJobRequest } from "../../models/model"
 
 export interface JobFormProps {
-    action: (data: CreateJobRequest)=>void 
+    action: (data: CreateJobRequest) => Promise<void>
 }
 
 const JobForm: React.FC<JobFormProps> = ({action}:JobFormProps) => {
@@ -30,7 +30,7 @@ const JobForm: React.FC<JobFormProps> = ({action}:JobFormProps) => {
             <Container>
                 <Formik initialValues={{title:'', description:'', company:'', location: '', enrollmentUrl: ''}}
                     validationSchema={validationSchema}
-                    onSubmit={(values, {setSubmitting}) => {
+                    onSubmit={ async (values, {setSubmitting}) => {
                         console.log(values)
                         let location: 'Piracicaba' | 'Remoto' | 'Outro' = 'Outro'
                         switch (values.location) {
@@ -41,7 +41,7 @@ const JobForm: React.FC<JobFormProps> = ({action}:JobFormProps) => {
                                 location = 'Remoto'
                                 break;
                         }
-                        action({
+                        await action({
                             title: values.title,
                             company: values.company,
                             description: values.description,

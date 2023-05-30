@@ -15,8 +15,8 @@ const EventDetailGallery: React.FC<EventDetailGalleryProps> = ({gallery}:EventDe
                 {gallery.map((imageUrl) => (
                     <ImageListItem key={imageUrl}>
                         <img
-        src={`${imageUrl}?w=248&fit=crop&auto=format`}
-        srcSet={`${imageUrl}?w=248&fit=crop&auto=format&dpr=2 2x`}
+        src={`${imageUrl}`}
+        srcSet={`${imageUrl}`}
         alt={imageUrl}
         loading="lazy"
       />

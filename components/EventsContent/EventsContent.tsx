@@ -4,11 +4,12 @@ import { Typography } from "../Typography"
 
 export interface EventsContentProps {
     events: {
-        description?: string,
-        detailsLink: string,
-        participateLink?: string,
-        title: string,
-        type: 'Meetup' | 'Live' | 'Worshop',
+        slug: string
+        description?: string
+        detailsLink: string
+        participateLink?: string
+        title: string
+        type: 'Meetup' | 'Live' | 'Worshop'
         dateTime: Date
     }[]
 }
@@ -42,7 +43,6 @@ const EventsContent: React.FC<EventsContentProps> = ({events}: EventsContentProp
                                         shadowed />
                                 })}
                                 {missingBoxes.map((index) => {
-                                    console.log('rendering missing box')
                                     return <Box key={index} sx={{flex: 1}}>&nbsp;</Box>
                                 })}
                             </Box>

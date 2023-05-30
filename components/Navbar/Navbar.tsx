@@ -8,7 +8,6 @@ import MenuIcon from '@mui/icons-material/Menu';
 import Container from '@mui/material/Container';
 import { Image } from "../Image";
 import NavbarLink from '../NavbarLink';
-import { Button } from '../Button';
 import { Grid, MenuItem } from '@mui/material';
 
 
@@ -16,6 +15,7 @@ const pages = [
   { label: "Sobre", link: "/" },
   { label: "Iniciativas", link: "#iniciativas" },
   { label: "Eventos", link: "/eventos" },
+  { label: "Vagas", link: "/vagas" }
 ];
 const logoSize = { width: "145px", height: "60px" };
 
@@ -109,7 +109,6 @@ function Navbar() {
           {/* END MOBILE */}
 
           {/* DESKTOP */}
-
           <Grid item md={3}>
             <Box sx={{
               display: { xs: 'none', md: 'block' },
@@ -139,25 +138,6 @@ function Navbar() {
             </Toolbar>
           </Grid>          
           {/* END DESKTOP */}
-
-          {/* <Grid
-            item
-            xs={12}
-            md={2}
-            sx={{
-              display: 'flex',
-              justifyContent: {
-                xs: 'center',
-                md: 'end'
-              },
-              marginY: {
-                xs: 2,
-                md: 0
-              }
-            }}
-          >
-            <Button href='#'>Call to Action</Button>
-          </Grid> */}
             
           </Grid>
         </Toolbar>

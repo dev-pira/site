@@ -1,5 +1,5 @@
 import { NextApiRequest, NextApiResponse } from "next";
-import { createVacancy } from "../../../apis/cms";
+import { createJob } from "../../../apis/cms";
 import Cors from 'cors'
 
 const cors = Cors({methods:['POST']})
@@ -20,6 +20,6 @@ export default async function handler(request: NextApiRequest, response: NextApi
     await middleware(request, response, cors)
 
     let data = request.body
-    const result = await createVacancy(data)
+    const result = await createJob(data)
     response.status(result.status).json(result.json)
 }

@@ -13,7 +13,6 @@ declare module '@mui/material/styles' {
   declare module '@mui/material/Typography' {
     interface TypographyPropsVariantOverrides {
         introSpan: true;
-        h3: false;
     }
   }
 

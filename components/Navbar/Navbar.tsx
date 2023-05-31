@@ -17,7 +17,7 @@ const pages = [
   { label: "Eventos", link: "/eventos" },
   { label: "Vagas", link: "/vagas" }
 ];
-const logoSize = { width: "145px", height: "60px" };
+const logoSize = { width: "185px", height: "77px" };
 
 function Navbar() {
   const [anchorElNav, setAnchorElNav] = React.useState<null | HTMLElement>(null);

@@ -57,25 +57,6 @@ const About: React.FC = () => {
             </Typography>
           </Box>
         </Grid>
-
-        {/* <Box
-          sx={{ display: "flex", flexDirection: "row", justifyContent: "center" }}
-        >
-          <Box
-            sx={{
-              display: "flex",
-              flexWrap: "wrap",
-              maxWidth: "100vw",
-              alignItems: "center",
-              justifyContent: "space-between",
-              minHeight: "453px",
-              px: { xs: "1.8rem", sm: "1.8rem", md: "0" },
-              py: { xs: "1.8rem", sm: "1.8rem", md: "0" },
-            }}
-          >
-           
-          </Box>
-        </Box> */}
       </Grid>
     </Container>
   );

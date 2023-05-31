@@ -25,7 +25,7 @@ const Initiatives: React.FC = () => {
             flexDirection: 'column',
             justifyContent: 'center',
           }}>
-            <Typography variant="h3">Iniciativas</Typography>
+            <Typography variant="h3" sx={{mb: 1}}>Iniciativas</Typography>
             <Typography>
               Mas o que fazemos para contribuir para o desenvolvimento das pessoas
               através da tecnologia? Realizamos eventos, encontros, lives,

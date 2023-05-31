@@ -64,8 +64,8 @@ const EventCard: React.FC<EventCardProps> = ({
             </Box>
             <Box sx={{display: 'flex', padding: '24px', flexDirection: 'column', gap: '8px'}}>
                 <Typography variant="h4" color={textColor}>{title}</Typography>
-                <Typography color={textColor} smaller>{description}</Typography>
-                <Typography color={textColor} smaller>{formatedDateTime}</Typography>
+                <Typography fontSize={'0.875rem'} color={textColor} >{description}</Typography>
+                <Typography fontSize={'0.875rem'} color={textColor}>{formatedDateTime}</Typography>
                 <Box sx={{display: 'flex', flexDirection: 'row', gap: '8px'}}>
                     {participateNode}
                     <Button href={`eventos/${slug}`} expanded color={color}>Mais</Button>

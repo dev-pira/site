@@ -1,7 +1,7 @@
 import { SxProps, Typography as MuiTypography, TypographyProps as MuiTypographyProps } from "@mui/material";
 import { Theme } from "@mui/system";
 
-type Color = "primary" | "contrast" | "transparent" | "feature" | "green" | "gradient_green" | "gradient_red";
+type Color = "primary" | "contrast" | "transparent" | "feature" | "green" | "gradient_green" | "gradient_blue" | "gradient_red";
 
 export interface TypographyProps extends MuiTypographyProps {
   children?: React.ReactNode;
@@ -33,6 +33,12 @@ const Typography: React.FC<TypographyProps> = ({
       case "gradient_red":
         return {
           background: "linear-gradient(233.62deg, #E63462 17.62%, #1E90FF 100%)",
+          backgroundClip: "text",
+          color: "transparent",
+        };
+      case "gradient_blue":
+        return {
+          background: "linear-gradient(233.62deg, #1E90FF 17.62%, #E63462 100%)",
           backgroundClip: "text",
           color: "transparent",
         };

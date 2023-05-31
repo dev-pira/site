@@ -1,4 +1,4 @@
-import { Job } from "../models/model"
+import { CreateJobRequest, Job } from "../models/model"
 
 async function fetchGraphQl(query: any) {
 
@@ -149,16 +149,39 @@ async function getTrack(id: string) {
     return trackFrom(response)
 }
 
-interface CreateVacancyRequest {
-    ["Titulo da vaga"]: string
-    ["Descrição"]?: string
-    ["Empresa"]?: string
-    ["Detalhes"]?: string
-    ["Cidade"]?: string
-    ["Link para inscrição"]?: string
-    ["Habilidades desejadas"]?: string
+function formatEnrollmentUrl(enrollmentUrl:string) {
+    let result = enrollmentUrl
+    if (result?.includes('@')) result = `mailto:${result}`
+    else if (!result?.startsWith('http://') || !result?.startsWith('https://')) result = `http://${result}`
+    return result
 }
-export async function createVacancy(data: CreateVacancyRequest) {
+function formatDetails(detail?:string) {
+    let result = {}
+    if (detail) {
+        result = {
+            "en-US": {
+                "nodeType": "document",
+                "data": {},
+                "content": [
+                    {
+                        "nodeType": "paragraph",
+                        "data": {},
+                        "content": [
+                            {
+                                "nodeType": "text",
+                                "data": {},
+                                "marks": [],
+                                "value": detail
+                            }
+                        ]
+                    }
+                ]
+            }
+        }
+    }
+    return result
+}
+export async function createJob(data: CreateJobRequest) {
     const spaceId = process.env.CONTENTFUL_SPACE_ID
     const environment = process.env.CONTENTFUL_ENVIRONMENT
     const cma_token = process.env.CONTENTFUL_CMA_TOKEN
@@ -170,44 +193,26 @@ export async function createVacancy(data: CreateVacancyRequest) {
         'X-Contentful-Content-Type': entryType,
         'Authorization': `Bearer ${cma_token}`
     }
-    let enrollmentUrl = data["Link para inscrição"]
-    if (!enrollmentUrl?.startsWith('http://') || !enrollmentUrl?.startsWith('https://')) enrollmentUrl = `http://${enrollmentUrl}`
     const bodyObj = {
         "fields": {
             "title": {
-                "en-US": data["Titulo da vaga"]
+                "en-US": data.title
             },
             "description": {
-                "en-US": data.Descrição
+                "en-US": data.description
             },
             "company": {
-                "en-US": data.Empresa
+                "en-US": data.company
             },
-            "details": {
-                "en-US": {
-                    "nodeType": "document",
-                    "data": {},
-                    "content": [
-                        {
-                            "nodeType": "paragraph",
-                            "data": {},
-                            "content": [
-                                {
-                                    "nodeType": "text",
-                                    "data": {},
-                                    "marks": [],
-                                    "value": data.Detalhes
-                                }
-                            ]
-                        }
-                    ]
-                }
-            },
+            "details": formatDetails(data.details),
             "enrollmentUrl": {
-                "en-US": enrollmentUrl
+                "en-US": formatEnrollmentUrl(data.enrollmentUrl)
             },
             "desirableSkills": {
-                "en-US": data["Habilidades desejadas"] ? data["Habilidades desejadas"].split(",") : []
+                "en-US": data.desirableSkills ?? []
+            },
+            "location": {
+                "en-US": data.location
             }
         }
     }
@@ -219,8 +224,8 @@ export async function createVacancy(data: CreateVacancyRequest) {
 function jobsFrom(response: any): Job[] {
     return response?.data?.vacancyCollection?.items.map((job: any) => {
         let jobLocation = 'Outros';
-        if (job.jobLocation) {
-            switch (job.location.toLower()) {
+        if (job.location) {
+            switch (job.location.toLowerCase()) {
                 case 'piracicaba':
                     jobLocation = 'Piracicaba'
                     break;
@@ -241,9 +246,17 @@ function jobsFrom(response: any): Job[] {
         }
     })
 }
-export async function fetchVancanciesData(): Promise<Job[]> {
+export async function fetchJobsData(queryExpression?:string): Promise<Job[]> {
+    queryExpression = queryExpression ? `(where: { 
+        OR: [
+            {title_contains : "${queryExpression}"}, 
+            {description_contains: "${queryExpression}"},
+            {company_contains: "${queryExpression}"},
+            {location_contains: "${queryExpression}"},
+        ]
+    })` : ''
     const query = `query {
-        vacancyCollection {
+        vacancyCollection ${queryExpression} {
             items {
                 description
                 company

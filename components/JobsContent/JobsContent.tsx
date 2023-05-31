@@ -7,12 +7,10 @@ export interface JobsContentProps {
 }
 
 const JobsContent: React.FC<JobsContentProps> = ({ jobs }: JobsContentProps) => {
-    const types = jobs
-        .map((e) => e.location)
-        .filter((value, index, self) => self.indexOf(value) === index)
+    const locations = ['Piracicaba', 'Remoto', 'Outros']
     return (
         <Grid sx={{ display: 'flex', flexWrap: 'wrap', flexDirection: 'column', justifyContent: 'center', alignItems: 'center' }} container>
-            {types.map((location, index) => {
+            {locations.map((location) => {
                 const jobsOfLocation = jobs
                     .filter((e) => e.location === location)
                     return <JobsContentSection jobs={jobsOfLocation} location={location} key={location} />

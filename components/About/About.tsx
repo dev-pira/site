@@ -4,10 +4,61 @@ import { Typography } from "../Typography";
 
 const About: React.FC = () => {
   return (
-    <Container>
-      <Grid container>
-        <Box
-          id="sobre"
+    <Container id="sobre">
+      <Grid
+        container
+        sx={{
+          my:{
+            xs: '36px',
+            md: '88px' 
+          },
+          flexDirection: {
+            xs: 'column-reverse',
+            md: 'row'
+          }
+        }}
+      >
+        <Grid item xs={12} md={6}>
+          <Box
+            sx={{
+              display: 'flex',
+              justifyContent: 'center',
+              alignItems: 'center',
+              p: 2
+            }}
+          >
+            <Box
+              sx={{
+                width: 451,
+                height: 277
+              }}
+              >
+              <Image alt="Ilustração de uma troca de mensagens entre um grupo de 3 pessoas" src="/images/About.svg" width={451} height={277} />
+            </Box>
+          </Box>
+        </Grid>
+        <Grid item xs={12} md={6}>
+          <Box sx={{
+            height: '100%',
+            display: 'flex',
+            flexDirection: 'column',
+            justifyContent: 'center',
+          }}>
+            <Typography variant="h3" sx={{mb: 1}}>Sobre o DEVPIRA</Typography>
+            <Typography>
+              Somos uma comunidade feita de &quot;pessoal do TI&quot; para
+              &quot;pessoal do TI&quot;, desde programadores, POs, QAs, PMs,
+              designers e até quem não trabalha na área, mas ama pessoas e
+              tecnologia! Não temos fins lucrativos, nosso intuito é disseminar o
+              conhecimento sobre tecnologia em Piracicaba, &quot;aonde o peixe
+              pára&quot; mas a tecnologia avança! Mantenha-se atualizado com as
+              práticas modernas de mercado e desperte nas pessoas o interesse
+              sobre a área.
+            </Typography>
+          </Box>
+        </Grid>
+
+        {/* <Box
           sx={{ display: "flex", flexDirection: "row", justifyContent: "center" }}
         >
           <Box
@@ -22,29 +73,9 @@ const About: React.FC = () => {
               py: { xs: "1.8rem", sm: "1.8rem", md: "0" },
             }}
           >
-            <Image alt="" src="/images/About.svg" width="451px" height="277px" />
-            <Box
-              sx={{
-                display: "flex",
-                width: { xs: "100%", sm: "100%", md: "50%", lg: "50%" },
-                flexDirection: "column",
-                gap: "24px",
-              }}
-            >
-              <Typography variant="h3">Sobre o DEVPIRA</Typography>
-              <Typography>
-                Somos uma comunidade feita de &quot;pessoal do TI&quot; para
-                &quot;pessoal do TI&quot;, desde programadores, POs, QAs, PMs,
-                designers e até quem não trabalha na área, mas ama pessoas e
-                tecnologia! Não temos fins lucrativos, nosso intuito é disseminar o
-                conhecimento sobre tecnologia em Piracicaba, &quot;aonde o peixe
-                pára&quot; mas a tecnologia avança! Mantenha-se atualizado com as
-                práticas modernas de mercado e desperte nas pessoas o interesse
-                sobre a área.
-              </Typography>
-            </Box>
+           
           </Box>
-        </Box>
+        </Box> */}
       </Grid>
     </Container>
   );

@@ -58,7 +58,9 @@ const EventCard: React.FC<EventCardProps> = ({
         borderRadius: '10px',
         maxHeight: '400px',
         background: cardBackgroundColor,
-        flex: 1
+        display: 'flex',
+        flexDirection: 'column',
+        height: '100%'
     }
     
     if (shadowed) {
@@ -73,7 +75,16 @@ const EventCard: React.FC<EventCardProps> = ({
     }
 
     return (
-        <Grid xs={12} md={4} xl={3}>
+        <Grid
+            item
+            xs={12}
+            md={6}
+            lg={3}
+            sx={{
+                display: 'flex',
+                flexDirection: 'column'
+            }}
+        >
             <Box key={slug} sx={cardsx}>
                 <Box
                     sx={{
@@ -94,29 +105,45 @@ const EventCard: React.FC<EventCardProps> = ({
                         display: 'flex',
                         padding: '24px',
                         flexDirection: 'column',
-                        gap: '8px'
+                        gap: '8px',
+                        flex: 1
                     }}
                 >
-                    <Typography
-                        variant="h4"
-                        color={textColor}
+                    <Box
+                        sx={{
+                            flexGrow: 1,
+                            display: 'flex',
+                            flexDirection: 'column',
+                            justifyContent: 'space-between',
+                        }}
                     >
-                        {title}
-                    </Typography>
-                    <Typography
-                        fontSize={'0.875rem'}
-                        color={textColor}
-                    >
-                        {formattedDescription}
-                    </Typography>
-                    <Typography
-                        fontSize={'0.875rem'}
-                        color={textColor}
-                    >
-                        {formatedDateTime}
-                    </Typography>
+                        <Typography
+                            variant="h4"
+                            color={textColor}
+                        >
+                            {title}
+                        </Typography>
+                        <Typography
+                            fontSize={'0.875rem'}
+                            color={textColor}
+                        >
+                            {formattedDescription}
+                        </Typography>
+                        <Typography
+                            fontSize={'0.875rem'}
+                            color={textColor}
+                        >
+                            {formatedDateTime}
+                        </Typography>
+                    </Box>
 
-                    <Box sx={{display: 'flex', flexDirection: 'row', gap: '8px'}}>
+                    <Box
+                        sx={{
+                            display: 'flex',
+                            flexDirection: 'row',
+                            gap: '8px'
+                        }}
+                    >
                         {participateNode}
                         <Button href={`eventos/${slug}`} expanded color={color}>Mais</Button>
                     </Box>

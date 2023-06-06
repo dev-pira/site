@@ -17,13 +17,14 @@ export interface EventsProps {
 }
 
 const Events: React.FC<EventsProps> = ({ events }: EventsProps) => {
-  let limitedEvents = events;
-  limitedEvents.sort((a, b) => {
+  let latestEvents = events;
+  latestEvents.sort((a, b) => {
     if (a.dateTime < b.dateTime) return 1;
     if (a.dateTime > b.dateTime) return -1;
     return 0;
   });
-  limitedEvents = limitedEvents.slice(0, 4);
+  latestEvents = latestEvents.slice(0, 4);
+
   return (
     <Box 
       sx={{
@@ -58,11 +59,11 @@ const Events: React.FC<EventsProps> = ({ events }: EventsProps) => {
           >
             <Box
               sx={{
-                width: 346,
-                height: 276,
+                width: 500,
+                height: 340,
               }}
             >
-              <Image alt="Foto de uma das palestras realizadas pela comunidade" src="/images/Events.png" width={346} height={276} objectFit="cover" />
+              <Image alt="Foto de uma das palestras realizadas pela comunidade" src="/images/Events.png" width={500} height={340} objectFit="cover" />
             </Box>
           </Box>
         </Grid>
@@ -97,23 +98,24 @@ const Events: React.FC<EventsProps> = ({ events }: EventsProps) => {
             </Box>
           </Box>
         </Grid>
-        <Grid item columns={12}></Grid>
-          {/* CARDS */}
-          <Box
-            sx={{
-              display: "flex",
-              maxWidth: "100vw",
-              flexWrap: "wrap",
-              flexDirection: "row",
-              alignItems: "center",
-              gap: "30px",
-            }}
-          >
-            {limitedEvents.map((eventData, index) => {
-              return <EventCard key={index} {...eventData} color="primary" />;
-            })}
-          </Box>
-          {/* /CARDS */}
+        {/* CARDS */}
+        <Grid
+          container
+          wrap="nowrap"
+          spacing={'30px'}
+          mt={'80px'}
+          sx={{
+            flexDirection: {
+              xs: 'column',
+              md: 'row'
+            }
+          }}
+        >
+          {latestEvents.map((eventData, index) => {
+            return <EventCard key={index} {...eventData} color="primary" />;
+          })}
+        </Grid>
+        {/* /CARDS */}
       </Grid>
     </Container>
   </Box>

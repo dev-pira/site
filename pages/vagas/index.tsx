@@ -8,6 +8,7 @@ import { fetchJobsData } from "../../apis/cms";
 import {SearchBar} from "../../components/SearchBar";
 
 const JobsPage: NextPage = ({ jobsData }: InferGetServerSidePropsType<typeof getServerSideProps>) => {
+  console.info("Rendering JOBS page")
   if (jobsData) {
     return (
       <div>
@@ -24,16 +25,20 @@ const JobsPage: NextPage = ({ jobsData }: InferGetServerSidePropsType<typeof get
       <p>Não tem dados aqui xP</p>
     </div>
   )
-};
+}
+
 
 export const getServerSideProps: GetServerSideProps = async (context) => {
+  console.info("Getting JOBS data.")
   const query = context.query.pesquisa as string
+  if (query) console.info(`Getting JOBS data for ${query}`)
   try {
     const jobsData = await fetchJobsData(query)
     context.res.setHeader('Cache-Control', 'public, s-maxage=120, stale-while-revalidate=239')
+    console.info(`Loading JOBS page. Got ${jobsData.length} JOBS entries.`)
     return { props: { jobsData } }
   } catch (error) {
-    console.log(error)
+    console.error(error)
   }
   return { notFound: true }
 }

@@ -14,17 +14,17 @@ const NewJobPage: NextPage = () => {
     const [errorMessage, setErrorMessage] = React.useState('')
     const [successOpen, setSuccessOpen] = React.useState(false)
 
-    const action= async (data: CreateJobRequest) => {
+    const action = async (data: CreateJobRequest) => {
         const url = '/api/jobs'
-        const headers = {'Content-Type': 'application/json'}
+        const headers = { 'Content-Type': 'application/json' }
         const body = JSON.stringify(data)
-        const result = await fetch(url, {method: 'POST', headers, body})
+        const result = await fetch(url, { method: 'POST', headers, body })
         console.log(result)
         if (!result.ok) {
             setErrorMessage("Aconteceu um problema. Por favor, contacte o administrador.")
             setErrorOpen(true)
         } else {
-            setSuccessOpen(true)   
+            setSuccessOpen(true)
         }
     }
 
@@ -43,8 +43,9 @@ const NewJobPage: NextPage = () => {
             <IconButton color="inherit" size="small" onClick={handleErrorClose} aria-label="fechar" >
                 <CloseIcon fontSize='small' />
             </IconButton>
-        </React.Fragment>
+        </React.Fragment >
     )
+
 
     return (
         <div>
@@ -52,10 +53,10 @@ const NewJobPage: NextPage = () => {
             <JobsIntro />{/*  TODO: Needs a specific Intro */}
             <JobForm action={action} />
             <Footer />
-            <Snackbar anchorOrigin={{horizontal:'right', vertical: 'bottom'}} open={errorOpen} onClose={handleErrorClose} >
+            <Snackbar anchorOrigin={{ horizontal: 'right', vertical: 'bottom' }} open={errorOpen} onClose={handleErrorClose} >
                 <Alert severity='error' onClose={handleErrorClose}>{errorMessage}</Alert>
             </Snackbar>
-            <Snackbar anchorOrigin={{horizontal:'right', vertical: 'bottom'}} open={successOpen} autoHideDuration={6000} onClose={handleSuccessClose} >
+            <Snackbar anchorOrigin={{ horizontal: 'right', vertical: 'bottom' }} open={successOpen} autoHideDuration={6000} onClose={handleSuccessClose} >
                 <Alert severity='success' onClose={handleSuccessClose}>Vaga registrada. Logo ela aparecerá em nosso site.</Alert>
             </Snackbar>
         </div>

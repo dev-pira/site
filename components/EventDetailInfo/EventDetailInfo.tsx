@@ -9,38 +9,45 @@ export interface EventDetailInfoProps {
     otherInfo?: any
 }
 
-const EventDetailInfo: React.FC<EventDetailInfoProps> = ({dateTime, longDescription, place, otherInfo}: EventDetailInfoProps) => {
+const EventDetailInfo: React.FC<EventDetailInfoProps> = ({ dateTime, longDescription, place, otherInfo }: EventDetailInfoProps) => {
     const defaultWidth = '1345px'
-    let formatedDateTime = `${dateTime.getDate()}/${dateTime.getMonth()+1}/${dateTime.getFullYear()}`
+    let formatedDateTime = `${dateTime.getDate()}/${dateTime.getMonth() + 1}/${dateTime.getFullYear()}`
     if (dateTime.getHours() || dateTime.getMinutes()) {
         formatedDateTime += ` às ${dateTime.getHours()}h${dateTime.getMinutes().toString().padStart(2, '0')}`
     }
     let otherInfoBlock
     if (otherInfo) {
-        otherInfoBlock = <Box sx={{display: 'flex', flexDirection: 'column', gap: '8px'}}>
+        otherInfoBlock = <Box sx={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
             <Typography variant="h4" color="feature">Outras informações</Typography>
             <RichContent content={otherInfo} />
         </Box>
     }
+
+    function isUrl(url: string): boolean {
+        const regex = /^(http:\/\/www\.|https:\/\/www\.|http:\/\/|https:\/\/)?[a-zA-Z0-9]+([\-\.]{1}[a-zA-Z0-9]+)*\.[a-zA-Z]{2,5}(:[0-9]{1,5})?(\/.*)?$/;
+        return regex.test(url);
+    }
+
+    const handledPlace = isUrl(place) ? place : "https://www.google.com/maps/search/" + place
     return (
-        <Box id="sobre" sx={{padding: '88px', display:'flex',flexDirection: 'row', justifyContent: 'center', alignItems: 'center'}}>
-            <Box sx={{width: defaultWidth, display: 'flex', gap: '110px'}}>
+        <Box id="sobre" sx={{ padding: '88px', display: 'flex', flexDirection: 'row', justifyContent: 'center', alignItems: 'center' }}>
+            <Box sx={{ width: defaultWidth, display: 'flex', gap: '110px' }}>
                 {/* SOBRE */}
-                <Box sx={{flex: 1, display: 'flex', flexDirection: 'column', gap: '24px'}}>
+                <Box sx={{ flex: 1, display: 'flex', flexDirection: 'column', gap: '24px' }}>
                     <Typography variant="h3">Sobre o evento</Typography>
                     <RichContent content={longDescription} />
                 </Box>
                 {/* /SOBRE */}
                 {/* PARTICIPE */}
-                <Box sx={{flex: .85, display: 'flex', flexDirection: 'column', gap: '32px'}}>
+                <Box sx={{ flex: .85, display: 'flex', flexDirection: 'column', gap: '32px' }}>
                     <Typography variant="h3">Participe</Typography>
-                    <Box sx={{display: 'flex', flexDirection: 'column', gap: '8px'}}>
+                    <Box sx={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
                         <Typography variant="h4" color="feature">Data e horário</Typography>
                         <Typography>{formatedDateTime}</Typography>
                     </Box>
-                    <Box sx={{display: 'flex', flexDirection: 'column', gap: '8px'}}>
+                    <Box sx={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
                         <Typography variant="h4" color="feature">Local</Typography>
-                        <Link sx={{color:"black"}} href={"https://www.google.com/maps/search/"+place} target="_blank">{place}</Link>
+                        <Link sx={{ color: "black" }} href={handledPlace} target="_blank">{place}</Link>
                     </Box>
                     {otherInfoBlock}
                 </Box>

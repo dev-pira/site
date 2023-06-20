@@ -1,4 +1,4 @@
-import { Button, LinkProps, Link, SxProps} from "@mui/material";
+import { LinkProps, Link, SxProps} from "@mui/material";
 import React from "react";
 
 export interface NavbarLinkProps extends LinkProps {

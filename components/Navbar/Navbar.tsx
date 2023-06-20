@@ -99,8 +99,8 @@ function Navbar() {
                   flexDirection: 'column'
                 }}
               >
-                {pages.map((page, index) => (
-                  <MenuItem  key={index} onClick={handleCloseNavMenu}>
+                {pages.map((page) => (
+                  <MenuItem  key={page.link} onClick={handleCloseNavMenu}>
                     <NavbarLink page={page} />
                   </MenuItem>
                 ))}

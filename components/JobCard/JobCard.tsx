@@ -23,7 +23,7 @@ const JobCard: React.FC<JobCardProps> = ({
         <Grid key={id} sx={cardsx} item xs={12} md={3}>
             <Box sx={{ display: 'flex', padding: '24px', flexDirection: 'column', gap: '8px' }}>
                 <Typography variant="h4" color='primary'>{title}</Typography>
-                <Typography color='primary' smaller>{description.substring(0, 144)}</Typography>
+                <Typography color='primary' fontSize={'0.875rem'}>{description.substring(0, 144)}</Typography>
                 {companyElement}
                 <Link href={enrollmentUrl} target="_blank" rel="noreferrer">
                     <Button expanded color='primary'>Detalhes da vaga</Button>

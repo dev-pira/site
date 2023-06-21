@@ -9,7 +9,7 @@ const EventsIntro: React.FC = () => {
             <Box sx={{width: defaultWidth, display: 'flex', height: defaultHeight, alignItems: 'center'}}>
                 <Box sx={{width: '546px'}}>
                     <Typography variant="h2" color="contrast">
-                        Eventos da <Typography variant="span" color="gradient_red"> comunidade</Typography>
+                        Eventos da <Typography variant="body2" color="gradient_red"> comunidade</Typography>
                     </Typography>
                 </Box>
                 <Box sx={{display: 'flex', width: '740px'}}>

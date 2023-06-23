@@ -1,15 +1,12 @@
 import { Box, Container, Grid, Link } from "@mui/material"
 import { Button } from "../Button"
 import { Typography } from "../Typography"
+import { Partner } from "../../models/model"
+import { Image } from "../Image"
 
 export interface PartnersProps {
     description: string
-    partners?: {
-        name: string
-        logoUrl?: string
-        link?: string
-        category?: string
-    }[]
+    partners?: Partner[]
 }
 
 const Partners: React.FC<PartnersProps> = ({description, partners}:PartnersProps) => {
@@ -32,10 +29,24 @@ const Partners: React.FC<PartnersProps> = ({description, partners}:PartnersProps
                                 <Grid container sx={{display: 'flex', gap: '16px'}}>
                                 {partnersInCategory.map((partner, index) => {
                                     return (
-                                        <Link key={index} href={partner.link} target='_blank'>
-                                            <Box sx={{background: `url("${partner.logoUrl}") no-repeat center center`, backgroundSize: 'contain', width: '171px', height: '78px'}}>
-                                            </Box>
-                                        </Link>
+                                        <Grid item key={index} >
+                                            <Link href={partner.link} target='_blank'>
+                                                <Box>
+                                                    {
+                                                        partner.logoUrl
+                                                        ? (
+                                                            <picture>
+                                                                <img
+                                                                    src={partner.logoUrl}
+                                                                    alt={`Logotipo de ${partner.name}`}
+                                                                />
+                                                            </picture>
+                                                        )
+                                                        : partner.name
+                                                    }
+                                                </Box>
+                                            </Link>
+                                        </Grid>
                                     )
                                 })}
                                 </Grid> 

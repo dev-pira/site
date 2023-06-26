@@ -1,10 +1,10 @@
-import { AppBar, Box, Toolbar } from "@mui/material";
+import { AppBar, Box, Link, Toolbar } from "@mui/material";
 import { Button } from "../Button";
 import { Image } from "../Image";
 
 const Navbar: React.FC = () => {
   const defaultWidth = "1345px";
-  const logoSize = { width: "185px", height: "77px" };
+  const logoSize = { width: "191px", height: "80px" };
   const items = [
     { label: "Sobre", link: "/" },
     { label: "Iniciativas", link: "#iniciativas" },
@@ -33,7 +33,7 @@ const Navbar: React.FC = () => {
           height: "100px",
         }}
       >
-        <Box sx={{ marginLeft: '20px', width: logoSize.width, height: logoSize.height }}>
+        <Link sx={{ marginLeft: '20px', width: logoSize.width, height: logoSize.height }} href="/">
           <Image
             src="/images/Logo.svg"
             alt="DEVPIRA"
@@ -41,7 +41,7 @@ const Navbar: React.FC = () => {
             width={logoSize.width}
             height={logoSize.height}
           />
-        </Box>
+        </Link>
         <Toolbar sx={{ flexGrow: 1, justifyContent: "flex-end" }}>
           <Box>
             {items.map((item) => (

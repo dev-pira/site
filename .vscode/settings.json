@@ -1,17 +1,12 @@
 {
   "editor.formatOnSave": true,
   "editor.codeActionsOnSave": {
-    "source.fixAll.eslint": true,
+    "source.fixAll.eslint": true
   },
   "eslint.validate": [
     "javascript",
     "javascriptreact",
     "typescript",
-    "typescriptreact",
-  ],
-  "FSharp.suggestGitignore": false,
-  "conventionalCommits.scopes": [
-    "Navbar",
-    "Intro"
-  ],
+    "typescriptreact"
+  ]
 }

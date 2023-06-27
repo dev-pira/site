@@ -1,4 +1,4 @@
-import { Box, SxProps } from "@mui/material"
+import { Box, Grid, SxProps } from "@mui/material"
 import { Button } from "../Button"
 import { Typography } from "../Typography"
 
@@ -23,6 +23,13 @@ const EventCard: React.FC<EventCardProps> = ({
     title,
     shadowed
 }: EventCardProps) => {
+    const splittedDescription = description?.split(' ');
+    const trimmedDescription = splittedDescription ? splittedDescription?.slice(0, 20) : [];
+    let formattedDescription =  trimmedDescription?.join(' ');
+    if(trimmedDescription.length >= 20){
+        formattedDescription += '...'
+    }
+
     if (!(dateTime instanceof Date)) {
         dateTime = new Date(dateTime)
     }
@@ -43,9 +50,19 @@ const EventCard: React.FC<EventCardProps> = ({
         cardImageBackground = '#F1F3F5'
     }
 
-    if (banner?.url) cardImageBackground = `url("${banner.url}")`
+    if (banner?.url){
+        cardImageBackground = `url("${banner.url}")`
+    }
 
-    const cardsx: SxProps = {width: '255px', borderRadius: '10px', background: cardBackgroundColor, flex: 1}
+    const cardsx: SxProps = {
+        borderRadius: '10px',
+        maxHeight: '400px',
+        background: cardBackgroundColor,
+        display: 'flex',
+        flexDirection: 'column',
+        height: '100%'
+    }
+    
     if (shadowed) {
         cardsx.boxShadow = '0px 4px 24px rgba(30, 144, 255, .14)'
     }
@@ -58,20 +75,82 @@ const EventCard: React.FC<EventCardProps> = ({
     }
 
     return (
-        <Box key={slug} sx={cardsx}>
-            <Box sx={{height: '159px', background: `${cardImageBackground} no-repeat center center`, borderTopLeftRadius: '10px', borderTopRightRadius: '10px', display: 'flex', justifyContent: 'center', alignItems: 'center', padding: '12px'}}>
-                {bannerPlaceHolder}
-            </Box>
-            <Box sx={{display: 'flex', padding: '24px', flexDirection: 'column', gap: '8px'}}>
-                <Typography variant="h4" color={textColor}>{title}</Typography>
-                <Typography color={textColor} smaller>{description}</Typography>
-                <Typography color={textColor} smaller>{formatedDateTime}</Typography>
-                <Box sx={{display: 'flex', flexDirection: 'row', gap: '8px'}}>
-                    {participateNode}
-                    <Button href={`eventos/${slug}`} expanded color={color}>Mais</Button>
+        <Grid
+            item
+            xs={12}
+            md={6}
+            lg={3}
+            sx={{
+                display: 'flex',
+                flexDirection: 'column'
+            }}
+        >
+            <Box key={slug} sx={cardsx}>
+                <Box
+                    sx={{
+                        height: '159px',
+                        background: `${cardImageBackground} no-repeat center center`,
+                        borderTopLeftRadius: '10px',
+                        borderTopRightRadius: '10px',
+                        display: 'flex',
+                        justifyContent: 'center',
+                        alignItems: 'center',
+                        padding: '12px'
+                    }}
+                >
+                    {bannerPlaceHolder}
+                </Box>
+                <Box
+                    sx={{
+                        display: 'flex',
+                        padding: '24px',
+                        flexDirection: 'column',
+                        gap: '8px',
+                        flex: 1
+                    }}
+                >
+                    <Box
+                        sx={{
+                            flexGrow: 1,
+                            display: 'flex',
+                            flexDirection: 'column',
+                            justifyContent: 'space-between',
+                        }}
+                    >
+                        <Typography
+                            variant="h4"
+                            color={textColor}
+                        >
+                            {title}
+                        </Typography>
+                        <Typography
+                            fontSize={'0.875rem'}
+                            color={textColor}
+                        >
+                            {formattedDescription}
+                        </Typography>
+                        <Typography
+                            fontSize={'0.875rem'}
+                            color={textColor}
+                        >
+                            {formatedDateTime}
+                        </Typography>
+                    </Box>
+
+                    <Box
+                        sx={{
+                            display: 'flex',
+                            flexDirection: 'row',
+                            gap: '8px'
+                        }}
+                    >
+                        {participateNode}
+                        <Button href={`eventos/${slug}`} expanded color={color}>Mais</Button>
+                    </Box>
                 </Box>
             </Box>
-        </Box>)
+        </Grid>
+    )
 }
 
 export default EventCard

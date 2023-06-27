@@ -8,7 +8,7 @@ const JobsFilter: React.FC = () => {
     return (
         <Box sx={{ display: "flex", flexDirection: "row", justifyContent: "center" }}>
             <Box sx={{ marginLeft: '20px', width: defaultWidth, display: 'flex', height: defaultHeight, alignItems: 'center' }}>
-                <Typography variant="span" color="primary">Área de Atuação</Typography>
+                <Typography color="primary">Área de Atuação</Typography>
                 <Box sx={{ width: '600px', display: 'flex', justifyContent: 'space-around', height: defaultHeight, alignItems: 'center' }}>
                     <Button color="contrast" type="rounded"> FrontEnd </Button>
                     <Button color="contrast" type="rounded"> BackEnd </Button>

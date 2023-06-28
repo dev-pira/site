@@ -1,17 +1,8 @@
-import { AppBar, Box, Link, Toolbar } from "@mui/material";
-import { Button } from "../Button";
 import * as React from 'react';
-import AppBar from '@mui/material/AppBar';
-import Box from '@mui/material/Box';
-import Toolbar from '@mui/material/Toolbar';
-import IconButton from '@mui/material/IconButton';
-import Menu from '@mui/material/Menu';
 import MenuIcon from '@mui/icons-material/Menu';
-import Container from '@mui/material/Container';
 import { Image } from "../Image";
 import NavbarLink from '../NavbarLink';
-import { Grid, MenuItem } from '@mui/material';
-
+import { AppBar, Box, Link, Toolbar,IconButton,Menu,Container ,Grid, MenuItem} from "@mui/material";
 
 const pages = [
   { label: "Sobre", link: "/" },
@@ -54,7 +45,7 @@ function Navbar() {
               flex: 1,
               justifyContent: 'start'
             }}>
-              <Box sx={{
+              <Link href="/" sx={{
                 width: logoSize.width,
                 height: logoSize.height
               }}>
@@ -65,7 +56,7 @@ function Navbar() {
                   width={logoSize.width}
                   height={logoSize.height}
                 />
-              </Box>
+              </Link>
             </Grid>
             <Grid item xs={2} sm={3} sx={{
                 display: { xs: 'flex', md: 'none' },

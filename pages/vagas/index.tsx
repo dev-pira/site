@@ -8,7 +8,7 @@ import { Footer } from "../../components/Footer";
 import { Navbar } from "../../components/Navbar";
 import { JobsIntro } from "../../components/JobsIntro";
 import { JobsContent } from "../../components/JobsContent";
-import { fetchJobsData } from "../../services/cms";
+import { fetchJobsData } from "../../services/jobService";
 import { SearchBar } from "../../components/SearchBar";
 
 const JobsPage: NextPage = ({

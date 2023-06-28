@@ -11,7 +11,7 @@ import { Intro } from "../components/Intro";
 import { Navbar } from "../components/Navbar";
 import { Social } from "../components/Social";
 import Partners from "../components/Partners/Partners";
-import { fetchIndexData } from "../services/cms";
+import { fetchIndexData } from "../services/indexService";
 
 const HomePage: NextPage = ({
   eventsData,

@@ -12,7 +12,7 @@ import { Social } from "../../components/Social";
 import { EventDetailGallery } from "../../components/EventDetailGallery";
 import Partners from "../../components/Partners/Partners";
 import { EventDetailVideo } from "../../components/EventDetailVideo";
-import { getEventData } from "../../services/cms";
+import { getEventData } from "../../services/eventService";
 
 const EventDetailPage: NextPage = ({
   eventData,

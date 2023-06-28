@@ -1,3 +1,4 @@
+
 import { CreateJobRequest, Job } from "../models/job";
 
 async function fetchGraphQl<T>(query: string): Promise<T> {
@@ -56,7 +57,7 @@ export async function fetchEventsData(): adasdasdasd {
 }
 
 function eventFrom(response: any) {
-  let event = response;
+  const event = response;
   event = {
     title: event.title,
     bannerUrl: event.banner?.url,
@@ -80,6 +81,7 @@ function eventFrom(response: any) {
   };
   return event;
 }
+
 export async function getEventData(key: string) {
   const query = `query {
         eventCollection(where:{slug:"${key}"}, limit: 1){
@@ -139,6 +141,7 @@ function trackFrom(response: any) {
   };
   return track;
 }
+
 async function getTrack(id: string) {
   const query = `query {
         eventTrack (id: "${id}") {
@@ -156,6 +159,7 @@ async function getTrack(id: string) {
                     }
                 }
             }
+          }
         }
     }`;
   const response = await fetchGraphQl(query);
@@ -195,6 +199,7 @@ function formatDetails(detail?: string) {
   }
   return result;
 }
+
 export async function createJob(data: CreateJobRequest) {
   const spaceId = process.env.CONTENTFUL_SPACE_ID;
   const environment = process.env.CONTENTFUL_ENVIRONMENT;
@@ -264,10 +269,10 @@ export async function fetchJobsData(queryExpression?: string): Promise<Job[]> {
   queryExpression = queryExpression
     ? `(where: { 
         OR: [
-            {title_contains : "${queryExpression}"}, 
-            {description_contains: "${queryExpression}"},
-            {company_contains: "${queryExpression}"},
-            {location_contains: "${queryExpression}"},
+          { title_contains : "${queryExpression}" },
+          { description_contains: "${queryExpression}" },
+          { company_contains: "${queryExpression}" },
+          { location_contains: "${queryExpression}" }
         ]
     })`
     : "";

@@ -45,7 +45,7 @@ function Navbar() {
               flex: 1,
               justifyContent: 'start'
             }}>
-              <Link href="/" sx={{
+              <Link href="/" title='DEVPIRA' sx={{
                 width: logoSize.width,
                 height: logoSize.height
               }}>
@@ -102,7 +102,7 @@ function Navbar() {
           {/* END MOBILE */}
           {/* DESKTOP */}
           <Grid item md={3}>
-            <Box sx={{
+            <Link href='/' title='DEVPIRA' sx={{
               display: { xs: 'none', md: 'block' },
               width: logoSize.width,
               height: logoSize.height
@@ -114,7 +114,7 @@ function Navbar() {
                 width={logoSize.width}
                 height={logoSize.height}
               />
-            </Box>
+            </Link>
           </Grid>
           <Grid item md>
             <Toolbar disableGutters sx={{

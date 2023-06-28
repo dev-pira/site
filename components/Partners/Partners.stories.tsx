@@ -1,15 +1,13 @@
-import { ComponentMeta, ComponentStory } from "@storybook/react"
-import Partners from "./Partners"
+import { ComponentMeta } from "@storybook/react";
+import Partners from "./Partners";
 
 export default {
-    title: 'Sections/Partners',
-    component: Partners
-} as ComponentMeta<typeof Partners>
-
-const Template: ComponentStory<typeof Partners> = (args) => <Partners {...args} />
+  title: "Sections/Partners",
+  component: Partners,
+} as ComponentMeta<typeof Partners>;
 
 export const Default = {
-    args: {
-        partners: ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I']
-    }
-}
+  args: {
+    partners: ["A", "B", "C", "D", "E", "F", "G", "H", "I"],
+  },
+};

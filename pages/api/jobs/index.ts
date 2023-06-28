@@ -1,5 +1,5 @@
 import { NextApiRequest, NextApiResponse } from "next";
-import { createJob } from "../../../apis/cms";
+import { createJob } from "../../../services/cms";
 import Cors from "cors";
 
 const cors = Cors({ methods: ["POST"] });

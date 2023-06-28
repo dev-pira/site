@@ -2,21 +2,24 @@ import { Partner } from "./partner";
 import { Track } from "./track";
 
 export interface Event extends EventPart {
-  key: string;
+  slug: string;
   title: string;
-  shortDescription: string;
+  bannerUrl: string;
+  description: string;
+  longDescription: string;
   dateTime: Date;
-  place: string;
+  location: string;
   otherInfo?: string;
+  subscriptionUrl?: string;
   partners?: Partner[];
   tracks?: Track[];
+  subscribeLink?: string;
+  videoUrl?: string;
+  gallery?: string[];
+  type?: "Meetup" | "Live" | "Worshop";
 }
 
-export interface EventPart {
-  slug: string;
-  description?: string;
-  detailsLink: string;
-  participateLink?: string;
-  type: "Meetup" | "Live" | "Worshop";
-  dateTime: Date;
-}
+export type EventPart = Pick<
+  Event,
+  "slug" | "description" | "subscriptionUrl" | "title" | "type" | "dateTime"
+>;

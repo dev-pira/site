@@ -1,22 +1,8 @@
 import { Box } from "@mui/material";
 import { Typography } from "../Typography";
+import { Event } from "../../models/event";
 
-export interface EventDetailContentProps {
-  tracks?: {
-    name?: string;
-    talks?: {
-      title: string;
-      speaker: {
-        name: string;
-        portrait?: {
-          url: string;
-        };
-        job?: string;
-      };
-      time?: Date;
-    }[];
-  }[];
-}
+export type EventDetailContentProps = Pick<Event, "tracks">;
 
 const EventDetailContent: React.FC<EventDetailContentProps> = ({
   tracks,

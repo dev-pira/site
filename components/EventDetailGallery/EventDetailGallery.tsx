@@ -1,9 +1,8 @@
 import { Box, ImageList, ImageListItem } from "@mui/material";
 import { Typography } from "../Typography";
+import { Event } from "../../models/event";
 
-export interface EventDetailGalleryProps {
-  gallery?: string[];
-}
+export type EventDetailGalleryProps = Pick<Event, "gallery">;
 
 const EventDetailGallery: React.FC<EventDetailGalleryProps> = ({
   gallery,

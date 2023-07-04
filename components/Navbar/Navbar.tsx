@@ -1,15 +1,8 @@
 import * as React from 'react';
-import AppBar from '@mui/material/AppBar';
-import Box from '@mui/material/Box';
-import Toolbar from '@mui/material/Toolbar';
-import IconButton from '@mui/material/IconButton';
-import Menu from '@mui/material/Menu';
 import MenuIcon from '@mui/icons-material/Menu';
-import Container from '@mui/material/Container';
 import { Image } from "../Image";
 import NavbarLink from '../NavbarLink';
-import { Grid, MenuItem } from '@mui/material';
-
+import { AppBar, Box, Link, Toolbar,IconButton,Menu,Container ,Grid, MenuItem} from "@mui/material";
 
 const pages = [
   { label: "Sobre", link: "/" },
@@ -52,7 +45,7 @@ function Navbar() {
               flex: 1,
               justifyContent: 'start'
             }}>
-              <Box sx={{
+              <Link href="/" title='DEVPIRA' sx={{
                 width: logoSize.width,
                 height: logoSize.height
               }}>
@@ -63,7 +56,7 @@ function Navbar() {
                   width={logoSize.width}
                   height={logoSize.height}
                 />
-              </Box>
+              </Link>
             </Grid>
             <Grid item xs={2} sm={3} sx={{
                 display: { xs: 'flex', md: 'none' },
@@ -107,10 +100,9 @@ function Navbar() {
               </Menu>
             </Grid>
           {/* END MOBILE */}
-
           {/* DESKTOP */}
           <Grid item md={3}>
-            <Box sx={{
+            <Link href='/' title='DEVPIRA' sx={{
               display: { xs: 'none', md: 'block' },
               width: logoSize.width,
               height: logoSize.height
@@ -122,7 +114,7 @@ function Navbar() {
                 width={logoSize.width}
                 height={logoSize.height}
               />
-            </Box>
+            </Link>
           </Grid>
           <Grid item md>
             <Toolbar disableGutters sx={{
@@ -138,7 +130,6 @@ function Navbar() {
             </Toolbar>
           </Grid>          
           {/* END DESKTOP */}
-            
           </Grid>
         </Toolbar>
       </Container>

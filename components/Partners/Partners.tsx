@@ -2,7 +2,6 @@ import { Box, Container, Grid, Link } from "@mui/material"
 import { Button } from "../Button"
 import { Typography } from "../Typography"
 import { Partner } from "../../models/model"
-import { Image } from "../Image"
 
 export interface PartnersProps {
     description: string
@@ -20,16 +19,16 @@ const Partners: React.FC<PartnersProps> = ({description, partners}:PartnersProps
             {categories.map((category, index) => {
                 const partnersInCategory = partners.filter(p => p.category === category)
                 return (
-                    <Box sx={{flex: 1, display: 'flex'}}  key={index}>
+                    <Box sx={{flex: 1, display: 'flex'}}  key={category}>
                         <Grid container sx={{display: 'flex', gap: '16px'}}>
                             <Box>
                                 <Box sx={{padding: '8px'}}>
                                     <Typography variant="h4">{category}</Typography>
                                 </Box>
                                 <Grid container sx={{display: 'flex', gap: '16px'}}>
-                                {partnersInCategory.map((partner, index) => {
+                                {partnersInCategory.map((partner) => {
                                     return (
-                                        <Grid item key={index} >
+                                        <Grid item key={partner.name} >
                                             <Link href={partner.link} target='_blank'>
                                                 <Box>
                                                     {

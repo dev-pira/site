@@ -14,19 +14,13 @@ import '@fontsource/inter/400.css';
 import '@fontsource/inter/500.css';
 import '@fontsource/inter/700.css';
 
-export function reportWebVitals(metric:any) {
-  console.log(metric)
-}
-
 function MyApp({ Component, pageProps }: AppProps) {
+
   const [faviconPath, setFaviconPath] = useState("/images/Favicon/light/");
 
   useEffect(() => {
     function handleColorSchemeChange() {
-      if (
-        window.matchMedia &&
-        window.matchMedia("(prefers-color-scheme: dark)").matches
-      ) {
+      if (window.matchMedia("(prefers-color-scheme: dark)")?.matches) {
         setFaviconPath("/images/Favicon/dark/");
       } else {
         setFaviconPath("/images/Favicon/light/");

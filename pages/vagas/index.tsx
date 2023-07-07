@@ -10,13 +10,13 @@ import {SearchBar} from "../../components/SearchBar";
 const JobsPage: NextPage = ({ jobsData }: InferGetServerSidePropsType<typeof getServerSideProps>) => {
   if (jobsData) {
     return (
-      <div>
+      <>
         <Navbar />
         <JobsIntro />
         <SearchBar placeholder="Procure por empresas, perfis, tecnologias, localidades ..." />
         <JobsContent jobs={jobsData} />
         <Footer />
-      </div>
+      </>
     );
   }
   return (

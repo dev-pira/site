@@ -1,4 +1,4 @@
-import type { GetServerSideProps, InferGetServerSidePropsType, NextPage } from "next";
+import { NextPage, InferGetServerSidePropsType, GetServerSideProps } from "next";
 import React from "react";
 import { Footer } from "../../components/Footer";
 import { Navbar } from "../../components/Navbar";

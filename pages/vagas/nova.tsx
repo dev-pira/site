@@ -47,7 +47,7 @@ const NewJobPage: NextPage = () => {
     )
 
     return (
-        <div>
+        <>
             <Navbar />
             <JobsIntro />{/*  TODO: Needs a specific Intro */}
             <JobForm action={action} />
@@ -58,7 +58,7 @@ const NewJobPage: NextPage = () => {
             <Snackbar anchorOrigin={{horizontal:'right', vertical: 'bottom'}} open={successOpen} autoHideDuration={6000} onClose={handleSuccessClose} >
                 <Alert severity='success' onClose={handleSuccessClose}>Vaga registrada. Logo ela aparecerá em nosso site.</Alert>
             </Snackbar>
-        </div>
+        </>
     )
 }
 

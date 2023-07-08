@@ -16,7 +16,7 @@ const EventDetailPage: NextPage = ({eventData}: InferGetServerSidePropsType<type
     if (eventData) {
         eventData.dateTime = new Date(eventData.dateTime)
         return (
-            <div>
+            <>
                 <Navbar />
                 <EventDetailIntro {...eventData} />
                 <EventDetailInfo {...eventData} />
@@ -26,7 +26,7 @@ const EventDetailPage: NextPage = ({eventData}: InferGetServerSidePropsType<type
                 <Partners {...eventData} description="A comunidade não tem fins lucrativos e conta com a energia das pessoas e a parceria de orgãos e instituições para realizar encontros como esse. Seja também um agente ativo desse ecossistema sendo um apoiador. Entre em contato!" />
                 <Social color="blue" />
                 <Footer />
-            </div>
+            </>
         )
     }
     return (

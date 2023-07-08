@@ -22,7 +22,6 @@ const JobsContentSection: React.FC<JobsContentSectionProps> = ({location, jobs}:
                     return <JobCard key={jobData.id} {...jobData} />
                 })}
                 {missingBoxes.map((index) => {
-                    console.log('rendering missing box')
                     return <Box key={index} sx={{ flex: 1 }}>&nbsp;</Box>
                 })}
             </Grid>

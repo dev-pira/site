@@ -1,0 +1,15 @@
+*Dockerfile
+.dockerignore
+node_modules
+*.log
+*.md
+LICENSE
+.next
+.git
+.github
+.jest_cache
+.docker-compose
+.vscode
+.husky
+.env*
+sonar-project.properties

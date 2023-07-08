@@ -1,19 +1,17 @@
-import { NextPage, InferGetServerSidePropsType, GetServerSideProps } from "next";
+import { NextPage, GetStaticProps, InferGetStaticPropsType } from "next";
 import React from "react";
 import { Footer } from "../../components/Footer";
 import { Navbar } from "../../components/Navbar";
 import { JobsIntro } from "../../components/JobsIntro";
 import { JobsContent } from "../../components/JobsContent";
 import { fetchJobsData } from "../../apis/cms";
-import {SearchBar} from "../../components/SearchBar";
 
-const JobsPage: NextPage = ({ jobsData }: InferGetServerSidePropsType<typeof getServerSideProps>) => {
+const JobsPage: NextPage = ({ jobsData }: InferGetStaticPropsType<typeof getStaticProps>) => {
   if (jobsData) {
     return (
       <>
         <Navbar />
         <JobsIntro />
-        <SearchBar placeholder="Procure por empresas, perfis, tecnologias, localidades ..." />
         <JobsContent jobs={jobsData} />
         <Footer />
       </>
@@ -26,12 +24,10 @@ const JobsPage: NextPage = ({ jobsData }: InferGetServerSidePropsType<typeof get
   )
 };
 
-export const getServerSideProps: GetServerSideProps = async (context) => {
-  const query = context.query.pesquisa as string
+export const getStaticProps: GetStaticProps = async () => {
   try {
-    const jobsData = await fetchJobsData(query)
-    context.res.setHeader('Cache-Control', 'public, s-maxage=120, stale-while-revalidate=239')
-    return { props: { jobsData } }
+    const jobsData= await fetchJobsData()
+    return { props: { jobsData },revalidate: 30 }
   } catch (error) {
     console.log(error)
   }

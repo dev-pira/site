@@ -10,7 +10,8 @@
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook",
     "test": "jest --watch",
-    "test-ci": "jest --coverage"
+    "test-ci": "jest --coverage",
+    "analyze": "ANALYZE=true next build"
   },
   "dependencies": {
     "@emotion/react": "^11.10.0",
@@ -30,6 +31,7 @@
   },
   "devDependencies": {
     "@babel/core": "^7.18.10",
+    "@next/bundle-analyzer": "^13.4.9",
     "@storybook/addon-actions": "^6.5.13",
     "@storybook/addon-essentials": "^6.5.13",
     "@storybook/addon-interactions": "^6.5.13",

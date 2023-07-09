@@ -1,64 +1,82 @@
-import { Box } from "@mui/material";
+import { Box, Container, Grid } from "@mui/material";
 import Image from "next/image";
 import { Button } from "../Button";
 import { Typography } from "../Typography";
 
 const Intro: React.FC = () => {
-  const defaultWidth = "1345px";
   return (
-    <Box
-      sx={{ display: "flex", flexDirection: "row", justifyContent: "center" }}
-    >
-      <Box
+    <Container id="intro">
+      <Grid
+        container
         sx={{
-          display: "flex",
-          flexWrap: "wrap-reverse",
-          maxWidth: "100vw",
-          width: defaultWidth,
-          alignItems: "center",
-          justifyContent: "space-around",
-          py: "1.8rem",
-          px: "1.8rem",
-        }}
-      >
-        <Box
-          sx={{
-            display: "flex",
-            maxWidth: "100vw",
-            width: { xs: "100vw", sm: "100vw", md: "50%", lg: "50%" },
-            flexDirection: "column",
-            gap: "24px",
-          }}
-        >
-          <Typography variant={"h2"}>
-            Comunidade que
-            <Typography variant="span" color="gradient_green">
-              {" "}
-              conecta pessoas{" "}
-            </Typography>
-            e tecnologia
-          </Typography>
-          <Typography bigger>
-            Participe da comunidade que está transformando a vida das pessoas de
-            Piracicaba e região.
-          </Typography>
-          <Box sx={{ display: "flex", flexDirection: "row", gap: "8px" }}>
-            <Button href="#sobre">Saiba mais</Button>
-            <Button color="contrast" href="/eventos">
-              Eventos
-            </Button>
+          mt: {
+            xs: '48px',
+            md: '92px'
+          },
+          mb: {
+            xs: '48px',
+            md: '148px'
+          },
+          flexDirection: {
+            xs: 'column',
+            md: 'row'
+          }
+        }}>
+        <Grid item xs={12} md={6}>
+          <Box
+            sx={{
+              display: "flex",
+              flexDirection: 'column',
+              gap: "24px",
+            }}
+          >
+            <Box>
+              <Typography variant={"h1"}>
+                Comunidade que
+                <Typography variant="introSpan" color="gradient_green">
+                  {" "}
+                  conecta pessoas{" "}
+                </Typography>
+                e tecnologia
+              </Typography>
+              <Typography sx={{pt: 2}}>
+                Participe da comunidade que está transformando a vida das pessoas de
+                Piracicaba e região.
+              </Typography>
+            </Box>
+            <Box sx={{
+              display: "flex",
+              flexDirection: "row",
+              gap: "8px"
+            }}>
+              <Button href="#sobre">Saiba mais</Button>
+              <Button color="contrast" href="/eventos">
+                Eventos
+              </Button>
+            </Box>
           </Box>
-        </Box>
-        <Box
-          sx={{
-            display: "flex",
-            width: { xs: "90vw", sm: "90vw", md: "633px", lg: "633px" },
-          }}
-        >
-          <Image alt="" src="/images/Intro.svg" width="623px" height="510px" />
-        </Box>
-      </Box>
-    </Box>
+        </Grid>
+        <Grid item xs={12} md={6}>
+          <Box
+            sx={{
+              display: 'flex',
+              justifyContent: 'center',
+              alignItems: 'center',
+              p: 2
+            }}
+          >
+            <Box
+              sx={{
+                width: 623,
+                height: 510,
+              }}
+            >
+              <Image alt="Ilustração de uma pessoa usando óculos e fones de ouvido, sentada perante um computador" src="/images/Intro.svg" width={623} height={510} />
+            </Box>
+          </Box>
+        </Grid>
+      </Grid>
+    </Container>
   );
 };
 

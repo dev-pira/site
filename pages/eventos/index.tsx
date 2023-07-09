@@ -10,13 +10,13 @@ import { fetchEventsData } from "../../apis/cms";
 const EventsPage: NextPage = ({eventsData}: InferGetServerSidePropsType<typeof getServerSideProps>) => {
   if (eventsData) {
     return (
-      <div>
+      <>
         <Navbar />
         <EventsIntro />
         <EventsContent events={eventsData} />
         <Initiatives />
         <Footer />
-      </div>
+      </>
     );
   }
   return (

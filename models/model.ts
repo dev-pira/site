@@ -13,6 +13,7 @@ export interface Event {
 export interface Partner {
     name: string
     logoUrl?: string
+    link?: string
     category?: string
 }
 export interface Track {

@@ -24,12 +24,14 @@ const EventDetailGallery: React.FC<EventDetailGalleryProps> = ({
           <ImageList cols={4} gap={8} variant="masonry">
             {gallery.map((imageUrl) => (
               <ImageListItem key={imageUrl}>
-                <img
-                  src={`${imageUrl}`}
-                  srcSet={`${imageUrl}`}
-                  alt={imageUrl}
-                  loading="lazy"
-                />
+                <picture>
+                  <img
+                    src={`${imageUrl}`}
+                    srcSet={`${imageUrl}`}
+                    alt={imageUrl}
+                    loading="lazy"
+                  />
+                </picture>
               </ImageListItem>
             ))}
           </ImageList>

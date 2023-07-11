@@ -3,10 +3,10 @@ import Cors from 'cors'
 import { Telegraf } from "telegraf";
 
 const cors = Cors({methods:['POST']})
-const TELEGRAM_BOT_TOKEN = process.env.TELEGRAM_BOT_TOKEN
-const TELEGRAM_GROUP_CHAT_ID = process.env.TELEGRAM_GROUP_CHAT_ID
-const SLACK_WEBHOOK_URL = process.env.SLACK_WEBHOOK_URL
-const DISCORD_WEBHOOK_URL = process.env.DISCORD_WEBHOOK_URL
+const TELEGRAM_BOT_TOKEN = process.env.TELEGRAM_BOT_TOKEN ?? ''
+const TELEGRAM_GROUP_CHAT_ID = process.env.TELEGRAM_GROUP_CHAT_ID ?? ''
+const SLACK_WEBHOOK_URL = process.env.SLACK_WEBHOOK_URL ?? ''
+const DISCORD_WEBHOOK_URL = process.env.DISCORD_WEBHOOK_URL ?? ''
 
 
 export default async function handler(request: NextApiRequest, response: NextApiResponse) {
@@ -39,8 +39,8 @@ function middleware(
     }
 
 function sendTelegram(message: string) {
-    const bot = new Telegraf(TELEGRAM_BOT_TOKEN!)
-    bot.telegram.sendMessage(TELEGRAM_GROUP_CHAT_ID!, message)
+    const bot = new Telegraf(TELEGRAM_BOT_TOKEN)
+    bot.telegram.sendMessage(TELEGRAM_GROUP_CHAT_ID, message)
     bot.launch()
 }
 
@@ -49,12 +49,12 @@ async function sendSlack(message: string) {
     const body = JSON.stringify({
         text: message
     })
-    const response = await fetch(SLACK_WEBHOOK_URL!, {method: 'POST', headers, body})
+    const response = await fetch(SLACK_WEBHOOK_URL, {method: 'POST', headers, body})
     console.info(`Sent to Slack and received ${response.status}`)
 }
 
 async function sendDiscord(message: string) {
-    const url = DISCORD_WEBHOOK_URL!
+    const url = DISCORD_WEBHOOK_URL
     const headers = {'Content-Type': 'application/json' }
     const body = JSON.stringify({
         content: message

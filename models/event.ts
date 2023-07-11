@@ -6,10 +6,10 @@ export interface Event extends EventPart {
   title: string;
   bannerUrl: string;
   description: string;
-  longDescription: string;
+  longDescription: { json?: any };
   dateTime: Date;
   location: string;
-  otherInfo?: string;
+  otherInfo?: { json?: any };
   subscriptionUrl?: string;
   partners?: Partner[];
   tracks?: Track[];

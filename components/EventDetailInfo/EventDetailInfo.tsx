@@ -5,13 +5,13 @@ import { Event } from "../../models/event";
 
 export type EventDetailInfoProps = Pick<
   Event,
-  "description" | "dateTime" | "place" | "otherInfo"
+  "longDescription" | "dateTime" | "location" | "otherInfo"
 >;
 
 const EventDetailInfo: React.FC<EventDetailInfoProps> = ({
   dateTime,
-  description,
-  place,
+  longDescription,
+  location,
   otherInfo,
 }: EventDetailInfoProps) => {
   const defaultWidth = "1345px";
@@ -57,7 +57,7 @@ const EventDetailInfo: React.FC<EventDetailInfoProps> = ({
           }}
         >
           <Typography variant="h3">Sobre o evento</Typography>
-          <RichContent content={description} />
+          <RichContent content={longDescription} />
         </Box>
         {/* /SOBRE */}
         {/* PARTICIPE */}
@@ -82,10 +82,10 @@ const EventDetailInfo: React.FC<EventDetailInfoProps> = ({
             </Typography>
             <Link
               sx={{ color: "black" }}
-              href={"https://www.google.com/maps/search/" + place}
+              href={"https://www.google.com/maps/search/" + location}
               target="_blank"
             >
-              {place}
+              {location}
             </Link>
           </Box>
           {otherInfoBlock}

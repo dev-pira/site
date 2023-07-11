@@ -53,7 +53,7 @@ const EventDetailContent: React.FC<EventDetailContentProps> = ({
                       <Box
                         key={talk.title}
                         sx={{
-                          background: `white url("${talk.speaker?.portrait?.url}") no-repeat center center`,
+                          background: `white url("${talk.speaker?.portraitUrl}") no-repeat center center`,
                           backgroundSize: "cover",
                           borderRadius: "10px",
                         }}

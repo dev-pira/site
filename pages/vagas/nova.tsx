@@ -6,6 +6,7 @@ import { JobsIntro } from "../../components/JobsIntro";
 import { JobForm } from "../../components/JobForm";
 import { CreateJobRequest } from "../../models/job";
 import { Alert, Snackbar } from "@mui/material";
+import Head from "next/head";
 
 const NewJobPage: NextPage = () => {
   const [errorOpen, setErrorOpen] = React.useState(false);
@@ -46,6 +47,11 @@ const NewJobPage: NextPage = () => {
 
   return (
     <div>
+      {/* Workaround preventing search engines from indexing this page, untill we have an auth layer */}
+      <Head>
+        <meta name="robots" content="noindex, nofollow" />
+      </Head>
+
       <Navbar />
       <JobsIntro />
       {/*  TODO: Needs a specific Intro */}

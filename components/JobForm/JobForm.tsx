@@ -9,7 +9,7 @@ import {
   RadioGroup,
   TextField,
 } from "@mui/material";
-import { Field, Form, Formik } from "formik";
+import { Field, FieldProps, Form, Formik } from "formik";
 import * as Yup from "yup";
 import { CreateJobRequest } from "../../models/job";
 
@@ -107,7 +107,7 @@ const JobForm: React.FC<JobFormProps> = ({ action }: JobFormProps) => {
               />
 
               <Field name="location">
-                {({ field, form }: any) => (
+                {({ field, form }: FieldProps) => (
                   <div>
                     <FormLabel>Localidade</FormLabel>
                     <RadioGroup

@@ -26,17 +26,28 @@ export default async function handler(request: NextApiRequest, response: NextApi
     response.status(202).json({})
 }
 
+type NextStep = (
+  request: NextApiRequest,
+  response: NextApiResponse,
+  onResult: (result: unknown) => void
+) => void;
+
 function middleware(
-    request: NextApiRequest, 
-    response: NextApiResponse,
-    fn: Function) {
-        return new Promise((resolve, reject) => {
-            fn(request, response, (result: any) => {
-                if (result instanceof Error) return reject(result)
-                return resolve(result)
-            })
-        })
-    }
+  request: NextApiRequest,
+  response: NextApiResponse,
+  fn: NextStep
+) {
+  return new Promise((resolve, reject) => {
+    fn(request, response, (result) => {
+      if (result instanceof Error) {
+        // TODO: log to sentry or similar tool
+        console.error("Error calling next function:", result);
+        return reject(result);
+      }
+      return resolve(result);
+    });
+  });
+}
 
 function sendTelegram(message: string) {
     const bot = new Telegraf(TELEGRAM_BOT_TOKEN)

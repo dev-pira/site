@@ -3,11 +3,13 @@ import { About } from "../components/About";
 import { Events } from "../components/Events";
 import { Footer } from "../components/Footer";
 import { Initiatives } from "../components/Initiatives";
+import { Jobs } from "../components/Jobs";
 import { Intro } from "../components/Intro";
 import { Navbar } from "../components/Navbar";
 import { Social } from "../components/Social";
 import Partners from "../components/Partners/Partners";
 import { fetchIndexData } from "../apis/cms";
+
 
 const HomePage: NextPage = ({ eventsData }: InferGetServerSidePropsType<typeof getServerSideProps>) => {
   return (
@@ -17,6 +19,7 @@ const HomePage: NextPage = ({ eventsData }: InferGetServerSidePropsType<typeof g
       <About />
       <Initiatives />
       <Events events={eventsData} />
+      <Jobs />
       <Partners description="A comunidade não tem fins lucrativos e conta com a energia das pessoas e a parceria de orgãos e instituições para levar formação, conhecimento e networking para todos. Seja também um agente ativo desse ecossistema sendo um apoiador. Entre em contato!" />
       <Social />
       <Footer />

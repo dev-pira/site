@@ -54,7 +54,6 @@ const NewJobPage: NextPage = () => {
 
       <Navbar />
       <JobsIntro />
-      {/*  TODO: Needs a specific Intro */}
       <JobForm action={action} />
       <Footer />
       <Snackbar

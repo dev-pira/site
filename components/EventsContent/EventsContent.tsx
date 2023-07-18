@@ -23,7 +23,7 @@ const EventsContent: React.FC<EventsContentProps> = ({
         alignItems: "center",
       }}
     >
-      {types.map((type, index) => {
+      {types.map((type) => {
         const eventsOfType = events
           .filter((e) => e.type === type)
           .sort((a, b) => {
@@ -38,7 +38,7 @@ const EventsContent: React.FC<EventsContentProps> = ({
         }
         return (
           <Box
-            key={index}
+            key={type}
             sx={{
               width: defaultWidth,
               display: "flex",
@@ -58,10 +58,10 @@ const EventsContent: React.FC<EventsContentProps> = ({
                 gap: "16px",
               }}
             >
-              {eventsOfType.map((eventData, index) => {
+              {eventsOfType.map((eventData) => {
                 return (
                   <EventCard
-                    key={index}
+                    key={eventData.slug}
                     {...eventData}
                     color="contrast"
                     shadowed

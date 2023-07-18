@@ -61,7 +61,7 @@ export async function getEventData(key: string): Promise<Event> {
       }`;
   const response = await fetchGraphQl(query);
   const event = response?.data?.eventCollection?.items[0];
-  if (event && event.tracksCollection?.items) {
+  if (event?.tracksCollection?.items) {
     await Promise.all(
       event.tracksCollection.items.map((track: { sys: { id: string } }) =>
         getTrack(track.sys.id)
@@ -93,7 +93,7 @@ export async function getEventData(key: string): Promise<Event> {
         };
       }
     ),
-    tracks: [], //TODO:
+    tracks: [],
     videoUrl: event.videoUrl,
     gallery: event.galleryCollection?.items?.map(
       (picture: { url: string }) => picture.url

@@ -40,7 +40,6 @@ function middleware(
   return new Promise((resolve, reject) => {
     fn(request, response, (result) => {
       if (result instanceof Error) {
-        // TODO: log to sentry or similar tool
         console.error("Error calling next function:", result);
         return reject(result);
       }

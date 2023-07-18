@@ -1,4 +1,5 @@
 import { Partner } from "./partner";
+import { RichContentRoot } from "./richcontent";
 import { Track } from "./track";
 
 export interface Event extends EventPart {
@@ -6,10 +7,10 @@ export interface Event extends EventPart {
   title: string;
   bannerUrl: string;
   description: string;
-  longDescription: { json?: any };
+  longDescription: RichContentRoot;
   dateTime: Date;
   location: string;
-  otherInfo?: { json?: any };
+  otherInfo?: RichContentRoot;
   subscriptionUrl?: string;
   partners?: Partner[];
   tracks?: Track[];

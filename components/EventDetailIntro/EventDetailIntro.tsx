@@ -5,12 +5,12 @@ import { Event } from "../../models/event";
 
 export type EventDetailIntroProps = Pick<
   Event,
-  "title" | "shortDescription" | "subscribeLink" | "dateTime"
+  "title" | "description" | "subscribeLink" | "dateTime"
 >;
 
 const EventDetailIntro: React.FC<EventDetailIntroProps> = ({
   dateTime,
-  shortDescription,
+  description,
   subscribeLink,
   title,
 }: EventDetailIntroProps) => {
@@ -51,7 +51,7 @@ const EventDetailIntro: React.FC<EventDetailIntroProps> = ({
             <Typography>Eventos/Meetups</Typography>
             <Typography variant="h2">{title}</Typography>
           </Box>
-          <Typography>{shortDescription}</Typography>
+          <Typography>{description}</Typography>
           <Box sx={{ display: "flex", gap: "8px" }}>
             {subscribeButton}
             <Button color="transparent" href="#sobre">

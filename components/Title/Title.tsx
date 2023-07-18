@@ -1,11 +1,10 @@
-import { SxProps, Typography } from "@mui/material";
-import React, { ElementType } from "react";
+import React from "react";
 import { TextHeading } from "../../ts";
 import Text, { TextProps } from "../Text/Text";
 
 export interface TitleProps {
   children: React.ReactNode;
-  heading?: TextHeading | undefined;
+  heading?: TextHeading;
 }
 
 const Title: React.FC<TitleProps & TextProps> = ({

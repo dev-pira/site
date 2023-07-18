@@ -1,7 +1,7 @@
 import { Box, Container, Grid, Link } from "@mui/material";
 import { Button } from "../Button";
 import { Typography } from "../Typography";
-import { Partner } from "../../models/model";
+import { Partner } from "../../models/partner";
 
 export interface PartnersProps {
   description: string;
@@ -17,7 +17,6 @@ const Partners: React.FC<PartnersProps> = ({
     const categories = partners
       .map((p) => p.category)
       .filter((value, index, self) => self.indexOf(value) === index);
-
     partnersBlock = (
       <Grid item md={6}>
         <Box>
@@ -36,7 +35,7 @@ const Partners: React.FC<PartnersProps> = ({
                       {partnersInCategory.map((partner) => {
                         return (
                           <Grid item key={partner.name}>
-                            <Link href={partner.link} target="_blank">
+                            <Link href={partner.siteUrl} target="_blank">
                               <Box>
                                 {partner.logoUrl ? (
                                   <picture>

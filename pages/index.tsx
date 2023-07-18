@@ -1,4 +1,8 @@
-import type { GetServerSideProps, InferGetServerSidePropsType, NextPage } from "next";
+import type {
+  GetServerSideProps,
+  InferGetServerSidePropsType,
+  NextPage,
+} from "next";
 import { About } from "../components/About";
 import { Events } from "../components/Events";
 import { Footer } from "../components/Footer";
@@ -8,10 +12,12 @@ import { Intro } from "../components/Intro";
 import { Navbar } from "../components/Navbar";
 import { Social } from "../components/Social";
 import Partners from "../components/Partners/Partners";
-import { fetchIndexData } from "../apis/cms";
+import { fetchIndexData } from "../services/indexService";
 
 
-const HomePage: NextPage = ({ eventsData }: InferGetServerSidePropsType<typeof getServerSideProps>) => {
+const HomePage: NextPage = ({
+  eventsData,
+}: InferGetServerSidePropsType<typeof getServerSideProps>) => {
   return (
     <>
       <Navbar />
@@ -29,13 +35,16 @@ const HomePage: NextPage = ({ eventsData }: InferGetServerSidePropsType<typeof g
 
 export const getServerSideProps: GetServerSideProps = async (context) => {
   try {
-    const eventsData = await fetchIndexData()
-    context.res.setHeader('Cache-Control', 'public, s-maxage=120, stale-while-revalidate=239')
-    return { props: { eventsData } }
+    const eventsData = await fetchIndexData();
+    context.res.setHeader(
+      "Cache-Control",
+      "public, s-maxage=120, stale-while-revalidate=239"
+    );
+    return { props: { eventsData } };
   } catch (error) {
-    console.error(error)
+    console.error(error);
   }
-  return { notFound: true }
-}
+  return { notFound: true };
+};
 
 export default HomePage;

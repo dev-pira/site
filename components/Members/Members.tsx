@@ -1,23 +1,19 @@
 import { Box } from "@mui/material";
-import Image from "next/image";
 import { EventCard } from "../EventCard";
-import { Button } from "../Button";
-import { Typography } from "../Typography";
 
 export interface EventsProps {
   events: {
-    slug: string
-    description?: string
-    detailsLink: string
-    participateLink?: string
-    title: string
-    type: "Meetup" | "Live" | "Worshop"
-    dateTime: Date
-  }[]
+    slug: string;
+    description?: string;
+    detailsLink: string;
+    participateLink?: string;
+    title: string;
+    type: "Meetup" | "Live" | "Worshop";
+    dateTime: Date;
+  }[];
 }
 
 const Members: React.FC<EventsProps> = ({ events }: EventsProps) => {
-  const defaultWidth = "1345px";
   let limitedEvents = events;
   limitedEvents.sort((a, b) => {
     if (a.dateTime < b.dateTime) return 1;

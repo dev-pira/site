@@ -10,23 +10,24 @@ const Intro: React.FC = () => {
         container
         sx={{
           mt: {
-            xs: '48px',
-            md: '92px'
+            xs: "48px",
+            md: "92px",
           },
           mb: {
-            xs: '48px',
-            md: '148px'
+            xs: "48px",
+            md: "148px",
           },
           flexDirection: {
-            xs: 'column',
-            md: 'row'
-          }
-        }}>
+            xs: "column",
+            md: "row",
+          },
+        }}
+      >
         <Grid item xs={12} md={6}>
           <Box
             sx={{
               display: "flex",
-              flexDirection: 'column',
+              flexDirection: "column",
               gap: "24px",
             }}
           >
@@ -39,16 +40,18 @@ const Intro: React.FC = () => {
                 </Typography>
                 e tecnologia
               </Typography>
-              <Typography sx={{pt: 2}}>
-                Participe da comunidade que está transformando a vida das pessoas de
-                Piracicaba e região.
+              <Typography sx={{ pt: 2 }}>
+                Participe da comunidade que está transformando a vida das
+                pessoas de Piracicaba e região.
               </Typography>
             </Box>
-            <Box sx={{
-              display: "flex",
-              flexDirection: "row",
-              gap: "8px"
-            }}>
+            <Box
+              sx={{
+                display: "flex",
+                flexDirection: "row",
+                gap: "8px",
+              }}
+            >
               <Button href="#sobre">Saiba mais</Button>
               <Button color="contrast" href="/eventos">
                 Eventos
@@ -59,10 +62,10 @@ const Intro: React.FC = () => {
         <Grid item xs={12} md={6}>
           <Box
             sx={{
-              display: 'flex',
-              justifyContent: 'center',
-              alignItems: 'center',
-              p: 2
+              display: "flex",
+              justifyContent: "center",
+              alignItems: "center",
+              p: 2,
             }}
           >
             <Box
@@ -71,7 +74,12 @@ const Intro: React.FC = () => {
                 height: 510,
               }}
             >
-              <Image alt="Ilustração de uma pessoa usando óculos e fones de ouvido, sentada perante um computador" src="/images/Intro.svg" width={623} height={510} />
+              <Image
+                alt="Ilustração de uma pessoa usando óculos e fones de ouvido, sentada perante um computador"
+                src="/images/Intro.svg"
+                width={623}
+                height={510}
+              />
             </Box>
           </Box>
         </Grid>

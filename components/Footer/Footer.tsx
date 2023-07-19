@@ -8,7 +8,7 @@ const Footer: React.FC = () => {
     { label: "Iniciativas", link: "#iniciativas" },
     { label: "Eventos", link: "/eventos" },
     { label: "Vagas", link: "/vagas" },
-    { label: "Contato", link: "/contato" }
+    { label: "Contato", link: "/contato" },
   ];
   const logoSize = { width: "185px", height: "77px" };
   return (

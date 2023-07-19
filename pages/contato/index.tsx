@@ -1,41 +1,33 @@
-import type {
-  GetServerSideProps,
-  InferGetServerSidePropsType,
-  NextPage,
-} from "next";
+import type { GetStaticProps, InferGetStaticPropsType, NextPage } from "next";
 import { Navbar } from "../../components/Navbar";
 import { GetInTouch } from "../../components/GetInTouch";
 import { Members } from "../../components/Members";
 import { Social } from "../../components/Social";
 import { Footer } from "../../components/Footer";
-import { fetchIndexData } from "../../services/indexService";
+import { fetchMembersData } from "../../services/contactService";
 
-const HomePage: NextPage = ({
-  eventsData,
-}: InferGetServerSidePropsType<typeof getServerSideProps>) => {
+const ContactPage: NextPage = ({
+  members,
+}: InferGetStaticPropsType<typeof getStaticProps>) => {
   return (
     <div>
       <Navbar />
       <GetInTouch />
-      <Members events={eventsData} />
+      <Members members={members} />
       <Social />
       <Footer />
     </div>
   );
 };
 
-export const getServerSideProps: GetServerSideProps = async (context) => {
+export const getStaticProps: GetStaticProps = () => {
   try {
-    const eventsData = await fetchIndexData();
-    context.res.setHeader(
-      "Cache-Control",
-      "public, s-maxage=120, stale-while-revalidate=239"
-    );
-    return { props: { eventsData } };
+    const members = fetchMembersData();
+    return { props: { members }, revalidate: 120 };
   } catch (error) {
     console.error(error);
   }
   return { notFound: true };
 };
 
-export default HomePage;
+export default ContactPage;

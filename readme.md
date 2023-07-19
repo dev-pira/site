@@ -24,6 +24,21 @@ A aplicação estará acessível em [http://localhost:3000](http://localhost:300
 
 ## Fluxo de desenvolvimento
 
+### Antes de começar
+
+Usamos o [`ESLint`](https://eslint.org) para análise de código e manutenção dos padrões de código do ReactJS e NextJS.  
+Para certificar-se de que seu código está de acordo com as regras definidas, siga os passos abaixo (Para desenvolvimento via VS Code):
+
+Instale as extensões [`Prettier`](https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode) e [`ESLint`](https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint)
+
+Habilite a execução do [`husky`](https://typicode.github.io/husky/) (nosso farejador de commits/PRs):
+
+```sh
+yarn husky install
+```
+
+---
+
 Escolhemos [`git-flow`](https://danielkummer.github.io/git-flow-cheatsheet/index.pt_BR.html) para nosso fluxo de desenvolvimento. <br />
 Para novas funcionalidades, inicie uma `feature`; <br />
 Para correções, inicie um `bugfix`;

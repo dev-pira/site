@@ -31,8 +31,8 @@
   },
   "devDependencies": {
     "@babel/core": "^7.18.10",
-    "@next/eslint-plugin-next": "^13.4.7",
     "@next/bundle-analyzer": "^13.4.9",
+    "@next/eslint-plugin-next": "^13.4.7",
     "@storybook/addon-actions": "^6.5.13",
     "@storybook/addon-essentials": "^6.5.13",
     "@storybook/addon-interactions": "^6.5.13",

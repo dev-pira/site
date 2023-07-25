@@ -1,10 +1,35 @@
-interface ContactForm {
+import * as Yup from "yup";
+import { Member } from "../models/member";
+
+const contactFormSchema = Yup.object({
+  name: Yup.string()
+    .required("Nome é obrigatório")
+    .max(256, "Nome deve ter até 256 caracteres"),
+  email: Yup.string()
+    .required("E-mail é obrigatório")
+    .max(250, "E-mail deve ter até 250 caracteres"),
+  phoneNumber: Yup.string()
+    .nullable()
+    .max(25, "Telefone deve ter até 25 caracteres"),
+  message: Yup.string()
+    .required("Mensagem é obrigatório")
+    .max(25, "Mensagem deve ter até 25 caracteres"),
+});
+interface ContactForm extends Yup.InferType<typeof contactFormSchema> {
   name: string;
+  email: string;
+  phoneNumber: string;
+  message: string;
 }
 
-export async function sendContactMail(data: ContactForm) {
-  return data;
-import { Member } from "../models/member";
+export async function sendContactMail(data: ContactForm): Promise<void> {
+  // 1. Validar os dados do formulário
+  await contactFormSchema.validate(data, { abortEarly: false });
+
+  // 2. Enviar e-mails com os dados recebidos
+  // 2.1: e-mail para contato@devpira.com.br
+  // 2.2: e-mail para o usuário
+}
 
 export function fetchMembersData(): Member[] {
   return [

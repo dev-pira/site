@@ -1,6 +1,7 @@
 import { NextApiRequest, NextApiResponse } from "next";
-import { createJob } from "../../../services/jobService";
 import Cors from "cors";
+import { sendContactMail } from "../../../services/contactService";
+import { ValidationError } from "yup";
 
 const cors = Cors({ methods: ["POST"] });
 
@@ -11,14 +12,14 @@ export default async function handler(
   await middleware(request, response, cors);
 
   const data = request.body;
-
-  // 1. Validar os dados do formulário
-  // 2. Enviar e-mails com os dados recebidos
-  // 2.1: e-mail para contato@devpira.com.br
-  // 2.2: e-mail para o usuário
-
-  const result = await createJob(data);
-  response.status(result.status).json(result.json);
+  try {
+    await sendContactMail(data);
+  } catch (e) {
+    if (e instanceof ValidationError) {
+      response.status(400).json(e.errors);
+    }
+  }
+  response.status(200);
 }
 
 type NextStep = (

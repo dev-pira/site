@@ -1,1 +1,1 @@
-export { default as JobsFilter } from './JobsFilter'
+export { default as JobsFilter } from "./JobsFilter";

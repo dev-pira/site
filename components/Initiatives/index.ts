@@ -1,1 +1,1 @@
-export {default as Initiatives} from './Initiatives'
+export { default as Initiatives } from "./Initiatives";

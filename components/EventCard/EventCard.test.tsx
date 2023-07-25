@@ -5,6 +5,7 @@ import "@testing-library/jest-dom";
 describe("EventCard deve ", () => {
   it("não renderizar botão Participar quando o link de inscrição for omitido", () => {
     const props: EventCardProps = {
+      slug: "test-event-1",
       color: "primary",
       title: "event",
       dateTime: new Date(2020, 1, 1),
@@ -18,6 +19,7 @@ describe("EventCard deve ", () => {
     const date = new Date();
     date.setDate(date.getDate() + 1);
     const props: EventCardProps = {
+      slug: "test-event-2",
       color: "primary",
       title: "event",
       dateTime: date,
@@ -32,6 +34,7 @@ describe("EventCard deve ", () => {
     const date = new Date();
     date.setDate(date.getDate() - 1);
     const props: EventCardProps = {
+      slug: "test-event-3",
       color: "primary",
       title: "event",
       dateTime: date,

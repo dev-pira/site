@@ -1,4 +1,4 @@
-import { Button as MuiButton, SxProps } from "@mui/material";
+import { Link, Button as MuiButton, SxProps } from "@mui/material";
 import React from "react";
 
 export interface ButtonProps {
@@ -11,6 +11,7 @@ export interface ButtonProps {
   startIcon?: React.ReactNode;
   onClick?: () => void;
   href?: string;
+  target?: string;
 }
 
 const Button: React.FC<ButtonProps> = ({
@@ -20,6 +21,7 @@ const Button: React.FC<ButtonProps> = ({
   disabled,
   expanded,
   href,
+  target,
   startIcon,
   variant = "contained",
   onClick,
@@ -59,6 +61,13 @@ const Button: React.FC<ButtonProps> = ({
     sx.flex = 1;
   }
 
+  if (href) {
+    return (
+      <Link sx={sx} href={href} target={target}>
+        {children}
+      </Link>
+    );
+  }
   return (
     <MuiButton
       disableElevation
@@ -66,7 +75,6 @@ const Button: React.FC<ButtonProps> = ({
       startIcon={startIcon}
       onClick={onClick}
       disabled={disabled}
-      href={href}
       sx={sx}
     >
       {children}

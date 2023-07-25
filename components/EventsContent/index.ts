@@ -1,1 +1,1 @@
-export {default as EventsContent} from './EventsContent'
+export { default as EventsContent } from "./EventsContent";

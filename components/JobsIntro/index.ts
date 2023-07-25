@@ -1,1 +1,1 @@
-export { default as JobsIntro } from './JobsIntro'
+export { default as JobsIntro } from "./JobsIntro";

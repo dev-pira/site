@@ -1,4 +1,5 @@
 import * as Yup from "yup";
+import * as Nodemailer from "nodemailer";
 import { Member } from "../models/member";
 
 const contactFormSchema = Yup.object({
@@ -8,13 +9,13 @@ const contactFormSchema = Yup.object({
   email: Yup.string()
     .required("E-mail é obrigatório")
     .email()
-    .max(250, "E-mail deve ter até 250 caracteres"),
+    .max(256, "E-mail deve ter até 256 caracteres"),
   phoneNumber: Yup.string()
     .nullable()
     .max(19, "Telefone deve ter até 19 caracteres"),
   message: Yup.string()
     .required("Mensagem é obrigatório")
-    .max(25, "Mensagem deve ter até 25 caracteres"),
+    .max(2048, "Mensagem deve ter até 2048 caracteres"),
 });
 interface ContactForm extends Yup.InferType<typeof contactFormSchema> {
   name: string;
@@ -43,12 +44,78 @@ export async function sendContactMail(data: ContactForm): Promise<Response> {
 
   // 2. Enviar e-mails com os dados recebidos
   // 2.1: e-mail para contato@devpira.com.br
-  // 2.2: e-mail para o usuário
+  const transporter = Nodemailer.createTransport({
+    host: process.env.MAIL_HOST ?? "",
+    port: Number(process.env.MAIL_PORT ?? 587),
+    auth: {
+      user: process.env.MAIL_USER ?? "",
+      pass: process.env.MAIL_PASSWORD ?? "",
+    },
+  });
 
-  console.log("bora enviar?");
+  const { html, plainText } = getEmailBodies(
+    data.name,
+    data.message,
+    data.phoneNumber
+  );
+
+  const info = await transporter.sendMail({
+    from: { name: data.name, address: data.email },
+    to: "contato@devpira.com.br",
+    subject: "[devpira.com.br] Nova Solicitação de Contato",
+    text: plainText,
+    html: html,
+  });
+
+  console.log("Message sent: %s", info.messageId);
 
   return {
     status: 200,
+  };
+}
+// TODO: 2.2: e-mail para o usuário
+
+function getEmailBodies(
+  name: string,
+  message: string,
+  phoneNumber: string
+): { html: string; plainText: string } {
+  const phoneNumberSection = phoneNumber
+    ? `
+    <div>
+      <p><strong>Telefone:</strong> ${phoneNumber}</p>
+    </div>
+  `
+    : "";
+
+  return {
+    html: `
+    <head>
+        <meta charset="UTF-8" />
+        <title>Contato de ${name}</title>
+        <style>
+            body {
+                font-family: Roboto, sans-serif;
+            }
+        </style>
+    </head>
+
+    <body>
+        <header>
+            <h1>Contato de ${name}</h1>
+        </header>
+        <main>
+            <div>
+              <p><strong>Mensagem:</strong> ${message}</p>
+            </div>
+            ${phoneNumberSection}
+        </main>
+    </body>
+    `,
+    plainText: `
+      Nova solicitação de Contato
+      Mensagem recebida: ${message}
+    `,
   };
 }
 

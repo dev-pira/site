@@ -1,7 +1,6 @@
 import { NextApiRequest, NextApiResponse } from "next";
 import Cors from "cors";
 import { sendContactMail } from "../../../services/contactService";
-import { ValidationError } from "yup";
 
 const cors = Cors({ methods: ["POST"] });
 
@@ -12,14 +11,9 @@ export default async function handler(
   await middleware(request, response, cors);
 
   const data = request.body;
-  try {
-    await sendContactMail(data);
-  } catch (e) {
-    if (e instanceof ValidationError) {
-      response.status(400).json(e.errors);
-    }
-  }
-  response.status(200);
+
+  const result = await sendContactMail(data);
+  response.status(result.status).json(result.json);
 }
 
 type NextStep = (

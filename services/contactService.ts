@@ -7,10 +7,11 @@ const contactFormSchema = Yup.object({
     .max(256, "Nome deve ter até 256 caracteres"),
   email: Yup.string()
     .required("E-mail é obrigatório")
+    .email()
     .max(250, "E-mail deve ter até 250 caracteres"),
   phoneNumber: Yup.string()
     .nullable()
-    .max(25, "Telefone deve ter até 25 caracteres"),
+    .max(19, "Telefone deve ter até 19 caracteres"),
   message: Yup.string()
     .required("Mensagem é obrigatório")
     .max(25, "Mensagem deve ter até 25 caracteres"),
@@ -22,13 +23,33 @@ interface ContactForm extends Yup.InferType<typeof contactFormSchema> {
   message: string;
 }
 
-export async function sendContactMail(data: ContactForm): Promise<void> {
+interface Response {
+  status: number;
+  json?: object;
+}
+
+export async function sendContactMail(data: ContactForm): Promise<Response> {
   // 1. Validar os dados do formulário
-  await contactFormSchema.validate(data, { abortEarly: false });
+  try {
+    await contactFormSchema.validate(data, { abortEarly: false });
+  } catch (e) {
+    if (e instanceof Yup.ValidationError) {
+      return {
+        status: 400,
+        json: e.errors,
+      };
+    }
+  }
 
   // 2. Enviar e-mails com os dados recebidos
   // 2.1: e-mail para contato@devpira.com.br
   // 2.2: e-mail para o usuário
+
+  console.log("bora enviar?");
+
+  return {
+    status: 200,
+  };
 }
 
 export function fetchMembersData(): Member[] {

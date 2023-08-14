@@ -8,7 +8,7 @@ const EventDetailContent: React.FC<EventDetailContentProps> = ({
   tracks,
 }: EventDetailContentProps) => {
   const defaultWidth = "1345px";
-  if (tracks && tracks.length) {
+  if (tracks?.length) {
     return (
       <Box
         sx={{

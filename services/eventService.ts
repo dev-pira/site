@@ -145,7 +145,7 @@ export async function getEventData(key: string): Promise<Event> {
           }),
         };
       }
-    ), //TODO: Não está mapeando trilhas e conteúdo
+    ),
     videoUrl: event.videoUrl,
     gallery: event.galleryCollection?.items?.map(
       (picture: { url: string }) => picture.url

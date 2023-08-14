@@ -9,7 +9,7 @@ const EventDetailGallery: React.FC<EventDetailGalleryProps> = ({
   gallery,
 }: EventDetailGalleryProps) => {
   const defaultWidth = "1345px";
-  if (gallery && gallery.length) {
+  if (gallery?.length) {
     return (
       <Box
         sx={{

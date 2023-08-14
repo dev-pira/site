@@ -1,5 +1,24 @@
+import { ParsedUrlQuery } from "querystring";
 import { Event, EventPart } from "../models/event";
 import { fetchGraphQl } from "./cms";
+
+export async function fetchEventsNames(): Promise<
+  { params: ParsedUrlQuery; locale?: string }[]
+> {
+  const query = `query {
+    eventCollection {
+      items {
+        slug
+      }
+    }
+  }`;
+  const response = await fetchGraphQl(query);
+  return response?.data?.eventCollection?.items.map(
+    (item: { slug: string }) => {
+      return { params: { eventname: item.slug } };
+    }
+  );
+}
 
 export async function fetchEventsData(): Promise<EventPart[]> {
   const query = `query {
@@ -62,8 +81,8 @@ export async function getEventData(key: string): Promise<Event> {
   const response = await fetchGraphQl(query);
   const event = response?.data?.eventCollection?.items[0];
   if (event?.tracksCollection?.items) {
-    await Promise.all(
-      event.tracksCollection.items.map((track: { sys: { id: string } }) =>
+    event.tracksCollection = await Promise.all(
+      event.tracksCollection.items.map(async (track: { sys: { id: string } }) =>
         getTrack(track.sys.id)
       )
     );
@@ -93,7 +112,40 @@ export async function getEventData(key: string): Promise<Event> {
         };
       }
     ),
-    tracks: [],
+    tracks: event.tracksCollection?.map(
+      (track: {
+        data: {
+          eventTrack: {
+            name?: string;
+            talksCollection?: {
+              items?: {
+                title?: string;
+                speaker?: {
+                  name?: string;
+                  job?: string;
+                  company?: string;
+                  portrait?: { url: string };
+                };
+              }[];
+            };
+          };
+        };
+      }) => {
+        return {
+          name: track.data.eventTrack.name,
+          talks: track.data.eventTrack.talksCollection?.items?.map((talk) => {
+            return {
+              title: talk.title,
+              speaker: {
+                name: talk.speaker?.name,
+                job: talk.speaker?.job,
+                portraitUrl: talk.speaker?.portrait?.url,
+              },
+            };
+          }),
+        };
+      }
+    ), //TODO: Não está mapeando trilhas e conteúdo
     videoUrl: event.videoUrl,
     gallery: event.galleryCollection?.items?.map(
       (picture: { url: string }) => picture.url
@@ -119,7 +171,6 @@ async function getTrack(id: string) {
                   }
               }
             }
-          }
-      }`;
+          }`;
   return await fetchGraphQl(query);
 }

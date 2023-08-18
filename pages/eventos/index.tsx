@@ -1,8 +1,4 @@
-import type {
-  GetServerSideProps,
-  InferGetServerSidePropsType,
-  NextPage,
-} from "next";
+import type { GetStaticProps, InferGetStaticPropsType, NextPage } from "next";
 import React from "react";
 import { Footer } from "../../components/Footer";
 import { Initiatives } from "../../components/Initiatives";
@@ -13,7 +9,7 @@ import { fetchEventsData } from "../../services/eventService";
 
 const EventsPage: NextPage = ({
   eventsData,
-}: InferGetServerSidePropsType<typeof getServerSideProps>) => {
+}: InferGetStaticPropsType<typeof getStaticProps>) => {
   if (eventsData) {
     return (
       <>
@@ -32,14 +28,10 @@ const EventsPage: NextPage = ({
   );
 };
 
-export const getServerSideProps: GetServerSideProps = async (context) => {
+export const getStaticProps: GetStaticProps = async () => {
   try {
     const eventsData = await fetchEventsData();
-    context.res.setHeader(
-      "Cache-Control",
-      "public, s-maxage=120, stale-while-revalidate=239"
-    );
-    return { props: { eventsData } };
+    return { props: { eventsData }, revalidate: 120 };
   } catch (error) {
     console.error(error);
   }

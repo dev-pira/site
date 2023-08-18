@@ -30,8 +30,7 @@ const EventsContent: React.FC<EventsContentProps> = ({
             if (a.dateTime < b.dateTime) return 1;
             if (a.dateTime > b.dateTime) return -1;
             return 0;
-          })
-          .slice(0, 4);
+          });
         const missingBoxes = [];
         for (let i = 0; i < 4 - eventsOfType.length; i++) {
           missingBoxes.push(i);

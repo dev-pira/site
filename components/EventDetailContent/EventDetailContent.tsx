@@ -8,7 +8,7 @@ const EventDetailContent: React.FC<EventDetailContentProps> = ({
   tracks,
 }: EventDetailContentProps) => {
   const defaultWidth = "1345px";
-  if (tracks) {
+  if (tracks?.length) {
     return (
       <Box
         sx={{
@@ -36,7 +36,10 @@ const EventDetailContent: React.FC<EventDetailContentProps> = ({
             let talksBlock;
             if (track.talks) {
               talksBlock = (
-                <Box sx={{ display: "flex", gap: "36px", flexWrap: "wrap" }}>
+                <Box
+                  key={track.name ?? "empty"}
+                  sx={{ display: "flex", gap: "36px", flexWrap: "wrap" }}
+                >
                   {track.talks.map((talk) => {
                     const talkTimeElement = talk.time ? (
                       <Box>{`${talk.time

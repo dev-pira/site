@@ -87,6 +87,11 @@ export async function getEventData(key: string): Promise<Event> {
       )
     );
   }
+  if (event?.galleryCollection?.items.length == 100) {
+    const missingGalleryItems = await getGalleryItems(key, 100);
+    event.galleryCollection.items =
+      event.galleryCollection.items.concat(missingGalleryItems);
+  }
   return {
     slug: event.slug,
     title: event.title,
@@ -173,4 +178,29 @@ async function getTrack(id: string) {
             }
           }`;
   return await fetchGraphQl(query);
+}
+
+async function getGalleryItems(slug: string, skip: number) {
+  const stepsize = 100;
+  const query = `query {
+      eventCollection(where:{slug:"${slug}"}, limit: 1){
+          items{
+              galleryCollection(skip: ${skip}) {
+                  items {
+                      url
+                  }
+              }
+          }
+      }
+  }`;
+  const galleryItemsResult = await fetchGraphQl(query);
+  let galleryItems =
+    galleryItemsResult?.data?.eventCollection?.items[0].galleryCollection
+      ?.items || [];
+  if (galleryItems.length == stepsize) {
+    galleryItems = galleryItems.concat(
+      await getGalleryItems(slug, skip + stepsize)
+    );
+  }
+  return galleryItems;
 }

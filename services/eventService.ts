@@ -32,6 +32,7 @@ export async function fetchEventsData(): Promise<EventPart[]> {
                   description
                   dateTime
                   subscriptionUrl
+                  type
               }
           }
       }`;

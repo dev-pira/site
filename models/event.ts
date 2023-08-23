@@ -2,7 +2,7 @@ import { Partner } from "./partner";
 import { RichContentRoot } from "./richcontent";
 import { Track } from "./track";
 
-export interface Event extends EventPart {
+export interface Event {
   slug: string;
   title: string;
   bannerUrl: string;
@@ -17,7 +17,7 @@ export interface Event extends EventPart {
   subscribeLink?: string;
   videoUrl?: string;
   gallery?: string[];
-  type?: "Meetup" | "Live" | "Worshop";
+  type?: string;
 }
 
 export type EventPart = Pick<

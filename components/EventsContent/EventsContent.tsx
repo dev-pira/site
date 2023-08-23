@@ -14,6 +14,15 @@ const EventsContent: React.FC<EventsContentProps> = ({
   const types = events
     .map((e) => e.type)
     .filter((value, index, self) => self.indexOf(value) === index);
+  const partnerEventsIndex = events.findIndex((e) =>
+    e.type?.toLocaleLowerCase().includes("parceiro")
+  );
+  if (partnerEventsIndex > -1) {
+    const partnerEventsType = types[partnerEventsIndex];
+    types.splice(partnerEventsIndex, 1);
+    types.push(partnerEventsType);
+  }
+
   return (
     <Box
       sx={{

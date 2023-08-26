@@ -1,12 +1,14 @@
-import { NextPage, GetStaticProps, InferGetStaticPropsType } from "next";
+import type { GetStaticProps, InferGetStaticPropsType, NextPage } from "next";
 import React from "react";
 import { Footer } from "../../components/Footer";
 import { Navbar } from "../../components/Navbar";
 import { JobsIntro } from "../../components/JobsIntro";
 import { JobsContent } from "../../components/JobsContent";
-import { fetchJobsData } from "../../apis/cms";
+import { fetchJobsData } from "../../services/jobService";
 
-const JobsPage: NextPage = ({ jobsData }: InferGetStaticPropsType<typeof getStaticProps>) => {
+const JobsPage: NextPage = ({
+  jobsData,
+}: InferGetStaticPropsType<typeof getStaticProps>) => {
   if (jobsData) {
     return (
       <>
@@ -21,17 +23,17 @@ const JobsPage: NextPage = ({ jobsData }: InferGetStaticPropsType<typeof getStat
     <div>
       <p>Não tem dados aqui xP</p>
     </div>
-  )
+  );
 };
 
 export const getStaticProps: GetStaticProps = async () => {
   try {
-    const jobsData= await fetchJobsData()
-    return { props: { jobsData },revalidate: 30 }
+    const jobsData = await fetchJobsData();
+    return { props: { jobsData }, revalidate: 120 };
   } catch (error) {
-    console.log(error)
+    console.log(error);
   }
-  return { notFound: true }
-}
+  return { notFound: true };
+};
 
 export default JobsPage;

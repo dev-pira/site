@@ -38,4 +38,5 @@ yarn-error.log*
 
 **/.yarn
 package-lock.json
-package.json
+
+**/storybook-static

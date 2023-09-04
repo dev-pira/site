@@ -1,9 +1,9 @@
 import { AppBar, Box, Toolbar } from "@mui/material";
-import { Button } from "../Button";
 import { Image } from "../Image";
+import NavbarLink from "../NavbarLink";
 
 const Footer: React.FC = () => {
-  const items = [
+  const pages = [
     { label: "Sobre", link: "/" },
     { label: "Iniciativas", link: "#iniciativas" },
     { label: "Eventos", link: "/eventos" },
@@ -29,7 +29,13 @@ const Footer: React.FC = () => {
           px: "1.8rem",
         }}
       >
-        <Box sx={{ width: logoSize.width, height: logoSize.height }}>
+        <Box
+          sx={{
+            width: logoSize.width,
+            height: logoSize.height,
+            display: { sm: "none", md: "block" },
+          }}
+        >
           <Image
             src="/images/Logo.svg"
             alt="DEVPIRA"
@@ -40,10 +46,8 @@ const Footer: React.FC = () => {
         </Box>
         <Toolbar sx={{ flexGrow: 1, justifyContent: "end" }}>
           <Box>
-            {items.map((item) => (
-              <Button variant="text" key={item.label} href={item.link}>
-                {item.label}
-              </Button>
+            {pages.map((page) => (
+              <NavbarLink key={page.label} page={page}></NavbarLink>
             ))}
           </Box>
         </Toolbar>

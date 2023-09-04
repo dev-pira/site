@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-img-element */
 import { Box, ImageList, ImageListItem } from "@mui/material";
 import { Typography } from "../Typography";
 import { Event } from "../../models/event";
@@ -8,7 +9,7 @@ const EventDetailGallery: React.FC<EventDetailGalleryProps> = ({
   gallery,
 }: EventDetailGalleryProps) => {
   const defaultWidth = "1345px";
-  if (gallery) {
+  if (gallery?.length) {
     return (
       <Box
         sx={{
@@ -24,14 +25,12 @@ const EventDetailGallery: React.FC<EventDetailGalleryProps> = ({
           <ImageList cols={4} gap={8} variant="masonry">
             {gallery.map((imageUrl) => (
               <ImageListItem key={imageUrl}>
-                <picture>
-                  <img
-                    src={`${imageUrl}`}
-                    srcSet={`${imageUrl}`}
-                    alt={imageUrl}
-                    loading="lazy"
-                  />
-                </picture>
+                <img
+                  src={`${imageUrl}`}
+                  srcSet={`${imageUrl}`}
+                  alt={imageUrl}
+                  loading="lazy"
+                />
               </ImageListItem>
             ))}
           </ImageList>

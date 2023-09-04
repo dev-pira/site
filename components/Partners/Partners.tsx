@@ -2,6 +2,7 @@ import { Box, Container, Grid, Link } from "@mui/material";
 import { Button } from "../Button";
 import { Typography } from "../Typography";
 import { Partner } from "../../models/partner";
+import Image from "next/image";
 
 export interface PartnersProps {
   description: string;
@@ -38,13 +39,13 @@ const Partners: React.FC<PartnersProps> = ({
                             <Link href={partner.siteUrl} target="_blank">
                               <Box>
                                 {partner.logoUrl ? (
-                                  <picture>
-                                    <img
-                                      src={partner.logoUrl}
-                                      alt={`Logotipo de ${partner.name}`}
-                                      style={{ maxWidth: "100%" }}
-                                    />
-                                  </picture>
+                                  <Image
+                                    src={partner.logoUrl}
+                                    alt={partner.name}
+                                    height={78}
+                                    width={171}
+                                    objectFit="contain"
+                                  />
                                 ) : (
                                   partner.name
                                 )}

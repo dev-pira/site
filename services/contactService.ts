@@ -124,7 +124,7 @@ export function fetchMembersData(): Member[] {
     {
       name: "Gabriel Cesar",
       job: "Desenvolvedor Full Stack @ DEVPIRA",
-      profileUrl: "http://linkedin.com/in/gabriel-cesar-mello/",
+      profileUrl: "https://linkedin.com/in/gabriel-cesar-mello/",
       portraitUrl:
         "https://media.licdn.com/dms/image/D4D35AQExvCFyDQ-B4Q/profile-framedphoto-shrink_800_800/0/1680104169571?e=1690336800&v=beta&t=AxcTB6Ey_VksTA2LmaF0ZyrOb63YvAPIpb4Xhj049eY",
     },

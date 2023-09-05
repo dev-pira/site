@@ -24,8 +24,9 @@ const pages = [
 const logoSize = { width: "185px", height: "77px" };
 
 function Navbar() {
-  const [anchorElNav, setAnchorElNav] =
-    React.useState<null | HTMLElement>(null);
+  const [anchorElNav, setAnchorElNav] = React.useState<null | HTMLElement>(
+    null
+  );
 
   const handleOpenNavMenu = (event: React.MouseEvent<HTMLElement>) => {
     setAnchorElNav(event.currentTarget);

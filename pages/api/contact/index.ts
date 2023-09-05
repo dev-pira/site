@@ -4,6 +4,21 @@ import { sendContactMail } from "../../../services/contactService";
 
 const cors = Cors({ methods: ["POST"] });
 
+/**
+ * @swagger
+ * /api/contact:
+ *   post:
+ *     description: Send an e-mail to DEVPIRA with data inserted on the form
+ *     requestBody:
+ *       required: true
+ *       content:
+ *         application/json:
+ *           schema:
+ *              $ref: '#/contracts/requests/new-contact'
+ *     responses:
+ *       200:
+ *         description: e-mail sent succesfully
+ */
 export default async function handler(
   request: NextApiRequest,
   response: NextApiResponse

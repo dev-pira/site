@@ -1,0 +1,14 @@
+import { withSwagger } from "next-swagger-doc";
+
+const swaggerHandler = withSwagger({
+  definition: {
+    openapi: "3.0.0",
+    info: {
+      title: "NextJS Swagger",
+      version: "0.1.0",
+    },
+  },
+  apiFolder: "pages/api",
+  schemaFolders: ["contracts/requests"],
+});
+export default swaggerHandler();

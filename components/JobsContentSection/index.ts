@@ -1,1 +1,1 @@
-export {default as JobsContentSection} from './JobsContentSection'
+export { default as JobsContentSection } from "./JobsContentSection";

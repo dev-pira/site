@@ -14,13 +14,13 @@ jobs:
     steps:
       - uses: actions/checkout@v2
         with:
-          fetch-depth: 0  # Shallow clones should be disabled for a better relevancy of analysis
+          fetch-depth: 0 # Shallow clones should be disabled for a better relevancy of analysis
       - uses: actions/setup-node@v3
         name: Setup Node 18
         with:
           node-version: 18
       - run: yarn
-        name: Yarn Install 
+        name: Yarn Install
       - run: yarn audit --groups dependencies
         name: Yarn Audit
   eslint:
@@ -29,13 +29,13 @@ jobs:
     steps:
       - uses: actions/checkout@v2
         with:
-          fetch-depth: 0  # Shallow clones should be disabled for a better relevancy of analysis
+          fetch-depth: 0 # Shallow clones should be disabled for a better relevancy of analysis
       - uses: actions/setup-node@v3
         name: Setup Node 18
         with:
           node-version: 18
       - run: yarn
-        name: Yarn Install 
+        name: Yarn Install
       - run: yarn lint
         name: React Lint
   testandcheck:
@@ -44,17 +44,17 @@ jobs:
     steps:
       - uses: actions/checkout@v2
         with:
-          fetch-depth: 0  # Shallow clones should be disabled for a better relevancy of analysis
+          fetch-depth: 0 # Shallow clones should be disabled for a better relevancy of analysis
       - uses: actions/setup-node@v3
         name: Setup Node 18
         with:
           node-version: 18
       - run: yarn
-        name: Yarn Install 
+        name: Yarn Install
       - run: yarn test-ci
         name: Jest Tests
       - name: SonarCloud Scan
         uses: SonarSource/sonarcloud-github-action@master
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}  # Needed to get PR information, if any
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} # Needed to get PR information, if any
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}

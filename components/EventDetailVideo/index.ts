@@ -1,1 +1,1 @@
-export {default as EventDetailVideo} from './EventDetailVideo'
+export { default as EventDetailVideo } from "./EventDetailVideo";

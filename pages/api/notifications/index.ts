@@ -1,6 +1,7 @@
 import { NextApiRequest, NextApiResponse } from "next";
 import Cors from "cors";
 import { Telegraf } from "telegraf";
+import { middleware } from "../shared/cors";
 
 const cors = Cors({ methods: ["POST"] });
 const TELEGRAM_BOT_TOKEN = process.env.TELEGRAM_BOT_TOKEN ?? "";
@@ -26,28 +27,6 @@ export default async function handler(
   // Facebook, LinkedIn, Instagram
 
   response.status(202).json({});
-}
-
-type NextStep = (
-  request: NextApiRequest,
-  response: NextApiResponse,
-  onResult: (result: unknown) => void
-) => void;
-
-function middleware(
-  request: NextApiRequest,
-  response: NextApiResponse,
-  fn: NextStep
-) {
-  return new Promise((resolve, reject) => {
-    fn(request, response, (result) => {
-      if (result instanceof Error) {
-        console.error("Error calling next function:", result);
-        return reject(result);
-      }
-      return resolve(result);
-    });
-  });
 }
 
 function sendTelegram(message: string) {

@@ -1,6 +1,7 @@
 import { NextApiRequest, NextApiResponse } from "next";
 import Cors from "cors";
 import { sendContactMail } from "../../../services/contactService";
+import { middleware } from "../shared/cors";
 
 const cors = Cors({ methods: ["POST"] });
 
@@ -14,26 +15,4 @@ export default async function handler(
 
   const result = await sendContactMail(data);
   response.status(result.status).json(result.json);
-}
-
-type NextStep = (
-  request: NextApiRequest,
-  response: NextApiResponse,
-  onResult: (result: unknown) => void
-) => void;
-
-function middleware(
-  request: NextApiRequest,
-  response: NextApiResponse,
-  fn: NextStep
-) {
-  return new Promise((resolve, reject) => {
-    fn(request, response, (result) => {
-      if (result instanceof Error) {
-        console.error("Error calling next function:", result);
-        return reject(result);
-      }
-      return resolve(result);
-    });
-  });
 }

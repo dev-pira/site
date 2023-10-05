@@ -10,47 +10,50 @@ const Jobs: React.FC = () => {
         container
         sx={{
           my: {
-            xs: '36px',
-            md: '88px'
+            xs: "36px",
+            md: "88px",
           },
           flexDirection: {
-            xs: 'column',
-            md: 'row'
-          }
+            xs: "column",
+            md: "row",
+          },
         }}
       >
         <Grid item xs={12} md={6}>
-          <Box sx={{
-            height: '100%',
-            display: 'flex',
-            flexDirection: 'column',
-            justifyContent: 'center',
-          }}>
-            <Typography variant="h3" sx={{ mb: 1 }}>Vagas de emprego</Typography>
+          <Box
+            sx={{
+              height: "100%",
+              display: "flex",
+              flexDirection: "column",
+              justifyContent: "center",
+            }}
+          >
+            <Typography variant="h3" sx={{ mb: 1 }}>
+              Vagas de emprego
+            </Typography>
             <Typography>
-              Aqui você encontra as vagas de empregos compartilhadas por toda a comunidade.
-              Um espaço para você encontrar uma nova oportunidade ou oferecer uma chance a quem procura!
+              Aqui você encontra as vagas de empregos compartilhadas por toda a
+              comunidade. Um espaço para você encontrar uma nova oportunidade ou
+              oferecer uma chance a quem procura!
             </Typography>
             <Box>
-              <Button href="/vagas">
-                Acessar Vagas
-              </Button>
+              <Button href="/vagas">Acessar Vagas</Button>
             </Box>
           </Box>
         </Grid>
         <Grid item xs={12} md={6}>
           <Box
             sx={{
-              display: 'flex',
-              justifyContent: 'center',
-              alignItems: 'center',
-              p: 2
+              display: "flex",
+              justifyContent: "center",
+              alignItems: "center",
+              p: 2,
             }}
           >
             <Box
               sx={{
                 width: 451,
-                height: 397
+                height: 397,
               }}
             >
               <Image

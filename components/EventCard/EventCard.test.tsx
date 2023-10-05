@@ -8,6 +8,7 @@ describe("EventCard deve ", () => {
       color: "primary",
       title: "event",
       dateTime: new Date(2020, 1, 1),
+      slug: "test-event",
     };
     render(<EventCard {...props} />);
     const button = screen.queryByRole("link", { name: /Participar/ });
@@ -22,6 +23,7 @@ describe("EventCard deve ", () => {
       title: "event",
       dateTime: date,
       subscribeLink: "subscribelink",
+      slug: "test-event",
     };
     render(<EventCard {...props} />);
     const button = screen.getByRole("link", { name: /Participar/ });
@@ -36,6 +38,7 @@ describe("EventCard deve ", () => {
       title: "event",
       dateTime: date,
       subscribeLink: "subscribelink",
+      slug: "test-event",
     };
     render(<EventCard {...props} />);
     const button = screen.queryByRole("link", { name: /Participar/ });

@@ -76,7 +76,7 @@ const Typography: React.FC<TypographyProps> = ({
     }
   };
 
-  const customSx: SxProps<Theme> = Object.assign(sx || {}, getColor(color));
+  const customSx: SxProps<Theme> = Object.assign(sx ?? {}, getColor(color));
 
   return (
     <MuiTypography

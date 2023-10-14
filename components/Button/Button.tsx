@@ -1,13 +1,14 @@
 import { Button as MuiButton, SxProps } from "@mui/material";
 import React from "react";
 
-export interface ButtonProps {
+export interface ButtonProps
+  extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   children: React.ReactNode;
   disabled?: boolean;
   expanded?: boolean;
   variant?: "text" | "contained";
   color?: "primary" | "transparent" | "feature" | "contrast";
-  type?: "normal" | "rounded";
+  borderStyle?: "normal" | "rounded";
   startIcon?: React.ReactNode;
   onClick?: () => void;
   href?: string;
@@ -16,7 +17,7 @@ export interface ButtonProps {
 const Button: React.FC<ButtonProps> = ({
   children,
   color = "primary",
-  type = "normal",
+  borderStyle = "normal",
   disabled,
   expanded,
   href,
@@ -53,7 +54,7 @@ const Button: React.FC<ButtonProps> = ({
     backgroundColor: backgroundColor,
     color: foregroundColor,
     border: border,
-    borderRadius: type === "rounded" ? 30 : 1,
+    borderRadius: borderStyle === "rounded" ? 30 : 1,
   };
   if (expanded) {
     sx.flex = 1;

@@ -28,23 +28,23 @@ const JobsFilter: React.FC = () => {
             alignItems: "center",
           }}
         >
-          <Button color="contrast" type="rounded">
+          <Button color="contrast" borderStyle="rounded">
             {" "}
             FrontEnd{" "}
           </Button>
-          <Button color="contrast" type="rounded">
+          <Button color="contrast" borderStyle="rounded">
             {" "}
             BackEnd{" "}
           </Button>
-          <Button color="contrast" type="rounded">
+          <Button color="contrast" borderStyle="rounded">
             {" "}
             DevOps{" "}
           </Button>
-          <Button color="contrast" type="rounded">
+          <Button color="contrast" borderStyle="rounded">
             {" "}
             Produtos{" "}
           </Button>
-          <Button color="contrast" type="rounded">
+          <Button color="contrast" borderStyle="rounded">
             {" "}
             Suporte{" "}
           </Button>
@@ -59,7 +59,7 @@ const JobsFilter: React.FC = () => {
           alignItems: "center",
         }}
       >
-        <Button type="rounded">Escolher um local V</Button>
+        <Button borderStyle="rounded">Escolher um local V</Button>
       </Box>
     </Box>
   );

@@ -24,6 +24,7 @@ const Button: React.FC<ButtonProps> = ({
   startIcon,
   variant = "contained",
   onClick,
+  ...props
 }: ButtonProps) => {
   let backgroundColor = "#212236";
   let foregroundColor = "white";
@@ -69,6 +70,7 @@ const Button: React.FC<ButtonProps> = ({
       disabled={disabled}
       href={href}
       sx={sx}
+      {...props}
     >
       {children}
     </MuiButton>

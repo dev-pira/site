@@ -1,8 +1,4 @@
-import {
-  SxProps,
-  Typography as MuiTypography,
-  TypographyProps as MuiTypographyProps,
-} from "@mui/material";
+import { SxProps, Typography as MuiTypography } from "@mui/material";
 import { Theme } from "@mui/system";
 
 type Color =
@@ -15,17 +11,31 @@ type Color =
   | "gradient_blue"
   | "gradient_red";
 
-export interface TypographyProps extends MuiTypographyProps {
+export interface TypographyProps {
   children?: React.ReactNode;
   color?: Color;
   centered?: boolean;
+  variant?:
+    | "body1"
+    | "body2"
+    | "introSpan"
+    | "h1"
+    | "h2"
+    | "h3"
+    | "h4"
+    | "h5"
+    | "h6";
+  fontSize?: string;
+  sx?: SxProps;
 }
 
 const Typography: React.FC<TypographyProps> = ({
   color = "primary",
   centered,
   children,
-  ...props
+  variant,
+  fontSize,
+  sx,
 }: TypographyProps) => {
   const getColor = (color: Color): SxProps<Theme> => {
     switch (color) {
@@ -66,10 +76,15 @@ const Typography: React.FC<TypographyProps> = ({
     }
   };
 
-  const sx: SxProps<Theme> = Object.assign({}, getColor(color));
+  const customSx: SxProps<Theme> = Object.assign(sx ?? {}, getColor(color));
 
   return (
-    <MuiTypography align={centered ? "center" : "inherit"} sx={sx} {...props}>
+    <MuiTypography
+      align={centered ? "center" : "inherit"}
+      variant={variant}
+      fontSize={fontSize}
+      sx={customSx}
+    >
       {children}
     </MuiTypography>
   );

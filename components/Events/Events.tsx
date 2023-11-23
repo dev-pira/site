@@ -3,18 +3,11 @@ import Image from "next/image";
 import { EventCard } from "../EventCard";
 import { Button } from "../Button";
 import { Typography } from "../Typography";
+import { EventDetailsPart } from "../../models/event";
 
-export interface EventsProps {
-  events: {
-    slug: string
-    description?: string
-    detailsLink: string
-    participateLink?: string
-    title: string
-    type: "Meetup" | "Live" | "Worshop"
-    dateTime: Date
-  }[]
-}
+export type EventsProps = {
+  events: EventDetailsPart[];
+};
 
 const Events: React.FC<EventsProps> = ({ events }: EventsProps) => {
   let latestEvents = events;
@@ -26,99 +19,114 @@ const Events: React.FC<EventsProps> = ({ events }: EventsProps) => {
   latestEvents = latestEvents.slice(0, 4);
 
   return (
-    <Box 
+    <Box
       sx={{
-        backgroundColor: '#212236',
+        backgroundColor: "#212236",
       }}
     >
-    <Container>
-      <Grid
-        container
-        sx={{
-          pt:{
-            xs: '36px',
-            md: '88px' 
-          },
-          pb:{
-            xs: '36px',
-            md: '48px' 
-          },
-          flexDirection: {
-            xs: 'column',
-            md: 'row'
-          }
-        }}>
-        <Grid item xs={12} md={6}>
-          <Box
-            sx={{
-              display: 'flex',
-              justifyContent: 'center',
-              alignItems: 'center',
-              p: 2
-            }}
-          >
-            <Box
-              sx={{
-                width: 500,
-                height: 340,
-              }}
-            >
-              <Image alt="Foto de uma das palestras realizadas pela comunidade" src="/images/Events.png" width={500} height={340} objectFit="cover" />
-            </Box>
-          </Box>
-        </Grid>
-        <Grid item xs={12} md={6}>
-          <Box
-            sx={{
-              display: "flex",
-              flexDirection: 'column',
-              gap: "24px",
-            }}
-          >
-            <Box>
-              <Typography variant="h3" color="contrast">
-                Eventos
-              </Typography>
-              <Typography color="contrast">
-                Os eventos sempre são organizados pelos voluntários. Contamos com
-                a ajuda de parceiros locais que oferecem espaços e recursos para a
-                realização. Nos ajudam nos eventos instituções de ensino, empresas
-                e entidades que têm a mesma vontade que o DEVPIRA de compartilhar
-                conhecimento.
-              </Typography>
-            </Box>
-            <Box sx={{
-              display: "flex",
-              flexDirection: "row",
-              gap: "8px"
-            }}>
-              <Button color="contrast" href="/eventos">
-                Conhecer eventos
-              </Button>
-            </Box>
-          </Box>
-        </Grid>
-        {/* CARDS */}
+      <Container>
         <Grid
           container
-          wrap="nowrap"
-          spacing={'30px'}
-          mt={'80px'}
           sx={{
+            pt: {
+              xs: "36px",
+              md: "88px",
+            },
+            pb: {
+              xs: "36px",
+              md: "48px",
+            },
             flexDirection: {
-              xs: 'column',
-              md: 'row'
-            }
+              xs: "column",
+              md: "row",
+            },
           }}
         >
-          {latestEvents.map((eventData, index) => {
-            return <EventCard key={index} {...eventData} color="primary" />;
-          })}
+          <Grid item xs={12} md={6}>
+            <Box
+              sx={{
+                display: "flex",
+                justifyContent: "center",
+                alignItems: "center",
+                p: 2,
+              }}
+            >
+              <Box
+                sx={{
+                  width: 500,
+                  height: 340,
+                }}
+              >
+                <Image
+                  alt="Foto de uma das palestras realizadas pela comunidade"
+                  src="/images/Events.png"
+                  width={500}
+                  height={340}
+                  objectFit="cover"
+                />
+              </Box>
+            </Box>
+          </Grid>
+          <Grid item xs={12} md={6}>
+            <Box
+              sx={{
+                display: "flex",
+                flexDirection: "column",
+                gap: "24px",
+              }}
+            >
+              <Box>
+                <Typography variant="h3" color="contrast">
+                  Eventos
+                </Typography>
+                <Typography color="contrast">
+                  Os eventos sempre são organizados pelos voluntários. Contamos
+                  com a ajuda de parceiros locais que oferecem espaços e
+                  recursos para a realização. Nos ajudam nos eventos instituções
+                  de ensino, empresas e entidades que têm a mesma vontade que o
+                  DEVPIRA de compartilhar conhecimento.
+                </Typography>
+              </Box>
+              <Box
+                sx={{
+                  display: "flex",
+                  flexDirection: "row",
+                  gap: "8px",
+                }}
+              >
+                <Button color="contrast" href="/eventos">
+                  Conhecer eventos
+                </Button>
+              </Box>
+            </Box>
+          </Grid>
+          {/* CARDS */}
+          <Grid
+            container
+            wrap="nowrap"
+            spacing={"30px"}
+            mt={"80px"}
+            sx={{
+              flexDirection: {
+                xs: "column",
+                md: "row",
+              },
+            }}
+          >
+            {latestEvents.map((eventData) => {
+              return (
+                <EventCard
+                  key={eventData.slug}
+                  {...eventData}
+                  color="primary"
+                />
+              );
+            })}
+          </Grid>
+          {/* /CARDS */}
         </Grid>
-        {/* /CARDS */}
-      </Grid>
-    </Container>
-  </Box>
+      </Container>
+    </Box>
   );
 };
 

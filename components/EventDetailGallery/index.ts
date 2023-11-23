@@ -1,1 +1,1 @@
-export {default as EventDetailGallery} from './EventDetailGallery'
+export { default as EventDetailGallery } from "./EventDetailGallery";

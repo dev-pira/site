@@ -14,7 +14,6 @@ import { Social } from "../components/Social";
 import Partners from "../components/Partners/Partners";
 import { fetchIndexData } from "../services/indexService";
 
-
 const HomePage: NextPage = ({
   eventsData,
 }: InferGetServerSidePropsType<typeof getServerSideProps>) => {

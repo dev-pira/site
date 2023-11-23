@@ -86,7 +86,7 @@ const EventCard: React.FC<EventCardProps> = ({
   let bannerPlaceHolder;
   if (!banner?.url) {
     bannerPlaceHolder = (
-      <Typography variant="h4" color="transparent" centered>
+      <Typography color="transparent" centered>
         Imagem do banner do evento
       </Typography>
     );
@@ -101,6 +101,7 @@ const EventCard: React.FC<EventCardProps> = ({
       sx={{
         display: "flex",
         flexDirection: "column",
+        width: "255px",
       }}
     >
       <Box key={slug} sx={cardsx}>
@@ -135,7 +136,16 @@ const EventCard: React.FC<EventCardProps> = ({
               justifyContent: "space-between",
             }}
           >
-            <Typography variant="h4" color={textColor}>
+            <Typography
+              sx={{
+                fontFamily: "Inter",
+                fontSize: "20px",
+                fontStyle: "normal",
+                fontWeight: 700,
+                letterSpacing: "1.1px",
+              }}
+              color={textColor}
+            >
               {title}
             </Typography>
             <Typography fontSize={"0.875rem"} color={textColor}>

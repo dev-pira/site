@@ -120,8 +120,14 @@ const Events: React.FC<EventsProps> = ({ events }: EventsProps) => {
               },
             }}
           >
-            {latestEvents.map((eventData, index) => {
-              return <EventCard key={index} {...eventData} color="primary" />;
+            {latestEvents.map((eventData) => {
+              return (
+                <EventCard
+                  key={eventData.slug}
+                  {...eventData}
+                  color="primary"
+                />
+              );
             })}
           </Grid>
           {/* /CARDS */}

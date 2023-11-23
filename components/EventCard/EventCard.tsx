@@ -1,12 +1,8 @@
 import { Box, Grid, SxProps } from "@mui/material";
 import { Button } from "../Button";
 import { Typography } from "../Typography";
-import { Event } from "../../models/event";
+import { EventDetailsPart } from "../../models/event";
 
-type EventDetailsPart = Pick<
-  Event,
-  "banner" | "slug" | "title" | "description" | "dateTime" | "subscriptionUrl"
->;
 type CardProps = {
   color: "primary" | "contrast";
   shadowed?: boolean;

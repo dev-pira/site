@@ -23,3 +23,8 @@ export type EventPart = Pick<
   Event,
   "slug" | "description" | "subscriptionUrl" | "title" | "type" | "dateTime"
 >;
+
+export type EventDetailsPart = Pick<
+  Event,
+  "banner" | "slug" | "title" | "description" | "dateTime" | "subscriptionUrl"
+>;

@@ -1,17 +1,18 @@
 import { Box, Grid, SxProps } from "@mui/material";
 import { Button } from "../Button";
 import { Typography } from "../Typography";
+import { Event } from "../../models/event";
 
-export interface EventCardProps {
+type EventDetailsPart = Pick<
+  Event,
+  "banner" | "slug" | "title" | "description" | "dateTime" | "subscriptionUrl"
+>;
+type CardProps = {
   color: "primary" | "contrast";
-  banner?: { url?: string };
-  slug: string;
-  title: string;
-  description?: string;
-  dateTime: Date;
-  subscribeLink?: string;
   shadowed?: boolean;
-}
+};
+
+export type EventCardProps = EventDetailsPart & CardProps;
 
 const EventCard: React.FC<EventCardProps> = ({
   color = "primary",
@@ -19,7 +20,7 @@ const EventCard: React.FC<EventCardProps> = ({
   description,
   banner,
   slug,
-  subscribeLink,
+  subscriptionUrl,
   title,
   shadowed,
 }: EventCardProps) => {
@@ -36,10 +37,10 @@ const EventCard: React.FC<EventCardProps> = ({
     dateTime = new Date(dateTime);
   }
   let participateNode;
-  if (subscribeLink && dateTime > new Date()) {
+  if (subscriptionUrl && dateTime > new Date()) {
     participateNode = (
       <Button
-        href={subscribeLink}
+        href={subscriptionUrl}
         color={color === "primary" ? "contrast" : "primary"}
       >
         Participar

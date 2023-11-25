@@ -6,7 +6,7 @@ const SuaPagina = () => {
 
   useEffect(() => {
     // Faz o redirecionamento imediatamente
-    router.push("https://google.com");
+    router.push("https://www.devpira.com.br/eventos/devpira-festival-2023");
   }, []);
 
   return (

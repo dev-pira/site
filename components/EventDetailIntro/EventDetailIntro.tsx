@@ -5,13 +5,13 @@ import { Event } from "../../models/event";
 
 export type EventDetailIntroProps = Pick<
   Event,
-  "title" | "description" | "subscribeLink" | "dateTime"
+  "title" | "description" | "subscriptionUrl" | "dateTime"
 >;
 
 const EventDetailIntro: React.FC<EventDetailIntroProps> = ({
   dateTime,
   description,
-  subscribeLink,
+  subscriptionUrl,
   title,
 }: EventDetailIntroProps) => {
   const defaultWidth = "1345px";
@@ -20,9 +20,9 @@ const EventDetailIntro: React.FC<EventDetailIntroProps> = ({
     dateTime = new Date(dateTime);
   }
 
-  if (subscribeLink && dateTime > new Date()) {
+  if (subscriptionUrl && dateTime > new Date()) {
     subscribeButton = (
-      <Button color="feature" href={subscribeLink}>
+      <Button color="feature" href={subscriptionUrl}>
         Inscreva-se
       </Button>
     );

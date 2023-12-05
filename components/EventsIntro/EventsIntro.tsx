@@ -1,8 +1,7 @@
-import { Box } from "@mui/material";
+import { Box, Container } from "@mui/material";
 import { Typography } from "../Typography";
 
 const EventsIntro: React.FC = () => {
-  const defaultWidth = "1345px";
   const defaultHeight = "560px";
   return (
     <Box
@@ -13,9 +12,8 @@ const EventsIntro: React.FC = () => {
         backgroundColor: "#3f4052;",
       }}
     >
-      <Box
+      <Container
         sx={{
-          width: defaultWidth,
           display: "flex",
           height: defaultHeight,
           alignItems: "center",
@@ -47,7 +45,7 @@ const EventsIntro: React.FC = () => {
             ></Box>
           </Box>
         </Box>
-      </Box>
+      </Container>
     </Box>
   );
 };

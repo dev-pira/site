@@ -6,6 +6,14 @@ Consulte a sessão de como Contribuir para envolver-se com o desenvolvimento. <b
 
 ## O Projeto
 
+![Contexto](./docs/images/structurizr-SystemContext-001.png)
+
+![Containeres](./docs/images/structurizr-Container-001.png)
+
+![Componentes](./docs/images/structurizr-Component-001.png)
+
+![Implantação](./docs/images/structurizr-Deployment-001.png)
+
 ## Contribuir
 
 Nós escolhemos desenvolver o site em [NextJs](https://nextjs.org), um framework sobre [ReactJs](https://reactjs.org). Essa escolha vem do conhecimento do time inicial do projeto.<br />
@@ -57,8 +65,8 @@ As implantações acontecerão quando o código for integrado à `main`, depois 
 
 # Código de conduta
 
-...
+Consulte nosso [Código de Conduta](./CODE_OF_CONDUCT.md).
 
 # Licença
 
-O Site da comunidade DEVPIRA está licenciado pela [MIT License](https://github.com/dev-pira/site/blob/develop/LICENSE).
+O Site da comunidade DEVPIRA está licenciado pela [MIT License](https://github.com/dev-pira/site/blob/develop/LICENSE). Para mais informações, consulte nossa [Licença](./LICENSE).

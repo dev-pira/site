@@ -1,1 +1,4 @@
 **/out
+**/*.mmd
+**/*.png
+!images/*.png

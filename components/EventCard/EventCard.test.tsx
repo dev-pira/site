@@ -8,6 +8,7 @@ describe("EventCard deve ", () => {
       slug: "test-event-1",
       color: "primary",
       title: "event",
+      description: "the description",
       dateTime: new Date(2020, 1, 1),
       slug: "test-event",
     };
@@ -23,8 +24,9 @@ describe("EventCard deve ", () => {
       slug: "test-event-2",
       color: "primary",
       title: "event",
+      description: "the description",
       dateTime: date,
-      subscribeLink: "subscribelink",
+      subscriptionUrl: "subscribelink",
       slug: "test-event",
     };
     render(<EventCard {...props} />);
@@ -39,8 +41,9 @@ describe("EventCard deve ", () => {
       slug: "test-event-3",
       color: "primary",
       title: "event",
+      description: "the description",
       dateTime: date,
-      subscribeLink: "subscribelink",
+      subscriptionUrl: "subscribelink",
       slug: "test-event",
     };
     render(<EventCard {...props} />);

@@ -1,5 +1,5 @@
 /* eslint-disable @next/next/no-img-element */
-import { Box, ImageList, ImageListItem } from "@mui/material";
+import { Box, Container, ImageList, ImageListItem } from "@mui/material";
 import { Typography } from "../Typography";
 import { Event } from "../../models/event";
 
@@ -8,7 +8,6 @@ export type EventDetailGalleryProps = Pick<Event, "gallery">;
 const EventDetailGallery: React.FC<EventDetailGalleryProps> = ({
   gallery,
 }: EventDetailGalleryProps) => {
-  const defaultWidth = "1345px";
   if (gallery?.length) {
     return (
       <Box
@@ -20,7 +19,7 @@ const EventDetailGallery: React.FC<EventDetailGalleryProps> = ({
           alignItems: "center",
         }}
       >
-        <Box sx={{ width: defaultWidth }}>
+        <Container>
           <Typography variant="h3">Galeria</Typography>
           <ImageList cols={4} gap={8} variant="masonry">
             {gallery.map((imageUrl) => (
@@ -34,7 +33,7 @@ const EventDetailGallery: React.FC<EventDetailGalleryProps> = ({
               </ImageListItem>
             ))}
           </ImageList>
-        </Box>
+        </Container>
       </Box>
     );
   } else return <Box></Box>;

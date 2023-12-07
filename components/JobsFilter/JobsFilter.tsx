@@ -1,18 +1,16 @@
-import { Box } from "@mui/material";
+import { Box, Container } from "@mui/material";
 import { Button } from "../Button";
 import { Typography } from "../Typography";
 
 const JobsFilter: React.FC = () => {
-  const defaultWidth = "1345px";
   const defaultHeight = "88px";
   return (
     <Box
       sx={{ display: "flex", flexDirection: "row", justifyContent: "center" }}
     >
-      <Box
+      <Container
         sx={{
           marginLeft: "20px",
-          width: defaultWidth,
           display: "flex",
           height: defaultHeight,
           alignItems: "center",
@@ -49,9 +47,9 @@ const JobsFilter: React.FC = () => {
             Suporte{" "}
           </Button>
         </Box>
-      </Box>
+      </Container>
 
-      <Box
+      <Container
         sx={{
           width: "300px",
           display: "flex",
@@ -60,7 +58,7 @@ const JobsFilter: React.FC = () => {
         }}
       >
         <Button type="rounded">Escolher um local V</Button>
-      </Box>
+      </Container>
     </Box>
   );
 };

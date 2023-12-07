@@ -1,4 +1,4 @@
-import { Box, Grid } from "@mui/material";
+import { Box, Container, Grid } from "@mui/material";
 import { Job } from "../../models/job";
 import { Typography } from "../Typography";
 import { JobCard } from "../JobCard";
@@ -12,18 +12,15 @@ const JobsContentSection: React.FC<JobsContentSectionProps> = ({
   location,
   jobs,
 }: JobsContentSectionProps) => {
-  const defaultWidth = "1345px";
-
   const missingBoxes = [];
   for (let i = 0; i < 4 - jobs.length; i++) {
     missingBoxes.push(i);
   }
 
   return (
-    <Box
+    <Container
       key={location}
       sx={{
-        width: defaultWidth,
         display: "flex",
         flexDirection: "column",
         padding: "56px 0",
@@ -33,7 +30,6 @@ const JobsContentSection: React.FC<JobsContentSectionProps> = ({
       <Typography variant="h3">{location}</Typography>
       <Grid
         sx={{
-          width: defaultWidth,
           display: "flex",
           flexDirection: "row",
           justifyContent: "space-evenly",
@@ -53,7 +49,7 @@ const JobsContentSection: React.FC<JobsContentSectionProps> = ({
           );
         })}
       </Grid>
-    </Box>
+    </Container>
   );
 };
 

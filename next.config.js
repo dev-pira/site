@@ -13,11 +13,11 @@ const nextConfig = {
     ],
     domains: ["images.ctfassets.net"],
   },
-  // experimental: {
-  //   images: {
-  //     unoptimized: true,
-  //   },
-  // },
+  experimental: {
+    images: {
+      unoptimized: true,
+    },
+  },
 };
 
 // eslint-disable-next-line @typescript-eslint/no-var-requires

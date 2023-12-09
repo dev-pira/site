@@ -80,7 +80,7 @@ const Social: React.FC<SocialProps> = ({ color = "green" }: SocialProps) => {
             alignItems: "flex-end",
           }}
         >
-          <Image alt="" src="/images/Social.svg" width="359" height="332" />
+          <Image alt="" src="/images/Social.svg" width="359px" height="332px" />
         </Box>
       </Container>
     </Box>

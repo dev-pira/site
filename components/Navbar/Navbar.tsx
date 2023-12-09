@@ -21,12 +21,11 @@ const pages = [
   { label: "Vagas", link: "/vagas" },
   { label: "Contato", link: "/contato" },
 ];
-const logoSize = { width: "185", height: "77" };
+const logoSize = { width: "185px", height: "77px" };
 
 function Navbar() {
-  const [anchorElNav, setAnchorElNav] = React.useState<null | HTMLElement>(
-    null
-  );
+  const [anchorElNav, setAnchorElNav] =
+    React.useState<null | HTMLElement>(null);
 
   const handleOpenNavMenu = (event: React.MouseEvent<HTMLElement>) => {
     setAnchorElNav(event.currentTarget);

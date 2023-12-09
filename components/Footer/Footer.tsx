@@ -10,7 +10,7 @@ const Footer: React.FC = () => {
     { label: "Vagas", link: "/vagas" },
     { label: "Contato", link: "/contato" },
   ];
-  const logoSize = { width: "185", height: "77" };
+  const logoSize = { width: "185px", height: "77px" };
   return (
     <AppBar
       position="static"

@@ -1,4 +1,4 @@
-import { Box } from "@mui/material";
+import { Box, Container } from "@mui/material";
 import { Typography } from "../Typography";
 import { Event } from "../../models/event";
 
@@ -8,7 +8,6 @@ const EventDetailVideo: React.FC<EventDetailVideoProps> = ({
   videoUrl,
 }: EventDetailVideoProps) => {
   if (videoUrl) {
-    const defaultWidth = "1345px";
     return (
       <Box
         sx={{
@@ -20,7 +19,7 @@ const EventDetailVideo: React.FC<EventDetailVideoProps> = ({
           backgroundColor: "#00F4AB",
         }}
       >
-        <Box sx={{ width: defaultWidth }}>
+        <Container>
           <Typography variant="h3">Video</Typography>
           <Box
             sx={{ margin: "16px 0", display: "flex", justifyContent: "center" }}
@@ -35,7 +34,7 @@ const EventDetailVideo: React.FC<EventDetailVideoProps> = ({
               allowFullScreen
             ></iframe>
           </Box>
-        </Box>
+        </Container>
       </Box>
     );
   } else return <Box></Box>;

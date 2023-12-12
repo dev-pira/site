@@ -1,4 +1,4 @@
-import { Box } from "@mui/material";
+import { Box, Container } from "@mui/material";
 import { Typography } from "../Typography";
 import { Event } from "../../models/event";
 
@@ -7,7 +7,6 @@ export type EventDetailContentProps = Pick<Event, "tracks">;
 const EventDetailContent: React.FC<EventDetailContentProps> = ({
   tracks,
 }: EventDetailContentProps) => {
-  const defaultWidth = "1345px";
   if (tracks?.length) {
     return (
       <Box
@@ -20,9 +19,8 @@ const EventDetailContent: React.FC<EventDetailContentProps> = ({
           background: "#212236",
         }}
       >
-        <Box
+        <Container
           sx={{
-            width: defaultWidth,
             display: "flex",
             flexDirection: "column",
             alignItems: "flex-start",
@@ -109,10 +107,9 @@ const EventDetailContent: React.FC<EventDetailContentProps> = ({
               );
             }
             return (
-              <Box
+              <Container
                 key={track.name}
                 sx={{
-                  width: defaultWidth,
                   display: "flex",
                   flexDirection: "column",
                   gap: "24px",
@@ -133,10 +130,10 @@ const EventDetailContent: React.FC<EventDetailContentProps> = ({
                   ></Box>
                 </Box>
                 {talksBlock}
-              </Box>
+              </Container>
             );
           })}
-        </Box>
+        </Container>
       </Box>
     );
   }

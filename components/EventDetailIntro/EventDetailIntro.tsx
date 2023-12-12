@@ -1,28 +1,27 @@
-import { Box } from "@mui/material";
+import { Box, Container } from "@mui/material";
 import { Button } from "../Button";
 import { Typography } from "../Typography";
 import { Event } from "../../models/event";
 
 export type EventDetailIntroProps = Pick<
   Event,
-  "title" | "description" | "subscribeLink" | "dateTime"
+  "title" | "description" | "subscriptionUrl" | "dateTime"
 >;
 
 const EventDetailIntro: React.FC<EventDetailIntroProps> = ({
   dateTime,
   description,
-  subscribeLink,
+  subscriptionUrl,
   title,
 }: EventDetailIntroProps) => {
-  const defaultWidth = "1345px";
   let subscribeButton;
   if (!(dateTime instanceof Date)) {
     dateTime = new Date(dateTime);
   }
 
-  if (subscribeLink && dateTime > new Date()) {
+  if (subscriptionUrl && dateTime > new Date()) {
     subscribeButton = (
-      <Button color="feature" href={subscribeLink}>
+      <Button color="feature" href={subscriptionUrl}>
         Inscreva-se
       </Button>
     );
@@ -37,7 +36,7 @@ const EventDetailIntro: React.FC<EventDetailIntroProps> = ({
         justifyContent: "center",
       }}
     >
-      <Box sx={{ width: defaultWidth, display: "flex" }}>
+      <Container sx={{ display: "flex" }}>
         <Box
           sx={{
             width: "544px",
@@ -59,7 +58,7 @@ const EventDetailIntro: React.FC<EventDetailIntroProps> = ({
             </Button>
           </Box>
         </Box>
-      </Box>
+      </Container>
     </Box>
   );
 };

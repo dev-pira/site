@@ -7,6 +7,7 @@ describe("EventCard deve ", () => {
     const props: EventCardProps = {
       color: "primary",
       title: "event",
+      description: "the description",
       dateTime: new Date(2020, 1, 1),
       slug: "test-event",
     };
@@ -21,8 +22,9 @@ describe("EventCard deve ", () => {
     const props: EventCardProps = {
       color: "primary",
       title: "event",
+      description: "the description",
       dateTime: date,
-      subscribeLink: "subscribelink",
+      subscriptionUrl: "subscribelink",
       slug: "test-event",
     };
     render(<EventCard {...props} />);
@@ -36,8 +38,9 @@ describe("EventCard deve ", () => {
     const props: EventCardProps = {
       color: "primary",
       title: "event",
+      description: "the description",
       dateTime: date,
-      subscribeLink: "subscribelink",
+      subscriptionUrl: "subscribelink",
       slug: "test-event",
     };
     render(<EventCard {...props} />);

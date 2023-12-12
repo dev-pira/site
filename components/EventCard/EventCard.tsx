@@ -1,17 +1,14 @@
 import { Box, Grid, SxProps } from "@mui/material";
 import { Button } from "../Button";
 import { Typography } from "../Typography";
+import { EventDetailsPart } from "../../models/event";
 
-export interface EventCardProps {
+type CardProps = {
   color: "primary" | "contrast";
-  banner?: { url?: string };
-  slug: string;
-  title: string;
-  description?: string;
-  dateTime: Date;
-  subscribeLink?: string;
   shadowed?: boolean;
-}
+};
+
+export type EventCardProps = EventDetailsPart & CardProps;
 
 const EventCard: React.FC<EventCardProps> = ({
   color = "primary",
@@ -19,7 +16,7 @@ const EventCard: React.FC<EventCardProps> = ({
   description,
   banner,
   slug,
-  subscribeLink,
+  subscriptionUrl,
   title,
   shadowed,
 }: EventCardProps) => {
@@ -36,10 +33,10 @@ const EventCard: React.FC<EventCardProps> = ({
     dateTime = new Date(dateTime);
   }
   let participateNode;
-  if (subscribeLink && dateTime > new Date()) {
+  if (subscriptionUrl && dateTime > new Date()) {
     participateNode = (
       <Button
-        href={subscribeLink}
+        href={subscriptionUrl}
         color={color === "primary" ? "contrast" : "primary"}
       >
         Participar
@@ -86,7 +83,7 @@ const EventCard: React.FC<EventCardProps> = ({
   let bannerPlaceHolder;
   if (!banner?.url) {
     bannerPlaceHolder = (
-      <Typography variant="h4" color="transparent" centered>
+      <Typography color="transparent" centered>
         Imagem do banner do evento
       </Typography>
     );
@@ -101,6 +98,7 @@ const EventCard: React.FC<EventCardProps> = ({
       sx={{
         display: "flex",
         flexDirection: "column",
+        width: "255px",
       }}
     >
       <Box key={slug} sx={cardsx}>
@@ -135,7 +133,16 @@ const EventCard: React.FC<EventCardProps> = ({
               justifyContent: "space-between",
             }}
           >
-            <Typography variant="h4" color={textColor}>
+            <Typography
+              sx={{
+                fontFamily: "Inter",
+                fontSize: "20px",
+                fontStyle: "normal",
+                fontWeight: 700,
+                letterSpacing: "1.1px",
+              }}
+              color={textColor}
+            >
               {title}
             </Typography>
             <Typography fontSize={"0.875rem"} color={textColor}>

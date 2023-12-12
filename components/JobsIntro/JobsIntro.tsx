@@ -1,9 +1,8 @@
-import { Box } from "@mui/material";
+import { Box, Container } from "@mui/material";
 import { Typography } from "../Typography";
 import { Button } from "../Button";
 
 const JobsIntro: React.FC = () => {
-  const defaultWidth = "1345px";
   const defaultHeight = "560px";
   return (
     <Box
@@ -14,9 +13,8 @@ const JobsIntro: React.FC = () => {
         justifyContent: "center",
       }}
     >
-      <Box
+      <Container
         sx={{
-          width: defaultWidth,
           display: "flex",
           height: defaultHeight,
           alignItems: "center",
@@ -50,7 +48,7 @@ const JobsIntro: React.FC = () => {
             }}
           ></Box>
         </Box>
-      </Box>
+      </Container>
     </Box>
   );
 };

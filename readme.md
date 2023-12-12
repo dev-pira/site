@@ -8,11 +8,27 @@ Consulte a sessão de como Contribuir para envolver-se com o desenvolvimento. <b
 
 ![Contexto](./docs/images/structurizr-SystemContext-001.png)
 
+O site concentra informações sobre a comunidade, iniciativas, eventos, vagas...<br/>
+A maior parte das funcionalidades se concentram no próprio site.<br />
+Para alguns casos, fazemos integrações com outros canais da comunidade como ilustrado em "Aplicações externas".
+
 ![Containeres](./docs/images/structurizr-Container-001.png)
+
+O site é basicamente composto de um Web App.<br />
+Os dados são providos dinamicamente para o CMS. Em alguns casos, o CMS dispara chamadas _webhook_ de volta para o site. Usamos esse mecanismo para fazer integrações.
 
 ![Componentes](./docs/images/structurizr-Component-001.png)
 
+O Web App é organizado em algumas partes:
+
+- **pages**: onde se concentram as páginas que os usuários acessam;
+- **components**: são os blocos de construção das páginas. São customizações sobre os componentes da biblioteca [MUI](https://mui.com) para se alinharem ao design proposto;
+- **services**: são classes que fazem interface com o CMS e alimentam as páginas com dados;
+- **apis**: para alguns cenários, como recebimento de formulários ou ouvir requisições _webhook_, fazemos uso de APIs.
+
 ![Implantação](./docs/images/structurizr-Deployment-001.png)
+
+Nossa aplicação é implantada no [Vercel](https://vercel.com) e usa [Contentful](https://www.contentful.com) como CMS.
 
 ## Contribuir
 

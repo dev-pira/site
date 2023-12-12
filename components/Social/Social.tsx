@@ -1,5 +1,5 @@
 import { Box, Container } from "@mui/material";
-import Image from "next/image";
+import Image from "next/legacy/image";
 import { SocialButton } from "../SocialButton";
 import { Typography } from "../Typography";
 
@@ -80,7 +80,7 @@ const Social: React.FC<SocialProps> = ({ color = "green" }: SocialProps) => {
             alignItems: "flex-end",
           }}
         >
-          <Image alt="" src="/images/Social.svg" width="359px" height="332px" />
+          <Image alt="" src="/images/Social.svg" width={359} height={332} />
         </Box>
       </Container>
     </Box>

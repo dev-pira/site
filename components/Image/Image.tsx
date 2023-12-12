@@ -1,12 +1,12 @@
 import React from "react";
-import * as NextImage from "next/image";
+import * as NextImage from "next/legacy/image";
 
 export interface ImageProps {
   src: string;
   alt: string;
   layout?: "fill" | "fixed" | "intrinsic" | "responsive";
-  width?: number | string;
-  height?: number | string;
+  width?: number | `${number}`;
+  height?: number | `${number}`;
 }
 
 const Image: React.FC<ImageProps> = ({

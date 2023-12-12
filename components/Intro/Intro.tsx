@@ -1,5 +1,5 @@
 import { Box, Container, Grid } from "@mui/material";
-import Image from "next/image";
+import Image from "next/legacy/image";
 import { Button } from "../Button";
 import { Typography } from "../Typography";
 

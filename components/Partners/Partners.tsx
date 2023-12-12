@@ -2,7 +2,7 @@ import { Box, Container, Grid, Link } from "@mui/material";
 import { Button } from "../Button";
 import { Typography } from "../Typography";
 import { Partner } from "../../models/partner";
-import Image from "next/image";
+import Image from "next/legacy/image";
 
 export interface PartnersProps {
   description: string;

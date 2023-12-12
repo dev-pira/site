@@ -1,5 +1,5 @@
 import React from "react";
-import * as NextImage from "next/image";
+import * as NextImage from "next/legacy/image";
 
 export interface ImageProps {
   src: string;

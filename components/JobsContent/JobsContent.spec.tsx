@@ -1,6 +1,5 @@
 import { render, screen } from "@testing-library/react";
 import JobsContent, { JobsContentProps } from "./JobsContent";
-// import theoretically from "jest-theories";
 import "@testing-library/jest-dom";
 
 describe("JobsContent deve ...", () => {
@@ -11,21 +10,21 @@ describe("JobsContent deve ...", () => {
           id: "1",
           title: "Um trabalho na cidade",
           description: "Uma descrição qualquer",
-          enrollmentUrl: "http://link.to.nowhere",
+          enrollmentUrl: "https://link.to.nowhere",
           location: "Piracicaba",
         },
         {
           id: "2",
           title: "Um trabalho remoto",
           description: "Uma descrição qualquer",
-          enrollmentUrl: "http://link.to.nowhere",
+          enrollmentUrl: "https://link.to.nowhere",
           location: "Remoto",
         },
         {
           id: "3",
           title: "Um trabalho em outra cidade",
           description: "Uma descrição qualquer",
-          enrollmentUrl: "http://link.to.nowhere",
+          enrollmentUrl: "https://link.to.nowhere",
           location: "Outro",
         },
       ],
@@ -74,14 +73,14 @@ describe("JobsContent deve ...", () => {
             id: "2",
             title: "Um trabalho remoto",
             description: "Uma descrição qualquer",
-            enrollmentUrl: "http://link.to.nowhere",
+            enrollmentUrl: "https://link.to.nowhere",
             location: "Remoto",
           },
           {
             id: "3",
             title: "Um trabalho em outra cidade",
             description: "Uma descrição qualquer",
-            enrollmentUrl: "http://link.to.nowhere",
+            enrollmentUrl: "https://link.to.nowhere",
             location: "Outro",
           },
         ],
@@ -95,14 +94,14 @@ describe("JobsContent deve ...", () => {
             id: "1",
             title: "Um trabalho na cidade",
             description: "Uma descrição qualquer",
-            enrollmentUrl: "http://link.to.nowhere",
+            enrollmentUrl: "https://link.to.nowhere",
             location: "Piracicaba",
           },
           {
             id: "3",
             title: "Um trabalho em outra cidade",
             description: "Uma descrição qualquer",
-            enrollmentUrl: "http://link.to.nowhere",
+            enrollmentUrl: "https://link.to.nowhere",
             location: "Outro",
           },
         ],
@@ -116,14 +115,14 @@ describe("JobsContent deve ...", () => {
             id: "1",
             title: "Um trabalho na cidade",
             description: "Uma descrição qualquer",
-            enrollmentUrl: "http://link.to.nowhere",
+            enrollmentUrl: "https://link.to.nowhere",
             location: "Piracicaba",
           },
           {
             id: "2",
             title: "Um trabalho remoto",
             description: "Uma descrição qualquer",
-            enrollmentUrl: "http://link.to.nowhere",
+            enrollmentUrl: "https://link.to.nowhere",
             location: "Remoto",
           },
         ],

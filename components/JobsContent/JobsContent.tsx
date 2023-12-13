@@ -9,7 +9,8 @@ export interface JobsContentProps {
 const JobsContent: React.FC<JobsContentProps> = ({
   jobs,
 }: JobsContentProps) => {
-  const locations = ["Piracicaba", "Remoto", "Outros"];
+  let locations = jobs.map((m) => m.location);
+  locations = locations.filter((i, x) => locations.indexOf(i) == x);
   return (
     <Grid
       sx={{

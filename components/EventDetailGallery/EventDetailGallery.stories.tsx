@@ -3,14 +3,6 @@ import EventDetailGallery, {
   EventDetailGalleryProps,
 } from "./EventDetailGallery";
 
-const meta: Meta<typeof EventDetailGallery> = {
-  component: EventDetailGallery,
-};
-
-export default meta;
-
-type Story = StoryObj<typeof EventDetailGallery>;
-
 const props: EventDetailGalleryProps = {
   gallery: Array(20)
     .fill([
@@ -23,6 +15,11 @@ const props: EventDetailGalleryProps = {
     .sort(() => Math.random() - 0.5),
 };
 
-export const Default: Story = {
+const meta: Meta<typeof EventDetailGallery> = {
+  component: EventDetailGallery,
+};
+
+export default meta;
+export const Default: StoryObj<typeof EventDetailGallery> = {
   args: props,
 };

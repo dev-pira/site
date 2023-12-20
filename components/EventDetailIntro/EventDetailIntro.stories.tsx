@@ -1,14 +1,6 @@
 import { Meta, StoryObj } from "@storybook/react";
 import EventDetailIntro, { EventDetailIntroProps } from "./EventDetailIntro";
 
-const meta: Meta<typeof EventDetailIntro> = {
-  component: EventDetailIntro,
-};
-
-export default meta;
-
-type Story = StoryObj<typeof EventDetailIntro>;
-
 const props: EventDetailIntroProps = {
   title: "Evento em destaque",
   description:
@@ -16,6 +8,11 @@ const props: EventDetailIntroProps = {
   dateTime: new Date(),
 };
 
-export const Default: Story = {
+const meta: Meta<typeof EventDetailIntro> = {
+  component: EventDetailIntro,
+};
+
+export default meta;
+export const Default: StoryObj<typeof EventDetailIntro> = {
   args: props,
 };

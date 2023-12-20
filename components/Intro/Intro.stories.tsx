@@ -1,9 +1,11 @@
-import { ComponentMeta, ComponentStory } from "@storybook/react";
+import { Meta, StoryObj } from "@storybook/react";
 import Intro from "./Intro";
 
-export default {
-  title: "Sections/Intro",
+const meta: Meta<typeof Intro> = {
   component: Intro,
-} as ComponentMeta<typeof Intro>;
+};
 
-export const Default: ComponentStory<typeof Intro> = () => <Intro />;
+export default meta;
+export const Default: StoryObj<typeof Intro> = {
+  args: {},
+};

@@ -1,9 +1,17 @@
-import { ComponentMeta } from "@storybook/react";
-import SocialButton from "./SocialButton";
+import { Meta, StoryObj } from "@storybook/react";
+import SocialButton, { SocialButtonProps } from "./SocialButton";
 
-export default {
-  title: "Components/SocialButton",
+const props: SocialButtonProps = {
+  children: "Hello World",
+  href: "http://google.com",
+  midia: "instagram",
+};
+
+const meta: Meta<typeof SocialButton> = {
   component: SocialButton,
-} as ComponentMeta<typeof SocialButton>;
+};
 
-export const Primary = { args: { children: "Hello World" } };
+export default meta;
+export const Default: StoryObj<typeof SocialButton> = {
+  args: props,
+};

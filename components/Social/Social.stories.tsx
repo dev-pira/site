@@ -1,9 +1,11 @@
-import { ComponentMeta, ComponentStory } from "@storybook/react";
+import { Meta, StoryObj } from "@storybook/react";
 import Social from "./Social";
 
-export default {
-  title: "Sections/Social",
+const meta: Meta<typeof Social> = {
   component: Social,
-} as ComponentMeta<typeof Social>;
+};
 
-export const Default: ComponentStory<typeof Social> = () => <Social />;
+export default meta;
+export const Default: StoryObj<typeof Social> = {
+  args: {},
+};

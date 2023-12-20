@@ -1,6 +1,10 @@
 import { Meta, StoryObj } from "@storybook/react";
 import Button, { ButtonProps } from "./Button";
 
+const props: ButtonProps = {
+  children: "Hello World",
+};
+
 const meta: Meta<typeof Button> = {
   component: Button,
   argTypes: {
@@ -45,13 +49,6 @@ const meta: Meta<typeof Button> = {
 };
 
 export default meta;
-
-type Story = StoryObj<typeof Button>;
-
-const props: ButtonProps = {
-  children: "Hello World",
-};
-
-export const Default: Story = {
+export const Default: StoryObj<typeof Button> = {
   args: props,
 };

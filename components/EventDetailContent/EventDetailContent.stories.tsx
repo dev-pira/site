@@ -3,14 +3,6 @@ import EventDetailContent, {
   EventDetailContentProps,
 } from "./EventDetailContent";
 
-const meta: Meta<typeof EventDetailContent> = {
-  component: EventDetailContent,
-};
-
-export default meta;
-
-type Story = StoryObj<typeof EventDetailContent>;
-
 const now = new Date();
 
 const props: EventDetailContentProps = {
@@ -100,6 +92,11 @@ const props: EventDetailContentProps = {
   ],
 };
 
-export const Default: Story = {
+const meta: Meta<typeof EventDetailContent> = {
+  component: EventDetailContent,
+};
+
+export default meta;
+export const Default: StoryObj<typeof EventDetailContent> = {
   args: props,
 };

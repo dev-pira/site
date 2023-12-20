@@ -1,13 +1,16 @@
-import { ComponentMeta } from "@storybook/react";
-import Partners from "./Partners";
+import { Meta, StoryObj } from "@storybook/react";
+import Partners, { PartnersProps } from "./Partners";
 
-export default {
-  title: "Sections/Partners",
+const props: PartnersProps = {
+  partners: [{ name: "A" }, { name: "B" }, { name: "C" }],
+  description: "Lorem ipsum",
+};
+
+const meta: Meta<typeof Partners> = {
   component: Partners,
-} as ComponentMeta<typeof Partners>;
+};
 
-export const Default = {
-  args: {
-    partners: ["A", "B", "C", "D", "E", "F", "G", "H", "I"],
-  },
+export default meta;
+export const Default: StoryObj<typeof Partners> = {
+  args: props,
 };

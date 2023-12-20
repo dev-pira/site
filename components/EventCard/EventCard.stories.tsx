@@ -1,14 +1,6 @@
 import { Meta, StoryObj } from "@storybook/react";
 import EventCard, { EventCardProps } from "./EventCard";
 
-const meta: Meta<typeof EventCard> = {
-  component: EventCard,
-};
-
-export default meta;
-
-type Story = StoryObj<typeof EventCard>;
-
 const props: EventCardProps = {
   color: "primary",
   dateTime: new Date(),
@@ -17,6 +9,11 @@ const props: EventCardProps = {
   description: "Lorem ipsum",
 };
 
-export const Default: Story = {
+const meta: Meta<typeof EventCard> = {
+  component: EventCard,
+};
+
+export default meta;
+export const Default: StoryObj<typeof EventCard> = {
   args: props,
 };

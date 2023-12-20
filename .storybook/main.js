@@ -6,6 +6,8 @@ module.exports = {
     "@storybook/addon-essentials",
     "@storybook/addon-interactions",
     "@storybook/addon-mdx-gfm",
+    "@storybook/addon-themes",
+    "@storybook/themes"
   ],
 
   framework: {

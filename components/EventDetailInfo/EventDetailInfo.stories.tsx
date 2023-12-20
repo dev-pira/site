@@ -1,18 +1,21 @@
-import { ComponentMeta } from "@storybook/react";
-import EventDetailInfo from "./EventDetailInfo";
+import { Meta, StoryObj } from "@storybook/react";
+import EventDetailInfo, { EventDetailInfoProps } from "./EventDetailInfo";
+import { RichContent } from "../RichContent";
 
-export default {
-  title: "Sections/EventDetailInfo",
+const meta: Meta<typeof EventDetailInfo> = {
   component: EventDetailInfo,
-} as ComponentMeta<typeof EventDetailInfo>;
+};
 
-export const Default = {
-  args: {
-    description: `Turpis fusce et, nisl, bibendum viverra pretium duis nulla euismod. Ac felis velit scelerisque consectetur in morbi odio. Egestas sit ultrices mi nulla consectetur egestas ac vivamus tortor. Enim nibh ut vitae tristique. Nam vulputate lectus massa consequat tristique et suspendisse lorem. Tempor accumsan pellentesque cursus at cum nunc dolor. Lacus mattis ultricies ut turpis lectus tortor elit tellus. Risus, in a dui platea sed a. Bibendum mauris vel, magna congue.
-        Enim nibh ut vitae tristique. Nam vulputate lectus massa consequat tristique et suspendisse lorem. Tempor accumsan pellentesque cursus at cum nunc dolor. Lacus mattis ultricies ut turpis lectus tortor elit tellus. Risus, in a dui platea sed a. Bibendum mauris vel, magna congue.`,
-    dateTime: new Date(),
-    place: "Somewhere",
-    otherInfo:
-      "Turpis fusce et, nisl, bibendum viverra pretium duis nulla euismod. Ac felis velit scelerisque consectetur in morbi odio.",
-  },
+export default meta;
+
+type Story = StoryObj<typeof EventDetailInfo>;
+
+const props: EventDetailInfoProps = {
+  dateTime: new Date(),
+  location: "Piracicaba, SP",
+  longDescription: "",
+};
+
+export const Default: Story = {
+  args: props,
 };

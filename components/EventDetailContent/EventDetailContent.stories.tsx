@@ -1,74 +1,105 @@
-import { ComponentMeta } from "@storybook/react";
-import EventDetailContent from "./EventDetailContent";
+import { Meta, StoryObj } from "@storybook/react";
+import EventDetailContent, {
+  EventDetailContentProps,
+} from "./EventDetailContent";
 
-export default {
-  title: "Sections/EventDetailContent",
+const meta: Meta<typeof EventDetailContent> = {
   component: EventDetailContent,
-} as ComponentMeta<typeof EventDetailContent>;
+};
+
+export default meta;
+
+type Story = StoryObj<typeof EventDetailContent>;
 
 const now = new Date();
 
-export const Default = {
-  args: {
-    tracks: [
-      {
-        name: "Tema da trilha A",
-        talks: [
-          {
-            title: "Assunto de palestra muito interessante",
-            speaker: "Fulano da Silva Carvalho",
-            speakerJob: "Desenvolvedor na Ciclano",
-            time: now,
+const props: EventDetailContentProps = {
+  tracks: [
+    {
+      name: "Tema da trilha A",
+      talks: [
+        {
+          title: "Assunto de palestra muito interessante",
+          speaker: {
+            name: "Fulano da Silva Carvalho",
+            portraitUrl: "",
+            job: "Desenvolvedor na Ciclano",
           },
-          {
-            title: "Assunto de palestra muito interessante",
-            speaker: "Fulano da Silva Carvalho",
-            speakerJob: "Desenvolvedor na Ciclano",
-            time: now,
+          time: now,
+        },
+        {
+          title: "Assunto de palestra muito interessante",
+          speaker: {
+            name: "Fulano da Silva Carvalho",
+            portraitUrl: "",
+            job: "Desenvolvedor na Ciclano",
           },
-          {
-            title: "Assunto de palestra muito interessante",
-            speaker: "Fulano da Silva Carvalho",
-            speakerJob: "Desenvolvedor na Ciclano",
-            time: now,
+          time: now,
+        },
+        {
+          title: "Assunto de palestra muito interessante",
+          speaker: {
+            name: "Fulano da Silva Carvalho",
+            portraitUrl: "",
+            job: "Desenvolvedor na Ciclano",
           },
-          {
-            title: "Assunto de palestra muito interessante",
-            speaker: "Fulano da Silva Carvalho",
-            speakerJob: "Desenvolvedor na Ciclano",
-            time: now,
+          time: now,
+        },
+        {
+          title: "Assunto de palestra muito interessante",
+          speaker: {
+            name: "Fulano da Silva Carvalho",
+            portraitUrl: "",
+            job: "Desenvolvedor na Ciclano",
           },
-        ],
-      },
-      {
-        name: "Tema da trilha B",
-        talks: [
-          {
-            title: "Assunto de palestra muito interessante",
-            speaker: "Fulano da Silva Carvalho",
-            speakerJob: "Desenvolvedor na Ciclano",
-            time: now,
+          time: now,
+        },
+      ],
+    },
+    {
+      name: "Tema da trilha B",
+      talks: [
+        {
+          title: "Assunto de palestra muito interessante",
+          speaker: {
+            name: "Fulano da Silva Carvalho",
+            portraitUrl: "",
+            job: "Desenvolvedor na Ciclano",
           },
-          {
-            title: "Assunto de palestra muito interessante",
-            speaker: "Fulano da Silva Carvalho",
-            speakerJob: "Desenvolvedor na Ciclano",
-            time: now,
+          time: now,
+        },
+        {
+          title: "Assunto de palestra muito interessante",
+          speaker: {
+            name: "Fulano da Silva Carvalho",
+            portraitUrl: "",
+            job: "Desenvolvedor na Ciclano",
           },
-          {
-            title: "Assunto de palestra muito interessante",
-            speaker: "Fulano da Silva Carvalho",
-            speakerJob: "Desenvolvedor na Ciclano",
-            time: now,
+          time: now,
+        },
+        {
+          title: "Assunto de palestra muito interessante",
+          speaker: {
+            name: "Fulano da Silva Carvalho",
+            portraitUrl: "",
+            job: "Desenvolvedor na Ciclano",
           },
-          {
-            title: "Assunto de palestra muito interessante",
-            speaker: "Fulano da Silva Carvalho",
-            speakerJob: "Desenvolvedor na Ciclano",
-            time: now,
+          time: now,
+        },
+        {
+          title: "Assunto de palestra muito interessante",
+          speaker: {
+            name: "Fulano da Silva Carvalho",
+            portraitUrl: "",
+            job: "Desenvolvedor na Ciclano",
           },
-        ],
-      },
-    ],
-  },
+          time: now,
+        },
+      ],
+    },
+  ],
+};
+
+export const Default: Story = {
+  args: props,
 };

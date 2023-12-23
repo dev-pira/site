@@ -22,6 +22,7 @@
     "@mui/material": "^5.9.3",
     "@vercel/analytics": "^0.1.2",
     "cors": "^2.8.5",
+    "firebase": "^10.7.1",
     "formik": "^2.2.9",
     "lorem-ipsum": "^2.0.8",
     "next": "13.5.6",

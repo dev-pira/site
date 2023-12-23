@@ -3,7 +3,7 @@ import SocialButton, { SocialButtonProps } from "./SocialButton";
 
 const props: SocialButtonProps = {
   children: "Hello World",
-  href: "http://google.com",
+  href: "https://google.com",
   midia: "instagram",
 };
 

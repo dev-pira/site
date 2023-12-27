@@ -1,18 +1,19 @@
-import { ComponentMeta } from "@storybook/react";
-import EventCard from "./EventCard";
+import { Meta, StoryObj } from "@storybook/react";
+import EventCard, { EventCardProps } from "./EventCard";
 
-export default {
-  title: "Components/EventCard",
+const props: EventCardProps = {
+  color: "primary",
+  dateTime: new Date(),
+  slug: "sample-event",
+  title: "Sample Event",
+  description: "Lorem ipsum",
+};
+
+const meta: Meta<typeof EventCard> = {
   component: EventCard,
-} as ComponentMeta<typeof EventCard>;
+};
 
-export const Default = {
-  args: {
-    title: "Nome do evento",
-    description:
-      "Turpis fusce et, nisl, bibendum viverra pretium duis nulla euismod.",
-    dateTime: new Date(),
-    detailsLink: "https://www.google.com",
-    participateLink: "https://www.google.com",
-  },
+export default meta;
+export const Default: StoryObj<typeof EventCard> = {
+  args: props,
 };

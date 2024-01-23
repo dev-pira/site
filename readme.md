@@ -79,6 +79,48 @@ As implantações acontecerão quando o código for integrado à `main`, depois 
 
 ...
 
+# Time _Core_
+
+<table>
+  <tr>
+    <td>
+      <img src="https://avatars.githubusercontent.com/u/82414677?v=4" alt="@abpaula77" />
+      @abpaula77<br />
+      Dev
+    </td>
+    <td>
+      <img src="https://avatars.githubusercontent.com/u/3385337?v=4" alt="@fabiobaldins" />
+      @fabiobaldins
+    </td>
+    <td>
+      <img src="https://avatars.githubusercontent.com/u/22418450?v=4" alt="@gabrielcesar95" />
+      @gabrielcesar95<br />
+      Dev
+    </td>
+    <td>
+      <img src="https://avatars.githubusercontent.com/u/42376741?v=4" alt="@lucastangi" />
+      @lucastangi<br />
+      UX
+    </td>
+    <td>
+      <img src="https://avatars.githubusercontent.com/u/3878837?v=4" alt="@murilobeltrame" />
+      @murilobeltrame<br />
+      Dev | Infra | Adm
+    </td>
+  <tr>
+</table>
+
+# Contribuidores
+
+<!-- ALL-CONTRIBUTORS-LIST:START - Do not remove or modify this section -->
+<!-- prettier-ignore-start -->
+<!-- markdownlint-disable -->
+
+<!-- markdownlint-restore -->
+<!-- prettier-ignore-end -->
+
+<!-- ALL-CONTRIBUTORS-LIST:END -->
+
 # Código de conduta
 
 Consulte nosso [Código de Conduta](./CODE_OF_CONDUCT.md).

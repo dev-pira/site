@@ -37,7 +37,7 @@ Exemplos de representação da nossa comunidade incluem o uso de um endereço de
 
 ## Aplicação
 
-Instâncias de comportamento abusivo, de assédio ou de outra forma inaceitável podem ser relatados aos líderes comunitários responsáveis pela fiscalização em contato@devpira.com.br.
+Instâncias de comportamento abusivo, de assédio ou de outra forma inaceitável podem ser relatados aos líderes comunitários responsáveis pela fiscalização em contato.devpira@gmail.com.
 Todas as reclamações serão analisadas e investigadas de forma rápida e justa.
 
 Todos os líderes comunitários são obrigados a respeitar a privacidade e a segurança do reclamante de qualquer incidente.

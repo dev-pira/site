@@ -48,7 +48,9 @@ const JobCard: React.FC<JobCardProps> = ({
         {companyElement}
         <Link href={enrollmentUrl} target="_blank" rel="noreferrer">
           <Button expanded color="primary">
-            Detalhes da vaga
+            {enrollmentUrl.startsWith("mailto")
+              ? "Enviar e-mail"
+              : "Detalhes da vaga"}
           </Button>
         </Link>
       </Box>

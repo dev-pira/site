@@ -1,4 +1,4 @@
-import { Box, Link } from "@mui/material";
+import { Box, Container, Link } from "@mui/material";
 import { RichContent } from "../RichContent";
 import { Typography } from "../Typography";
 import { Event } from "../../models/event";
@@ -14,7 +14,6 @@ const EventDetailInfo: React.FC<EventDetailInfoProps> = ({
   location,
   otherInfo,
 }: EventDetailInfoProps) => {
-  const defaultWidth = "1345px";
   let formatedDateTime = `${dateTime.getDate()}/${
     dateTime.getMonth() + 1
   }/${dateTime.getFullYear()}`;
@@ -46,7 +45,7 @@ const EventDetailInfo: React.FC<EventDetailInfoProps> = ({
         alignItems: "center",
       }}
     >
-      <Box sx={{ width: defaultWidth, display: "flex", gap: "110px" }}>
+      <Container sx={{ display: "flex", gap: "110px" }}>
         {/* SOBRE */}
         <Box
           sx={{
@@ -91,7 +90,7 @@ const EventDetailInfo: React.FC<EventDetailInfoProps> = ({
           {otherInfoBlock}
         </Box>
         {/* /PARTICIPE */}
-      </Box>
+      </Container>
     </Box>
   );
 };

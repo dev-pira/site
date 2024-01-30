@@ -1,4 +1,4 @@
-import { Box } from "@mui/material";
+import { Box, Container } from "@mui/material";
 import { EventCard } from "../EventCard";
 import { Typography } from "../Typography";
 import { EventPart } from "../../models/event";
@@ -10,10 +10,18 @@ export interface EventsContentProps {
 const EventsContent: React.FC<EventsContentProps> = ({
   events,
 }: EventsContentProps) => {
-  const defaultWidth = "1345px";
   const types = events
     .map((e) => e.type)
     .filter((value, index, self) => self.indexOf(value) === index);
+  const partnerEventsIndex = events.findIndex((e) =>
+    e.type?.toLocaleLowerCase().includes("parceiro")
+  );
+  if (partnerEventsIndex > -1) {
+    const partnerEventsType = types[partnerEventsIndex];
+    types.splice(partnerEventsIndex, 1);
+    types.push(partnerEventsType);
+  }
+
   return (
     <Box
       sx={{
@@ -30,17 +38,15 @@ const EventsContent: React.FC<EventsContentProps> = ({
             if (a.dateTime < b.dateTime) return 1;
             if (a.dateTime > b.dateTime) return -1;
             return 0;
-          })
-          .slice(0, 4);
+          });
         const missingBoxes = [];
         for (let i = 0; i < 4 - eventsOfType.length; i++) {
           missingBoxes.push(i);
         }
         return (
-          <Box
+          <Container
             key={type}
             sx={{
-              width: defaultWidth,
               display: "flex",
               flexDirection: "column",
               padding: "56px 0",
@@ -50,11 +56,11 @@ const EventsContent: React.FC<EventsContentProps> = ({
             <Typography variant="h3">{type}</Typography>
             <Box
               sx={{
-                width: defaultWidth,
                 display: "flex",
                 flexDirection: "row",
-                justifyContent: "center",
-                alignItems: "center",
+                justifyContent: "flex-start",
+                alignItems: "start",
+                flexWrap: "wrap",
                 gap: "16px",
               }}
             >
@@ -76,7 +82,7 @@ const EventsContent: React.FC<EventsContentProps> = ({
                 );
               })}
             </Box>
-          </Box>
+          </Container>
         );
       })}
     </Box>

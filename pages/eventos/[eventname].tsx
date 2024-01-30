@@ -1,6 +1,7 @@
 import {
-  GetServerSideProps,
-  InferGetServerSidePropsType,
+  GetStaticPaths,
+  GetStaticProps,
+  InferGetStaticPropsType,
   NextPage,
 } from "next";
 import { EventDetailContent } from "../../components/EventDetailContent";
@@ -12,11 +13,12 @@ import { Social } from "../../components/Social";
 import { EventDetailGallery } from "../../components/EventDetailGallery";
 import Partners from "../../components/Partners/Partners";
 import { EventDetailVideo } from "../../components/EventDetailVideo";
-import { getEventData } from "../../services/eventService";
+import { fetchEventsNames, getEventData } from "../../services/eventService";
+import { ParsedUrlQuery } from "querystring";
 
 const EventDetailPage: NextPage = ({
   eventData,
-}: InferGetServerSidePropsType<typeof getServerSideProps>) => {
+}: InferGetStaticPropsType<typeof getStaticProps>) => {
   if (eventData) {
     eventData.dateTime = new Date(eventData.dateTime);
     return (
@@ -43,17 +45,23 @@ const EventDetailPage: NextPage = ({
   );
 };
 
-export const getServerSideProps: GetServerSideProps = async (context) => {
+export const getStaticPaths: GetStaticPaths = async () => {
+  let paths: { params: ParsedUrlQuery; locale?: string }[] = [];
   try {
-    const { eventname } = context.query;
-    const eventData = await getEventData(eventname as string);
-    if (eventData) {
-      context.res.setHeader(
-        "Cache-Control",
-        "public, s-maxage=120, stale-while-revalidate=239"
-      );
-      return { props: { eventData } };
-    }
+    paths = await fetchEventsNames();
+  } catch (error) {
+    console.error(error);
+  }
+  return {
+    paths,
+    fallback: "blocking",
+  };
+};
+
+export const getStaticProps: GetStaticProps = async ({ params }) => {
+  try {
+    const eventData = await getEventData(params?.eventname as string);
+    return { props: { eventData }, revalidate: 120 };
   } catch (error) {
     console.error(error);
   }

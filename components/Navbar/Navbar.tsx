@@ -21,7 +21,7 @@ const pages = [
   { label: "Vagas", link: "/vagas" },
   { label: "Contato", link: "/contato" },
 ];
-const logoSize = { width: "185px", height: "77px" };
+const logoSize = { width: 185, height: 77 };
 
 function Navbar() {
   const [anchorElNav, setAnchorElNav] =

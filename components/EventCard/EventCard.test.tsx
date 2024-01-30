@@ -5,10 +5,11 @@ import "@testing-library/jest-dom";
 describe("EventCard deve ", () => {
   it("não renderizar botão Participar quando o link de inscrição for omitido", () => {
     const props: EventCardProps = {
-      slug: "test-event-1",
       color: "primary",
       title: "event",
+      description: "the description",
       dateTime: new Date(2020, 1, 1),
+      slug: "test-event",
     };
     render(<EventCard {...props} />);
     const button = screen.queryByRole("link", { name: /Participar/ });
@@ -19,11 +20,12 @@ describe("EventCard deve ", () => {
     const date = new Date();
     date.setDate(date.getDate() + 1);
     const props: EventCardProps = {
-      slug: "test-event-2",
       color: "primary",
       title: "event",
+      description: "the description",
       dateTime: date,
-      subscribeLink: "subscribelink",
+      subscriptionUrl: "subscribelink",
+      slug: "test-event",
     };
     render(<EventCard {...props} />);
     const button = screen.getByRole("link", { name: /Participar/ });
@@ -34,11 +36,12 @@ describe("EventCard deve ", () => {
     const date = new Date();
     date.setDate(date.getDate() - 1);
     const props: EventCardProps = {
-      slug: "test-event-3",
       color: "primary",
       title: "event",
+      description: "the description",
       dateTime: date,
-      subscribeLink: "subscribelink",
+      subscriptionUrl: "subscribelink",
+      slug: "test-event",
     };
     render(<EventCard {...props} />);
     const button = screen.queryByRole("link", { name: /Participar/ });

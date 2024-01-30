@@ -1,13 +1,15 @@
-import { ComponentMeta } from "@storybook/react";
-import EventDetailVideo from "./EventDetailVideo";
+import { Meta, StoryObj } from "@storybook/react";
+import EventDetailVideo, { EventDetailVideoProps } from "./EventDetailVideo";
 
-export default {
-  title: "Sections/EventDetailVideo",
+const props: EventDetailVideoProps = {
+  videoUrl: "https://www.youtube.com/embed/yIyi1lKlpJw",
+};
+
+const meta: Meta<typeof EventDetailVideo> = {
   component: EventDetailVideo,
-} as ComponentMeta<typeof EventDetailVideo>;
+};
 
-export const Default = {
-  args: {
-    videoUrl: "https://www.youtube.com/embed/yIyi1lKlpJw",
-  },
+export default meta;
+export const Default: StoryObj<typeof EventDetailVideo> = {
+  args: props,
 };

@@ -1,11 +1,11 @@
-import { ComponentMeta, ComponentStory } from "@storybook/react";
+import { Meta, StoryObj } from "@storybook/react";
 import Initiatives from "./Initiatives";
 
-export default {
-  title: "Sections/Initiatives",
+const meta: Meta<typeof Initiatives> = {
   component: Initiatives,
-} as ComponentMeta<typeof Initiatives>;
+};
 
-export const Default: ComponentStory<typeof Initiatives> = () => (
-  <Initiatives />
-);
+export default meta;
+export const Default: StoryObj<typeof Initiatives> = {
+  args: {},
+};

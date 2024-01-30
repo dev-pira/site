@@ -29,7 +29,7 @@ const JobsPage: NextPage = ({
 export const getStaticProps: GetStaticProps = async () => {
   try {
     const jobsData = await fetchJobsData();
-    return { props: { jobsData }, revalidate: 30 };
+    return { props: { jobsData }, revalidate: 120 };
   } catch (error) {
     console.log(error);
   }

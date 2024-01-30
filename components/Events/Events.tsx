@@ -1,20 +1,13 @@
 import { Box, Container, Grid } from "@mui/material";
-import Image from "next/image";
+import Image from "next/legacy/image";
 import { EventCard } from "../EventCard";
 import { Button } from "../Button";
 import { Typography } from "../Typography";
+import { EventDetailsPart } from "../../models/event";
 
-export interface EventsProps {
-  events: {
-    slug: string;
-    description?: string;
-    detailsLink: string;
-    participateLink?: string;
-    title: string;
-    type: "Meetup" | "Live" | "Worshop";
-    dateTime: Date;
-  }[];
-}
+export type EventsProps = {
+  events: EventDetailsPart[];
+};
 
 const Events: React.FC<EventsProps> = ({ events }: EventsProps) => {
   let latestEvents = events;
@@ -120,8 +113,14 @@ const Events: React.FC<EventsProps> = ({ events }: EventsProps) => {
               },
             }}
           >
-            {latestEvents.map((eventData, index) => {
-              return <EventCard key={index} {...eventData} color="primary" />;
+            {latestEvents.map((eventData) => {
+              return (
+                <EventCard
+                  key={eventData.slug}
+                  {...eventData}
+                  color="primary"
+                />
+              );
             })}
           </Grid>
           {/* /CARDS */}

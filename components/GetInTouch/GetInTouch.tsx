@@ -1,7 +1,7 @@
 import { Box, Container, Grid } from "@mui/material";
 import { Typography } from "../Typography";
 import Link from "next/link";
-import { Button } from "../Button";
+import Image from "next/legacy/image";
 
 const GetInTouch: React.FC = () => {
   return (
@@ -62,20 +62,14 @@ const GetInTouch: React.FC = () => {
             <Box
               sx={{
                 width: 451,
-                height: 397,
+                height: 400,
                 display: "flex",
                 flexDirection: "column",
                 justifyContent: "space-between",
                 py: "5rem",
               }}
             >
-              <Typography variant="h4">Envie sua mensagem</Typography>
-              <Typography variant="h5">email</Typography>
-              <Typography variant="h5">whatsapp</Typography>
-              <Typography variant="h5">mensagem</Typography>
-              <div>
-                <Button variant="contained">Enviar</Button>
-              </div>
+              <Image alt="" src="/images/mail.svg" width={400} height={400} />
             </Box>
           </Box>
         </Grid>

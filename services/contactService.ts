@@ -11,7 +11,7 @@ export function fetchMembersData(): Member[] {
     },
     {
       name: "Fábio Baldin",
-      job: "Coordenador de Agilidade @ Ticket",
+      job: "Gerente de projetos de tecnologia @ Ticket",
       profileUrl: "https://www.linkedin.com/in/fabiobaldin/",
       portraitUrl:
         "https://media.licdn.com/dms/image/D4D03AQF6LMI0LR4A-w/profile-displayphoto-shrink_800_800/0/1698623212290?e=1712188800&v=beta&t=xsLtuAx642OzHbjABrhYdeun6H0_SAxjsM_rwrmI5c4",

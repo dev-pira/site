@@ -31,7 +31,9 @@ const GetInTouch: React.FC = () => {
           >
             <Typography variant="h3">
               Fale com a
-              <Typography color="gradient_blue"> comunidade</Typography>
+              <Typography variant="introSpan" color="gradient_blue">
+                comunidade
+              </Typography>
             </Typography>
 
             <Typography>

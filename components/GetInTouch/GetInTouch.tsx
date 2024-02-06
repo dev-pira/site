@@ -29,11 +29,10 @@ const GetInTouch: React.FC = () => {
               py: "5rem",
             }}
           >
-            <Typography variant="h3">
-              Fale com a
-              <Typography variant="introSpan" color="gradient_blue">
-                comunidade
-              </Typography>
+            <Typography variant="h3">Fale com a</Typography>
+
+            <Typography variant="introSpan" color="gradient_blue">
+              comunidade
             </Typography>
 
             <Typography>

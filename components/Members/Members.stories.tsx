@@ -1,14 +1,11 @@
-import { ComponentMeta } from "@storybook/react";
-import { events } from "../../stories/data/events";
+import { Meta, StoryObj } from "@storybook/react";
 import Members from "./Members";
 
-export default {
-  title: "Sections/Members",
+const meta: Meta<typeof Members> = {
   component: Members,
-} as ComponentMeta<typeof Members>;
+};
 
-export const Default = {
-  args: {
-    events,
-  },
+export default meta;
+export const Default: StoryObj<typeof Members> = {
+  args: {},
 };

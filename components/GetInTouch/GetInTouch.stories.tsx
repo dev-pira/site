@@ -1,9 +1,11 @@
-import { ComponentMeta, ComponentStory } from "@storybook/react";
+import { Meta, StoryObj } from "@storybook/react";
 import GetInTouch from "./GetInTouch";
 
-export default {
-  title: "Sections/GetInTouch",
+const meta: Meta<typeof GetInTouch> = {
   component: GetInTouch,
-} as ComponentMeta<typeof GetInTouch>;
+};
 
-export const Default: ComponentStory<typeof GetInTouch> = () => <GetInTouch />;
+export default meta;
+export const Default: StoryObj<typeof GetInTouch> = {
+  args: {},
+};

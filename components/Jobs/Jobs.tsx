@@ -2,6 +2,7 @@ import { Box, Container, Grid } from "@mui/material";
 import Image from "next/legacy/image";
 import { Button } from "../Button";
 import { Typography } from "../Typography";
+import { sendGAEvent } from "@next/third-parties/google";
 
 const Jobs: React.FC = () => {
   return (
@@ -37,7 +38,17 @@ const Jobs: React.FC = () => {
               oferecer uma chance a quem procura!
             </Typography>
             <Box>
-              <Button href="/vagas">Acessar Vagas</Button>
+              <Button
+                href="/vagas"
+                onClick={() =>
+                  sendGAEvent({
+                    event: "Clicou no botão na seção Vagas da Main",
+                    value: "Vagas",
+                  })
+                }
+              >
+                Acessar Vagas
+              </Button>
             </Box>
           </Box>
         </Grid>

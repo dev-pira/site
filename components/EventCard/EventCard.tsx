@@ -2,6 +2,7 @@ import { Box, Grid, SxProps } from "@mui/material";
 import { Button } from "../Button";
 import { Typography } from "../Typography";
 import { EventDetailsPart } from "../../models/event";
+import { sendGAEvent } from "@next/third-parties/google";
 
 type CardProps = {
   color: "primary" | "contrast";
@@ -38,6 +39,12 @@ const EventCard: React.FC<EventCardProps> = ({
       <Button
         href={subscriptionUrl}
         color={color === "primary" ? "contrast" : "primary"}
+        onClick={() =>
+          sendGAEvent({
+            envet: "Clicou no botão Participar no Cartão de Evento",
+            value: slug,
+          })
+        }
       >
         Participar
       </Button>
@@ -161,7 +168,17 @@ const EventCard: React.FC<EventCardProps> = ({
             }}
           >
             {participateNode}
-            <Button href={`eventos/${slug}`} expanded color={color}>
+            <Button
+              href={`eventos/${slug}`}
+              expanded
+              color={color}
+              onClick={() =>
+                sendGAEvent({
+                  event: "Clicou no botão Mais no Cartão de Evento",
+                  value: slug,
+                })
+              }
+            >
               Mais
             </Button>
           </Box>

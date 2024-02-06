@@ -13,7 +13,7 @@ import "@fontsource/inter/300.css";
 import "@fontsource/inter/400.css";
 import "@fontsource/inter/500.css";
 import "@fontsource/inter/700.css";
-import Script from "next/script";
+import { GoogleAnalytics, GoogleTagManager } from "@next/third-parties/google";
 
 function MyApp({ Component, pageProps }: AppProps) {
   const [faviconPath, setFaviconPath] = useState("/images/Favicon/light/");
@@ -39,20 +39,10 @@ function MyApp({ Component, pageProps }: AppProps) {
   }, []);
   return (
     <>
-      <Script
-        strategy="lazyOnload"
-        src={`https://www.googletagmanager.com/gtag/js?id=${process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS}`}
+      <GoogleTagManager
+        gtmId={`${process.env.NEXT_PUBLIC_GOOGLE_TAG_MANAGER}`}
       />
-      <Script strategy="lazyOnload" id="GA_SCRIPT">
-        {`
-                    window.dataLayer = window.dataLayer || [];
-                    function gtag(){dataLayer.push(arguments);}
-                    gtag('js', new Date());
-                    gtag('config', '${process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS}', {
-                    page_path: window.location.pathname,
-                    });
-                `}
-      </Script>
+      <GoogleAnalytics gaId={`${process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS}`} />
       <Head>
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <link

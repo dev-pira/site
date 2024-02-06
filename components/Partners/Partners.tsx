@@ -3,6 +3,7 @@ import { Button } from "../Button";
 import { Typography } from "../Typography";
 import { Partner } from "../../models/partner";
 import Image from "next/legacy/image";
+import { sendGAEvent } from "@next/third-parties/google";
 
 export interface PartnersProps {
   description: string;
@@ -90,7 +91,15 @@ const Partners: React.FC<PartnersProps> = ({
                 <Typography variant="h3">Apoio</Typography>
                 <Typography>{description}</Typography>
                 <Box>
-                  <Button href="mailto:contato@devpira.com.br">
+                  <Button
+                    href="mailto:contato@devpira.com.br"
+                    onClick={() =>
+                      sendGAEvent({
+                        event: "Clicou no botão na seção Apoio",
+                        value: "Apoio",
+                      })
+                    }
+                  >
                     Apoiar o evento
                   </Button>
                 </Box>

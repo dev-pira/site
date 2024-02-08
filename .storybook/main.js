@@ -7,7 +7,7 @@ module.exports = {
     "@storybook/addon-interactions",
     "@storybook/addon-mdx-gfm",
     "@storybook/addon-themes",
-    "@storybook/themes"
+    "@storybook/themes",
   ],
 
   framework: {

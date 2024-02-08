@@ -1,7 +1,8 @@
 import { Box, Container, Grid } from "@mui/material";
-import Image from "next/image";
+import Image from "next/legacy/image";
 import { Button } from "../Button";
 import { Typography } from "../Typography";
+import { sendGAEvent } from "@next/third-parties/google";
 
 const Intro: React.FC = () => {
   return (
@@ -52,8 +53,27 @@ const Intro: React.FC = () => {
                 gap: "8px",
               }}
             >
-              <Button href="#sobre">Saiba mais</Button>
-              <Button color="contrast" href="/eventos">
+              <Button
+                href="#sobre"
+                onClick={() =>
+                  sendGAEvent({
+                    event: "Clicou em botão na Intro",
+                    value: "Sobre",
+                  })
+                }
+              >
+                Saiba mais
+              </Button>
+              <Button
+                color="contrast"
+                href="/eventos"
+                onClick={() =>
+                  sendGAEvent({
+                    event: "Clicou em botão na seção Intro da Main",
+                    value: "Eventos",
+                  })
+                }
+              >
                 Eventos
               </Button>
             </Box>

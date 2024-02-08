@@ -1,9 +1,11 @@
-import { ComponentMeta, ComponentStory } from "@storybook/react";
+import { Meta, StoryObj } from "@storybook/react";
 import Jobs from "./Jobs";
 
-export default {
-  title: "Sections/Jobs",
+const meta: Meta<typeof Jobs> = {
   component: Jobs,
-} as ComponentMeta<typeof Jobs>;
+};
 
-export const Default: ComponentStory<typeof Jobs> = () => <Jobs />;
+export default meta;
+export const Default: StoryObj<typeof Jobs> = {
+  args: {},
+};

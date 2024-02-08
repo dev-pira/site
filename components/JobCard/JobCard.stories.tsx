@@ -1,18 +1,20 @@
-import { ComponentMeta } from "@storybook/react";
-import JobCard from "./JobCard";
+import { Meta, StoryObj } from "@storybook/react";
+import JobCard, { JobCardProps } from "./JobCard";
 
-export default {
-  title: "Components/JobCard",
+const props: JobCardProps = {
+  title: "Nome da vaga",
+  description:
+    "Turpis fusce et, nisl, bibendum viverra pretium duis nulla euismod.",
+  id: "1",
+  enrollmentUrl: "https://google.com",
+  location: "Remoto",
+};
+
+const meta: Meta<typeof JobCard> = {
   component: JobCard,
-} as ComponentMeta<typeof JobCard>;
+};
 
-export const Default = {
-  args: {
-    title: "Nome da vaga",
-    description:
-      "Turpis fusce et, nisl, bibendum viverra pretium duis nulla euismod.",
-    dateTime: new Date(),
-    detailsLink: "https://www.google.com",
-    participateLink: "https://www.google.com",
-  },
+export default meta;
+export const Default: StoryObj<typeof JobCard> = {
+  args: props,
 };

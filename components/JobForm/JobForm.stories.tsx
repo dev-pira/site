@@ -1,9 +1,11 @@
-import { ComponentMeta } from "@storybook/react";
+import { Meta, StoryObj } from "@storybook/react";
 import JobForm from "./JobForm";
 
-export default {
-  title: "Secstions/JobForm",
+const meta: Meta<typeof JobForm> = {
   component: JobForm,
-} as ComponentMeta<typeof JobForm>;
+};
 
-export const Default = { args: {} };
+export default meta;
+export const Default: StoryObj<typeof JobForm> = {
+  args: {},
+};

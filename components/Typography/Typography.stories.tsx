@@ -1,9 +1,15 @@
-import { ComponentMeta } from "@storybook/react";
-import Typography from "./Typography";
+import { Meta, StoryObj } from "@storybook/react";
+import Typography, { TypographyProps } from "./Typography";
 
-export default {
-  title: "Components/Typography",
+const props: TypographyProps = {
+  children: "Hello World",
+};
+
+const meta: Meta<typeof Typography> = {
   component: Typography,
-} as ComponentMeta<typeof Typography>;
+};
 
-export const Default = { args: { variant: "h1", children: "Hello World" } };
+export default meta;
+export const Default: StoryObj<typeof Typography> = {
+  args: props,
+};

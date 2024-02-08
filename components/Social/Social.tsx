@@ -1,5 +1,5 @@
-import { Box } from "@mui/material";
-import Image from "next/image";
+import { Box, Container } from "@mui/material";
+import Image from "next/legacy/image";
 import { SocialButton } from "../SocialButton";
 import { Typography } from "../Typography";
 
@@ -8,7 +8,6 @@ export interface SocialProps {
 }
 
 const Social: React.FC<SocialProps> = ({ color = "green" }: SocialProps) => {
-  const defaultWidth = "1345px";
   return (
     <Box
       sx={{
@@ -20,11 +19,10 @@ const Social: React.FC<SocialProps> = ({ color = "green" }: SocialProps) => {
         px: "1.8rem",
       }}
     >
-      <Box
+      <Container
         sx={{
           display: "flex",
           flexWrap: "wrap",
-          width: defaultWidth,
           maxWidth: "100%",
           alignItems: "center",
           justifyContent: {
@@ -82,9 +80,9 @@ const Social: React.FC<SocialProps> = ({ color = "green" }: SocialProps) => {
             alignItems: "flex-end",
           }}
         >
-          <Image alt="" src="/images/Social.svg" width="359px" height="332px" />
+          <Image alt="" src="/images/Social.svg" width={359} height={332} />
         </Box>
-      </Box>
+      </Container>
     </Box>
   );
 };

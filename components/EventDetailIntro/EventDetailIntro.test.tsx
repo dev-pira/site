@@ -20,7 +20,7 @@ describe("EventDetailIntro deve ", () => {
     const props: EventDetailIntroProps = {
       title: "",
       description: "",
-      subscribeLink: "subscribelink",
+      subscriptionUrl: "subscribelink",
       dateTime: date,
     };
     render(<EventDetailIntro {...props} />);
@@ -34,7 +34,7 @@ describe("EventDetailIntro deve ", () => {
     const props: EventDetailIntroProps = {
       title: "",
       description: "",
-      subscribeLink: "subscribelink",
+      subscriptionUrl: "subscribelink",
       dateTime: date,
     };
     render(<EventDetailIntro {...props} />);

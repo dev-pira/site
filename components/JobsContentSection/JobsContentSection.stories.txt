@@ -1,0 +1,6 @@
+/* 
+DEIXADO EM BRANCO DE MODO INTENCIONAL
+
+Esse componente não deve ser usado diretamente,
+Use <JobsContent /> ao invés disso.
+*/

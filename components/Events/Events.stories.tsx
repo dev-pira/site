@@ -1,14 +1,34 @@
-import { ComponentMeta } from "@storybook/react";
-import { events } from "../../stories/data/events";
-import Events from "./Events";
+import { Meta, StoryObj } from "@storybook/react";
+import Events, { EventsProps } from "./Events";
 
-export default {
-  title: "Sections/Events",
+const props: EventsProps = {
+  events: [
+    {
+      dateTime: new Date(),
+      description: "The event description",
+      slug: "an-event",
+      title: "An Event",
+    },
+    {
+      dateTime: new Date(),
+      description: "The event description",
+      slug: "an-event",
+      title: "An Event",
+    },
+    {
+      dateTime: new Date(),
+      description: "The event description",
+      slug: "an-event",
+      title: "An Event",
+    },
+  ],
+};
+
+const meta: Meta<typeof Events> = {
   component: Events,
-} as ComponentMeta<typeof Events>;
+};
 
-export const Default = {
-  args: {
-    events,
-  },
+export default meta;
+export const Default: StoryObj<typeof Events> = {
+  args: props,
 };

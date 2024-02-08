@@ -1,9 +1,10 @@
 import { Box, Container, Grid } from "@mui/material";
-import Image from "next/image";
+import Image from "next/legacy/image";
 import { EventCard } from "../EventCard";
 import { Button } from "../Button";
 import { Typography } from "../Typography";
 import { EventDetailsPart } from "../../models/event";
+import { sendGAEvent } from "@next/third-parties/google";
 
 export type EventsProps = {
   events: EventDetailsPart[];
@@ -94,7 +95,16 @@ const Events: React.FC<EventsProps> = ({ events }: EventsProps) => {
                   gap: "8px",
                 }}
               >
-                <Button color="contrast" href="/eventos">
+                <Button
+                  color="contrast"
+                  href="/eventos"
+                  onClick={() =>
+                    sendGAEvent({
+                      event: "Clicou em botão na seção Eventos da Main",
+                      value: "Eventos",
+                    })
+                  }
+                >
                   Conhecer eventos
                 </Button>
               </Box>

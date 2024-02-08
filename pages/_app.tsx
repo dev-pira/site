@@ -13,6 +13,7 @@ import "@fontsource/inter/300.css";
 import "@fontsource/inter/400.css";
 import "@fontsource/inter/500.css";
 import "@fontsource/inter/700.css";
+import { GoogleAnalytics, GoogleTagManager } from "@next/third-parties/google";
 
 function MyApp({ Component, pageProps }: AppProps) {
   const [faviconPath, setFaviconPath] = useState("/images/Favicon/light/");
@@ -38,6 +39,10 @@ function MyApp({ Component, pageProps }: AppProps) {
   }, []);
   return (
     <>
+      <GoogleTagManager
+        gtmId={`${process.env.NEXT_PUBLIC_GOOGLE_TAG_MANAGER}`}
+      />
+      <GoogleAnalytics gaId={`${process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS}`} />
       <Head>
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <link

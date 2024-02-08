@@ -1,14 +1,29 @@
-import { ComponentMeta } from "@storybook/react";
-import Input from "./Input";
+import { Meta, StoryObj } from "@storybook/react";
+import Input, { InputProps } from "./Input";
 
-export default {
-  title: "Components/Input",
+const meta: Meta<typeof Input> = {
   component: Input,
-} as ComponentMeta<typeof Input>;
-
-export const Default = {
-  args: {
-    id: "example",
-    label: "A example label",
+  argTypes: {
+    id: {
+      type: "string",
+      description: "Define a identificação única do Campo",
+    },
+    label: {
+      type: "string",
+      description: "Define a etiqueta do Campo",
+    },
   },
+};
+
+export default meta;
+
+type Story = StoryObj<typeof Input>;
+
+const props: InputProps = {
+  id: "Id",
+  label: "Label",
+};
+
+export const Default: Story = {
+  args: props,
 };

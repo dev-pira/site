@@ -52,15 +52,21 @@ const Social: React.FC<SocialProps> = ({ color = "green" }: SocialProps) => {
               gap: "8px",
             }}
           >
+            <SocialButton midia="discord" href="https://discord.gg/hdRAFpg5">
+              DEVPIRA
+            </SocialButton>
             <SocialButton
               midia="facebook"
               href="https://www.facebook.com/DEVPIRA/"
             >
               DEVPIRA
             </SocialButton>
+            <SocialButton midia="github" href="https://github.com/dev-pira">
+              dev-pira
+            </SocialButton>
             <SocialButton
               midia="instagram"
-              href="https://www.instagram.com/devpira_/"
+              href="https://www.instagram.com/devpira/"
             >
               devpira
             </SocialButton>
@@ -69,6 +75,36 @@ const Social: React.FC<SocialProps> = ({ color = "green" }: SocialProps) => {
               href="https://linkedin.com/company/devpira"
             >
               company/devpira
+            </SocialButton>
+            <SocialButton
+              midia="meetup"
+              href="https://www.meetup.com/pt-BR/devpira/"
+            >
+              DEVPIRA
+            </SocialButton>
+            <SocialButton
+              midia="slack"
+              href="https://app.slack.com/client/TMYA8HQ65"
+            >
+              DEVPIRA
+            </SocialButton>
+            <SocialButton
+              midia="telegram"
+              href="https://t.me/joinchat/CY8l7Ro28yIZN-GSoAiIFQ"
+            >
+              DEVPIRA
+            </SocialButton>
+            <SocialButton
+              midia="youtube"
+              href="https://www.youtube.com/@DEVPIRA"
+            >
+              DEVPIRA
+            </SocialButton>
+            <SocialButton
+              midia="whatsapp"
+              href="https://chat.whatsapp.com/EkL1sHqrIvY0DIGjGYMqej"
+            >
+              DEVPIRA
             </SocialButton>
           </Box>
         </Box>

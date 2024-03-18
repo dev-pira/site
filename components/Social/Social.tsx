@@ -68,74 +68,72 @@ const Social: React.FC<SocialProps> = ({ color = "green" }: SocialProps) => {
   ];
 
   return (
-    <>
-      <Box
+    <Box
+      sx={{
+        display: "flex",
+        flexDirection: { xs: "column", md: "row" },
+        justifyContent: "center",
+        backgroundColor: color === "blue" ? "#46A4FF" : "#00F4AB",
+        px: "1.8rem",
+      }}
+    >
+      <Container
         sx={{
           display: "flex",
-          flexDirection: { xs: "column", md: "row" },
-          justifyContent: "center",
-          backgroundColor: color === "blue" ? "#46A4FF" : "#00F4AB",
-          px: "1.8rem",
+          flexWrap: "wrap",
+          // maxWidth: "100%",
+          alignItems: "center",
+          justifyContent: {
+            xs: "center",
+            sm: "center",
+            md: "space-around",
+            lg: "space-around",
+          },
+          minHeight: "367px",
         }}
       >
-        <Container
+        <Box
           sx={{
             display: "flex",
-            flexWrap: "wrap",
-            // maxWidth: "100%",
-            alignItems: "center",
-            justifyContent: {
-              xs: "center",
-              sm: "center",
-              md: "space-around",
-              lg: "space-around",
-            },
-            minHeight: "367px",
+            maxWidth: "546px",
+            padding: "40px 10px 20px 20px",
+            flexDirection: "column",
+            gap: "24px",
           }}
         >
-          <Box
-            sx={{
-              display: "flex",
-              maxWidth: "546px",
-              padding: "40px 10px 20px 20px",
-              flexDirection: "column",
-              gap: "24px",
-            }}
-          >
-            <Typography variant="h3">Acompanhe nas redes sociais</Typography>
+          <Typography variant="h3">Acompanhe nas redes sociais</Typography>
 
-            <Box
-              sx={{
-                display: "flex",
-                flexWrap: "wrap",
-                flexDirection: { xs: "column", md: "row" },
-                gap: "8px",
-              }}
-            >
-              {buttons.map((button) => (
-                <SocialButton
-                  key={button.midia}
-                  midia={button.midia}
-                  href={button.link}
-                >
-                  {button.label}
-                </SocialButton>
-              ))}
-            </Box>
-          </Box>
           <Box
             sx={{
-              width: "359px",
-              height: "367px",
               display: "flex",
-              alignItems: "flex-end",
+              flexWrap: "wrap",
+              flexDirection: { xs: "column", md: "row" },
+              gap: "8px",
             }}
           >
-            <Image alt="" src="/images/Social.svg" width={359} height={332} />
+            {buttons.map((button) => (
+              <SocialButton
+                key={button.midia}
+                midia={button.midia}
+                href={button.link}
+              >
+                {button.label}
+              </SocialButton>
+            ))}
           </Box>
-        </Container>
-      </Box>
-    </>
+        </Box>
+        <Box
+          sx={{
+            width: "359px",
+            height: "367px",
+            display: "flex",
+            alignItems: "flex-end",
+          }}
+        >
+          <Image alt="" src="/images/Social.svg" width={359} height={332} />
+        </Box>
+      </Container>
+    </Box>
   );
 };
 

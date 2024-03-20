@@ -3,6 +3,7 @@
 Esse é o código fonte do site da comunidade DEVPIRA. <br />
 Assim como a comunidade, nosso site também é aberto ao compartilhamento e a construção colaborativa. <br />
 Consulte a sessão de como Contribuir para envolver-se com o desenvolvimento. <br />
+Você também pode se interessar no [Open Design do site da comunidade](<https://www.figma.com/file/31HWVqK1xgYQX85ej2TT67/Open-Design---Devpira-(Community)?type=design&node-id=0%3A1&mode=design&t=0xqqyOkb3ATqdFHT-1>)
 
 ## O Projeto
 

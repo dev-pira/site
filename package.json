@@ -23,7 +23,7 @@
     "@next/third-parties": "^14.1.0",
     "@vercel/analytics": "^0.1.2",
     "cors": "^2.8.5",
-    "firebase": "^10.9.0",
+    "firebase": "^10.10.0",
     "formik": "^2.2.9",
     "lorem-ipsum": "^2.0.8",
     "next": "13.5.6",

@@ -7,33 +7,48 @@ import { Button } from "../../../../components";
 import { User } from "firebase/auth";
 import { addDoc, collection, getDocs, query, where } from "firebase/firestore";
 import { db } from "../../../../services/firebase";
+import { useEffect, useState } from "react";
 
 const RafflePage: NextPage = () => {
   const router = useRouter();
   const eventName = router.query.eventname as string;
   const { user, logOut, logIn } = useAuth();
+  const [eventActive, setEventActive] = useState(false);
 
-  const handleLogIn = async () => {
-    const userData = await logIn();
-    await registerRaffleParticipant(userData?.user);
+  useEffect(() => {
+    eventExistsAndIsActive().then((result) => {
+      setEventActive(result);
+      if (eventActive && user) registerRaffleParticipant(user);
+    });
+  }, [user, eventActive]);
+
+  const eventExistsAndIsActive = async () => {
+    const raffleCollection = collection(db, "raffle");
+    const q = query(
+      raffleCollection,
+      where("eventName", "==", eventName),
+      where("active", "==", true),
+    );
+    const r = await getDocs(q);
+    return !r.empty;
   };
 
   const registerRaffleParticipant = async (user: User | undefined) => {
     const email = user?.email;
 
-    // Verificar se o Sorteio existe e esta ativo
-
     const raffleParticipantsCollection = collection(
       db,
       "raffle",
       eventName,
-      "participants"
+      "participants",
     );
     // Verificar se o usuário já está registrado
     const participantAlreadyOnRaffle = async () => {
+      console.log(email);
+
       const q = query(
         raffleParticipantsCollection,
-        where("email", "==", email)
+        where("email", "==", email),
       );
       const r = await getDocs(q);
       return !r.empty;
@@ -52,6 +67,8 @@ const RafflePage: NextPage = () => {
     await addDoc(raffleParticipantsCollection, raffleParticipant);
   };
 
+  const handleLogIn = async () => await logIn();
+
   const handleLogOut = async () => await logOut();
 
   return (
@@ -66,19 +83,25 @@ const RafflePage: NextPage = () => {
       >
         <Typography variant="h1">Sorteio do evento {eventName}</Typography>
         <hr />
-        {user ? (
+        {eventActive ? (
           <>
-            <Typography>
-              Parabéns, você já está participando do sorteio.
-            </Typography>
-            <Typography>
-              Você pode desconectar se quiser. Sua participação no sorteio
-              continuará ativa.
-            </Typography>
-            <Button onClick={handleLogOut}>Desconectar</Button>
+            {user ? (
+              <>
+                <Typography>
+                  Parabéns, você já está participando do sorteio.
+                </Typography>
+                <Typography>
+                  Você pode desconectar se quiser. Sua participação no sorteio
+                  continuará ativa.
+                </Typography>
+                <Button onClick={handleLogOut}>Desconectar</Button>
+              </>
+            ) : (
+              <Button onClick={handleLogIn}>Entrar com Google</Button>
+            )}
           </>
         ) : (
-          <Button onClick={handleLogIn}>Entrar com Google</Button>
+          <Typography>Sorteio para o evento não está ativo</Typography>
         )}
       </Box>
     </Container>

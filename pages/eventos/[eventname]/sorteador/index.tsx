@@ -7,6 +7,7 @@ import { doc, setDoc, updateDoc } from "firebase/firestore";
 import { db } from "../../../../services/firebase";
 import { useRouter } from "next/router";
 import { useState } from "react";
+import QRCode from "react-qr-code";
 
 const RaffleManagementPage: NextPage = () => {
   const router = useRouter();
@@ -62,6 +63,17 @@ const RaffleManagementPage: NextPage = () => {
               Encerrar inscrições pro sorteio
             </Button>
             <Button disabled={!raffleInitialized}>Sortear</Button>
+            <hr />
+            {raffleInitialized ? (
+              <>
+                <QRCode
+                  size={256}
+                  value={`devpira.com.br/eventos/${eventName}/sorteio`}
+                ></QRCode>
+              </>
+            ) : (
+              <></>
+            )}
           </>
         ) : (
           <Button onClick={handleLogIn}>Entrar</Button>

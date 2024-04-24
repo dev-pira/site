@@ -12,7 +12,4 @@
   "editor.defaultFormatter": "esbenp.prettier-vscode",
   "plantuml.server": "http://localhost:8080/",
   "plantuml.render": "PlantUMLServer",
-  "[typescriptreact]": {
-    "editor.defaultFormatter": "ms-vsliveshare.vsliveshare"
-  },
 }

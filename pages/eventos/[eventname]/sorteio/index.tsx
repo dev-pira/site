@@ -44,8 +44,6 @@ const RafflePage: NextPage = () => {
     );
     // Verificar se o usuário já está registrado
     const participantAlreadyOnRaffle = async () => {
-      console.log(email);
-
       const q = query(
         raffleParticipantsCollection,
         where("email", "==", email),
@@ -55,7 +53,6 @@ const RafflePage: NextPage = () => {
     };
 
     if (await participantAlreadyOnRaffle()) {
-      console.log("Usuário já está participando do sorteio");
       return;
     }
 

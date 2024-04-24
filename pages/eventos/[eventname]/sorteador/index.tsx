@@ -45,17 +45,16 @@ const RaffleManagementPage: NextPage = () => {
     const raffleSessionDoc = doc(db, "raffle", eventName);
     await setDoc(raffleSessionDoc, raffleSession);
     setRaffleInitialized(true);
-    setDrawnParticipant(null)
+    setDrawnParticipant(null);
   };
 
   const handleFinishRaffleSession = async () => {
     const raffleSessionDoc = doc(db, "raffle", eventName);
     await updateDoc(raffleSessionDoc, { active: false });
     setRaffleInitialized(false);
-    setDrawnParticipant(null)
+    setDrawnParticipant(null);
     getRaffleParticipants().then((participants) => {
       setRaffleParticipants(participants);
-      console.log(raffleParticipants);
     });
   };
 
@@ -78,7 +77,7 @@ const RaffleManagementPage: NextPage = () => {
   const handleRaffle = async () => {
     if (!raffleParticipants?.length) {
       console.error("No raffle participants");
-      setDrawnParticipant(null)
+      setDrawnParticipant(null);
       return;
     }
 
@@ -100,10 +99,10 @@ const RaffleManagementPage: NextPage = () => {
         "participants",
         drawnParticipant.id,
       );
-      updateDoc(raffleParticipantReference, { drawn: "true" }).then(() =>{
-        raffleParticipants.splice(index,1)
+      updateDoc(raffleParticipantReference, { drawn: "true" }).then(() => {
+        raffleParticipants.splice(index, 1);
       });
-    } 
+    }
 
     // 5. marcar como sorteado no db
   };
@@ -116,7 +115,7 @@ const RaffleManagementPage: NextPage = () => {
           justifyContent: "center",
           marginTop: "30px",
           flexDirection: "column",
-          gap: '5px'
+          gap: "5px",
         }}
       >
         <Typography variant="h1">Sorteador do evento {eventName}</Typography>

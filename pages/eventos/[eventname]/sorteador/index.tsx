@@ -3,18 +3,36 @@ import { NextPage } from "next";
 import { Button } from "../../../../components";
 import { Typography } from "../../../../components/Typography";
 import { useAuth } from "../../../../context/authContext";
-import { doc, setDoc, updateDoc } from "firebase/firestore";
+import {
+  collection,
+  doc,
+  getDocs,
+  setDoc,
+  updateDoc,
+} from "firebase/firestore";
 import { db } from "../../../../services/firebase";
 import { useRouter } from "next/router";
 import { useState } from "react";
 import QRCode from "react-qr-code";
+
+type Participant = {
+  id: string;
+  name: string;
+  email: string;
+  drawn?: boolean;
+};
 
 const RaffleManagementPage: NextPage = () => {
   const router = useRouter();
   const eventName = router.query.eventname as string;
   const { user, logOut, logIn } = useAuth();
   const [raffleInitialized, setRaffleInitialized] = useState(false);
-
+  const [raffleParticipants, setRaffleParticipants] = useState<
+    Participant[] | null
+  >(null);
+  const [drawnParticipant, setDrawnParticipant] = useState<Participant | null>(
+    null,
+  );
   const handleLogIn = async () => await logIn();
 
   const handleLogOut = async () => await logOut();
@@ -33,6 +51,58 @@ const RaffleManagementPage: NextPage = () => {
     const raffleSessionDoc = doc(db, "raffle", eventName);
     await updateDoc(raffleSessionDoc, { active: false });
     setRaffleInitialized(false);
+    getRaffleParticipants().then((participants) => {
+      setRaffleParticipants(participants);
+      console.log(raffleParticipants);
+    });
+  };
+
+  const getRaffleParticipants = async (): Promise<Participant[]> => {
+    const collectionReference = collection(
+      db,
+      "raffle",
+      eventName,
+      "participants",
+    );
+    const _raffleParticipants: Participant[] = [];
+    (await getDocs(collectionReference)).forEach((doc) => {
+      const { name, email } = doc.data();
+      const participant: Participant = { id: doc.id, name, email };
+      _raffleParticipants.push(participant);
+    });
+    return _raffleParticipants;
+  };
+
+  const handleRaffle = async () => {
+    if (!raffleParticipants?.length) {
+      console.error("No raffle participants");
+      return;
+    }
+
+    // trazer todos os participantes do evento, se nao tiver a colecao no estado
+    // sortear
+    // 1. pegar range
+    const lenght = raffleParticipants.length;
+    // 2. gerar um random entre 0 e range -1
+    const index = Math.floor(Math.random() * (lenght - 1));
+    // 3. pegar o item do indice pra mostrar na tela
+    setDrawnParticipant(raffleParticipants[index]);
+
+    // 4. tirar o indice da coleção
+    if (drawnParticipant) {
+      const raffleParticipantReference = doc(
+        db,
+        "raffle",
+        eventName,
+        "participants",
+        drawnParticipant.id,
+      );
+      updateDoc(raffleParticipantReference, { drawn: "true" }).then(() =>
+        console.log("remover"),
+      );
+    }
+
+    // 5. marcar como sorteado no db
   };
 
   return (
@@ -62,7 +132,9 @@ const RaffleManagementPage: NextPage = () => {
             >
               Encerrar inscrições pro sorteio
             </Button>
-            <Button disabled={!raffleInitialized}>Sortear</Button>
+            <Button disabled={raffleInitialized} onClick={handleRaffle}>
+              Sortear
+            </Button>
             <hr />
             {raffleInitialized ? (
               <>
@@ -71,6 +143,11 @@ const RaffleManagementPage: NextPage = () => {
                   value={`devpira.com.br/eventos/${eventName}/sorteio`}
                 ></QRCode>
               </>
+            ) : (
+              <></>
+            )}
+            {drawnParticipant ? (
+              <Typography variant="h3">{drawnParticipant.name}</Typography>
             ) : (
               <></>
             )}

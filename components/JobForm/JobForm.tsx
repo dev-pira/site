@@ -45,7 +45,6 @@ const JobForm: React.FC<JobFormProps> = ({ action }: JobFormProps) => {
           }}
           validationSchema={validationSchema}
           onSubmit={async (values, { setSubmitting }) => {
-            console.log(values);
             let location: "Piracicaba" | "Remoto" | "Outro" = "Outro";
             switch (values.location) {
               case "Piracicaba":

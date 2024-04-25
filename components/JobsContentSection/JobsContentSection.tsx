@@ -41,7 +41,6 @@ const JobsContentSection: React.FC<JobsContentSectionProps> = ({
           return <JobCard key={jobData.id} {...jobData} />;
         })}
         {missingBoxes.map((index) => {
-          console.log("rendering missing box");
           return (
             <Box key={index} sx={{ flex: 1 }}>
               &nbsp;

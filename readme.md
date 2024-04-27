@@ -3,6 +3,7 @@
 Esse é o código fonte do site da comunidade DEVPIRA. <br />
 Assim como a comunidade, nosso site também é aberto ao compartilhamento e a construção colaborativa. <br />
 Consulte a sessão de como Contribuir para envolver-se com o desenvolvimento. <br />
+Você também pode se interessar no [Open Design do site da comunidade](<https://www.figma.com/file/31HWVqK1xgYQX85ej2TT67/Open-Design---Devpira-(Community)?type=design&node-id=0%3A1&mode=design&t=0xqqyOkb3ATqdFHT-1>)
 
 ## O Projeto
 
@@ -71,55 +72,40 @@ Ao finalizar o desenvolvimento, abra um _Pull Request_ para a _branch_ `develop`
 Ao término do trabalho, abra um _Pull Request_ para `develop`. <br />
 As implantações acontecerão quando o código for integrado à `main`, depois do fluxo de validação.
 
-## Resolver _Issues_
+## Outas formas de contribuir
 
-...
-
-# Feedback
-
-...
+Consulte nosso [guia de contribuição](./CONTRIBUTING.md) =)
 
 # Time _Core_
 
 <table>
   <tr>
     <td>
-      <img src="https://avatars.githubusercontent.com/u/82414677?v=4" alt="@abpaula77" />
-      @abpaula77<br />
-      Dev
+      <img src="https://avatars.githubusercontent.com/u/82414677?v=4" alt="@abpaula77" style="max-height:150px; border-radius:50%" />
     </td>
     <td>
-      <img src="https://avatars.githubusercontent.com/u/3385337?v=4" alt="@fabiobaldins" />
-      @fabiobaldins
+      <img src="https://avatars.githubusercontent.com/u/3385337?v=4" alt="@fabiobaldins"style="max-height:150px; border-radius:50%" />
     </td>
     <td>
-      <img src="https://avatars.githubusercontent.com/u/22418450?v=4" alt="@gabrielcesar95" />
-      @gabrielcesar95<br />
-      Dev
+      <img src="https://avatars.githubusercontent.com/u/42376741?v=4" alt="@lucastangi" style="max-height:150px; border-radius:50%"/>
     </td>
     <td>
-      <img src="https://avatars.githubusercontent.com/u/42376741?v=4" alt="@lucastangi" />
-      @lucastangi<br />
-      UX
-    </td>
-    <td>
-      <img src="https://avatars.githubusercontent.com/u/3878837?v=4" alt="@murilobeltrame" />
-      @murilobeltrame<br />
-      Dev | Infra | Adm
+      <img src="https://avatars.githubusercontent.com/u/3878837?v=4" alt="@murilobeltrame"style="max-height:150px; border-radius:50%" />
     </td>
   <tr>
+  <tr>
+    <td>@abpaula77</td>
+    <td>@fabiobaldins</td>
+    <td>@lucastangi</td>
+    <td>@murilobeltrame</td>
+  </tr>
+  <tr>
+    <td>Dev</td>
+    <td>Product</td>
+    <td>UX</td>
+    <td>Dev | Infra | Adm</td>
+  </tr>
 </table>
-
-# Contribuidores
-
-<!-- ALL-CONTRIBUTORS-LIST:START - Do not remove or modify this section -->
-<!-- prettier-ignore-start -->
-<!-- markdownlint-disable -->
-
-<!-- markdownlint-restore -->
-<!-- prettier-ignore-end -->
-
-<!-- ALL-CONTRIBUTORS-LIST:END -->
 
 # Código de conduta
 

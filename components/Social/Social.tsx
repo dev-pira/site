@@ -8,12 +8,70 @@ export interface SocialProps {
 }
 
 const Social: React.FC<SocialProps> = ({ color = "green" }: SocialProps) => {
+  const buttons: {
+    label: string;
+    link: string;
+    midia:
+      | "discord"
+      | "facebook"
+      | "github"
+      | "instagram"
+      | "linkedin"
+      | "meetup"
+      | "slack"
+      | "telegram"
+      | "youtube"
+      | "whatsapp";
+  }[] = [
+    { midia: "discord", link: "https://discord.gg/hdRAFpg5", label: "DEVPIRA" },
+    {
+      midia: "facebook",
+      link: "https://www.facebook.com/DEVPIRA/",
+      label: "DEVPIRA",
+    },
+    { midia: "github", link: "https://github.com/dev-pira", label: "dev-pira" },
+    {
+      midia: "instagram",
+      link: "https://www.instagram.com/devpira",
+      label: "DEVPIRA",
+    },
+    {
+      midia: "linkedin",
+      link: "https://linkedin.com/company/devpira",
+      label: "DEVPIRA",
+    },
+    {
+      midia: "meetup",
+      link: "https://www.meetup.com/pt-BR/devpira/",
+      label: "DEVPIRA",
+    },
+    {
+      midia: "slack",
+      link: "https://app.slack.com/client/TMYA8HQ65",
+      label: "DEVPIRA",
+    },
+    {
+      midia: "telegram",
+      link: "https://t.me/joinchat/CY8l7Ro28yIZN-GSoAiIFQ",
+      label: "DEVPIRA",
+    },
+    {
+      midia: "youtube",
+      link: "https://www.youtube.com/@DEVPIRA",
+      label: "DEVPIRA",
+    },
+    {
+      midia: "whatsapp",
+      link: "https://chat.whatsapp.com/EkL1sHqrIvY0DIGjGYMqej",
+      label: "DEVPIRA",
+    },
+  ];
+
   return (
     <Box
       sx={{
         display: "flex",
-        flexDirection: "row",
-        maxWidth: "100vw",
+        flexDirection: { xs: "column", md: "row" },
         justifyContent: "center",
         backgroundColor: color === "blue" ? "#46A4FF" : "#00F4AB",
         px: "1.8rem",
@@ -23,7 +81,7 @@ const Social: React.FC<SocialProps> = ({ color = "green" }: SocialProps) => {
         sx={{
           display: "flex",
           flexWrap: "wrap",
-          maxWidth: "100%",
+          // maxWidth: "100%",
           alignItems: "center",
           justifyContent: {
             xs: "center",
@@ -31,52 +89,44 @@ const Social: React.FC<SocialProps> = ({ color = "green" }: SocialProps) => {
             md: "space-around",
             lg: "space-around",
           },
-          height: "367px",
+          minHeight: "367px",
         }}
       >
         <Box
           sx={{
             display: "flex",
             maxWidth: "546px",
-            px: "10px",
+            padding: "40px 10px 20px 20px",
             flexDirection: "column",
             gap: "24px",
           }}
         >
           <Typography variant="h3">Acompanhe nas redes sociais</Typography>
+
           <Box
             sx={{
               display: "flex",
               flexWrap: "wrap",
-              flexDirection: "row",
+              flexDirection: { xs: "column", md: "row" },
               gap: "8px",
             }}
           >
-            <SocialButton
-              midia="facebook"
-              href="https://www.facebook.com/DEVPIRA/"
-            >
-              DEVPIRA
-            </SocialButton>
-            <SocialButton
-              midia="instagram"
-              href="https://www.instagram.com/devpira_/"
-            >
-              devpira
-            </SocialButton>
-            <SocialButton
-              midia="linkedin"
-              href="https://linkedin.com/company/devpira"
-            >
-              company/devpira
-            </SocialButton>
+            {buttons.map((button) => (
+              <SocialButton
+                key={button.midia}
+                midia={button.midia}
+                href={button.link}
+              >
+                {button.label}
+              </SocialButton>
+            ))}
           </Box>
         </Box>
         <Box
           sx={{
             width: "359px",
             height: "367px",
-            display: { xs: "none", sm: "none", md: "flex", lg: "flex" },
+            display: "flex",
             alignItems: "flex-end",
           }}
         >

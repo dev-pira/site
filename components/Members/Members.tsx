@@ -16,7 +16,7 @@ const Members: React.FC<MemberProps> = ({ members }: MemberProps) => {
         justifyContent: "center",
         backgroundColor: "#212236;",
         maxWidth: "100vw",
-        padding: "88px",
+        padding: { xs: "0px", sm: "88px" },
       }}
     >
       <Box
@@ -25,8 +25,8 @@ const Members: React.FC<MemberProps> = ({ members }: MemberProps) => {
           flexDirection: "column",
           maxWidth: "100vw",
           rowGap: "2.5rem",
-          py: "1.8rem",
-          px: "1.8rem",
+          py: { xs: "2.4rem", sm: "1.8rem" },
+          px: { xs: "1rem", sm: "1.8rem" },
           justifyContent: "space-around",
         }}
       >

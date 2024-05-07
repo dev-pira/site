@@ -15,20 +15,34 @@ const EventsIntro: React.FC = () => {
       <Container
         sx={{
           display: "flex",
-          height: defaultHeight,
+          height: { xs: "320px", sm: defaultHeight },
           alignItems: "center",
         }}
       >
-        <Box sx={{ width: "546px" }}>
-          <Typography variant="h1" color="contrast">
+        <Box sx={{ width: "546px", textAlign: "center" }}>
+          <Typography
+            variant="h1"
+            color="contrast"
+            sx={{ fontSize: { xs: "3.5rem ", sm: "4.25rem" } }}
+          >
             Eventos da{" "}
-            <Typography variant="introSpan" color="gradient_red">
+            <Typography
+              variant="introSpan"
+              color="gradient_red"
+              sx={{ fontSize: { xs: "3.5rem ", sm: "4.25rem" } }}
+            >
               {" "}
               comunidade
             </Typography>
           </Typography>
         </Box>
-        <Box sx={{ display: "flex", width: "740px" }}>
+        <Box
+          sx={{
+            width: "740px",
+
+            display: { xs: "none", sm: "flex" },
+          }}
+        >
           <Box
             sx={{
               background: 'url("/images/EventHeader/Background.svg")',

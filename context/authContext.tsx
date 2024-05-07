@@ -40,7 +40,7 @@ export function AuthProvider({ children }: Readonly<AuthProviderProps>) {
 
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, (currentUser) =>
-      setUser(currentUser)
+      setUser(currentUser),
     );
     return () => unsubscribe();
   }, [user]);

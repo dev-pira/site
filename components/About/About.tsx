@@ -25,6 +25,7 @@ const About: React.FC = () => {
               justifyContent: "center",
               alignItems: "center",
               p: 2,
+              mt: { xs: 4, sm: 0 },
             }}
           >
             <Box
@@ -51,7 +52,7 @@ const About: React.FC = () => {
               justifyContent: "center",
             }}
           >
-            <Typography variant="h3" sx={{ mb: 1 }}>
+            <Typography variant="h3" sx={{ mb: { xs: 4, sm: 1 } }}>
               Sobre o DEVPIRA
             </Typography>
             <Typography>

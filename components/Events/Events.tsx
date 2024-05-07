@@ -34,13 +34,14 @@ const Events: React.FC<EventsProps> = ({ events }: EventsProps) => {
               md: "88px",
             },
             pb: {
-              xs: "36px",
+              xs: "52px",
               md: "48px",
             },
             flexDirection: {
               xs: "column",
               md: "row",
             },
+            alignItems: "center",
           }}
         >
           <Grid item xs={12} md={6}>
@@ -77,7 +78,7 @@ const Events: React.FC<EventsProps> = ({ events }: EventsProps) => {
               }}
             >
               <Box>
-                <Typography variant="h3" color="contrast">
+                <Typography variant="h3" color="contrast" sx={{ mb: 3 }}>
                   Eventos
                 </Typography>
                 <Typography color="contrast">
@@ -121,6 +122,7 @@ const Events: React.FC<EventsProps> = ({ events }: EventsProps) => {
                 xs: "column",
                 md: "row",
               },
+              width: { xs: "100%", sm: "calc(100% + 30px)" },
             }}
           >
             {latestEvents.map((eventData) => {

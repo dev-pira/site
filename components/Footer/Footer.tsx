@@ -19,11 +19,13 @@ const Footer: React.FC = () => {
     >
       <Box
         sx={{
-          display: "flex",
+          margin: { xs: "32px 0px", sm: "0px" },
           flexWrap: "wrap",
-          flexDirection: "row",
-          alignItems: "center",
+          alignItems: { xs: "start", sm: "center" },
+          gap: { xs: "20px", sm: "0px" },
           width: "1108px",
+          display: "flex",
+          flexDirection: { xs: "column", sm: "row" },
           maxWidth: "100vw",
           minHeight: "243px",
           px: "1.8rem",
@@ -44,8 +46,21 @@ const Footer: React.FC = () => {
             height={logoSize.height}
           />
         </Box>
-        <Toolbar sx={{ flexGrow: 1, justifyContent: "end" }}>
-          <Box>
+        <Toolbar
+          sx={{
+            flexGrow: 1,
+            justifyContent: { xs: "start", sm: "center", md: "end" },
+            padding: { xs: 0, sm: "1rem" },
+          }}
+        >
+          <Box
+            sx={{
+              display: { xs: "flex", sm: "block" },
+              alignItems: "start",
+              paddingX: { xs: "0px", sm: "16px" },
+              flexDirection: "column",
+            }}
+          >
             {pages.map((page) => (
               <NavbarLink key={page.label} page={page}></NavbarLink>
             ))}

@@ -13,6 +13,7 @@ const MemberCard: React.FC<MemberCardProps> = ({ member }: MemberCardProps) => {
         background: `white url("${member.portraitUrl}") no-repeat center center`,
         backgroundSize: "cover",
         borderRadius: "10px",
+        width: { xs: "100%", sm: "auto" },
       }}
     >
       <Box
@@ -23,8 +24,8 @@ const MemberCard: React.FC<MemberCardProps> = ({ member }: MemberCardProps) => {
           display: "flex",
           flexDirection: "column",
           justifyContent: "space-between",
-          height: "362px",
-          width: "254px",
+          height: { xs: "382px", sm: "362px" },
+          width: { xs: "100%", sm: "254px" },
         }}
       >
         <Box
@@ -41,7 +42,7 @@ const MemberCard: React.FC<MemberCardProps> = ({ member }: MemberCardProps) => {
           sx={{
             display: "flex",
             flexDirection: "column",
-            gap: "8px",
+            gap: "20px",
             padding: "16px",
           }}
         >

@@ -74,14 +74,13 @@ const Social: React.FC<SocialProps> = ({ color = "green" }: SocialProps) => {
         flexDirection: { xs: "column", md: "row" },
         justifyContent: "center",
         backgroundColor: color === "blue" ? "#46A4FF" : "#00F4AB",
-        px: "1.8rem",
+        px: { xs: 0, sm: "1.8rem" },
       }}
     >
       <Container
         sx={{
           display: "flex",
           flexWrap: "wrap",
-          // maxWidth: "100%",
           alignItems: "center",
           justifyContent: {
             xs: "center",
@@ -96,7 +95,7 @@ const Social: React.FC<SocialProps> = ({ color = "green" }: SocialProps) => {
           sx={{
             display: "flex",
             maxWidth: "546px",
-            padding: "40px 10px 20px 20px",
+            padding: { xs: "40px 0 20px 0", sm: "40px 10px 20px 20px" },
             flexDirection: "column",
             gap: "24px",
           }}
@@ -108,7 +107,7 @@ const Social: React.FC<SocialProps> = ({ color = "green" }: SocialProps) => {
               display: "flex",
               flexWrap: "wrap",
               flexDirection: { xs: "column", md: "row" },
-              gap: "8px",
+              gap: { xs: "16px", sm: "8px" },
             }}
           >
             {buttons.map((button) => (

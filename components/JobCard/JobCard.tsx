@@ -15,8 +15,8 @@ const JobCard: React.FC<JobCardProps> = ({
   const cardBackgroundColor = "white";
 
   const cardsx: SxProps = {
-    width: "255px",
-    height: "243px",
+    width: { xs: "90%", sm: "255px" },
+    minHeight: "282px",
     borderRadius: "10px",
     background: cardBackgroundColor,
     flex: 1,
@@ -34,9 +34,11 @@ const JobCard: React.FC<JobCardProps> = ({
       <Box
         sx={{
           display: "flex",
-          padding: "24px",
+          paddingX: "24px",
+          paddingY: "12px",
+          minHeight: "282px",
           flexDirection: "column",
-          gap: "8px",
+          justifyContent: "space-between",
         }}
       >
         <Typography variant="h4" color="primary">

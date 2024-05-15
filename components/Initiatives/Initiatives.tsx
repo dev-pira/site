@@ -27,7 +27,7 @@ const Initiatives: React.FC = () => {
               justifyContent: "center",
             }}
           >
-            <Typography variant="h3" sx={{ mb: 1 }}>
+            <Typography variant="h3" sx={{ mb: { xs: 4, sm: 1 } }}>
               Iniciativas
             </Typography>
             <Typography>
@@ -46,6 +46,7 @@ const Initiatives: React.FC = () => {
               justifyContent: "center",
               alignItems: "center",
               p: 2,
+              mt: { xs: 4, sm: 0 },
             }}
           >
             <Box

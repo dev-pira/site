@@ -27,9 +27,10 @@ const Jobs: React.FC = () => {
               display: "flex",
               flexDirection: "column",
               justifyContent: "center",
+              gap: { xs: "4px", sm: "20px" },
             }}
           >
-            <Typography variant="h3" sx={{ mb: 1 }}>
+            <Typography variant="h3" sx={{ mb: { xs: 4, sm: 1 } }}>
               Vagas de emprego
             </Typography>
             <Typography>
@@ -37,7 +38,11 @@ const Jobs: React.FC = () => {
               comunidade. Um espaço para você encontrar uma nova oportunidade ou
               oferecer uma chance a quem procura!
             </Typography>
-            <Box>
+            <Box
+              sx={{
+                mt: { xs: "24px", sm: 0 },
+              }}
+            >
               <Button
                 href="/vagas"
                 onClick={() =>
@@ -59,12 +64,13 @@ const Jobs: React.FC = () => {
               justifyContent: "center",
               alignItems: "center",
               p: 2,
+              mt: { xs: "32px", sm: 0 },
             }}
           >
             <Box
               sx={{
                 width: 451,
-                height: 397,
+                height: { xs: "340px", sm: "auto" },
               }}
             >
               <Image

@@ -24,7 +24,7 @@ const Partners: React.FC<PartnersProps> = ({
         <Box>
           {categories.map((category) => {
             const partnersInCategory = partners.filter(
-              (p) => p.category === category
+              (p) => p.category === category,
             );
             return (
               <Box sx={{ flex: 1, display: "flex" }} key={category}>

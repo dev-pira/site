@@ -37,7 +37,7 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
     const eventsData = await fetchIndexData();
     context.res.setHeader(
       "Cache-Control",
-      "public, s-maxage=120, stale-while-revalidate=239"
+      "public, s-maxage=120, stale-while-revalidate=239",
     );
     return { props: { eventsData } };
   } catch (error) {

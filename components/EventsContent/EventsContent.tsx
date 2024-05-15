@@ -14,7 +14,7 @@ const EventsContent: React.FC<EventsContentProps> = ({
     .map((e) => e.type)
     .filter((value, index, self) => self.indexOf(value) === index);
   const partnerEventsIndex = events.findIndex((e) =>
-    e.type?.toLocaleLowerCase().includes("parceiro")
+    e.type?.toLocaleLowerCase().includes("parceiro"),
   );
   if (partnerEventsIndex > -1) {
     const partnerEventsType = types[partnerEventsIndex];
@@ -53,7 +53,12 @@ const EventsContent: React.FC<EventsContentProps> = ({
               gap: "24px",
             }}
           >
-            <Typography variant="h3">{type}</Typography>
+            <Typography
+              variant="h3"
+              sx={{ paddingX: { xs: "16px", sm: "0" }, mb: "12px" }}
+            >
+              {type}
+            </Typography>
             <Box
               sx={{
                 display: "flex",
@@ -61,7 +66,8 @@ const EventsContent: React.FC<EventsContentProps> = ({
                 justifyContent: "flex-start",
                 alignItems: "start",
                 flexWrap: "wrap",
-                gap: "16px",
+                gap: { xs: "40px", sm: "16px" },
+                rowGap: "40px !important",
               }}
             >
               {eventsOfType.map((eventData) => {

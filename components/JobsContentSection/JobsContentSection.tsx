@@ -27,13 +27,16 @@ const JobsContentSection: React.FC<JobsContentSectionProps> = ({
         gap: "24px",
       }}
     >
-      <Typography variant="h3">{location}</Typography>
+      <Typography variant="h3" sx={{ px: { xs: "16px", sm: 0 } }}>
+        {location}
+      </Typography>
       <Grid
         sx={{
           display: "flex",
-          flexDirection: "row",
+          flexDirection: { xs: "column", sm: "row" },
           justifyContent: "space-evenly",
           alignItems: "center",
+          gap: { xs: "28px", sm: "0" },
         }}
         container
       >

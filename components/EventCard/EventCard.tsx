@@ -74,7 +74,7 @@ const EventCard: React.FC<EventCardProps> = ({
 
   const cardsx: SxProps = {
     borderRadius: "10px",
-    maxHeight: "400px",
+    maxHeight: "500px",
     background: cardBackgroundColor,
     display: "flex",
     flexDirection: "column",
@@ -104,15 +104,19 @@ const EventCard: React.FC<EventCardProps> = ({
       lg={3}
       sx={{
         display: "flex",
+
+        margin: "0 auto",
         flexDirection: "column",
-        width: "255px",
+        width: { xs: "90%", sm: "255px" },
+        height: "451px !important",
       }}
     >
       <Box key={slug} sx={cardsx}>
         <Box
           sx={{
             height: "159px",
-            background: `${cardImageBackground} no-repeat center center`,
+            background: `${cardImageBackground} no-repeat center`,
+            backgroundSize: "cover",
             borderTopLeftRadius: "10px",
             borderTopRightRadius: "10px",
             display: "flex",
@@ -138,6 +142,7 @@ const EventCard: React.FC<EventCardProps> = ({
               display: "flex",
               flexDirection: "column",
               justifyContent: "space-between",
+              gap: { xs: "12px", sm: "0px" },
             }}
           >
             <Typography
@@ -152,7 +157,16 @@ const EventCard: React.FC<EventCardProps> = ({
             >
               {title}
             </Typography>
-            <Typography fontSize={"0.875rem"} color={textColor}>
+            <Typography
+              fontSize={"0.875rem"}
+              color={textColor}
+              sx={{
+                display: "-webkit-box",
+                overflow: "hidden",
+                WebkitBoxOrient: "vertical",
+                WebkitLineClamp: 3,
+              }}
+            >
               {formattedDescription}
             </Typography>
             <Typography fontSize={"0.875rem"} color={textColor}>

@@ -33,7 +33,10 @@ const Intro: React.FC = () => {
             }}
           >
             <Box>
-              <Typography variant={"h1"}>
+              <Typography
+                variant={"h1"}
+                sx={{ fontSize: { xs: "3.5rem", sm: "4.25rem" } }}
+              >
                 Comunidade que
                 <Typography variant="introSpan" color="gradient_green">
                   {" "}
@@ -91,7 +94,7 @@ const Intro: React.FC = () => {
             <Box
               sx={{
                 width: 623,
-                height: 510,
+                height: { xs: "340px", sm: "510px" },
               }}
             >
               <Image

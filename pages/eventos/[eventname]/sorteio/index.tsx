@@ -7,20 +7,28 @@ import { Button } from "../../../../components";
 import { User } from "firebase/auth";
 import { addDoc, collection, getDocs, query, where } from "firebase/firestore";
 import { db } from "../../../../services/firebase";
-import { useEffect, useState } from "react";
+// import { useEffect, useState } from "react";
+import { useEffect } from "react";
 
 const RafflePage: NextPage = () => {
   const router = useRouter();
   const eventName = router.query.eventname as string;
   const { user, logOut, logIn } = useAuth();
-  const [eventActive, setEventActive] = useState(false);
+  const eventActive = true;
+  // const [eventActive, setEventActive] = useState(false);
+
+  // useEffect(() => {
+  //   eventExistsAndIsActive().then((result) => {
+  //     setEventActive(result);
+  //     if (eventActive && user) registerRaffleParticipant(user);
+  //   });
+  // }, [user, eventActive]);
 
   useEffect(() => {
-    eventExistsAndIsActive().then((result) => {
-      setEventActive(result);
-      if (eventActive && user) registerRaffleParticipant(user);
+    eventExistsAndIsActive().then(() => {
+      if (user) registerRaffleParticipant(user);
     });
-  }, [user, eventActive]);
+  }, [user]);
 
   const eventExistsAndIsActive = async () => {
     const raffleCollection = collection(db, "raffle");

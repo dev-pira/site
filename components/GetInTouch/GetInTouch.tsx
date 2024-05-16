@@ -27,12 +27,22 @@ const GetInTouch: React.FC = () => {
               flexDirection: "column",
               justifyContent: "space-between",
               py: "5rem",
+              gap: "12px",
             }}
           >
-            <Typography variant="h3">Fale com a</Typography>
-
-            <Typography variant="introSpan" color="gradient_blue">
-              comunidade
+            <Typography variant="h3">
+              Fale com a
+              <Typography
+                variant="introSpan"
+                color="gradient_blue"
+                sx={{
+                  fontSize: { xs: "60px", sm: "68px" },
+                  marginBottom: { xs: "32px", sm: "40px" },
+                  display: "block",
+                }}
+              >
+                comunidade
+              </Typography>
             </Typography>
 
             <Typography>

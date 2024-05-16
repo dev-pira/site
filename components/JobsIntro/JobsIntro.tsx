@@ -16,12 +16,12 @@ const JobsIntro: React.FC = () => {
       <Container
         sx={{
           display: "flex",
-          height: defaultHeight,
+          height: { xs: "320px", sm: defaultHeight },
           alignItems: "center",
         }}
       >
-        <Box sx={{ marginLeft: "100px", width: "800px" }}>
-          <Box sx={{ marginBottom: "40px" }}>
+        <Box sx={{ marginLeft: { xs: "0px", sm: "100px" }, width: "800px" }}>
+          <Box sx={{ marginBottom: { xs: "32px", sm: "40px" } }}>
             <Typography variant="h3" color="contrast">
               Vagas de
             </Typography>
@@ -33,13 +33,13 @@ const JobsIntro: React.FC = () => {
             Aqui você encontra as vagas de empregos de emprego compartilhadas
             com todos da comunidade.
           </Typography>
-          <Box sx={{ display: "flex", gap: "8px" }}>
+          <Box sx={{ display: "flex", gap: "8px", mt: "20px" }}>
             <Button color="transparent" href="/vagas/nova">
               Enviar uma vaga
             </Button>
           </Box>
         </Box>
-        <Box sx={{ display: "flex", width: "740px" }}>
+        <Box sx={{ display: { xs: "none", sm: "flex" }, width: "740px" }}>
           <Box
             sx={{
               background: 'url("/images/JobsHeader/Fly.svg")',

@@ -21,6 +21,7 @@ const Events: React.FC<EventsProps> = ({ events }: EventsProps) => {
 
   return (
     <Box
+      data-scroll-wrapper
       sx={{
         backgroundColor: "#212236",
       }}
@@ -46,6 +47,7 @@ const Events: React.FC<EventsProps> = ({ events }: EventsProps) => {
         >
           <Grid item xs={12} md={6}>
             <Box
+              data-scroll-wrapper
               sx={{
                 display: "flex",
                 justifyContent: "center",

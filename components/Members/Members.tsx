@@ -10,6 +10,7 @@ export interface MemberProps {
 const Members: React.FC<MemberProps> = ({ members }: MemberProps) => {
   return (
     <Box
+      data-scroll-wrapper
       sx={{
         display: "flex",
         flexDirection: "row",

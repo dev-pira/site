@@ -69,6 +69,7 @@ const Social: React.FC<SocialProps> = ({ color = "green" }: SocialProps) => {
 
   return (
     <Box
+      data-scroll-wrapper
       sx={{
         display: "flex",
         flexDirection: { xs: "column", md: "row" },

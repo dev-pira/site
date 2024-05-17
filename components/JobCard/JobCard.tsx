@@ -30,7 +30,7 @@ const JobCard: React.FC<JobCardProps> = ({
   ) : null;
 
   return (
-    <Grid key={id} sx={cardsx} item xs={12} md={3}>
+    <Grid data-scroll-wrapper key={id} sx={cardsx} item xs={12} md={3}>
       <Box
         sx={{
           display: "flex",

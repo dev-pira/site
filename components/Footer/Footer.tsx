@@ -18,6 +18,7 @@ const Footer: React.FC = () => {
       sx={{ display: "flex", alignItems: "center" }}
     >
       <Box
+        data-scroll-wrapper
         sx={{
           margin: { xs: "32px 0px", sm: "0px" },
           flexWrap: "wrap",

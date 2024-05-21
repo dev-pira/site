@@ -19,6 +19,7 @@ const JobsContentSection: React.FC<JobsContentSectionProps> = ({
 
   return (
     <Container
+      data-scroll-wrapper
       key={location}
       sx={{
         display: "flex",

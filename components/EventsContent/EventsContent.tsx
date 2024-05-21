@@ -24,6 +24,7 @@ const EventsContent: React.FC<EventsContentProps> = ({
 
   return (
     <Box
+      data-scroll-wrapper
       sx={{
         display: "flex",
         flexDirection: "column",
@@ -45,6 +46,7 @@ const EventsContent: React.FC<EventsContentProps> = ({
         }
         return (
           <Container
+            data-scroll-wrapper
             key={type}
             sx={{
               display: "flex",

@@ -98,6 +98,7 @@ const EventCard: React.FC<EventCardProps> = ({
 
   return (
     <Grid
+      data-scroll-wrapper
       item
       xs={12}
       md={6}

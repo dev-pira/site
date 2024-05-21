@@ -66,11 +66,11 @@ const Partners: React.FC<PartnersProps> = ({
     );
   }
   return (
-    <Container>
+    <Container data-scroll-wrapper>
       <Grid container>
         <Box
           sx={{
-            padding: "88px 0px",
+            padding: "52px 0px",
             display: "flex",
             flexDirection: "row",
             justifyContent: "center",

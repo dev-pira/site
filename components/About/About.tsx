@@ -4,7 +4,7 @@ import { Typography } from "../Typography";
 
 const About: React.FC = () => {
   return (
-    <Container id="sobre">
+    <Container data-scroll-wrapper id="sobre">
       <Grid
         container
         sx={{

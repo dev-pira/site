@@ -8,6 +8,7 @@ export type MemberCardProps = { member: Member };
 const MemberCard: React.FC<MemberCardProps> = ({ member }: MemberCardProps) => {
   return (
     <Box
+      data-scroll-wrapper
       key={member.name}
       sx={{
         background: `white url("${member.portraitUrl}") no-repeat center center`,

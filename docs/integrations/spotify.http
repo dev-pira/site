@@ -10,5 +10,5 @@ grant_type=client_credentials
 
 @accessToken = {{login.response.body.access_token}}
 
-GET https://api.spotify.com/v1/shows/6vpFsJgsIzvbOOISnIxHal
+GET https://api.spotify.com/v1/shows/6vpFsJgsIzvbOOISnIxHal/episodes
 Authorization: Bearer {{accessToken}}

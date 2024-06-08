@@ -1,0 +1,44 @@
+# GET EVENTS COLLECTION
+POST https://graphql.contentful.com/content/v1/spaces/{{spaceId}}
+Content-Type: application/json
+Authorization: Bearer {{apiKey}}
+X-REQUEST-TYPE: GraphQL
+
+query {
+  eventCollection {
+    items {
+      slug
+      banner {
+        url
+      }
+      title
+      description
+      dateTime
+      subscriptionUrl
+      type
+    }
+  }
+}
+
+### 
+
+# GET JOBS COLLECTION
+POST https://graphql.contentful.com/content/v1/spaces/{{spaceId}}
+Content-Type: application/json
+Authorization: Bearer {{apiKey}}
+X-REQUEST-TYPE: GraphQL
+
+query {
+  vacancyCollection {
+    items {
+      description
+      company
+      title
+      location
+      enrollmentUrl
+      sys {
+        id
+      }
+    }
+  }
+}

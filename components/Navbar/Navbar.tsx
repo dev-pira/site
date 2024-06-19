@@ -18,6 +18,7 @@ const pages = [
   { label: "Sobre", link: "/" },
   { label: "Iniciativas", link: "#iniciativas" },
   { label: "Eventos", link: "/eventos" },
+  { label: "Podcast", link: "/podcast" },
   { label: "Vagas", link: "/vagas" },
   { label: "Contato", link: "/contato" },
 ];

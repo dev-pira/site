@@ -1,12 +1,12 @@
 import { GenericIntro } from "../GenericIntro";
 
-const EventsIntro: React.FC = () => {
+const PodcastIntro: React.FC = () => {
   return (
     <GenericIntro
-      titlePrefix="Eventos da"
+      titlePrefix="Podcast da"
       backgroundUrl="/images/EventHeader/Rocket.svg"
     />
   );
 };
 
-export default EventsIntro;
+export default PodcastIntro;

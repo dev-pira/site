@@ -1,13 +1,11 @@
 import { PodcastEpisode } from "../models/podcast";
+import base64 from "base-64";
 
 export async function fetchPodcastEpisodesData(): Promise<PodcastEpisode[]> {
   const clientId = process.env.NEXT_PUBLIC_SPOTIFY_CLIENT_ID;
   const clientSecret = process.env.NEXT_PUBLIC_SPOTIFY_CLIENT_SECRET;
 
-  const base64Credentials = new Buffer.from(
-    clientId + ":" + clientSecret,
-  ).toString("base64");
-
+  const base64Credentials = base64.encode(`${clientId}:${clientSecret}`);
   const tokenResponse = await fetch("https://accounts.spotify.com/api/token", {
     method: "POST",
     headers: {
@@ -19,8 +17,6 @@ export async function fetchPodcastEpisodesData(): Promise<PodcastEpisode[]> {
 
   const tokenResult = await tokenResponse.json();
   const token = tokenResult["access_token"];
-
-  console.log(tokenResult);
 
   const dataResponse = await fetch(
     "https://api.spotify.com/v1/shows/6vpFsJgsIzvbOOISnIxHal/episodes",

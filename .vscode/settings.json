@@ -12,4 +12,16 @@
   "editor.defaultFormatter": "esbenp.prettier-vscode",
   "plantuml.server": "http://localhost:8080/",
   "plantuml.render": "PlantUMLServer",
+  "rest-client.environmentVariables": {
+    "production": {
+      "spaceId": "8bifjooqblg7",
+      "apiKey": "ytPyY-EApSmQZljAd57EBZKly6qcYf7BeidsHcqNfMg",
+      "clientId": "ea63752dd74146e0ab71d77b2bfb2664",
+      "clientSecret": "23c3a0bdb49c4d3280b8026069bdffa5"
+    }
+  },
+  "sonarlint.connectedMode.project": {
+    "connectionId": "dev-pira",
+    "projectKey": "dev-pira_site"
+  }
 }

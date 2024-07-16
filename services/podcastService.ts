@@ -25,13 +25,31 @@ export async function fetchPodcastEpisodesData(): Promise<PodcastEpisode[]> {
       headers: {
         Authorization: `Bearer ${token}`,
       },
-    },
+    }
   );
 
   const dataResult = await dataResponse.json();
 
-  console.log(dataResult);
-
-  const result: PodcastEpisode[] = [];
+  const result = mapTo(dataResult.items);
   return Promise.resolve(result);
+}
+
+function mapTo(
+  items: {
+    id: string;
+    description: string;
+    external_urls: { spotify: string };
+    images: { url: string }[];
+    name: string;
+  }[]
+): PodcastEpisode[] {
+  return items.map(
+    (i) =>
+      ({
+        id: i.id,
+        title: i.name,
+        description: i.description,
+        link: i.external_urls.spotify,
+      } as PodcastEpisode)
+  );
 }

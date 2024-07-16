@@ -55,13 +55,6 @@ const GenericCard: React.FC<GenericCardProps> = ({
           {description.substring(0, 144)}
         </Typography>
         {companyElement}
-        {/* <Link href={enrollmentUrl} target="_blank" rel="noreferrer">
-          <Button expanded color="primary">
-            {enrollmentUrl.startsWith("mailto")
-              ? "Enviar e-mail"
-              : "Detalhes da vaga"}
-          </Button>
-        </Link> */}
         <Link href={url} target="_blank" rel="noreferrer">
           <Button expanded color="primary">
             {buttonLabel}

@@ -1,4 +1,4 @@
-import { Box, Container } from "@mui/material";
+import { Box, Container, Paper, Button as MuiButton } from "@mui/material";
 import { NextPage } from "next";
 import { Button } from "../../../../components";
 import { Typography } from "../../../../components/Typography";
@@ -14,6 +14,10 @@ import { db } from "../../../../services/firebase";
 import { useRouter } from "next/router";
 import { useState } from "react";
 import QRCode from "react-qr-code";
+import { Countdown } from "../../../../components/Countdown";
+import EmojiSpawner from "../../../../components/EmojiSpawner/EmojiSpawner";
+
+import * as S from "./styles";
 
 type Participant = {
   id: string;
@@ -33,6 +37,7 @@ const RaffleManagementPage: NextPage = () => {
   const [drawnParticipant, setDrawnParticipant] = useState<Participant | null>(
     null,
   );
+  const [pageState, setPageState] = useState("NEW_DRAWN");
   const handleLogIn = async () => await logIn();
 
   const handleLogOut = async () => await logOut();
@@ -89,8 +94,10 @@ const RaffleManagementPage: NextPage = () => {
     const index = Math.floor(Math.random() * (lenght - 1));
     // 3. pegar o item do indice pra mostrar na tela
     setDrawnParticipant(raffleParticipants[index]);
+    // 4. atualiza estado da página
+    setPageState("COUNTDOWN");
 
-    // 4. tirar o indice da coleção
+    // 5. tirar o indice da coleção
     if (drawnParticipant) {
       const raffleParticipantReference = doc(
         db,
@@ -104,61 +111,120 @@ const RaffleManagementPage: NextPage = () => {
       });
     }
 
-    // 5. marcar como sorteado no db
+    // 6. marcar como sorteado no db
   };
 
   return (
-    <Container>
-      <Box
-        sx={{
-          display: "flex",
-          justifyContent: "center",
-          marginTop: "30px",
-          flexDirection: "column",
-          gap: "5px",
-        }}
-      >
-        <Typography variant="h1">Sorteador do evento {eventName}</Typography>
-        <hr />
-        {user ? (
-          <>
-            <Button onClick={handleLogOut}>Sair</Button>
-            <Button
-              onClick={handleInitRaffleSession}
-              disabled={raffleInitialized}
+    <Container maxWidth={false} disableGutters sx={S.container}>
+      <Container>
+        <Box sx={S.innerContainer}>
+          <Typography
+            variant={"h1"}
+            sx={{ fontSize: { xs: "3.5rem", sm: "4.25rem" } }}
+          >
+            Sorteador do evento{" "}
+            <Typography
+              variant="introSpan"
+              color="gradient_green"
+              sx={{ whiteSpace: "nowrap" }}
             >
-              Iniciar sessão de sorteio
-            </Button>
-            <Button
-              onClick={handleFinishRaffleSession}
-              disabled={!raffleInitialized}
-            >
-              Encerrar inscrições pro sorteio
-            </Button>
-            <Button disabled={raffleInitialized} onClick={handleRaffle}>
-              Sortear
-            </Button>
-            <hr />
-            {raffleInitialized ? (
+              {eventName}
+            </Typography>
+          </Typography>
+          <hr />
+          <Paper elevation={2} sx={S.paper}>
+            {pageState === "NEW_DRAWN" && (
+              <>
+                <Box
+                  sx={{
+                    display: "flex",
+                    flex: "0",
+                  }}
+                >
+                  <MuiButton
+                    disabled={!raffleParticipants?.length}
+                    onClick={handleRaffle}
+                    variant="pulse"
+                    sx={S.buttonNextResult}
+                  >
+                    Sortear
+                  </MuiButton>
+                </Box>
+              </>
+            )}
+
+            {pageState === "COUNTDOWN" && (
+              <>
+                <Countdown
+                  duration={5}
+                  colors={["#04FFB4", "#20E3CD", "#3BC8E6", "#57ACFF"]}
+                  colorsTime={[7, 5, 2, 0]}
+                  size={250}
+                  strokeWidth={24}
+                  onComplete={() => setPageState("RESULT")}
+                >
+                  {({ remainingTime }) => (
+                    <div>
+                      <Typography variant="introSpan">
+                        {remainingTime}
+                      </Typography>
+                    </div>
+                  )}
+                </Countdown>
+              </>
+            )}
+            {pageState === "RESULT" && (
+              <>
+                <Box sx={S.buttonNextDrawn}>
+                  <Button
+                    onClick={() => {
+                      setPageState("NEW_DRAWN");
+                    }}
+                  >
+                    Próximo
+                  </Button>
+                </Box>
+                <Box sx={S.resultBox}>
+                  {drawnParticipant && (
+                    <Typography variant="h3">
+                      {drawnParticipant.name}
+                    </Typography>
+                  )}
+                </Box>
+                <EmojiSpawner emojis={["🎉", "🎉", "🥳"]} />
+              </>
+            )}
+            {pageState === "ENROLLMENT" && (
               <>
                 <QRCode
                   size={256}
                   value={`devpira.com.br/eventos/${eventName}/sorteio`}
-                ></QRCode>
+                />
               </>
-            ) : (
-              <></>
             )}
-            {drawnParticipant ? (
-              <Typography variant="h3">{drawnParticipant.name}</Typography>
-            ) : (
-              <></>
+          </Paper>
+        </Box>
+        <Paper sx={S.footerPaper}>
+          <Container sx={S.footerContainer}>
+            {!user && <Button onClick={handleLogIn}>Entrar</Button>}
+            {user && (
+              <>
+                <Button onClick={handleLogOut}>Sair</Button>
+                {!raffleInitialized && (
+                  <Button onClick={handleInitRaffleSession}>
+                    Iniciar inscrições pro sorteio
+                  </Button>
+                )}
+                {raffleInitialized && (
+                  <Button onClick={handleFinishRaffleSession}>
+                    Encerrar inscrições pro sorteio
+                  </Button>
+                )}
+              </>
             )}
-          </>
-        ) : (
-          <Button onClick={handleLogIn}>Entrar</Button>
-        )}
-      </Box>
+          </Container>
+        </Paper>
+      </Container>
     </Container>
   );
 };

@@ -28,6 +28,7 @@
     "lorem-ipsum": "^2.0.8",
     "next": "14.1.1",
     "react": "18.2.0",
+    "react-countdown-circle-timer": "^3.2.1",
     "react-dom": "18.2.0",
     "react-qr-code": "^2.0.12",
     "telegraf": "^4.12.2",

@@ -1,9 +1,8 @@
-import { Box, Container } from "@mui/material";
+import { Box, Container, Button } from "@mui/material";
 import { NextPage } from "next";
 import { Typography } from "../../../../components/Typography";
 import { useRouter } from "next/router";
 import { useAuth } from "../../../../context/authContext";
-import { Button } from "../../../../components";
 import { User } from "firebase/auth";
 import { addDoc, collection, getDocs, query, where } from "firebase/firestore";
 import { db } from "../../../../services/firebase";

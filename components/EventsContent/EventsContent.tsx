@@ -62,6 +62,7 @@ const EventsContent: React.FC<EventsContentProps> = ({
               {type}
             </Typography>
             <Box
+              data-scroll-wrapper
               sx={{
                 display: "flex",
                 flexDirection: "row",

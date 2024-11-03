@@ -10,6 +10,7 @@ const EventDetailContent: React.FC<EventDetailContentProps> = ({
   if (tracks?.length) {
     return (
       <Box
+        data-scroll-wrapper
         sx={{
           padding: "88px 0px",
           display: "flex",

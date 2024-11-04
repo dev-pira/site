@@ -48,6 +48,7 @@ const EventDetailInfo: React.FC<EventDetailInfoProps> = ({
       <Container sx={{ display: "flex", gap: "110px" }}>
         {/* SOBRE */}
         <Box
+          data-scroll-wrapper
           sx={{
             flex: 1,
             display: "flex",

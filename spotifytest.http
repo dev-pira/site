@@ -1,0 +1,4 @@
+POST https://accounts.spotify.com/api/token
+
+
+GET https://api.spotify.com/v1/shows/{id}

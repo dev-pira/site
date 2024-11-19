@@ -1,14 +1,15 @@
-import { Box, Container } from "@mui/material";
+import { Box, Container, Button } from "@mui/material";
 import { NextPage } from "next";
 import { Typography } from "../../../../components/Typography";
 import { useRouter } from "next/router";
 import { useAuth } from "../../../../context/authContext";
-import { Button } from "../../../../components";
 import { User } from "firebase/auth";
 import { addDoc, collection, getDocs, query, where } from "firebase/firestore";
 import { db } from "../../../../services/firebase";
 // import { useEffect, useState } from "react";
 import { useEffect } from "react";
+
+import * as S from "../../../../styles/sorteioStyles";
 
 const RafflePage: NextPage = () => {
   const router = useRouter();
@@ -77,38 +78,59 @@ const RafflePage: NextPage = () => {
   const handleLogOut = async () => await logOut();
 
   return (
-    <Container>
-      <Box
-        sx={{
-          display: "flex",
-          justifyContent: "center",
-          marginTop: "30px",
-          flexDirection: "column",
-        }}
-      >
-        <Typography variant="h1">Sorteio do evento {eventName}</Typography>
-        <hr />
-        {eventActive ? (
+    <Container sx={S.container}>
+      <Box sx={S.mainContent}>
+        <Typography
+          variant={"h1"}
+          sx={{
+            fontSize: "2rem",
+            textAlign: "center",
+          }}
+        >
+          Sorteio do evento
+          <Typography
+            variant="introSpan"
+            color="gradient_green"
+            sx={{ fontSize: "2rem", display: "inline-block", width: "100%" }}
+          >
+            {eventName}
+          </Typography>
+        </Typography>
+        {eventActive && (
           <>
-            {user ? (
+            {user && (
               <>
                 <Typography>
-                  Parabéns, você já está participando do sorteio.
+                  Parabéns, você já está participando do sorteio!
                 </Typography>
                 <Typography>
                   Você pode desconectar se quiser. Sua participação no sorteio
                   continuará ativa.
                 </Typography>
-                <Button onClick={handleLogOut}>Desconectar</Button>
               </>
-            ) : (
-              <Button onClick={handleLogIn}>Entrar com Google</Button>
             )}
           </>
-        ) : (
+        )}
+        {!eventActive && (
           <Typography>Sorteio para o evento não está ativo</Typography>
         )}
       </Box>
+      {eventActive && (
+        <>
+          <Box sx={S.footerContent}>
+            {user && (
+              <Button onClick={handleLogOut} sx={S.button}>
+                Desconectar
+              </Button>
+            )}
+            {!user && (
+              <Button onClick={handleLogIn} sx={S.button}>
+                Entrar com Google
+              </Button>
+            )}
+          </Box>
+        </>
+      )}
     </Container>
   );
 };

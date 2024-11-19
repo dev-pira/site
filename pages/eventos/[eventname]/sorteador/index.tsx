@@ -17,7 +17,7 @@ import QRCode from "react-qr-code";
 import { Countdown } from "../../../../components/Countdown";
 import EmojiSpawner from "../../../../components/EmojiSpawner/EmojiSpawner";
 
-import * as S from "./styles";
+import * as S from "../../../../styles/sorteadorStyles";
 
 type Participant = {
   id: string;

@@ -9,7 +9,7 @@ import { db } from "../../../../services/firebase";
 // import { useEffect, useState } from "react";
 import { useEffect } from "react";
 
-import * as S from "./styles";
+import * as S from "../../../../styles/sorteioStyles";
 
 const RafflePage: NextPage = () => {
   const router = useRouter();

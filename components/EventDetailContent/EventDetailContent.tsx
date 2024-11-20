@@ -41,13 +41,16 @@ const EventDetailContent: React.FC<EventDetailContentProps> = ({
                 >
                   {track.talks.map((talk) => {
                     const talkTimeElement = talk.time ? (
-                      <Box>{`${talk.time
-                        .getHours()
-                        .toString()
-                        .padStart(2, "0")}h${talk.time
-                        .getMinutes()
-                        .toString()
-                        .padStart(2, "0")}`}</Box>
+                      <Box
+                        sx={{
+                          backgroundColor: "white",
+                          color: "black",
+                          padding: "5px",
+                          borderRadius: "10px",
+                        }}
+                      >
+                        {talk.time}
+                      </Box>
                     ) : (
                       <Box>&nbsp;</Box>
                     );

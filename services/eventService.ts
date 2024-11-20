@@ -16,7 +16,7 @@ export async function fetchEventsNames(): Promise<
   return response?.data?.eventCollection?.items.map(
     (item: { slug: string }) => {
       return { params: { eventname: item.slug } };
-    }
+    },
   );
 }
 
@@ -84,8 +84,8 @@ export async function getEventData(key: string): Promise<Event> {
   if (event?.tracksCollection?.items) {
     event.tracksCollection = await Promise.all(
       event.tracksCollection.items.map(async (track: { sys: { id: string } }) =>
-        getTrack(track.sys.id)
-      )
+        getTrack(track.sys.id),
+      ),
     );
   }
   if (event?.galleryCollection?.items.length == 100) {
@@ -116,7 +116,7 @@ export async function getEventData(key: string): Promise<Event> {
           link: partner.websiteUrl,
           logoUrl: partner.logo?.url,
         };
-      }
+      },
     ),
     tracks: event.tracksCollection?.map(
       (track: {
@@ -126,6 +126,7 @@ export async function getEventData(key: string): Promise<Event> {
             talksCollection?: {
               items?: {
                 title?: string;
+                time?: string;
                 speaker?: {
                   name?: string;
                   job?: string;
@@ -142,6 +143,7 @@ export async function getEventData(key: string): Promise<Event> {
           talks: track.data.eventTrack.talksCollection?.items?.map((talk) => {
             return {
               title: talk.title,
+              time: talk.time,
               speaker: {
                 name: talk.speaker?.name,
                 job: talk.speaker?.job,
@@ -150,11 +152,11 @@ export async function getEventData(key: string): Promise<Event> {
             };
           }),
         };
-      }
+      },
     ),
     videoUrl: event.videoUrl,
     gallery: event.galleryCollection?.items?.map(
-      (picture: { url: string }) => picture.url
+      (picture: { url: string }) => picture.url,
     ),
   } as Event;
 }
@@ -166,6 +168,7 @@ async function getTrack(id: string) {
               talksCollection {
                   items {
                       title
+                      time
                       speaker {
                           name
                           job
@@ -200,7 +203,7 @@ async function getGalleryItems(slug: string, skip: number) {
       ?.items || [];
   if (galleryItems.length == stepsize) {
     galleryItems = galleryItems.concat(
-      await getGalleryItems(slug, skip + stepsize)
+      await getGalleryItems(slug, skip + stepsize),
     );
   }
   return galleryItems;

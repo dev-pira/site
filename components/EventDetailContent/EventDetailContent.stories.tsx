@@ -32,7 +32,7 @@ for (const track of trackNames) {
         portraitUrl: "",
         job: lorem.generateWords(4),
       },
-      time: now,
+      time: now.toString(),
     });
   }
   props.tracks?.push(res);

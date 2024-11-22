@@ -6,7 +6,7 @@ export interface Track {
 export interface Talk {
   title: string;
   speaker: Speaker;
-  time?: Date;
+  time?: string;
 }
 
 export interface Speaker {

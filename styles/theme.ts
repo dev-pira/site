@@ -92,5 +92,49 @@ export const theme = createTheme({
         },
       },
     },
+    MuiButton: {
+      variants: [
+        {
+          props: { variant: "pulse" },
+          style: {
+            position: "relative",
+            zIndex: 1,
+            "::before": {
+              content: "''",
+              width: "100%",
+              height: "100%",
+              position: "absolute",
+              animation: "pulse 1.5s infinite",
+              background: "inherit",
+              borderRadius: "inherit",
+              zIndex: -1,
+            },
+            ":hover": {
+              opacity: ".8",
+            },
+            ":active": {
+              opacity: ".75",
+            },
+            "@keyframes pulse": {
+              "0%": {
+                transform: "scaleX(1) scaleY(1)",
+                boxShadow: "0 0 0 0 rgba(255, 255, 255, 0.7)",
+                opacity: "1",
+              },
+              "50%": {
+                transform: "scaleX(1.2) scaleY(1.6)",
+                boxShadow: "0 0 20px 20px rgba(255, 255, 255, 0.2)",
+                opacity: "0.2",
+              },
+              "100%": {
+                transform: "scaleX(1) scaleY(1)",
+                boxShadow: "0 0 0 0 rgba(255, 255, 255, 0.7)",
+                opacity: "1",
+              },
+            },
+          },
+        },
+      ],
+    },
   },
 });

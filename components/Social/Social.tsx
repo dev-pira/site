@@ -62,7 +62,7 @@ const Social: React.FC<SocialProps> = ({ color = "green" }: SocialProps) => {
     },
     {
       midia: "whatsapp",
-      link: "https://chat.whatsapp.com/EkL1sHqrIvY0DIGjGYMqej",
+      link: "https://chat.whatsapp.com/J5VHhOcwhdY2vCXOj6nQKb",
       label: "DEVPIRA",
     },
   ];

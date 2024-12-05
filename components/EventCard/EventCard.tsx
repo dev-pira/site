@@ -182,20 +182,21 @@ const EventCard: React.FC<EventCardProps> = ({
               gap: "8px",
             }}
           >
-            {participateNode}
-            <Button
-              href={`eventos/${slug}`}
-              expanded
-              color={color}
-              onClick={() =>
-                sendGAEvent({
-                  event: "Clicou no botão Mais no Cartão de Evento",
-                  value: slug,
-                })
-              }
-            >
-              Mais
-            </Button>
+            {participateNode || (
+              <Button
+                href={`eventos/${slug}`}
+                expanded
+                color={color}
+                onClick={() =>
+                  sendGAEvent({
+                    event: "Clicou no botão Mais no Cartão de Evento",
+                    value: slug,
+                  })
+                }
+              >
+                Mais
+              </Button>
+            )}
           </Box>
         </Box>
       </Box>

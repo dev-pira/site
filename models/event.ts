@@ -16,6 +16,7 @@ export interface Event {
   tracks?: Track[];
   videoUrl?: string;
   gallery?: string[];
+  gallery1?: string[];
   type?: string;
 }
 

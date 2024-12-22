@@ -3,12 +3,12 @@ import { Box, Container, ImageList, ImageListItem } from "@mui/material";
 import { Typography } from "../Typography";
 import { Event } from "../../models/event";
 
-export type EventDetailGalleryProps = Pick<Event, "gallery">;
+export type EventDetailGalleryProps = Pick<Event, "gallery1">;
 
-const EventDetailGallery: React.FC<EventDetailGalleryProps> = ({
-  gallery,
+const EventDetailGallery1: React.FC<EventDetailGalleryProps> = ({
+  gallery1,
 }: EventDetailGalleryProps) => {
-  if (gallery?.length) {
+  if (gallery1?.length) {
     return (
       <Box
         data-scroll-wrapper
@@ -23,7 +23,7 @@ const EventDetailGallery: React.FC<EventDetailGalleryProps> = ({
         <Container>
           <Typography variant="h3">Galeria</Typography>
           <ImageList cols={4} gap={8} variant="masonry">
-            {gallery.map((imageUrl) => (
+            {gallery1.map((imageUrl) => (
               <ImageListItem key={imageUrl}>
                 <img
                   src={`${imageUrl}`}
@@ -40,4 +40,4 @@ const EventDetailGallery: React.FC<EventDetailGalleryProps> = ({
   } else return <Box></Box>;
 };
 
-export default EventDetailGallery;
+export default EventDetailGallery1;

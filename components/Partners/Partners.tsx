@@ -21,7 +21,7 @@ const Partners: React.FC<PartnersProps> = ({
       .filter((value, index, self) => self.indexOf(value) === index);
     partnersBlock = (
       <Grid item md={6}>
-        <Box>
+        <Box data-scroll-wrapper>
           {categories.map((category) => {
             const partnersInCategory = partners.filter(
               (p) => p.category === category,

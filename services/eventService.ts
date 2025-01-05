@@ -76,6 +76,11 @@ export async function getEventData(key: string): Promise<Event> {
                           url
                       }
                   }
+                  gallery1Collection {
+                      items {
+                          url
+                      }
+                  }
               }
           }
       }`;
@@ -92,6 +97,11 @@ export async function getEventData(key: string): Promise<Event> {
     const missingGalleryItems = await getGalleryItems(key, 100);
     event.galleryCollection.items =
       event.galleryCollection.items.concat(missingGalleryItems);
+  }
+  if (event?.gallery1Collection?.items.length == 100) {
+    const missingGallery1Items = await getGalleryItems(key, 100);
+    event.gallery1Collection.items =
+      event.gallery1Collection.items.concat(missingGallery1Items);
   }
   return {
     slug: event.slug,
@@ -156,6 +166,9 @@ export async function getEventData(key: string): Promise<Event> {
     ),
     videoUrl: event.videoUrl,
     gallery: event.galleryCollection?.items?.map(
+      (picture: { url: string }) => picture.url,
+    ),
+    gallery1: event.gallery1Collection?.items?.map(
       (picture: { url: string }) => picture.url,
     ),
   } as Event;

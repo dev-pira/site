@@ -10,6 +10,7 @@ const EventDetailVideo: React.FC<EventDetailVideoProps> = ({
   if (videoUrl) {
     return (
       <Box
+        data-scroll-wrapper
         sx={{
           padding: "88px 0px",
           display: "flex",

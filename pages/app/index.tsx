@@ -6,12 +6,12 @@ const SuaPagina = () => {
 
   useEffect(() => {
     // Faz o redirecionamento imediatamente
-    router.push("https://devpirafestival2023.glide.page/dl/d0a5f4");
-  }, []);
+    router.push("https://devpira-festival-25.glide.page/");
+  }, [router]);
 
   return (
     <div>
-      <p>Redirecionando para DEVPIRA Festival 2023...</p>
+      <p>Redirecionando para DEVPIRA Festival 2025...</p>
       {/* Conteúdo que deseja exibir durante o redirecionamento */}
     </div>
   );

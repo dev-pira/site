@@ -14,7 +14,7 @@ import "@fontsource/inter/400.css";
 import "@fontsource/inter/500.css";
 import "@fontsource/inter/700.css";
 import { GoogleAnalytics, GoogleTagManager } from "@next/third-parties/google";
-import { AuthProvider } from "../context/authContext";
+// import { AuthProvider } from "../context/authContext";
 
 function MyApp({ Component, pageProps }: AppProps) {
   const [faviconPath, setFaviconPath] = useState("/images/Favicon/light/");
@@ -66,9 +66,9 @@ function MyApp({ Component, pageProps }: AppProps) {
         <link rel="manifest" href={`${faviconPath}site.webmanifest`} />
       </Head>
       <ThemeProvider theme={theme}>
-        <AuthProvider>
-          <Component {...pageProps} />
-        </AuthProvider>
+        {/* <AuthProvider> */}
+        <Component {...pageProps} />
+        {/* </AuthProvider> */}
       </ThemeProvider>
       <Analytics />
     </>

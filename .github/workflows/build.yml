@@ -16,9 +16,9 @@ jobs:
         with:
           fetch-depth: 0 # Shallow clones should be disabled for a better relevancy of analysis
       - uses: actions/setup-node@v3
-        name: Setup Node 18
+        name: Setup Node 24
         with:
-          node-version: 18
+          node-version: 24
       - run: yarn
         name: Yarn Install
       - run: yarn audit --groups dependencies
@@ -31,9 +31,9 @@ jobs:
         with:
           fetch-depth: 0 # Shallow clones should be disabled for a better relevancy of analysis
       - uses: actions/setup-node@v3
-        name: Setup Node 18
+        name: Setup Node 24
         with:
-          node-version: 18
+          node-version: 24
       - run: yarn
         name: Yarn Install
       - run: yarn lint
@@ -46,9 +46,9 @@ jobs:
         with:
           fetch-depth: 0 # Shallow clones should be disabled for a better relevancy of analysis
       - uses: actions/setup-node@v3
-        name: Setup Node 18
+        name: Setup Node 24
         with:
-          node-version: 18
+          node-version: 24
       - run: yarn
         name: Yarn Install
       - run: yarn test-ci

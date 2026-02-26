@@ -64,7 +64,7 @@
     "husky": "^8.0.3",
     "jest": "^29.4.3",
     "jest-environment-jsdom": "^29.4.3",
-    "storybook": "^8.6.15",
+    "storybook": "^8.6.17",
     "typescript": "^5.4.5"
   },
   "resolutions": {
